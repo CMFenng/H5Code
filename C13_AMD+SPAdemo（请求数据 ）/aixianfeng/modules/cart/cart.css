@@ -1,0 +1,295 @@
+#shopCart{
+	width: 100%;
+}
+#shopCart .nav-title{
+	width: 100%;
+	height: 1.416667rem;
+	position: fixed;
+	top: 0;
+	background: #F9FAFD;
+	z-index: 10;
+
+}
+#shopCart .nav-title span{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	font-size: 0.37037rem;
+	justify-content: center;
+	align-items: center;
+}
+#shopCart .container{
+	margin: 1.416667rem 0 1.555556rem;
+}
+#shopCart .address-msg{
+	padding: 0.074074rem 0;
+	background: url('../../img/cart_address_bg.png');
+}
+#shopCart .address-msg .content{
+	width: 100%;
+	background: white;
+	position: relative;
+}
+#shopCart .address-msg .content div{
+	height: 0.925926rem;
+	display: flex;
+	align-items: center;
+}
+#shopCart .address-msg .content label{
+	width: 1.666667rem;
+	margin-left: 0.462963rem;
+	display: inline-block;
+	text-align: justify;
+	font-size: 0.277778rem;
+	text-align:justify; 
+	text-justify:distribute-all-lines; 
+	text-align-last:justify;
+}
+
+#shopCart .address-msg .content span{
+	margin-left: 0.185185rem;
+}
+
+#shopCart .address-msg .content button{
+	border: none;
+	outline: none;
+	position: absolute;
+	right: 0.185185rem;
+	top: 40%;
+	color: gray;
+	background: transparent;
+}
+#shopCart .address-msg .content button:after{
+	content: '〉';
+	font-size: 0.37037rem;
+	padding-left: 0.185185rem;
+}
+
+/* 分割线 */
+#shopCart .split{
+	width: 100%;
+	height: 0.277778rem;
+	background: #E0E0E0;
+}
+#shopCart .zone-msgs{
+	position: relative;
+	height: 1.777778rem;
+	border-bottom: 1px solid #E0E0E0;
+}
+#shopCart .zone-msgs .zone-name{
+	position: absolute;
+	top: 0.277778rem;
+	left: 0.462963rem;
+}
+#shopCart .zone-msgs .zone-name:before{
+	content: '▍';
+	color: yellow;
+	font-size: 0.37037rem;
+	font-weight: bold;
+	padding-right: 0.185185rem;
+}
+#shopCart .zone-msgs .zone-btn{
+	font-size: 0.37037rem;
+	color: #FF3800;
+	width: 2.222222rem;
+	height: 0.740741rem;
+	border: 0.009259rem solid #FF3800;
+	border-radius: 0.277778rem;
+	position: absolute;
+	right:0.37037rem;
+	top: 0.185185rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#shopCart .zone-msgs .zone-msg{
+	font-size: 0.277778rem;
+	color: gray;
+	position: absolute;
+	bottom: 0.185185rem;
+	left: 0.462963rem;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+#shopCart .delivery-item,#shopCart .order-mark{
+	height: 1.555556rem;
+	width: 100%;
+	box-sizing: border-box;
+	border-bottom: 0.009259rem solid #E0E0E0;
+	padding-left: 0.416667rem;
+	font-size: 0.37037rem;
+	display: flex;
+	align-items: center;
+}
+#shopCart .delivery-item .time{
+	color: #E64F1A;
+}
+#shopCart .delivery-item .reserve{
+	position: absolute;
+	right: 0.416667rem;
+}
+#shopCart .delivery-item .reserve:after{
+	content: '〉';
+	padding-left: 0.185185rem;
+	font-weight: bold;
+	color: gray;
+}
+
+#shopCart .order-mark input{
+	border-radius: 0.185185rem;
+	padding: 0.185185rem 0.277778rem;
+	margin-right: 0.37037rem;
+	border: 0.009259rem solid #E0E0E0;
+	outline: none;
+}
+
+#shopCart .delivery-item label,#shopCart .order-mark label{
+	width: 1.666667rem;
+	text-align: justify;
+	font-size: 0.277778rem;
+	text-align:justify; 
+	text-justify:distribute-all-lines; 
+	text-align-last:justify;
+	margin-right: 0.37037rem;
+}
+
+/* 商品列表 */
+#shopCart .cart-products{
+	width: 100%;
+}
+#shopCart .cart-products li{
+	height: 2.537037rem;
+	width: 100%;
+	border: 0.037037rem solid #E0E0E0;
+	padding-left: 0.37037rem;
+	display: flex;
+	align-items: center;
+}
+#shopCart .cart-products .product-img{
+	width: 1.851852rem;
+	height: 2.5rem;
+	box-sizing: border-box;
+}
+img{
+	width: 100%;
+	height: 100%;
+}
+#shopCart .cart-products .product-info{
+	position: relative;
+	height: 100%;
+	width: 6.666667rem;
+}
+#shopCart .cart-products .product-name{
+	position: absolute;
+	height: 0.740741rem;
+	font-size: 0.37037rem;
+	font-weight: bold;
+	line-height: 0.740741rem;
+	top: 0.37037rem;
+	color: #333;
+}
+#shopCart .cart-products .product-price{
+	font-size: 0.37037rem;
+	position: absolute;
+	bottom: 0.37037rem;
+	font-weight: bold;
+	color: #333;
+}
+#shopCart .cart-products .product-options{
+	width: 2.407407rem;
+	height: 0.861111rem;
+	position: absolute;
+	right: 0;
+	bottom: 0.185185rem;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#shopCart .product-options button{
+	color: #FF3800;
+	border: 0.009259rem solid #FF3800;
+	width: 0.740741rem;
+	height: 0.740741rem;
+	box-sizing: border-box;
+	border-radius: 50%;
+	background: white;
+	font-size: 0.462963rem;
+	outline: none;
+}
+#shopCart .product-options .product-number{
+	font-size: 0.462963rem;
+}
+
+#shopCart .cart-products input[type=checkbox]{
+	background: white;
+	border: none;
+	outline: none;
+	display: inline-block;
+}
+/* 修改checkbox原来样式 */
+input[type=radio],input[type=checkbox]  {  
+    display: inline-block;  
+    vertical-align: middle;  
+    width: 0.555556rem;  
+    height: 0.555556rem;  
+    margin-left: 0.138889rem;  
+    -webkit-appearance: none;  
+    background-color: transparent;  
+    border: 0;  
+    outline: 0 !important;  
+    line-height: 0.555556rem;  
+    color: #d8d8d8;  
+} 
+
+input[type=checkbox]:after  {  
+    content: "";  
+    display:block;  
+    width: 0.555556rem;  
+    height: 0.555556rem;  
+    text-align: center;  
+    line-height: 0.555556rem;  
+    font-size: 0.37037rem;  
+    color: #fff;  
+    border: 0.018519rem solid #ddd;  
+    background-color: #fff;  
+    box-sizing:border-box;  
+    border-radius: 50%;
+}
+input[type=checkbox]:checked:after  {  
+	content: '✓';
+	border: none;
+    background-color: #F8CC0B;  
+}
+
+
+/* 全选 */
+#shopCart .all{
+	height: 1.555556rem;
+	width: 100%;
+	padding-left: 0.37037rem;
+	position: relative;
+	font-size: 0.462963rem;
+	display: flex;
+	align-items: center;	
+}
+#shopCart .all label{
+	margin-left: 0.37037rem;
+}
+#shopCart #checkbox-all{
+
+}
+#shopCart #total-price{
+	color: #E64F1A;
+	margin-left: 0.185185rem;
+}
+#shopCart #balance{
+	height: 100%;
+	width: 3.101852rem;
+	background: #F7CF00;
+	font-size: 0.37037rem;
+	border: none;
+	outline: none;
+	position: absolute;
+	right: 0;
+}

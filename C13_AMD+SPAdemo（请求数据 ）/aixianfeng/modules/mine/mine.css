@@ -1,0 +1,202 @@
+#userCenter{
+	width: 100%;
+}
+#userCenter .userinfo{
+	width: 100%;
+	height: 4.222222rem;
+	background:#FFD600;
+	display: flex;
+	/*align-items: center;*/
+	position: fixed;
+	top: 0;
+}
+#userCenter .user-head-img{
+	width: 1.851852rem;
+	height: 1.851852rem;
+	border-radius: 50%;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.462963rem;
+	margin-top: 0.462963rem;	
+}
+#userCenter .user-info{
+	height: 1.759259rem;
+	color: white;
+	margin-left: 0.462963rem;
+	margin-top: 0.462963rem;
+}
+#userCenter .icon-next{
+	position: absolute;
+	right: 0.092593rem;
+	top: 0.925926rem;
+}
+#userCenter .icon-next:after{
+	content: '〉';
+	color: white;
+	font-size: 0.740741rem;
+}
+#userCenter .user-info .userphone{
+	height: 0.740741rem;
+	font-size: 0.462963rem;
+	display: flex;
+	align-items: center;
+}
+#userCenter .user-info .userleave{
+	font-size: 0.416667rem;
+	height: 0.925926rem;
+	line-height: 0.925926rem;
+	font-weight: bold;
+	color: orangered;
+	padding-left: 0.925926rem;
+	background: url('../../img/user_lev_bg.png') no-repeat left;
+	background-size: 100%;
+}
+#userCenter .collect{
+	width: 100%;
+	height: 1.092593rem;
+	background: rgba(0,0,0,.1);
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 0.37037rem;
+	color: white;
+}
+#userCenter .collect div{
+	width: 48%;
+	text-align: center;
+	height: 0.555556rem;
+	line-height: 0.555556rem;
+}
+#userCenter .collect div span{
+	padding-left: 0.740741rem;
+}
+#userCenter .collect div:nth-of-type(1) span{
+	background: url('../../img/product_collect.png') no-repeat;
+	background-size: 0.555556rem;
+}
+#userCenter .collect div:nth-of-type(2) span{
+	background: url('../../img/shop_collect.png') no-repeat;
+	background-size: 0.555556rem;
+}
+/* 功能 */
+#userCenter .function{
+	overflow-x:hidden;
+	overflow-y:scroll;
+	background: #EFEFEF;
+	margin-top: 4.222222rem;
+	margin-bottom: 1.555556rem;
+}
+#userCenter .split{
+	width: 100%;
+	height: 0.314815rem;
+	background: #EFEFEF;
+}
+/* 我的订单 */
+#userCenter .my-order{
+	background: white;
+	height: 1.527778rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.425926rem;
+	border-bottom: 0.037037rem solid #DFDFDF;
+}
+#userCenter .my-order .my-order-text{
+	margin-left: 0.462963rem;
+	color: #2C2C2C;
+}
+#userCenter .my-order .sp-look-all-order{
+	color: #999;
+}
+#userCenter .sp-look-all-order:after{
+	content: '〉';
+	padding-left: 0.185185rem;
+	padding-right: 0.37037rem;
+}
+/* 订单状态 */
+#userCenter .order-status{
+	width: 100%;
+	height: 2.194444rem;
+	display: flex;
+	justify-content: space-around;
+	background: white;
+}
+#userCenter .order-status li{
+	text-align: center;
+	padding-top: 1.388889rem;
+}
+#userCenter .order-status li:nth-of-type(1){
+	background: url('../../img/order_status_1.png') no-repeat center 0.462963rem;
+	background-size: 0.740741rem;
+}
+#userCenter .order-status li:nth-of-type(2){
+	background: url('../../img/order_status_2.png') no-repeat center 0.462963rem;
+	background-size: 0.740741rem;
+}
+#userCenter .order-status li:nth-of-type(3){
+	background: url('../../img/order_status_3.png') no-repeat center 0.462963rem;
+	background-size: 0.740741rem;
+}
+#userCenter .order-status li:nth-of-type(4){
+	background: url('../../img/order_status_4.png') no-repeat center 0.462963rem;
+	background-size: 0.740741rem;
+}
+#userCenter table{
+	width: 100%;
+	background: white;
+}
+#userCenter tr{
+	height: 3.111111rem;
+	box-sizing: border-box;
+	border-bottom: 0.027778rem solid #DFDFDF;
+	display: flex;
+}
+#userCenter tr:last-child{
+	border-bottom: none;
+}
+#userCenter tr td{
+	width: 25%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#userCenter tr td span{
+	padding-top: 0.925926rem;
+}
+#userCenter #integral-shop{
+	background: url('../../img/fucntion_1.png') no-repeat top;
+	background-size: 0.833333rem 0.694444rem;
+}
+#userCenter #coupon{
+	background: url('../../img/function_2.png') no-repeat top;
+	background-size: 0.833333rem 0.694444rem;
+}
+#userCenter #recveAddress{
+	background: url('../../img/function_3.png') no-repeat top;
+	background-size: 0.833333rem 0.694444rem;
+}
+#userCenter #custrom-service{
+	background: url('../../img/function_4.png') no-repeat top;
+	background-size: 0.833333rem 0.694444rem;
+
+}
+#userCenter #aboutUs{
+	background: url('../../img/function_5.png') no-repeat top;
+	background-size: 0.833333rem 0.694444rem;
+}
+/* 退出登陆 */
+#userCenter .login-out{
+	width: 100%;
+	height: 1.388889rem;
+	background: white;
+	text-align: center;
+	margin: 0.925926rem 0;
+	line-height: 1.388889rem;
+	font-size: 0.462963rem;
+}
