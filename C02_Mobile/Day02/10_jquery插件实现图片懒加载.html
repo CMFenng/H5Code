@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul{
+				list-style: none;
+				width: 440px;
+				margin: 0 auto;
+			}
+			
+			li{
+				width: 440px;
+				height: 300px;
+			}
+			
+			li img{
+				width: 440px;
+				height: 300px;
+			}
+						
+		</style>
+		<script type="text/javascript" src="lib/jquery.js" ></script>
+		<script type="text/javascript" src="lib/jquery.lazyload.min.js" ></script>
+	</head>
+	<body>
+		<ul>
+			<li><img data-original="img/美女/0.jpg" alt="" /></li>
+			<li><img data-original="img/美女/1.jpg" alt="" /></li>
+			<li><img data-original="img/美女/2.jpg" alt="" /></li>
+			<li><img data-original="img/美女/3.jpg" alt="" /></li>
+			<li><img data-original="img/美女/4.jpg" alt="" /></li>
+			<li><img data-original="img/美女/5.jpg" alt="" /></li>
+			<li><img data-original="img/美女/6.jpg" alt="" /></li>
+			<li><img data-original="img/美女/7.jpg" alt="" /></li>
+			<li><img data-original="img/美女/8.jpg" alt="" /></li>
+			<li><img data-original="img/美女/9.jpg" alt="" /></li>
+			<li><img data-original="img/美女/10.jpg" alt="" /></li>
+			<li><img data-original="img/美女/11.jpg" alt="" /></li>
+			<li><img data-original="img/美女/12.jpg" alt="" /></li>
+			<li><img data-original="img/美女/13.jpg" alt="" /></li>
+			<li><img data-original="img/美女/14.jpg" alt="" /></li>
+			<li><img data-original="img/美女/15.jpg" alt="" /></li>
+		</ul>
+		<script type="text/javascript">
+			$("img").lazyload({
+				effect : 'fadeIn'
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

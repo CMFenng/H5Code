@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            width : 80px;
+            height : 40px;
+            background-color : pink;
+
+        }
+    </style>
+</head>
+<body>
+<script>
+    console.log("a".toUpperCase())
+    var s = "hao are you,too";
+    var reg = /\b(\w)/gi;
+
+    console.log(s.replace(reg, function (a$0, a$1,offset, all) {
+        console.log(a$0)
+        return a$1.toUpperCase()
+    }));
+</script>
+</body>
+</html>

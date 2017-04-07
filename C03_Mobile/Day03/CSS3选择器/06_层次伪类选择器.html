@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div p{
+				background-color: orange;
+			}
+			
+			div>div>p{
+				background-color: red;
+			}
+			
+			div p+h2{
+				background-color: pink;
+			}
+			
+			div p~h3{
+				background-color: deepskyblue;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<p>最外层的P元素</p>
+		<div>
+			<p>内层的P元素</p>
+			<h2>我是h2</h2>
+			<h2>我是h2</h2>
+			<h2>我是h2</h2>
+			<h2>我是h2</h2>
+			<h2>我是h2</h2>
+			<h3>我是h3</h3>
+			<h3>我是h3</h3>
+			<h3>我是h3</h3>
+			<div>
+				<p>最内层的P元素</p>
+			</div>
+		</div>
+		
+	</body>
+</html>

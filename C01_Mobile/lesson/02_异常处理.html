@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*
+        注意：
+            window 中原本就存在 name 这个变量
+            所以使用变量名为 name 时要注意这个坑
+    */
+    // 这里不用 var 也不会报错（window 中存在变量 name）
+    // 当直接打印 name 时，这里不会打印出 undefined，而是长度为 0 的字符串
+    // 如果后面有对 name 进行赋值，浏览器会对值进行缓存，此时再刷新，此处也会打印出对应的值
+    // 如果想要重新打印出 "" ，则把网页关闭在重新打开即可
+    console.log(name);  //""
+//    console.log(age);   //报错：age is not defined
+    
+    //======================================================
+    name = "小雪";
+    console.log(name);  //小雪
+    
+    //======================================================
+    /*
+        利用 try...catch 进行异常捕获
+    */
+    try {
+        // 我们把有可能出现异常的代码，放到 try 代码中执行
+        console.log(age);
+    } catch (e) {
+        // e 是异常，打印出异常信息
+        console.log(e.toString());
+    }
+    // 此处能执行
+    console.log("----------");
+    
+    // 主动抛出异常
+    throw new Error("想趁虚而入，stop！！！");
+    // 此处不能执行
+    console.log("===========");
+</script>
+</body>
+</html>

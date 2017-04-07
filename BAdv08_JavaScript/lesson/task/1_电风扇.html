@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		.wrap{
+			width: 350px;
+			text-align: center;
+			display: inline-block;
+		}
+		#img{
+			width: 300px;
+			height: 300px;
+			margin-bottom: 20px;
+			border-radius: 50%;
+		}
+	</style>
+	<script type="text/javascript" src="Animator.js"></script>
+</head>
+<body>
+<div class="wrap">
+	<!--<img id="img" src="四叶风扇.png" />-->
+	<img id="img" src="电风扇.png" />
+	<!--<img id="img" src="风扇.png" />-->
+	<button id="open">打开风扇</button>
+	<button id="low">一档</button>
+	<button id="middle">二档</button>
+	<button id="high">三档</button>
+	<button id="close">关闭风扇</button>
+	<button id="turn">反向</button>
+</div>
+<script type="text/javascript">
+	var open = document.getElementById("open");
+	var low = document.getElementById("low");
+	var middle = document.getElementById("middle");
+	var high = document.getElementById("high");
+	var close = document.getElementById("close");
+	var turn = document.getElementById("turn");
+	
+	function Fan () {
+		this.duration = 0;
+		this.flag = true;
+		var self = this;
+		var process = function (easing, p) {
+			if (self.flag) {
+				img.style.transform = "rotateZ(" + (360 * p) + "deg)";
+			} else {
+				img.style.transform = "rotateZ(" + (360 * (1-p)) + "deg)";
+			}
+		}
+		var animator = new Animator(this.duration, null, process);
+		
+		if (!Fan.prototype.open) {
+			Fan.prototype.open = function (duration) {
+				animator.duration = duration;
+				animator.stop();
+				animator.start(true);
+			}
+		}
+		
+		if (!Fan.prototype.close) {
+			Fan.prototype.close = function () {
+				animator.stop();
+			}
+		}
+	}
+	
+	var fan = new Fan();
+	var openFlag = false;
+	
+	open.onclick = function () {
+		fan.open(1000);
+		openFlag = true;
+	}
+	low.onclick = function () {
+		if (openFlag) {
+			fan.open(1000);
+		}
+	}
+	middle.onclick = function () {
+		if (openFlag) {
+			fan.open(500);
+		}
+	}
+	high.onclick = function () {
+		if (openFlag) {
+			fan.open(250);
+		}
+	}
+	close.onclick = function () {
+		fan.close();
+		openFlag = false;
+	}
+	turn.onclick = function () {
+		if (openFlag) {
+			fan.flag = !fan.flag;
+		}
+	}
+</script>
+</body>
+</html>
+<!--
+	使用归一化的方式，写一个电风扇，包括开关按钮，可以控制转速, 控制逆时针旋转，顺时针旋转。
+-->

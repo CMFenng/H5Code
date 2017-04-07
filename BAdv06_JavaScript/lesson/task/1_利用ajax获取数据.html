@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<p id="text"></p>
+	<script type="text/javascript">
+		var p = document.getElementById("text");
+		var xhr = window.XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Mircosoft.XMLHTTP");
+		xhr.open("GET", "data4zy.json", true);
+		xhr.onreadystatechange = function () {
+			if (xhr.readyState === 4) {
+				if (xhr.status === 200) {
+					var msg = xhr.responseText;
+					var obj = JSON.parse(msg);
+					var data = obj.result.data;
+					for (var i = 0; i < data.length; i++) {
+						p.innerHTML += (i+1) + "、" + data[i].content + "<br />" +　"<br />";
+					}
+				}
+			}
+		}
+		xhr.send(null);
+	</script>
+</body>
+</html>

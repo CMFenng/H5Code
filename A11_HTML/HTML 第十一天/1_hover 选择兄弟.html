@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+		}
+		.div_1{
+			background: red;
+		}
+		.div_2{
+			background: blue;
+		}
+		.div_3{
+			width: 600px;
+			height: 500px;
+			background: #000;
+		}
+		.div_1:hover+.div_3 [asd=qwe]{
+			background: green;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="div_1"></div>
+	<div class="div_3">
+		<div class="div_2" asd="qwe"></div>
+	</div>
+</body>
+</html>

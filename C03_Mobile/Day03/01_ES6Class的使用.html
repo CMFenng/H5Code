@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				业务编程题。
+				需求：
+					员工类（Staff）
+				属性：
+					员工姓名（name）
+					所在部门名字（departmentName）(是一个字符串)
+					入职时间（time）（例如：2015 这种格式的字符串即可）
+						
+					公司类（Company）
+				属性：
+					部门：(departmentMap) （类型是一个Map，Map的键是部门的名字，值是对应部门的员工数组，员工数组
+					里是每个员工对象）
+								
+				方法：
+					1、添加员工 
+						要求：首先员工姓名和入职时间不能同时重复。 如果添加的员工所在部门不存在，你需要帮他
+					创建该部门，并且加入到该部门中，如果该部门存在直接加入该部门即可。
+					部门map的模型结构：
+					[
+						['研发部', [staff1, staff2....]],
+						['销售部', [staff3, staff4....]]
+					]
+					
+					2、显示所有员工信息的方法
+					要求：打印格式为
+					xxx部门：
+						姓名：小雪 入职时间：2015
+						姓名：小刚 入职时间：2016
+					xxx部门：
+						姓名：xxx 入职时间：xxx
+			*/
+			//员工类
+			class Staff {
+				constructor (name, departmentName, time) {
+					this.name = name;
+					this.departmentName = departmentName;
+					this.time = time;
+				}
+				//打印员工信息的方法 (也就是打印当前员工对象的信息)
+				printSelfInfo () {
+					console.log(`	姓名: ${ this.name } 入职时间: ${ this.time }`);
+				}
+			}
+			
+			//公司类
+			class Company {
+				constructor () {
+					//初始化部门Map
+					this.departmentMap = new Map();
+				}
+				
+				//添加新员工的方法
+				addStaff (newStaff) {
+					/*
+						  部门map的模型结构：
+						[
+							['研发部', [staff1, staff2....]],
+							['销售部', [staff3, staff4....]]
+						]
+					 */
+					//判断员工是否重复添加
+					for (let tempStaffArr of this.departmentMap.values()) {
+						for (let tempStaff of tempStaffArr) {
+							if (newStaff.name == tempStaff.name && newStaff.time 
+								== tempStaff.time) {
+								console.log(`不能重复添加新员工!`);
+								return;
+							}
+						}
+					}
+					
+					//判断部门是否存在
+					let staffArr = this.departmentMap.get(newStaff.departmentName);
+					if (!staffArr) {
+						//如果不存在需要创建该部门，并且把该员工加入到该部门中
+						staffArr = new Array();
+//						staffArr.push(newStaff);
+						this.departmentMap.set(newStaff.departmentName, staffArr);
+					}
+					staffArr.push(newStaff);
+				}
+				
+				//显示员工信息
+				showStaffInfo () {
+//					xxx部门：
+//						姓名：小雪 入职时间：2015
+//						姓名：小刚 入职时间：2016
+//					xxx部门：
+//						姓名：xxx 入职时间：xxx
+					for (let [departmentName, staffArr] of this.departmentMap) {
+						console.log(`${ departmentName }:`);
+						for (let tempStaff of staffArr) {
+							tempStaff.printSelfInfo();
+						}
+					}
+				}
+			}
+			
+			//测试
+			let company = new Company();
+			
+			let staff1 = new Staff('菲菲', '行政部', 2015);
+			let staff2 = new Staff('菲菲', '后勤部', 2015);
+			let staff3 = new Staff('菲菲', '研发部', 2017);
+			let staff4 = new Staff('脸脸', '行政部', 2016);
+			let staff5 = new Staff('春春', '研发部', 2015);
+			let staff6 = new Staff('老于', '后勤部', 2016);
+			let staff7 = new Staff('波波', '人事部', 2015);
+			
+			//添加员工
+			company.addStaff(staff1);
+			company.addStaff(staff2);
+			company.addStaff(staff3);
+			company.addStaff(staff4);
+			company.addStaff(staff5);
+			company.addStaff(staff6);
+			company.addStaff(staff7);
+			
+			//打印员工信息
+			company.showStaffInfo();
+			
+						
+			
+			
+		</script>
+	</body>
+</html>

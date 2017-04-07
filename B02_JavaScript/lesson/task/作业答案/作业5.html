@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	语文：<input type="text" id="Chinese" /><br /> 数学：
+	<input type="text" id="Math" /><br /> 英语：
+	<input type="text" id="English" /><br />
+	<input type="button" value="计算总分和平均分" id="submit" />
+	<script type="text/javascript">
+		var Chinese, Math, English, sum, ave;
+		Chinese = document.getElementById("Chinese");
+		Math = document.getElementById("Math");
+		English = document.getElementById("English");
+		document.getElementById("submit").onclick = function() {
+			if(Chinese.value < 0 || Math.value < 0 || English.value < 0 ||
+				Chinese.value > 100 || Math.value > 100 || English.value > 100) {
+				alert("输入错误！！请重新输入");
+				Chinese.value = "";
+				Math.value = "";
+				English.value = "";
+			} else {
+				sum = parseInt(Chinese.value) + parseInt(Math.value) + parseInt(English.value);
+				ave = parseInt(sum / 3);
+				alert("总分为：" + sum + "，平均分为：" + ave);
+			}
+
+		}
+	</script>
+</body>
+
+</html>

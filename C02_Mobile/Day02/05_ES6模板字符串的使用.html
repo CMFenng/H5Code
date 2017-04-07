@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * ES6模板字符串使用`` 代替 普通字符串中的 "" 和 ''
+			 * 支持特定的表达式 ${}
+			 * 支持多行显示、和格式化输出
+			 */
+			//普通字符串多行显示
+			console.log("毒死你个王八犊子！\nWelcome to Beijing!");
+			//ES6模板字符串多行显示
+			console.log(`毒死你个王八犊子!
+WelCome to Beijing!`);
+			console.log(`毒死你个王八犊子！\nWelcome to Beijing!`);
+			
+			var a = '我是A';
+			var b = 10;
+			var c = 5;
+			var obj = {
+				age : 18
+			}
+			
+			//普通字符串进行拼接和运算
+			console.log('我叫：' + a + "\n运算结果：" + (b + c + obj.age));
+			//ES6模板字符串表达式写法
+			console.log(`我叫${ a }\n运算结果:${b + c + obj.age}`);
+			
+			
+			
+		</script>
+	</body>
+</html>

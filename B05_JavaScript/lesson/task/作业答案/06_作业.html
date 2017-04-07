@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var sum = 0;
+		
+		//当传递的实参比形参多的时候，多余的实参会存到变量arguments中
+		function add() {
+			sum += arguments[0];
+			return sum;
+		}
+		
+		function input() {
+			var x = prompt("请输入你要相加的值，不需要输入请点取消或直接确定");
+			//通过prompt接收的参数是string类型
+//			console.log(x);
+//			console.log(typeof x);		//string
+			//当用户点击“确定”,返回的是空字符串""
+			//当用户点击“取消”,返回的是 null
+			if(x !== null && x !== "") {
+				x = Number(x);
+//				console.log(x);
+//				console.log(typeof x);
+				//当x不能转换为Number时，返回的是 NaN，NaN不等于自身，因此可以判断x不是数字
+				if(x === x) {
+					document.write(x + "&nbsp;");
+					add(x);
+					input();
+				}else{
+					alert("请输入数字!");
+				}
+			}
+		}
+		document.write("[&nbsp;");
+		input();
+		document.write("]相加为：" + sum);
+	</script>
+</body>
+</html>

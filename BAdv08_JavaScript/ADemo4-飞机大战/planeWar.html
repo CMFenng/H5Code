@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/style.css"/>
+		<script src="js/GameDirector.js"></script>
+		<script src="js/OwnPlane.js"></script>
+		<script src="js/Bullet.js"></script>
+		<script src="js/Enemy.js"></script>
+		<script>
+			window.onload = function(){
+				//找到li的集合
+				var liArr = document.getElementsByTagName('li');
+				//循环添加事件
+				for(var i = 0 ; i < liArr.length ; i ++){
+					liArr[i].onclick = function(number){
+						//闭包
+						return function(){
+							//创建游戏对象
+							var director = new GameDirector(number * 100);
+							//游戏开始
+							director.start();
+						}
+					}(i + 1);//函数的自执行解决【闭包问题】
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<div id="containner">
+			<ul id="list">
+				<li>开挂模式</li>
+				<li>比较困难</li>
+				<li>非常困难</li>
+				<li>超级困难</li>
+			</ul>
+			<div id="score"></div>
+		</div>
+	</body>
+</html>

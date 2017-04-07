@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="base.js" type="text/javascript"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				border-box: box-sizing;
+			}
+			
+			#box {
+				width: 480px;
+				height: 600px;
+				border: 4px solid grey;
+				margin: 10px auto;
+				box-shadow: 0px 0px 20px grey;
+				position: relative;
+				transition: all 0.5s;
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+
+		</div>
+		<audio src="music/1.ogg"></audio>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector("#box");
+		var audio = document.querySelector("audio");
+		var mucount = 0;
+		var obj = {
+			0: 1,
+			1: 1,
+			2: 5,
+			3: 5,
+			4: 6,
+			5: 6,
+			6: 5,
+			7: 4,
+			8: 4,
+			9: 3,
+			10: 3,
+			11: 2,
+			12: 2,
+			13: 1,
+			14: 5,
+			15: 5,
+			16: 4,
+			17: 4,
+			18: 3,
+			19: 3,
+			20: 2,
+			21: 5,
+			22: 5,
+			23: 4,
+			24: 4,
+			25: 3,
+			26: 3,
+			27: 2,
+		}
+		var posi = {
+			0: 0,
+			1: 120,
+			2: 240,
+			3: 360
+		}
+
+		function DivDrop() {
+			this.width = "120px";
+			this.height = "200px";
+			this.backgroundColor = "black";
+			this.position = "absolute";
+			this.top = "-250px";
+			this.left = Math.random() * 360 + "px";
+			this.count = -250;
+			this.div = document.createElement("div");
+		}
+		DivDrop.prototype.drop = function() {
+			this.div.style.width = this.width;
+			this.div.style.height = this.height;
+			this.div.style.backgroundColor =randColor(this.backgroundColor);
+			this.div.style.position = this.position;
+			this.div.style.top = this.top;
+			this.div.style.left = posi[parseInt(Math.random() * 5)] + "px";
+			var self = this;
+			var f = setInterval(function() {
+				self.div.style.top = (self.count) + "px";
+				self.count += 1;
+				if(self.count++ >= 400) {
+//					audio.autoplay = "autoplay";
+					audio.src = "music/" + obj[mucount++] + ".ogg";
+					if(mucount == 28) {
+						mucount = 0;
+					}
+					box.style.borderBottom = "4px solid blue";
+					box.removeChild(self.div);
+					clearInterval(f);
+				}else if(self.count == 300){
+					box.style.borderBottom = "1px solid grey";
+				}
+			}, 1);
+			this.div.onclick = function() {
+//				audio.autoplay = "autoplay";
+				audio.src = "music/" + obj[mucount++] + ".ogg";
+				if(mucount == 28) {
+					mucount = 0;
+				}
+				box.removeChild(self.div);
+				clearInterval(f);
+			}
+		}
+		setInterval(function() {
+			var divObj = new DivDrop();
+			divObj.drop();
+			box.appendChild(divObj.div);
+		}, 500)
+	</script>
+
+</html>

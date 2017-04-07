@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+Number()
+	将当前内容强制转化为数字
+	
+	1. null 转化为 Number 值为 0
+	2. undefined 转化为 Number 值为 NaN
+	3. boolean 可以正常转化为 Number
+	4. 如果转化内容中存在数字和点以外的内容，转化为 NaN
+	5. 转化内容中存在空格在开始位置，并不影响转化；如果在转化内容中间，则返回 NaN
+	6. 空的字符串，会强制转化为 0
+*/
+	console.log(Number("123"));			//123
+	console.log(Number("+123"));		//123
+	console.log(Number("-123"));		//-123
+	console.log(Number("     123"));	//123
+	console.log(Number("12.3"));		//12.3
+	
+	console.log(Number("12a3"));		//NaN
+	console.log(Number("12+3"));		//NaN
+	console.log(Number("a123"));		//NaN
+	
+	console.log(Number(null));			//0
+	console.log(Number(undefined));		//NaN
+	console.log(Number(true));			//1
+	
+	console.log(Number("123 3465 67"));	//NaN
+	console.log(Number("       "));		//0
+</script>
+</html>

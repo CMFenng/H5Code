@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		ul li{
+			width: 50px;
+			height: 50px;
+			border: 2px solid #000;
+			border-radius: 50%;
+			display: inline-block;
+
+			text-align: center;
+			line-height: 50px;
+		}
+		/*.red{
+			background: red;
+		}*/
+
+		/*
+			nth 选择器
+				:nth-child(n)选择器
+					匹配父元素中的第 n 个子元素
+
+					计数是从 1 开始
+		----------------------------------------
+				:nth-last-child(n)
+					和上面内容类似
+					从最后一个开始计数
+		----------------------------------------
+				:nth-of-type(n)
+					匹配同类型中的第 n 个同级兄弟元素
+					
+				:nth-last-of-type(n)
+					和上面内容类似
+					从最后一个开始计数
+		*/
+
+
+		/*特指的数*/
+		/*li:nth-child(2){
+			background: red;
+		}*/
+		/*表达式：偶数*/
+		/*li:nth-child(2n){
+			background: red;
+		}*/
+		/*表达式：奇数*/
+		/*li:nth-child(2n-1){
+			background: red;
+		}*/
+
+		/*li:nth-last-child(1){
+			background: red;
+		}*/
+		li:nth-of-type(1){
+			background: blue;
+		}
+		li:nth-last-of-type(1){
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li class="red">2</li>
+		<li>3</li>
+		<li class="red">4</li>
+		<li>5</li>
+		<li class="red">6</li>
+		<li>7</li>
+		<li class="red">8</li>
+		<li>9</li>
+		<li class="red">10</li>
+	</ul>
+</body>
+</html>

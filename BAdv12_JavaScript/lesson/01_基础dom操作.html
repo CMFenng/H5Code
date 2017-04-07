@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+/*
+	html()
+		不传参数就是读取匹配的第一个元素的html
+		有参数就是设置匹配的所有元素的html，标签会被解析
+	text()
+		不传参数就是读取匹配的所有元素的text
+		有参数就是设置匹配的所有元素的text，标签不会被解析
+	val()
+		获取标签的value（如果有）
+*/
+//			var h = $("li").html();
+//			console.log(h);
+//			var t = $("li").text();
+//			console.log(t);
+
+//			$("li").html("<a href='#'>你好</a>");
+//			$("li").text("<a href='#'>你好</a>");
+
+//			console.log($("input").val());
+//=============================================================
+/*
+	attr()
+		一个参数是获取指定属性的值
+		多个参数是设置指定的属性
+			设置完后返回jQuery对象，因此可以继续用.语法添加别的属性
+			如果想同时设置多个属性，则可以传递一个对象进去
+*/
+			//获取第一个匹配的a标签的href属性值
+//			var href = $("a:eq(0)").attr("href");
+//			console.log(href);
+
+			//设置第一个匹配的a标签指定属性的值
+//			$("a:eq(0)")
+//				//设置href属性值
+//				.attr("href", "http://www.yztcedu.com")
+//				//设置文本
+//				.text("育知同创官网");
+
+			//设置多个属性时
+//			$("a:eq(0)")
+//				.attr("href", "http://www.yztcedu.com")
+//				.attr("id", "link1");
+			//可以等效为
+			$("a:eq(0)")
+				.attr({
+					href : "http://www.yztcedu.com",
+					id : "link1",
+					//class是关键字，要加""
+					"class" : "abc"
+				});
+		});
+	</script>
+</head>
+<body>
+<ul>
+	<li><a href="http://www.baidu.com">百度一下</a></li>
+	<li><a href="#">育知同创</a></li>
+	<li>腾讯</li>
+</ul>
+<input type="text" value="inputValue" />
+</body>
+</html>

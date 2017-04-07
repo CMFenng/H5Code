@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="openNewURL()">打开新的文档</button>
+	<button onclick="replaceDoc()">替换当前网页</button>
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+location 的常用方法
+	
+	1. assign(url)		加载新的文档
+	2. reload(reforce)	重新加载当前文档
+	3. replace(newURL)	用新的文档替换当前文档
+*/
+/*
+assign(url)
+*/
+    function openNewURL(){
+    	location.assign("http://www.baidu.com");
+    }
+/*
+reload(reforce)
+	
+	该方法用于重新加载当前文档
+	参数：
+		reforce
+			可选参数
+			一般填写 true
+		
+	该方法如果没有规定参数，或者填写参数为 false
+	那么就会采用 HTTP 中的头 if-Modified-Since
+	来去检测服务器上文档是否已经发生改变
+	
+	如果文档已经改变，则会通过 reload() 方法重新加载该文档
+	如果文档没有发生改变，则该方法从缓存中装载文件
+	
+	如果将该方法参数设为 true
+	那么无论文档的最后修改日期是什么，
+	都会绕过缓存，直接从服务器端重新下载该文档
+	
+	该方法如果有参数，则从服务器中重新下载
+	如果没有参数，则优先从缓存中重新加载
+	
+	注意：
+		reload() 方法调用之后可能会造成在 reload 加载顺序之后的文档不执行
+		所以一般将 reload() 放在最后
+*/
+    function reload(){
+    	location.reload(true);
+    }
+//  reload();
+/*
+replace(newURL)
+	
+	用新的文档替换当前文档
+	
+	该方法不会在 history 对象中生成记录。
+	使用该方法时，会直接采用新的 URL 覆盖 History 对象中的当前记录
+	按下后退，也不会返回到刚才的网页
+*/
+    function replaceDoc(){
+		location.replace("http://www.yztcedu.com");
+    }
+</script>
+</html>

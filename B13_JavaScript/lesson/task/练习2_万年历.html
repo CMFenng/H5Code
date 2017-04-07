@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#calendar{
+			width: 560px;
+			margin: 50px 400px;
+			float: left;
+			border: 2px solid #000;
+			border-radius: 30px;
+			overflow: hidden;
+		}
+		#year_month{
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			background-color: darkseagreen;
+		}
+		#weeks{
+			height: 80px;
+			background-color: cornflowerblue;
+		}
+		#content ul{
+			list-style: none;
+		}
+		#content li{
+			width: 80px;
+			height: 80px;
+			float: left;
+			text-align: center;
+			line-height: 80px;
+		}
+		#days li:hover{
+			background-color: blueviolet;
+			border-radius: 30%;
+		}
+	</style>
+</head>
+<body>
+	<div id="calendar">
+		<div id="year_month">
+			<select id="year">
+				
+			</select> 年
+			<select id="month">
+				
+			</select> 月
+			<button id="btn">返回今天</button>
+		</div>
+		<div id="content">
+			<ul id="weeks">
+				<li>周日</li>
+				<li>周一</li>
+				<li>周二</li>
+				<li>周三</li>
+				<li>周四</li>
+				<li>周五</li>
+				<li>周六</li>
+			</ul>
+			<ul id="days">
+				
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var yearSelect = document.getElementById("year");
+		var monthSelect = document.getElementById("month");
+		var daysUl = document.getElementById("days");
+		var btn = document.getElementById("btn");
+		
+		//设置当前日期
+		var nowDate = new Date();
+		var nowYear = nowDate.getFullYear();
+		var nowMonth = nowDate.getMonth() + 1;
+		var today = nowDate.getDate();
+		
+		//填充所有的能够选择的年份
+		for(var year = 1999; year < 3000; year++){
+			createOption(year,yearSelect);
+		}
+		//填充所有的能够选择的月份
+		for(var month = 1; month <= 12; month++){
+			createOption(month,monthSelect);
+		}
+		
+		//设置年份和月份是当前时间
+		setCurrentYearAndMonth();
+		
+		/*监听用户的年份改变*/
+		yearSelect.onchange = function  () {
+			//刷新年份
+			fillDays(+yearSelect.value, monthSelect.value-1);
+		}
+		/*监听用户的月份改变*/
+		monthSelect.onchange = function  () {
+			//刷新月份
+			fillDays(+yearSelect.value, monthSelect.value-1);
+		}
+		/*返回今天按钮的监听事件*/
+		btn.onclick = function  () {
+			//设置年份和月份是当前时间
+			setCurrentYearAndMonth();
+		}
+				
+		/*向days中填充指定年和月的所有日期*/
+		function fillDays (year, month) {
+			//填充前清空
+			daysUl.innerHTML = "";
+			var d = new Date(year, month, 1); //指定年月的1日
+			//计算出来1日是星期几
+			var dayOfWeek = d.getDay();
+			
+			//计算当前月有多少天
+			var nextOne = new Date(year, month+1, 1);
+			nextOne.setDate(0); //上个月的最后一天
+			var currentDays = nextOne.getDate();
+			
+			//向1日之前添加内容是空的li
+			for(var i = 0; i < dayOfWeek; i++){
+				createLi("", daysUl);
+			}
+			
+			//向1日后添加内容为日期的li
+			for(var i = 1; i <= currentDays; i++){
+				createLi(i, daysUl);
+			}
+			
+			//设置当前日期的背景高亮
+			var li = document.getElementById(today + "");
+			if(+yearSelect.value == nowYear && +monthSelect.value == nowMonth){
+				li.style.backgroundColor = "aquamarine";
+				li.style.borderRadius = "50%";
+			}
+		}
+		
+		/*创建具有指定内容的li，并把他插入指定的ul中*/
+		function createLi (content, ul) {
+			var li = document.createElement("li");
+			//设置li的文本
+			li.innerHTML = content;
+			//如果content不为空
+			if((content+"").length > 0){
+				//给li设置id
+				li.id = content;
+			}
+			//将创建的li插入到指定的父容器中
+			ul.appendChild(li);
+		}
+		
+		/*设置select默认选择的是当前的年份和月份*/
+		function setCurrentYearAndMonth () {
+			var d = new Date();
+			//获取当前的年月（月份为0-11，所以+1）
+			yearSelect.value = d.getFullYear();
+			monthSelect.value = d.getMonth() + 1;
+			//开始向days这个ul中填入具体的日期
+			fillDays(+yearSelect.value, monthSelect.value-1);
+		}
+		
+		/*根据给定的参数创建一个option，并把这个option插入指定的select中*/
+		function createOption (value,parentSelect) {
+			//创建option
+			var opt = document.createElement("option");
+			//设置option的value和文本
+			opt.value = value;
+			opt.innerHTML = value;
+			//把创建的option插入到传入的父容器节点中
+			parentSelect.appendChild(opt);
+		}
+	</script>
+</body>
+</html>

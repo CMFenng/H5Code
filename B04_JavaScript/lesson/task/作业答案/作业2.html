@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<script type="text/javascript">
+	var num = 900;
+	document.write(num + " = ");
+	for(var i = 2, temp = num; i <= temp; i++){
+		if(temp % i === 0){
+			if(i === temp){
+				document.write(i);
+			}else{
+				document.write(i + " * ");
+			}
+			temp /= i;
+			i--;
+		}
+	}
+</script>
+</body>
+
+</html>
+<!--
+	对一个整数分解质因数。例如： 90 = 2 * 3 * 3 * 5
+	60 = 2 * 30
+			30 = 2 * 15
+					15 = 3 * 5
+					 		 5
+	
+	
+-->

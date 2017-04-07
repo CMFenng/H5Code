@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" name="hour" id="hour" value="" />:
+	<input type="text" name="min" id="min" value="" />:
+	<input type="text" name="sec" id="sec" value="" />
+	<input type="button" name="btn" id="btn" value="计算" />
+</body>
+<script type="text/javascript">
+	var hourId = document.getElementById("hour");
+	var minId = document.getElementById("min");
+	var secId = document.getElementById("sec");
+
+	document.getElementById("btn").onclick = function(){
+		var hour = parseInt(hourId.value);
+		var min = parseInt(minId.value);
+		var sec = parseInt(secId.value);
+		if (hour > 23) hour = 23;
+		if (hour < 0) hour = 0;
+		if (min > 59) min = 59;
+		if (min < 0) min = 0;
+		if (sec > 59) sec = 59;
+		if (sec < 0) sec = 0;
+		hourId.value = hour;
+		minId.value = min;
+		secId.value = sec;
+		
+		sec++;
+		if(sec === 60){
+			sec = 0;
+			min++;
+			if(min === 60){
+				min = 0;
+				hour++;
+				if(hour === 24){
+					hour = 0;
+				}
+			}
+		}
+		console.log("下一秒：" + hour + ":" + min + ":" + sec);
+	}
+</script>
+</html>

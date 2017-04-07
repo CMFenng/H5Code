@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     函数的参数
+     * 在大部分编程语言当中，函数的参数都分为两种
+     * 		声明处的参数叫形参
+     * 		调用时的参数叫实参
+     * 但是，JS 是一种弱类型的语言
+     * 
+     * 1.声明形参的时候，不需要 var 关键字
+     * 2.声明的形参，在当前函数的内部可以直接
+     * 	 作为一个局部变量来使用
+     * 3.调用函数的时候，实参个数可以和形参个数
+     * 	 一致，也可以不一致
+     * 4.形参和实参总是按顺序匹配
+     * 5.函数对传入的实参，既不做类型检查，
+     * 	 也不会对个数进行要求
+     * 	 	推荐大家在定义函数的时候，
+     * 	 	对传入的形参提前进行判断
+     * */
+    
+    //声明一个函数，给两个形参
+//  function doSomething(num1,num2){
+//  		alert(num1 + ":" + num2);
+//  }
+    
+//  doSomething(5,"asd");
+    
+//  doSomething("a","b","c");
+    
+//  doSomething("a");
+/*
+ 
+ * 1. 在通过实参给形参传值的时候，如果实参的个数要
+ * 	  小于形参的个数，则接收不到的形参的初始化值
+ * 	  为 undefined
+ * 2. 传递的实参比形参个数多的时候，
+ *    多余的实参没有形参可以接收，也就无法访问到
+ *    多余的实参
+ * 3. 其实多余的实参并没有丢失，
+ * 	  函数帮我们保存在一个变量（对象）当中
+ * 	  这个“变量”的名称 arguments
+ * 4. arguments 不需要我们手动创建，它会在函数调用
+ * 	  的时候自动创建，并且会将传递过来的所有实参
+ * 	  的值全部保存在这个变量中
+ * 5. 暂时把 arguments 当做一个数组来理解
+ * 	  	arguments 实际是一个对象
+ * 	  	每一个参数都是它的一个属性值
+ * */
+
+//	function doSomething(num1,num2){
+//		alert(num1 === arguments[0]);
+//		alert(num2 === arguments[1]);
+//		
+	//只要方法调用，则会创建一个 arguments
+	//这个对象会储存所有的实参
+//		for(var i = 0; i < arguments.length; i++){
+//			console.log(arguments[i]);
+//		}
+//	}
+//	
+//	doSomething("a","b","c","d");
+
+/*
+ 	arguments
+ * 		它的属性是当前函数所能接收到的所有参数
+ * 		可以使用 [] 去访问内部每一个元素
+ * 
+ * 	在 arguments 内部存在两个特殊的属性
+ * 		callee
+ * 			该属性指向拥有这个 
+ * 			arguments 对象的函数
+ * 		caller
+ * 			该属性保存着调用
+ * 			当前函数的引用
+ * 			（调用当前函数的函数）
+ * */
+	function outer(){
+		inner();
+	}
+	function inner(){
+		console.log(arguments.callee.caller);
+	}
+	outer();
+	
+</script>
+</html>

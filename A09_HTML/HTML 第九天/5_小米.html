@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			font-size: 0;
+			background: rgb(240,240,240);
+		}
+		.father{
+			width: 500px;
+			height: 50px;
+			background: red;
+			position: relative;
+		}
+		.son{
+			width: 500px;
+			height: 0px;
+			/*background: blue;*/
+			box-shadow: 3px 3px 10px #ccc;
+			position: absolute;
+			top: 50px;
+			left: 0;
+			/*font-size: 0;*/
+			transition: all .2s;
+		}
+		.father:hover .son{
+			height: 200px;
+		}
+		.son p{
+			margin: 0;
+			line-height: 200px;
+			text-align: center;
+			color: #000;
+		}
+		.father:hover .son p{
+			font-size: 16px;
+		}
+		.show{
+			height: 100%;
+			font-size: 16px;
+			font-size: 25px;
+			text-align: center;
+			line-height: 50px;
+			padding-left: 100px;
+			font-family: "STKaiti";
+			background:rgb(150,150,150) url("img/购物车.png") no-repeat 180px;
+			background-size: 30px 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="show">
+			购物车（0）
+		</div>
+		<div class="son">
+			<p>购物车中还没有商品，赶紧选购吧！</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
+    	
+    	body{
+    		background-color: pink;
+    	}
+    	
+    	/*
+    		使用 @media query 可以实现响应式布局效果
+    		会根据不同的条件，去设置不同的样式
+    		
+    		screen 表示屏幕，min-width：1200px 表示宽度最小值是 1200px
+    		换句话说就是 当屏幕的宽度大于等于 1200px 的时候是什么样式。。。
+    	*/
+    	@media only screen and (min-width: 1200px) {
+    		/* 这里写 CSS 样式 */
+    		body{
+    			background-color: red;
+    		}
+    	}
+    	
+    	/* 当屏幕的宽度大于等于 800px 并且小于等于 1199px 的时候的样式 */
+    	@media only screen and (min-width: 800px) and (max-width: 1199px) {
+    		body{
+    			background-color: darkcyan;
+    		}
+    	}
+    	
+    	/* 当屏幕的宽度大于等于 400px 并且小于等于 640px 的时候的样式 */
+    	/* 注意：媒体查询条件没有衔接上的部分，会显示默认的样式 */
+    	@media only screen and (min-width: 400px) and (max-width: 640px) {
+    		body{
+    			background-color: blue;
+    		}
+    	}
+    </style>
+</head>
+<body>
+
+</body>
+</html>

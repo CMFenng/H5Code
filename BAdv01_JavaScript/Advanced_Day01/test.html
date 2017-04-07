@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+<script>
+
+</script>
+</body>
+</html>
+<script>
+    var att = [];
+    for(var i = 0; i < 10; i++){
+        att.push(i);
+    }
+    var c = "a"
+    for(var i = 0; i < 26; i++){
+        att.push(c);
+        c = String.fromCharCode(c.charCodeAt(0) + 1)
+
+    }
+    c = "A"
+    for(var i = 0; i < 26; i++){
+        att.push(c);
+        c = String.fromCharCode(c.charCodeAt(0) + 1)
+    }
+
+    var a = [];
+    for(var i = 0; i < 6; i++){
+        a.push(att[parseInt(Math.random() * att.length)])
+    }
+    console.log(a)
+</script>

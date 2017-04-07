@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 300px;
+				height: 600px;
+				border: 1px dashed red;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<!-- 拖拽元素 -->
+			<!-- draggable 让元素是否可以拖动，默认是true可以拖动 -->
+			<img id="dragImg" src="img/drag.jpg" draggable="true" />
+			<img id="dragImg2" src="51.jpg" draggable="true" />
+		</div>
+		
+		<!-- 目标元素 -->
+		<div id="box2">
+			
+		</div>
+		
+		<script type="text/javascript">
+			var img = document.querySelector('img');
+			var box2 = document.querySelector('#box2');
+			var img2 = document.querySelector("#dragImg2");
+			
+			img2.ondragstart = function (e) {
+				//这里要设置一下 抓的是谁，将来drop的时候方便找到
+				e.dataTransfer.setData("dragId", e.target.id);
+			}
+			
+			//拖拽元素相关事件
+			img.ondragstart = function (e) {
+				console.log("=== 开始拖拽 ===");
+				
+				//这里要设置一下 抓的是谁，将来drop的时候方便找到
+				e.dataTransfer.setData("dragId", e.target.id);
+			}
+			
+			img.ondrag = function () {
+//				console.log("=== 拖拽过程中持续触发 ===");
+			}
+			
+			img.ondragend = function () {
+				console.log("=== 拖拽完成的时候触发 ===");
+			}
+			
+			//目标元素相关事件
+			box2.ondragenter = function () {
+				console.log("=== 拖拽元素位于目标元素上方的时候触发 ===");
+			}
+			
+			box2.ondragover = function (e) {
+				console.log("=== 拖拽元素位于目标元素上方持续触发 ===");
+				//注意：在这个事件中需要阻止时间默认行为才能触发drop事件
+				e.preventDefault();
+			}
+			
+			box2.ondragleave = function () {
+				console.log("=== 拖拽元素离开目标元素时触发 ===");
+			}
+			
+			box2.ondrop = function (e) {
+				console.log("=== 当拖拽元素位于目标元素上方并且松开鼠标的时候触发 ===");
+				//在这里获取当时存起来的 拖拽元素
+				var dragId = e.dataTransfer.getData('dragId');
+				var dragEle = document.querySelector("#" + dragId);
+				this.appendChild(dragEle);
+			}
+			
+			var box1 = document.querySelector("#box1");
+			box1.ondragover = function (e) {
+				e.preventDefault();
+			}
+			
+			box1.ondrop = function (e) {
+				var dragId = e.dataTransfer.getData('dragId');
+				var dragEle = document.querySelector("#" + dragId);
+				this.appendChild(dragEle);
+			}
+			
+			
+		</script>
+	</body>
+</html>

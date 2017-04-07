@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var canvas=$("#canvas")[0];
+            //主题
+            var ctxbody=canvas.getContext("2d")
+            //三只手?脚?
+            var ctx1=canvas.getContext("2d")
+            var ctx2=canvas.getContext("2d")
+            var ctx3=canvas.getContext("2d")
+
+
+//            ctxbody.translate(-100,-100)
+
+            function ctxbodyA(){
+                //1
+                ctxbody.beginPath();
+                ctxbody.moveTo(400,350);
+                ctxbody.quadraticCurveTo(305,350,325,250)
+
+                ctxbody.stroke()
+                ctxbody.closePath();
+                //填充块
+                ctxbody.beginPath();
+                ctxbody.moveTo(401,349);
+                ctxbody.quadraticCurveTo(306,350,326,249)
+                ctxbody.fillStyle="#fff";
+                ctxbody.fill()
+                ctxbody.closePath();
+                //2
+                ctxbody.beginPath();
+                ctxbody.moveTo(325,250);
+                ctxbody.quadraticCurveTo(345,150,525,150)
+                ctxbody.stroke()
+                ctxbody.closePath();
+                //3
+                ctxbody.beginPath();
+                ctxbody.moveTo(525,150);
+                ctxbody.quadraticCurveTo(805,150,805,320)
+                ctxbody.stroke()
+                ctxbody.closePath();
+                //4
+                ctxbody.beginPath();
+                ctxbody.moveTo(400,350);
+                ctxbody.quadraticCurveTo(785,350,805,340)
+                ctxbody.stroke()
+                ctxbody.closePath();
+                //嘴
+                ctxbody.beginPath();
+                ctxbody.moveTo(365,275);
+                ctxbody.bezierCurveTo(363,295,385,305,395,285)
+                ctxbody.stroke()
+                ctxbody.closePath();
+                ctxbody.beginPath();
+                ctxbody.moveTo(395,285);
+                ctxbody.bezierCurveTo(395,295,420,310,425,279)
+                ctxbody.stroke()
+                ctxbody.closePath();
+                //眼睛
+                ctxbody.beginPath();
+
+                ctxbody.fillStyle="#000";
+                ctxbody.arc(347,265,5,0,Math.PI*2,true);
+                ctxbody.arc(443,265,6,0,Math.PI*2,true);
+                //绘制
+                ctxbody.fill()
+                //关闭路径
+                ctxbody.closePath();
+            }
+            
+            //------------------------------------------
+            var bool1=false;
+            var num = 0;
+            setInterval(function () {
+                if(num>30){
+                    ctxbody.translate(150,0);
+                    num=0;
+                }
+                ctxbody.translate(-5,0);
+                num++;
+                if(bool1){
+                    ctxbody.clearRect(0,0,1000,500);
+                    ctxbodyA()
+                    ctxA(20);
+                    ctxB(10);
+                    ctxC(30);
+                    bool1=false;
+                    console.log("true");
+
+                }else{
+                    ctxbody.clearRect(0,0,1000,500);
+                    ctxbodyA()
+                    ctxA(0);
+                    ctxB(-20);
+                    ctxC(0);
+                    bool1=true;
+                    console.log("false");
+                }
+            },100)
+
+
+
+            //绘制前
+            function ctxA(angle,width=0,height=0){
+                ctx1.save();
+                ctx1.translate(380+width,305+height);
+                ctx1.rotate( (Math.PI / 180) *angle);
+                ctx1.translate(-380+width,-305+height);
+
+                ctx1.beginPath();
+                ctx1.moveTo(330,298);
+                ctx1.quadraticCurveTo(300,305,300,305)
+                ctx1.globalCompositeOperation="destination-over";
+                ctx1.stroke()
+                ctx1.closePath();
+                ctx1.beginPath();
+                ctx1.moveTo(300,305);
+                ctx1.quadraticCurveTo(309,345,374,340)
+                ctx1.globalCompositeOperation="destination-over";
+                ctx1.stroke()
+                ctx1.closePath();
+                ctx1.restore();
+            }
+
+
+            //中
+            function ctxB(angle,width=0,height=0){
+                ctx2.save();
+                ctx2.translate(580+width,305+height);
+                ctx2.rotate( (Math.PI / 180) *angle);
+                ctx2.translate(-580+width,-305+height);
+
+                ctx2.beginPath();
+                ctx2.moveTo(530,298);
+                ctx2.quadraticCurveTo(480,285,476,305)
+                ctx2.globalCompositeOperation="source-over";
+                ctx2.stroke()
+                ctx2.closePath();
+                ctx2.beginPath();
+                ctx2.moveTo(476,305);
+                ctx2.bezierCurveTo(476,320,569,350,574,330)
+                ctx2.globalCompositeOperation="source-over";
+                ctx2.stroke()
+                ctx2.closePath();
+                ctx2.restore();
+            }
+
+            //后
+            function ctxC(length,width=0,height=0){
+                ctx3.save();
+
+                ctx3.beginPath();
+                ctx3.moveTo(805,340);
+                ctx3.quadraticCurveTo(825+length,330,825+length,310)
+                ctx3.globalCompositeOperation="destination-over";
+                ctx3.stroke()
+                ctx3.closePath();
+                ctx3.beginPath();
+                ctx3.moveTo(825+length,310);
+                ctx3.quadraticCurveTo(805+length,290,805,295)
+                ctx3.globalCompositeOperation="destination-over";
+                ctx3.stroke()
+                ctx3.closePath();
+
+                ctx3.restore();
+            }
+        })
+    </script>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        table{
+            border: 0px solid #ffffff;
+            width: 1000px;
+            height: 500px;
+            box-shadow: 1px 1px 0px 1px #cccccc;
+            position: absolute;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="500"></canvas>
+<img src="img\1.gif" alt="">
+</body>
+</html>

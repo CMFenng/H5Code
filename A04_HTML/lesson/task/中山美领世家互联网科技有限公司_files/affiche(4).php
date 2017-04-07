@@ -1,0 +1,1 @@
+document.writeln('<a href="http://zgmlsj.com/affiche.php?ad_id=91&from=&uri=http%3A%2F%2Fzgmlsj.com%2Fgoods.php%3Fid%3D346" target="_blank"><img src="http://zgmlsj.com/data/afficheimg/1477815017909273139.png" border="0" alt="金正广告1" /></a>');

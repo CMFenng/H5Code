@@ -1,0 +1,26 @@
+#wrap{
+	width: 1200px;
+	margin: 0 atuo;
+	background-color: red;
+	position: relative;
+}
+ul{
+	position: relative;
+	width: 600px;
+	height: 600px;
+}
+.banner{
+	position: absolute;
+	margin: 0 auto;
+}
+#slide{
+	width: 1200px;
+	background-color: aqua;
+	position: absolute;
+}
+#prev{
+	float: left;
+}
+#next{
+	float: right;
+}

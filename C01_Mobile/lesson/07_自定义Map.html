@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 自己实现一个 Map
+    function MyMap() {
+        var self = this;
+        Object.defineProperty(self, "size", {
+            get : function () {
+                var num = 0;
+                // 遍历属性
+                for(var tempPro in self){
+                    // 当只有是自己的属性的时候才记录个数
+                    if(self.hasOwnProperty(tempPro)){
+                        num++;
+                        console.log(tempPro);
+                    }
+                    // 如果不进行判断，属性、方法都会被遍历出来
+//                    console.log(tempPro);
+                }
+                return num;
+            }
+        });
+    }
+
+    // 增、删
+    MyMap.prototype.set = function (key, value) {
+        // 访问的是对象中的 key 属性
+//        this.key = value;
+        this[key] = value;
+    }
+    // 获取
+    MyMap.prototype.get = function (key) {
+        return this[key];
+    }
+    // 判断
+    MyMap.prototype.has = function (key) {
+        return this[key] ? true : false;
+    }
+    // 删除
+    MyMap.prototype.delete = function (key) {
+        delete this[key];
+    }
+    var map = new MyMap();
+
+    map.set("name", "凤九");
+    map.set("age", 18);
+    
+    map.set("name", "帝君");
+    map.set("sex", "男");
+    
+    console.log(map.get("name"));   //帝君
+    map.delete("age");
+    console.log(map.has("age"));    //false
+    console.log(map);
+    
+    console.log(map.size);  //2(name,sex)
+</script>
+</body>
+</html>

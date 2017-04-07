@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	请输入消费金额：
+	<input type="text" name="price" id="price" value="" />
+	<p>是否参加优惠换购活动：</p>
+	<p>1：满50元，加2元换购百事可乐饮料一瓶</p>
+	<p>2：满100元，加3元换购500ml可乐一瓶</p>
+	<p>3：满100元，加10元换购5公斤面粉</p>
+	<p>4：满200元，加10元换购1个苏泊尔炒菜锅</p>
+	<p>5：满200元，加20元可换购欧莱雅爽肤水一瓶</p>
+	<p>0：不换购</p>
+	请选择：
+	<input type="text" name="choice" id="choice" value="0" /><br />
+	<input type="button" name="btn" id="btn" value="结算" />
+</body>
+<script type="text/javascript">
+	var priceId = document.getElementById("price");
+	var choiceId = document.getElementById("choice");
+	var result;
+
+	document.getElementById("btn").onclick = function  () {
+		var price = parseInt(priceId.value);
+		var choice = parseInt(choiceId.value);
+		switch (choice){
+			case 0:
+				result = "您没有参与优惠换购活动";
+				break;
+			case 1:
+				if (price < 50) {
+					result = "不符合活动要求";
+				} else{
+					price += 2; 
+					result = "成功换购百事可乐饮料一瓶";
+				}
+				break;
+			case 2:
+				if (price < 100) {
+					result = "不符合活动要求";
+				} else{
+					price += 3; 
+					result = "成功换购500ml可乐一瓶";
+				}
+				break;
+			case 3:
+				if (price < 100) {
+					result = "不符合活动要求";
+				} else{
+					price += 10; 
+					result = "成功换购5公斤面粉";
+				}
+				break;
+			case 4:
+				if (price < 200) {
+					result = "不符合活动要求";
+				} else{
+					price += 10; 
+					result = "成功换购1个苏泊尔炒菜锅";
+				}
+				break;
+			case 5:
+				if (price < 200) {
+					result = "不符合活动要求";
+				} else{
+					price += 20; 
+					result = "成功换购欧莱雅爽肤水一瓶";
+				}
+				break;
+			default:
+				result = "选择的换购活动不存在！";
+				break;
+		}
+		alert("本次消费总金额：" + price + "\n" + result);
+	}
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video width="800" height="500" controls="controls" poster="./source/1.jpg">
+			<source src="source/Nimo.MP4" type="video/mp4"></source>
+		</video>
+		<br />
+		<input type="button" value="切换视频" /> 
+		<input type="button" value="测试其他属性和方法" />
+		
+		<script type="text/javascript">
+			var video = document.querySelector('video');
+			var changeBtn = document.querySelector("input");
+			var otherBtn = document.querySelectorAll("input")[1];
+			
+//			var arr = ['。。', '..', '...'];
+			
+			var flag = true;
+			changeBtn.onclick = function () {
+				if (flag) {
+					video.src = 'source/终结者_Larry.MP4';
+//					flag = false;
+				} else {
+					video.src = 'source/Nimo.MP4';
+//					flag = true;
+				}
+				flag = !flag;
+			}
+			
+			//其他操作
+			otherBtn.onclick = function () {
+//				console.log(video.currentSrc);
+//				console.log(video.duration);				
+//				video.currentTime = 30;
+//				video.volume = 0.5;
+//				video.muted = true;
+//				video.playbackRate = 2.0;
+//				console.log(video.ended);
+//				video.loop = true;
+				console.log(video.paused);
+			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+        }
+        div p{
+            width: 100px;
+            height: 500px;
+            background-color: green;
+        }
+        div:hover{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <p id="p"></p>
+</div>
+<script type="text/javascript">
+    /*mouseenter和mouseleave事件，在子元素和父元素之间进行移动的时候，不会触发父容器的mouseenter和mouseleave*/
+    div.onmouseover = function () {
+        console.log("div   over...");
+
+    }
+    div.onmouseout = function () {
+        console.log("div  out...");
+    }
+
+    p.onmouseover = function () {
+        console.log("p over  ...");
+    }
+    p.onmouseout = function () {
+        console.log("p out...");
+    }
+</script>
+</body>
+</html>

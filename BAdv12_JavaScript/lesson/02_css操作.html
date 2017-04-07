@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			font-size: 40px;
+		}
+		.big{
+			width: 400px;
+			height: 400px;
+		}
+		.small{
+			width: 100px;
+			height: 100px;
+		}
+		.font_color{
+			color: red;
+		}
+	</style>
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			//获得div的background-color属性值， rgb值
+//			var color = $("div").css("background-color");
+//			console.log(color);
+			
+			//获取div中文字的font-size属性值，带单位px
+//			var size = $("div").css("font-size");
+//			console.log(size);
+			
+			//设置div中文字的大小
+//			$("div").css("font-size", parseInt(size) + 20);
+//================================================================
+			//给div增加class属性
+			$("div").attr("class", "big");
+			//给div追加class属性
+			$("div").addClass("font_color");
+//================================================================
+			$("button").click(function () {
+				//移除class属性
+//				$("div").removeClass("big");
+				//参数是一个类名，如果元素有这个类，则移除。如果没有，则追加
+				$("div").toggleClass("big");
+				//判断这个元素是否有指定的class，返回值true或false
+				console.log($("div").hasClass("big"));
+			})
+//================================================================
+			//和数组的forEach方法用法完全一样
+			$("div").each(function (index, ele) {
+				//ele是原生的DOM对象，不是jQuery对象
+				console.log(ele);
+				//转化为jQuery对象
+				console.log($(ele));
+			});
+		});
+	</script>
+</head>
+<body>
+<div style="background-color: pink;">
+	你好
+</div>
+<div></div>
+<button>去掉big</button>
+</body>
+</html>

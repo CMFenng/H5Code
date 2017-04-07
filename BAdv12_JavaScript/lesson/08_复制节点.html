@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+/*
+    clone()
+        克隆元素，深copy(所有后代都会被copy)
+        true：表示事件和数据都会被克隆
+        false：表示只克隆元素，事件和数据不会被克隆
+
+    replaceWith()
+        a.replaceWith(b)    替换元素，a被b替换掉
+
+    replaceAll()
+        a.replaceAll(b)     替换元素，a替换掉b
+*/
+//            $("ul").click(function () {
+//                alert("abc");
+//            });
+//            //都是深copy，true表示事件和数据也会copy。
+//            $("ul").after($("ul").clone(true));
+//================================================================
+            //前面的被后面的替换掉
+//            $("li:nth-child(3)").replaceWith("<p>这是个p</p>");
+
+            //前面的替换掉后面的
+            $("<p>这是个p</p>").replaceAll("li:nth-child(1)");
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>1<a>我也会被克隆</a></li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: black;
+			}
+			span{
+				color: white;
+				font-size: 30px;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<span>R：</span><input type="range" max="255" value="0" /><br />
+		<span>G：</span><input type="range" max="255" value="0" /><br />
+		<span>B：</span><input type="range" max="255" value="0" /><br />
+		
+		<script type="text/javascript">
+			var ranges = document.querySelectorAll('input');
+			var spans = document.querySelectorAll('span');
+			
+			for (var i = 0; i < ranges.length; i++) {
+				ranges[i].onchange = changeFn;
+			}
+			
+			function changeFn () {
+				document.body.style.backgroundColor = 
+					"rgb(" + ranges[0].value + ", " + ranges[1].value + 
+						", " + ranges[2].value + ")";
+						
+				for (var i = 0; i < spans.length; i++) {
+					spans[i].style.color = 
+						"rgb(" + (255 - ranges[0].value) + 
+							", " + (255 - ranges[1].value) + 
+							", " + (255 - ranges[2].value) + ")";
+				}
+			}
+			
+		</script>
+	</body>
+</html>

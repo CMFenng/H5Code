@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<!--
+http://api.map.baidu.com/place/v2/search?query=%E4%B8%80%E6%9D%A1%E9%BE%99&region=%E6%B7%B1%E5%9C%B3&output=json&ak=6E823f587c95f0148c19993539b99295
+
+URL:
+http://api.map.baidu.com/place/v2/search
+
+参数1：
+query = %E4%B8%80%E6%9D%A1%E9%BE%99
+代指索要搜索的内容
+
+参数2：
+region = %E6%B7%B1%E5%9C%B3
+代指所搜索内容的地区
+
+参数3：
+output = json
+请求的方式
+
+参数4：
+ak = 6E823f587c95f0148c19993539b99295
+请求用户的识别码
+ -->
+
+<form action="http://api.map.baidu.com/place/v2/search"
+	  method="get">
+	<!-- 
+		参数1
+			名字由 input 内部的 name 决定
+			数值由 用户所输入的内容来决定，value 值由用户输入
+	 -->
+	<input type="text" name="query"><br>
+
+	<!-- 
+		参数2
+			同时设置多个 name 相同的单选框
+			但是每一个元素的 value 值不相同
+			最后实际提交哪个内容，由用户来决定
+	 -->
+	<input type="radio" name="region" value="深圳">深圳
+	<input type="radio" name="region" value="北京">北京
+	<input type="radio" name="region" value="东莞">东莞
+	<input type="radio" name="region" value="汕头">汕头
+	<br>
+
+	<!-- 
+		参数3、4
+			因为当前接口内容数据格式固定
+			直接采用 hidden 的方式提交
+
+		参数3
+			output
+				支持两种返回格式
+				json
+				xml
+	 -->
+	<input type="radio" name="output" value="json">json
+	<input type="radio" name="output" value="xml">xml
+	<input type="hidden" name="ak" value="6E823f587c95f0148c19993539b99295">
+	<br>
+
+	<input type="submit" name="">
+	<input type="reset" name="">
+</form>
+</body>
+</html>

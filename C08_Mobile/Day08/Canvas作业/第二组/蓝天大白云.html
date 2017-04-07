@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			table{
+				width: 1000px;
+				height: 500px;
+				box-shadow: 10px 10px 10px gray;
+			}
+			table td{
+				border: 1px dashed gray;
+			}
+			canvas{
+				position: fixed;
+				left: 0;
+				top: 0;
+				background: deepskyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="" cellspacing="0" cellpadding="0">
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<canvas id="canvas" width="1000" height="500">
+			
+		</canvas>
+	</body>
+	<script type="text/javascript">
+		var cvs = document.querySelector('canvas');
+		var ctx = cvs.getContext('2d');
+		function caoyuan(){
+			ctx.beginPath();
+	        ctx.fillStyle = 'greenyellow'
+			ctx.moveTo(500,500);
+			ctx.quadraticCurveTo(830,250,1000,500);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fill()
+		}
+		caoyuan();
+		function hua2(){
+			ctx.fillStyle = 'green'
+	        ctx.fillRect(790,325,10,50)
+			
+	        var n = 0;
+	        var dx = 795;
+	        var dy = 320;
+	        var s = 30;
+	        ctx.beginPath();
+	        ctx.fillStyle = 'rgb(254,232,0)';
+	        ctx.strokeStyle = 'rgb(235,177,8)';
+	        var x = Math.sin(0);	//0
+	        var y = Math.cos(0);	//1
+	        var dig = Math.PI / 15 * 11;
+	        for (var i = 0; i < 30; i++) {
+	            var x = Math.sin(i * dig);
+	            var y = Math.cos(i * dig);
+	            ctx.lineTo(dx + x * s, dy + y * s);
+	        }
+	        ctx.closePath();
+	        ctx.fill();
+	        ctx.stroke();
+	        
+	        //左边叶子
+	        ctx.beginPath();
+	        ctx.fillStyle = 'darkgreen'
+			ctx.moveTo(799,360);
+			ctx.quadraticCurveTo(805,390,830,340);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fill()
+			
+	        //右边叶子
+	        ctx.beginPath();
+	        ctx.fillStyle = 'darkgreen'
+			ctx.moveTo(791,360);
+			ctx.quadraticCurveTo(775,380,760,330);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fill()
+		}
+		hua2();
+		function caoyuan1(){
+			ctx.beginPath();
+	        ctx.fillStyle = 'greenyellow'
+			ctx.moveTo(0,500);
+			ctx.quadraticCurveTo(330,250,700,500);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fill()
+		}
+		caoyuan1();
+		
+		function hua(){
+			ctx.fillStyle = 'green'
+	        ctx.fillRect(290,380,20,200)
+			
+	        var n = 0;
+	        var dx = 300;
+	        var dy = 300;
+	        var s = 100;
+	        ctx.beginPath();
+	        ctx.fillStyle = 'rgb(254,232,0)';
+	        ctx.strokeStyle = 'rgb(235,177,8)';
+	        var x = Math.sin(0);	//0
+	        var y = Math.cos(0);	//1
+	        var dig = Math.PI / 15 * 11;
+	        for (var i = 0; i < 30; i++) {
+	            var x = Math.sin(i * dig);
+	            var y = Math.cos(i * dig);
+	            ctx.lineTo(dx + x * s, dy + y * s);
+	        }
+	        ctx.closePath();
+	        ctx.fill();
+	        ctx.stroke();
+	        
+	        //左边叶子
+	        ctx.beginPath();
+	        ctx.fillStyle = 'darkgreen'
+			ctx.moveTo(309,450);
+			ctx.quadraticCurveTo(350,500,400,400);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fill()
+	        
+	        //右边叶子
+	        ctx.beginPath();
+	        ctx.fillStyle = 'darkgreen'
+			ctx.moveTo(291,450);
+			ctx.quadraticCurveTo(250,500,200,400);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fill()
+		}
+		
+		hua();
+		function hua1(){
+			ctx.fillStyle = 'green'
+	        ctx.fillRect(440,420,10,80)
+			
+	        var n = 0;
+	        var dx = 445;
+	        var dy = 380;
+	        var s = 50;
+	        ctx.beginPath();
+	        ctx.fillStyle = 'rgb(254,232,0)';
+	        ctx.strokeStyle = 'rgb(235,177,8)';
+	        var x = Math.sin(0);	//0
+	        var y = Math.cos(0);	//1
+	        var dig = Math.PI / 15 * 11;
+	        for (var i = 0; i < 30; i++) {
+	            var x = Math.sin(i * dig);
+	            var y = Math.cos(i * dig);
+	            ctx.lineTo(dx + x * s, dy + y * s);
+	        }
+	        ctx.closePath();
+	        ctx.fill();
+	        ctx.stroke();
+	        
+	        //左边叶子
+	        ctx.beginPath();
+	        ctx.fillStyle = 'darkgreen'
+			ctx.moveTo(449,460);
+			ctx.quadraticCurveTo(475,490,500,440);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fill()
+			
+	        //右边叶子
+	        ctx.beginPath();
+	        ctx.fillStyle = 'darkgreen'
+			ctx.moveTo(441,460);
+			ctx.quadraticCurveTo(425,490,400,440);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.fill()
+		}
+		hua1();
+		
+		function yun(){
+			//云1
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(100,80,40,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云2
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(150,90,45,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云3
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(210,85,40,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云4
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(150,50,45,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云5
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(110,35,10,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+		}
+		yun()
+		function yun1(){
+			//云1
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(400,80,30,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云2
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(450,90,35,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云3
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(500,85,30,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云4
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(450,50,35,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云5
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(410,45,10,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+		}
+		yun1()
+		function yun2(){
+			//云1
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(700,80,40,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云2
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(750,90,45,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云3
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(810,85,40,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云4
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(750,50,45,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			//云5
+			ctx.beginPath();
+			ctx.fillStyle = 'white'
+			ctx.arc(710,35,10,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+		}
+		yun2()
+		function taiYang(){
+			//太阳
+			ctx.beginPath();
+			ctx.shadowBlur = 10 ;
+			ctx.shadowColor = 'yellow'
+			ctx.fillStyle = 'orange';
+			ctx.arc(920,80,80,0,Math.PI*2,false);
+			ctx.fill()
+			ctx.closePath();
+			
+			ctx.beginPath();
+			ctx.arc(890,60,15,0,Math.PI,true);
+			ctx.lineWidth = 5;
+			ctx.stroke();
+			ctx.closePath();
+			
+			ctx.beginPath();
+			ctx.arc(950,60,15,0,Math.PI,true);
+			ctx.lineWidth = 5;
+			ctx.stroke();
+			ctx.closePath();
+			
+			ctx.beginPath();
+			ctx.arc(920,100,20,0,Math.PI,false);
+			ctx.lineWidth = 5;
+			ctx.stroke();
+			ctx.closePath();
+		}
+		taiYang();
+		
+	</script>
+</html>

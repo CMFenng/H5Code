@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+		}
+		.div_1{
+			/*background: url("img/1.png");*/
+			background: red;
+
+			margin-top   : 100px;
+			margin-right : 100px;
+			margin-bottom: 100px;
+			margin-left  : 100px;
+
+			/*margin-bottom: -100px;*/
+			/*margin-bottom: 100px;*/
+		}
+		.div_2{
+			background: blue;
+
+			margin-top: -100px;
+		}
+		/*
+			margin : 外边距
+				当两个元素是 兄弟关系 的时候，推荐使用 margin
+
+				margin 不会占我们的盒子空间，它只影响盒子的位置
+
+				margin 不会填充背景图片
+
+				margin 可以设置为负数
+		*/
+	</style>
+</head>
+<body>
+	<!-- .div_$*2 -->
+	<div class="div_1"></div>
+	<div class="div_2"></div>
+</body>
+</html>

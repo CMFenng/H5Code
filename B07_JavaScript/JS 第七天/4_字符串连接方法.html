@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+字符串连接方法
+	
+	平常工作中，经常使用 “ + ”进行连接
+	
+	str.concat(str1,str2..)
+		该方法用于连接两个或者多个字符串
+		不会改变原始字符串
+*/
+    var str = "你好";
+    console.log(str.concat("啊","李先生"));	//你好啊李先生
+    console.log(str + "啊" + "李先生");		//你好啊李先生
+    
+    console.log(str.concat("") == str);		//true
+    //concat() 如果连接的是一个长度为 0 的字符串
+    //则会返回这个字符串本身(this)
+</script>
+</html>

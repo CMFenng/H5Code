@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<script type="text/javascript">
+	/*统计传入的字符串的信息*/
+	function fun (s) {
+		var counts = [0, 0, 0, 0];  // 元素1表示大写字母的个数  ....
+		for (var i = 0, len = s.length; i <len; i++) {
+			var c = s.charAt(i);
+			if(c >= "A" && c <= "Z"){
+				counts[0]++;
+			}else if(c >= "a" && c <= "z"){
+				counts[1]++;
+			}else if(c >= "0" && c <= "9"){
+				counts[2]++;
+			}else{
+				counts[3]++;
+			}
+		}
+		return counts;
+	}
+	
+	var counts = fun("aslfj11AW2555%%$$");
+	console.log(counts);
+</script>
+</body>
+
+</html>
+<!--
+传入任意字符串，统计字符串中的大写字母个数、小写字母个数、数字个数、其他字符个数。
+	
+	
+	
+-->

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<p>00</p>
+	<script type="text/javascript">
+		var p = document.getElementsByTagName("p")[0];
+		setTimeout(function show () {
+			var d = new Date();
+			p.innerHTML = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日   "
+							+ d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+			setTimeout(show, 100);
+		},0);
+	</script>
+</body>
+</html>

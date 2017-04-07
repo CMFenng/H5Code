@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background: url(b.jpg) no-repeat ;
+				position: relative;
+			}
+			
+			#box {
+				width: 500px;
+				margin-left: 450px;
+				margin-top: 250px;
+				height: 300px;
+			}
+			
+			#box div {
+				width: 50px;
+				height: 200px;
+				border: 1px solid #000000;
+				float: left;
+				text-align: center;				
+				background: #FFFFFF;
+			}
+			
+			#l1 {
+				margin-left: 580px;
+				width: 89px;
+				height: 55px;
+				background: url(b2.jpg) no-repeat;
+				border-radius: 45px ;
+			}
+			#l2{
+				width: 89px;
+				height: 55px;
+				background: #FFFFFF;
+				border-radius: 45px ;
+				border: none;
+			}
+			#l3{
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				width: 100px;
+				height: 50px;
+				border: none;
+				border-radius: 30px;
+				background: blue;
+				color: #FFFFFF;
+			}
+			
+			#b1{
+				position: absolute;
+				left: 490px;
+				top:0px;
+				width: 25px;
+				height: 100px;
+				background: black;
+			}
+			#b2{
+				position: absolute;
+				left: 540px;
+				top:0px;
+				width: 25px;
+				height: 100px;
+				background: black;
+			}
+			#b3{
+				position: absolute;
+				left: 593px;
+				top:0px;
+				width: 25px;
+				height: 100px;
+				background: black;
+			}
+			#b4{
+				position: absolute;
+				left: 645px;
+				top:0px;
+				width: 25px;
+				height: 100px;
+				background: black;
+			}
+			#b5{
+				position: absolute;
+				left: 696px;
+				top:0px;
+				width: 25px;
+				height: 100px;
+				background: black;
+			}
+			#b6{
+				position: absolute;
+				left: 749px;
+				top:0px;
+				width: 25px;
+				height: 100px;
+				background: black;
+			}
+			#b7{
+				position: absolute;
+				left: 800px;
+				top:0px;
+				width: 25px;
+				height: 100px;
+				background: black;
+			}
+			#b8{
+				position: absolute;
+				left: 853px;
+				top:0px;
+				width: 25px;
+				height: 100px;
+				background: black;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="a1">
+				1
+			</div>
+			<div id="a2">
+				2
+			</div>
+			<div id="a3">
+				3
+			</div>
+			<div id="a4">
+				4
+			</div>
+			<div id="a5">
+				5
+			</div>
+			<div id="a6">
+				6
+			</div>
+			<div id="a7">
+				7
+			</div>
+			<div id="a8">
+				8
+			</div>
+			<div id="a9">
+				9
+			</div>
+			<audio src="music/1.ogg"></audio>
+		</div>
+		<input type="button" name="" id="l1" value="录制" />
+		<input type="button" name="" id="l2" value="回放" /><br />
+		
+		<input type="button" name="" id="l3" value="小星星" />
+		
+		
+		<div id="b1">
+			
+		</div>
+		<div id="b2">
+			
+		</div>
+		<div id="b3">
+			
+		</div>
+		<div id="b4">
+			
+		</div>
+		<div id="b5">
+			
+		</div>
+		<div id="b6">
+			
+		</div>
+		<div id="b7">
+			
+		</div>
+		<div id="b8">
+			
+		</div>
+		<script type="text/javascript">
+			var audios = document.querySelector("audio");
+			var divs = document.querySelectorAll("#box div");
+			var arr = [];
+			
+			for(var i = 0; i < divs.length; i++) {
+				divs[i].onclick = function() {
+					audios.src = "music/" + this.innerHTML + ".ogg";
+					audios.play();
+				}
+			}
+
+			var luzhi = document.querySelector("#l1");
+			luzhi.onclick = function() {
+				if(luzhi.value == "录制") {
+					luzhi.value = '录制中';
+					luzhi.style.background = "url(a.jpg)";
+					arr = [];
+					for(var i = 0; i < divs.length; i++) {
+						divs[i].onclick = function() {
+							audios.src = "music/" + this.innerHTML + ".ogg";
+							arr.push(parseInt(this.innerHTML));
+							audios.play();
+						}
+					}					
+				}
+				else{
+					luzhi.value = '录制';
+					luzhi.style.background = "url(b2.jpg)";
+					for(var i = 0; i < divs.length; i++) {
+						divs[i].onclick = function() {
+							audios.src = "music/" + this.innerHTML + ".ogg";							
+							audios.play();								
+							return arr;	
+						}
+					}
+				}
+			}
+						
+			var huifang = document.querySelector("#l2");
+			var count = 0;
+			huifang.onclick = function(){
+				var t = setInterval(function(){
+					audios.src = "music/" + arr[count] + ".ogg";
+					audios.play();
+					count++;
+					if(count == arr.length){
+						count = 0;
+						clearInterval(t);
+					}
+				},600);
+			}
+			
+			
+			
+			var xiao = document.querySelector("input[value=小星星]")
+			
+			var arr1 = [1,1,5,5,6,6,5,4,4,3,3,2,2,1,5,5,4,4,3,3,2,5,5,4,4,3,3,2,1,1,5,5,6,6,5,4,4,3,3,2,2,1];
+			var count1 = 0;
+			xiao.onclick = function(){
+				var t1 = setInterval(function(){
+					audios.src = "music/" + arr1[count1] + ".ogg";
+					audios.play();
+					count1++;
+					if(count1 == arr.length){
+						count1 = 0;
+						clearInterval(t1);
+					}
+				},600);
+			}
+		</script>
+	</body>
+
+</html>

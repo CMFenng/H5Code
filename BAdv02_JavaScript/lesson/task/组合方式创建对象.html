@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person (name, age) {
+			this.name = name;
+			this.age = age;
+		}
+		
+		Person.prototype.play = function (playName) {
+			console.log(this.name + "爱玩" + playName);
+			console.log("我是不是多次创建");
+		}
+				
+		var p1 = new Person("张三", 10);
+		var p2 = new Person("李四", 20);
+		
+		p1.play("志玲");
+		p2.play("柳岩");
+		console.log(p1.play === p2.play);		//true
+		/*
+		这里打印出来true，因为调用play时，会重新给play赋一个新的function，但之前的function还是存在的，只是失去了关联
+		这里比较的是赋予新的function后的play，是同一个，因此打印出来true
+		这里打印出来多次“我是不是多次创建”，可知创建了多次
+		* */
+	</script>
+</body>
+</html>

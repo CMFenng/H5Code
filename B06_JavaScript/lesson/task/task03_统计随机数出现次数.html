@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	// 生成一个 [m,n]的随机整数
+	function getNumber(m, n) {
+		return parseInt(Math.random() * (n - m + 1) + m);
+	}
+
+	var arr = new Array(400);
+	for(var i = 0; i < arr.length; i++) {
+		arr[i] = getNumber(10, 50);
+	}
+	//统计每个数字出现的次数
+	for(var num = 10; num <= 50; num++) {
+		var count = 0;
+		arr.forEach(function(e, i) {
+			if(e === num) {
+				count++;
+			}
+		});
+		document.write(num + " 出现了 " + count + " 次<br/>")
+	}
+</script>
+</body>
+</html>

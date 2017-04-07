@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+			background: red url("img/1.png");
+
+			/*
+				padding-top
+				padding-right
+				padding-bottom
+				padding-left
+
+				padding 的特性
+					1.padding 会撑大盒模型
+					2.padding 不能为负数
+					3.padding 会显示背景图片
+
+				背景实际填充范围是
+				整个盒模型的实际范围
+				content + padding + border
+
+				当边框颜色为不透明时，border将显示对应颜色
+				当边框颜色为 transparent 时，border 会被显示背景图片	
+			*/
+			padding: 100px;
+			border: 100px solid transparent;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

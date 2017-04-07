@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     全局变量
+     * 
+     * 定义在“函数外部”的变量都是全局变量
+     * 
+     * 全局变量的作用范围是当前文档，
+     * 当前文档所有的 JS 脚本都可以访问这个变量
+     * */
+//  var num = 20;
+//  console.log(num);
+
+	
+	/*
+	 变量提升
+	 * 
+	 * alert(a);		//undefined
+	 * var a = 20;
+	 * 
+	 * var a;
+	 * alert(a);		//undefined
+	 * a = 20;
+	 * 
+	 * 所有的全局变量的声明全部
+	 * 会提升到JS 的前端声明处，
+	 * 也就是说全局变量全部都是先声明的，
+	 * 并且早于其他所有代码
+	 * 
+	 * 但是变量的赋值位置不会发生改变，
+	 * 仍然会在原始的赋值位置处
+	 * */
+	alert(a);
+	var a = 20;
+
+</script>
+<script type="text/javascript" charset="utf-8">
+//  console.log(num);
+</script>
+</html>

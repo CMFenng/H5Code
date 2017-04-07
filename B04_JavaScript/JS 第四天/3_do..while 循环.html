@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+do...while 循环
+	
+	do{
+		循环体
+	}while(condtion);
+	
+	1. do...while 无论当前条件是否成立，一定会执行一次
+	2. 当执行了循环体后再去判断条件是否成立
+		成立，在执行一次
+		不成立，结束循环
+*/
+	var num = 1;
+	var sum = 0;
+	do{
+		sum += num;
+		num ++;
+	}while(num <= 100);
+	console.log(sum);		//5050
+</script>
+</html>

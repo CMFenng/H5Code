@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			position: absolute;
+			/*
+				top
+				right
+				bottom
+				left
+
+				z-index
+					控制层级
+
+					内部填写的是数字
+
+					未被激活的时候默认是 auto
+
+					可以书写为负数的
+
+
+			 */
+		}
+		.div_1{
+			background: red;
+			top: 0;
+			left: 0;
+		}
+		.div_2{
+			background: orange;
+			top: 100px;
+			left: 100px;
+		}
+		.div_3{
+			background: yellow;
+			top: 200px;
+			left: 200px;
+
+			z-index: 1;
+		}
+		.div_4{
+			background: green;
+			top: 300px;
+			left: 300px;
+
+			z-index: -2;
+		}
+		.div_5{
+			background: cyan;
+			top: 400px;
+			left: 400px;
+			z-index: 666;
+		}
+		.div_6{
+			background: blue;
+			top: 500px;
+			left: 500px;
+
+			z-index: 999;
+		}
+		.div_7{
+			background: purple;
+			top: 600px;
+			left: 600px;
+
+			z-index: 10086;
+		}
+	</style>
+</head>
+<body>
+	<!-- .div_$*7 -->
+	<div class="div_1"></div>
+	<div class="div_2"></div>
+	<div class="div_3"></div>
+	<div class="div_4"></div>
+	<div class="div_5"></div>
+	<div class="div_6"></div>
+	<div class="div_7"></div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+document.writeln('<a href="http://zgmlsj.com/affiche.php?ad_id=107&from=&uri=https%3A%2F%2Fitem.jd.com%2F10828773991.html" target="_blank"><img src="http://zgmlsj.com/data/afficheimg/1481267295131902487.jpg" border="0" alt="首页金正ad" /></a>');

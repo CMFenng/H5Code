@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//分析字面量对象
+		var rootObj = {
+			//地区数组
+			regions : [
+				//地区对象
+				{
+					regionName : "北京地区",
+					//学校数组
+					schools : [
+						{
+							schoolName : "北京一中",
+							//班级数组
+							classes : [
+								{
+									className : "H5-1606",
+									//学生数组
+									students : [
+										{
+											studentName : "丁丁"
+										},
+										{
+											studentName : "马丹丹"
+										}
+									]
+								},
+								{
+									className : "iOS-1602",
+									//学生数组
+									students : [
+										{
+											studentName : "丁环宇"
+										},
+										{
+											studentName : "张俊"
+										}
+									]
+								}
+							]
+						},
+						{
+							schoolName : "北京二中",
+							//班级数组
+							classes : [
+								{
+									className : "H5-1605",
+									//学生数组
+									students : [
+										{
+											studentName : "刘升升"
+										},
+										{
+											studentName : "张三三"
+										}
+									]
+								},
+								{
+									className : "iOS-1603",
+									//学生数组
+									students : [
+										{
+											studentName : "丁丁"
+										},
+										{
+											studentName : "肖小军"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+
+		// 写死，找到马丹丹！！！
+		console.log(rootObj.regions[0].schools[0].classes[0].students[1].studentName);
+		
+		function findPersonInfo(personName) {
+		    // 遍历地区
+			for(var tempRegion of rootObj.regions){
+			    // 遍历学校
+			    for(var tempSchool of tempRegion.schools){
+			        // 遍历班级
+			        for(var tempClass of tempSchool.classes){
+			            // 遍历学生
+			            for (var tempStudent of tempClass.students){
+			                // 如果匹配，则输出信息
+			                if (tempStudent.studentName == personName){
+                                console.log("地区：" + tempRegion.regionName);
+                                console.log("学校：" + tempSchool.schoolName);
+                                console.log("班级：" + tempClass.className);
+                                console.log("学生：" + personName);
+							}
+						}
+					}
+				}
+			}
+        }
+
+        // 即使有两个一样的，也会一起输出
+        findPersonInfo("丁丁");
+	</script>
+</body>
+</html>

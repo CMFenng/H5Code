@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj = {
+        name : "铁蛋儿",
+        age : 24
+    }
+
+    // 接下来的操作，以后不要去写（这里仅仅是为了学习使用！！）
+    // 千万不要给 object 的原型上加任何自定义的东西！！！！
+    Object.prototype[Symbol.iterator] = function () {
+        // 记录下标
+        var num = 0;
+        // 用来存储值的数组
+        var valueArr = new Array();
+        // 遍历当前对象，把每个值存储在数组 valueArr 中
+        for(var tempProp in this){
+            // tempProp 是键
+            valueArr.push(this[tempProp]);
+        }
+        return {
+            next : function () {
+                return {
+                    value : valueArr[num++],
+                    done :  num-1 >= valueArr.length ? true : false
+                }
+            }
+        }
+    }
+
+    var objIterator = obj[Symbol.iterator]();
+    console.log(objIterator.next());
+    console.log(objIterator.next());
+    console.log(objIterator.next());
+    console.log(objIterator.next());
+
+    // 为了验证闭包是否有效，重新获取一个迭代器
+    var objIterator1 = obj[Symbol.iterator]();
+    console.log(objIterator1.next());
+    console.log(objIterator1.next());
+    console.log(objIterator1.next());
+    console.log(objIterator1.next());
+
+    // for...of 原本不支持遍历对象
+    // 这里通过重写 Symbol.iterator 来让它支持遍历对象
+    for(var tempVal of obj){
+        console.log(tempVal);
+    }
+</script>
+</body>
+</html>

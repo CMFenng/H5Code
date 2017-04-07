@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<script type="text/javascript">
+	// 生成一个 [m,n]的随机整数
+	function generateNumber(m, n) {
+		return parseInt(Math.random() * (n - m + 1) + m);
+	}
+
+	var arr = new Array(400);
+	for(var i = 0; i < arr.length; i++) {
+		arr[i] = generateNumber(10, 50);
+	}
+	//统计每个数字出现的次数
+	for(var num = 10; num <= 50; num++) {
+		var count = 0;
+		arr.forEach(function(e, i) {
+			if(e === num) {
+				count++;
+			}
+		});
+		document.write(num + " 出现了 " + count + " 次<br/>")
+	}
+</script>
+</body>
+
+</html>
+<!--
+	随机生成400个 [10,50]的整数，然后统计每个数字出现的次数。把结果写入到页面中。
+	math.random()   parseInt([0,1) * 41 + 10)
+	
+-->

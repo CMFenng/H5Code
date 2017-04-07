@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.div_1{
+			width: 300px;
+			height: 300px;
+			background: rgba(255,0,0,.5);
+
+			/*
+				设置透明度
+					opacity
+					数值范围：0 ~ 1 之间的小数
+
+					描述是不可继承
+					但是实际测试可继承
+
+					可以通过设置rgba() 来进行更替
+
+					opacity 有兼容性问题
+			*/
+			/*opacity: 0.5;*/
+
+		}
+		.div_2{
+			width: 600px;
+			height: 200px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="div_1">
+		<div class="div_2"></div>
+	</div>
+</body>
+</html>

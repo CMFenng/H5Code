@@ -1,0 +1,1 @@
+document.writeln('<a href="http://zgmlsj.com/affiche.php?ad_id=109&from=&uri=" target="_blank"><img src="http://zgmlsj.com/data/afficheimg/1477897293886558319.png" border="0" alt="康佳广告2" /></a>');

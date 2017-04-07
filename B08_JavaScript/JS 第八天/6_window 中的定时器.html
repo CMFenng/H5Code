@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="time"></h1>
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+window 中的定时器
+	
+	window 对象中提供了两个类似于定时器的功能方法
+	超时调用 和 周期调用（间隙调用）
+	
+	JS 中是单线程语言，但是它允许通过设置超时数值，
+	以及间歇时间来调用代码在特定时间执行
+	
+	超时调用是在 指定的时间后去执行某段代码
+	周期调用是指 每隔指定的时间就去执行某段代码
+	
+	超时调用
+		window.setTimeout(code,millisec)
+	周期调用
+		window.setInterval(code,millisec)
+*/
+//=========================================================
+/*
+setTimeout(code,millisec)
+	
+	参数：
+		code
+			指需要执行的代码
+			一般传入一个函数
+		millisec
+			延时多长时间去执行参数1中的代码
+			时间单位是 毫秒（ms）
+			1s = 1000ms
+*/
+    //在 3 秒之后去执行函数 go
+    var timeoutId = window.setTimeout(go,3000);
+	/*
+	调用函数时需要注意
+		
+		传入函数的时候，函数名千万不要加括号
+		因为这个方法不是由我们自己调用，而是通过 引擎 去进行调用
+	*/
+    function go(){
+		window.open("http://www.baidu.com");
+    }
+//=========================================================
+/*
+window.clearTimeout()
+	该方法用于清除 超时调用
+	参数:
+		需要清除内容的名称
+*/
+	window.clearTimeout(timeoutId);
+	//取消超时调用
+	//但是如果当前的超时调用已经执行，那么无效果
+//=========================================================
+/*
+setInterval(code,millisec)
+	
+	参数：
+		code
+			每隔一段时间执行一次的代码
+			一般是一个函数
+		millisec
+			周期性执行的时间间隔
+			单位毫秒
+*/
+	var h1 = document.getElementById("time");
+	window.setInterval(function(){
+		var msg = new Date().toLocaleString();
+		h1.innerHTML = msg;
+	},1000);
+</script>
+</html>

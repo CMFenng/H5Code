@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		span
+			语义：无意义
+			双标签
+			针对比较小的，需要进行特殊设置的内容去使用
+			因为 span 标签可以处于同一行
+	 -->
+	<span>李先生</span>
+	<span>真是</span>
+	<span>太丑了</span>
+	<br><br>
+
+	<!--
+		a
+			语义：超链接
+			双标签
+
+			属性
+				href
+				指定超链接所关联的另一个资源
+
+				target
+				指定使用框架集中的哪一个框架来装载另一个资源
+					_self	以自身窗口打开网页
+					_blank	以新窗口打开网页
+
+
+			绝对路径
+				当指定绝对地址的时候，href 的值需要填写的是	URL（统一资源定位器）
+				URL 用于对互联网上的文档或者资源进行寻址的时候使用
+
+			相对路径
+				img/1.jpg
+
+			物理路径
+				file:///E:/H5_1605/zy2.html
+	 -->
+	<!-- www.baidu.com时无法访问 -->
+	<a href="http://www.baidu.com" target="_blank">百度一下</a>
+	<br><br>
+
+	<!-- 
+		em
+			语义：定义强调的文本
+			双标签
+
+			浏览器会以斜体的形式显示
+	 -->
+	<em>我是强调的文本</em>
+	<br><br>
+
+	<!-- 
+		strong
+			语义：重要的文本
+				语气要强于 em
+			双标签
+
+			浏览器会以加粗的形式显示
+	 -->
+	<strong>我是重要的文本</strong>
+	<br><br>
+
+	<!-- <i>斜体，已经不用</i><br><br> -->
+	<!-- <b>字体加粗，已经不用</b><br><br> -->
+	<!-- <big>大文本，已经不用</big><br><br> -->
+	<!-- <small>小文本,印刷体中的小段英文</small><br><br> -->
+	<!-- 
+		印刷体中的小段英文
+	 -->
+
+	<!-- 
+		q
+			语义：定义一段短的引用文本
+			双标签
+
+			浏览器会将引用的文本添加双引号
+	 -->
+	你追我，你追到我，我就让你<q>嘿嘿嘿</q>！
+	<br><br>
+
+	<!-- 
+		cite
+			语义：表示一个作品的名称
+				可以是书、电影、歌曲
+			双标签
+
+			浏览器会以斜体的形式显示
+	 -->
+	<cite>《HTML 从入门到改行》</cite>
+	<br><br>
+
+	<!-- 
+		code
+			语义：定义一段计算机代码
+	 -->
+	<code>How old are you	怎么老是你</code>
+	<br><br>
+	<code>no tiger me	别老唬我</code>
+	<br><br>
+
+	<!-- 块元素 -->
+	<!-- 保留原格式 -->
+	<pre>
+		<code>How old are you	怎么老是你</code>
+		<br><br>
+		<code>no tiger me	别老唬我</code>
+	</pre>
+
+
+	<code>How            old are you</code>
+	<br><br>
+	<code>no tiger
+
+	 me</code>
+	 <br><br>
+
+	<!-- 块 -->
+	<pre>
+		<code>How            old are you</code>
+		<br><br>
+		<code>no tiger
+
+		 me</code>
+	</pre>
+</body>
+</html>
+
+
+

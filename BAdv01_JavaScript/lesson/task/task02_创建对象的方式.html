@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+1. 直接使用字面量创建
+	var person = {}
+	用大括号将一系列的键值对括起来构成的对象称之为字面量对象。
+	优点：最简单，容易理解
+	缺点：使用同一个接口创建很多对象，会产生大量的重复代码
+* */
+	var person = {
+		name : "张三",
+		age : 20,
+		sex : "男",
+		sayHello : function () {
+			console.log(this.name + "," + this.sex + "," + this.age + "岁");
+		}
+	}
+	person.sayHello();		//张三,男,20岁
+//==================================================================================
+/*
+2. 使用new Object()创建
+	var person = new Object()
+	此方法完全等同于 var person = {}
+	优点：可以方便地创建单个对象
+	缺点：使用同一个接口创建很多对象，会产生大量的重复代码
+* */
+	var person = new Object();
+	//给对象添加属性
+	person.name = "张三";
+	person.age = 20;
+	person.sex = "男";
+	//给对象添加方法
+	person.sayHello = function () {
+		console.log(this.name + "," + this.sex + "," + this.age + "岁");
+	}
+	person.sayHello();		//张三,男,20岁
+//==================================================================================
+/*
+3. 使用工厂模式创建
+	在函数中定义对象，并定义对象的属性和方法，在函数的最后返回该对象
+	优点：可以多次调用，每调用一次就会返回一个对象，而且对象的类型仍然是Object类型的。
+	缺点：虽然解决了多个相似对象的问题，但却没有解决对象类型识别的问题。
+* */
+	function createPerson (name, age, sex) {
+		var person = new Object();
+		person.name = name;
+		person.age = age;
+		person.sex = sex;
+		person.sayHello = function () {
+			console.log(this.name + "," + this.sex + "," + this.age + "岁");
+		}
+		return person;
+	}
+	var person = createPerson("张三", 20, "男");
+	person.sayHello();		//张三,男,20岁
+//==================================================================================
+/*
+4. 使用构造函数模式创建
+	必须使用关键字new，后面跟着构造函数的名
+	与工厂方式相比，使用构造函数方式创建对象，无需在函数内部重新创建对象，而是使用this指代，并且函数不用明确返回对象（return this）
+	优点：解决对象类型识别问题，定义方便，拓展性强
+* */
+	function Person (name, age, sex) {
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		this.sayHello = function () {
+			console.log(this.name + "," + this.sex + "," + this.age + "岁");
+		}
+	}
+	var person = new Person("张三", 20, "男");
+	person.sayHello();		//张三,男,20岁
+</script>
+</body>
+</html>

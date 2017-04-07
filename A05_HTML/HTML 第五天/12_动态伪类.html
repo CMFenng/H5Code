@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		a{
+			text-decoration: none;
+			color: #000;
+			font-size: 300px;
+		}
+		
+
+		/*动态伪类*/
+		 
+		/*未被访问的链接*/
+		a:link{
+			background: red;
+		}
+		
+		/*已经被访问的链接*/
+		a:visited{
+			background: blue;
+		}
+		
+		/*当鼠标悬停在元素上方的时候触发*/
+		a:hover{
+			background: yellow;
+		}
+
+		/*鼠标点击的时候触发*/
+		a:active{
+			background: green;
+		}
+
+		/*
+			hover 需要书写在 link 和 visited 之后
+			active 需要书写在 hover 之后
+		*/
+		
+		div{
+			width: 300px;
+			height: 300px;
+			background: red;
+		}
+		div:visited{
+			background: blue;
+		}
+		div:hover{
+			background: green;
+		}
+		div:active{
+			background: black;
+		}
+		
+		/*当获取焦点时触发*/
+		input:focus{
+			outline-width: 50px;
+		}
+	</style>
+</head>
+<body>
+	<!-- <a href="###">李先生</a> -->
+	<div></div>
+	<input type="text" name="">
+</body>
+</html>

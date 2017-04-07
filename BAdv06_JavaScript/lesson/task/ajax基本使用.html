@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+	//第一步：创建一个XMLHttpRequest对象(ajax核心对象)
+	var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+	console.log(xhr.readyState);	//此时请求状态为 0，因未注册监听事件，所以onreadystatechange中未打印出来
+	
+	//第二步：调用open方法
+	/*
+		参数1：请求方法  get或post
+		参数2：请求url
+		参数3：是否异步发出请求  true表示异步
+		此时并没有真正的发送网络请求。
+	*/
+	xhr.open("GET", "data.json", true);
+	console.log(xhr.readyState);	//此时请求状态为 1,，因未注册监听事件，所以onreadystatechange中未打印出来
+	
+	//第三步：监听状态
+	xhr.onreadystatechange = function () {
+		//如果数据传输完毕（返回4）
+		if(xhr.readyState === 4){
+			//并且正常响应（200->ok 404->客户端问题：资源路径错误  500->服务器故障）
+	        if(xhr.status === 200){
+	        	//json格式的字符串
+	        	var msg = xhr.responseText;
+	            console.log(msg);
+	        }
+	    }
+		console.log("监听状态" + xhr.readyState);
+	}
+	
+	//第四步：发出请求
+	/*
+	    get请求传入null即可
+	    post请求就是具体的请求数据
+	*/
+	xhr.send(null);
+	console.log(xhr.readyState);	//此时请求状态为 1
+</script>
+</body>
+</html>

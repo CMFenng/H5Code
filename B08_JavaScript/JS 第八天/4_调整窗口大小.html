@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="to()">调整窗口大小</button><br />
+	<button onclick="by()">增加 10px</button>
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+调整窗口大小
+	
+	resizeTo()
+		调整到指定大小
+	resizeBy()
+		增加指定的宽度和高度（宽和高 增加10px）
+	
+	一些浏览器中已经将这个方法移除
+	但是，在 IE8 中还可以使用
+*/
+	function to(){
+		window.resizeTo(200,200);
+	}
+	function by(){
+		window.resizeBy(10,10);
+	}
+</script>
+</html>

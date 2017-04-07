@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="myH1" class="h1_class">我是标题</h1>
+	<h1 id="myH2" class="h1_class">我是标题</h1>
+	<h1 id="myH3" class="h1_class">我是标题</h1>
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     DOM 核心对象 - document 对象
+     * 
+     * JS 中是通过 Document 类型来表示文档
+     * 在浏览器中，document 的对象是 HTMLDocument
+     * 
+     * 表示整个 HTML 界面
+     * 
+     * 而且 document 对象是 window 对象一个属性
+     * 我们可以将其当做全局对象来访问
+     * 
+     * nodeType 		：9
+     * nodeName 		：#document
+     * nodeValue		：null
+     * parentNode	：null		（父节点）
+     * ownerDocument	：null		（根元素节点）
+     * */
+    /*
+     document 对象来获取页面有关的信息
+     * 
+     * 获取节点
+     * */
+    //=======================================
+    //	document.getElementById();
+    //
+    //	1.使用该方法一定不要查找多个 id
+    	//	2.如果有多个相同的 id，则只会返回一个元素
+    	//	3.在低于 IE 8 的版本，对匹配元素的 ID 
+	//	  不区分大小写    			
+    //=======================================
+    var h1 = document.getElementById("myH1");
+    //元素的 id
+	console.log(h1.id);			//myH1
+	//元素的 className
+	console.log(h1.className);	//h1_class
+	//元素的 HTML文本
+	console.log(h1.innerHTML);	//我是标题
+    //=======================================
+    /*
+     document.getElementsByTagName();
+     * 
+     * 该方法是根据标签名称来获取元素节点
+     * 
+     * 因为一个文档中可能出现多个标签
+     * 所以该方法返回的是多个 Element 组成的集合
+     * 
+     * 平常不太推荐大家使用该方法
+     * 如果可以，尽量使用 getElementById()
+     * 
+     * 在 Element 中定义，如果要获取某一内容内容的
+     * 某些元素，
+     * 则可以在上一层元素中再使用 ByTagName
+     * 
+     * NodeList 对象 （NodeList ： 节点列表）
+     * 	类数组集合
+     * 		返回的是一个只读的 类数组对象
+     * 		他们拥有 length 属性，
+     * 		也可以像数组一样索引
+     * */
+    //=======================================
+    var h1s = document.getElementsByTagName("h1");		//截图1
+	console.log(h1s);
+	for(var i = 0; i < h1s.length; i++){
+		//元素的 id
+		console.log(h1s[i].id);
+		//通过item下标访问 item(i)
+		console.log(h1s.item(i).id);
+	}
+</script>
+</html>
+

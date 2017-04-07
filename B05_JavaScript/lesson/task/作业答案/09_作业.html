@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<input type="text" placeholder="请输入a的值"/>
+	<input type="text" placeholder="请输入b的值"/>
+	<button>计算</button>
+	<input type="text" placeholder="最大公约数"/>
+	<input type="text" placeholder="最小公倍数"/>
+	<script type="text/javascript">
+		//获取页面元素
+		var inputA = document.getElementsByTagName("input")[0];
+		var inputB = document.getElementsByTagName("input")[1];
+		var inputDivisor = document.getElementsByTagName("input")[2];
+		var inputMultiple = document.getElementsByTagName("input")[3];
+		
+		//绑定按钮的点击事件
+		document.getElementsByTagName("button")[0].onclick = function(){
+			//获取用户输入的数据
+			var a = inputA.value;
+			var b = inputB.value;
+			
+			//判断用户输入是否正确
+			if(isNumber(a) && isNumber(b)){
+				//将用户输入的数据转成Int
+				a = parseInt(a);
+				b = parseInt(b);
+				//计算后将结果赋值给输入框
+				inputDivisor.value = calGY(a,b);
+				inputMultiple.value = calGB(a,b);
+			}else{
+				//输入错误，将输入框清空
+				alert("输入错误！");
+				inputA.value = "";
+				inputB.value = "";
+			}
+		}
+		
+		/* 
+		 * 计算最大公约数
+		 * 参数1，参数2 为求最大公约数的两个数值，Number
+		 * 返回最大公约数
+		 */
+		function calGY(num1,num2){
+			var min = calMin(num1,num2);
+			for(var i = min; min > 1; i--){
+				if(num1 % i === 0 && num2 % i === 0){
+					return i;
+				}else{
+					return 1;
+				}
+			}
+		}
+		
+		/*
+		 * 计算最小公倍数 
+		 * 参数1，参数2 为求最小公倍数的两个数值，Number
+		 * 返回最小公倍数
+		 */
+		function calGB(num1,num2){
+			var max = calMax(num1,num2);
+			for(var i = max; true; i++){
+				if(i % num1 === 0 && i % num2 === 0){
+					return i;
+				}
+			}
+		}
+		
+		/*
+		 * 计算最小值 
+		 * 参数1，参数2 为求最小值的两个数，Number
+		 * 返回最小值
+		 */
+		function calMin(num1,num2){
+			return num1 < num2 ?　num1 : num2;
+		}
+		
+		/*
+		 * 计算最大值
+		 * 参数1，参数2 为求最大值的两个数，Number
+		 * 返回最大值
+		 */
+		function calMax(num1,num2){
+			return num1 > num2 ?　num1 : num2;
+		}
+		
+		/*
+		 * 判断输入的是否为数字
+		 * 参数为用户输入的数据，String
+		 * 返回true： 输入的是数字
+		 * 返回false： 输入的不是数字
+		 */
+		function isNumber(num){
+			return num == Number(num) ?　true : false;
+		}
+		
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+CACHE MANIFEST
+## v1.5
+
+CACHE:
+./css/test.css
+./js/test.js
+
+NETWORK:
+./css/network.css
+
+FALLBACK:

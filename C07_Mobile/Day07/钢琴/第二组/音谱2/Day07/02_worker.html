@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="点我！" />
+		<input type="button" value="停止子线程" id="stopBtn" />
+		<h1></h1>
+		
+		<script type="text/javascript">
+			var btn = document.querySelector("input");
+			var stopBtn =document.querySelector("#stopBtn");
+			var h1 = document.querySelector("h1");
+			
+			//模拟一个耗时操作
+//			for (var i = 0; i < 2000000000; i++) {
+//				
+//			}
+//			
+//			h1.innerHTML = i;
+
+			//使用H5的Worker类，可以创建一个子线程。
+			//我们正常的代码都执行在主线程上，这样会造成阻塞效果
+			//如果我们把耗时操作放在子线程里去执行的话就不会阻塞页面了。
+			var worker = null;
+			//判断浏览器是否支持Worker
+			if (typeof Worker != 'undefined') {
+				//创建一个子线程，把耗时操作放到子线程中去执行
+				//参数是 耗时操作 代码的 js文件
+				worker = new Worker('worker.js');
+				//给woker绑定onmessage事件
+				worker.onmessage = function (e) {
+					//当子线程的耗时操作完毕之后，会调用postMessage方法，回到这里
+					//更新UI  e.data 就是传过来的数据
+					h1.innerHTML = e.data;
+				}
+			} else {
+				throw new Error("浏览器不支持Worker");
+			}
+
+			
+			btn.onclick = function () {
+				alert(123);
+			}
+			
+			//停止子线程
+			stopBtn.onclick = function () {
+				worker.terminate();
+			}
+			
+			
+		</script>
+	</body>
+</html>

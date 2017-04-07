@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" name="num" id="num" value="" />
+	<input type="button" name="btn" id="btn" value="输入" />
+</body>
+<script type="text/javascript">
+	var arr = [99,85,82,63,60];
+	var temp;
+	var numId = document.getElementById("num");
+    document.getElementById("btn").onclick = function(){
+    	var len = arr.push(numId.value);
+    	
+    	for(var i = len; i > 0; i--){
+    		if(arr[i-1] < arr[i]){
+    			temp = arr[i];
+    			arr[i] = arr[i-1];
+    			arr[i-1] = temp;
+    		}
+    	}
+    	alert(arr);
+    }
+</script>
+</html>

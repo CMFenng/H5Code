@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="myAjax.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<form action="post.php" method="post">
+	用户：<input type="text" name="user" id="user" /><br />
+	密码：<input type="password" name="pwd" id="pwd" /><br />
+	<input type="submit" value="提交"/>
+</form>
+<script type="text/javascript">
+	var formObj = {
+		//获取所有表单的第一个
+		form : document.forms[0],
+		//表单的初始化
+		init : function () {
+			this.form.onsubmit = function (event) {
+				//阻止表单提交的默认行为
+				event.preventDefault();
+				//处理表单数据，这里的this需要绑定
+				this.handleSubmit();
+			}.bind(this);
+		},
+		
+		//处理表单数据
+		handleSubmit : function () {
+			//获取表单数据
+			var formData = new FormData(this.form);
+			//获取user的值
+			var userValue = formData.get("user");
+			//查找字符串中是否包含指定字符
+			//此处如果直接输入“苍老师”会返回下标0，导致没有进去if语句
+			//可在前面添加别的字符，如“你好苍老师”
+			if (userValue.search("苍老师")) {
+				//替换指定字符
+				var newValue = userValue.replace("苍老师", "*");
+				//重新设置表单的user的value(两句都不可缺)
+				//用于更改已经获得的表单数据，提交的时候才不会是替换前的值
+				formData.set("user", newValue);
+				//用于将更改后的数据在页面显示
+				this.form[0].value = newValue;
+			}
+			//用ajax提交表单
+			this.ajax(formData);
+		},
+		
+		//ajax提交表单
+		ajax : function (formData) {
+			ajax.post("post.php", formData, function (result) {
+				//处理返回的数据
+				this.handleResult(result);
+			}.bind(this));
+		},
+		
+		//处理ajax返回的数据
+		handleResult : function (result) {
+			//将数据解析为JSON对象
+			var obj = JSON.parse(result);
+			//展示结果
+			this.showResult(obj);
+		},
+		
+		//展示结果
+		showResult : function (obj) {
+			console.log(obj);
+		}
+	}
+	
+	formObj.init();
+</script>
+</body>
+</html>
+<!--
+	这里把每个方法分开写是为了使方法的用途更加明确，而且易于维护
+-->

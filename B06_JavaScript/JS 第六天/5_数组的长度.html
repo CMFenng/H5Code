@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     数组的长度
+     * 
+     * 如何获取数组的长度
+     *  每一个数组都有一个 length 属性，
+     * 	用于表示数组的长度（即：元素的个数）
+     * 		数组名称.length
+     * */
+    var arr = [10,20,30,40,50];
+    console.log("数组的长度为"+arr.length);
+    
+    //============================
+    /*
+     如何修改数组的长度？
+     * 	一般强类型语言中，数组的长度是固定的
+     * 	一旦创建成功，则不能修改数组的长度
+     * 
+     * 	但是 JS 是一种弱类型的语言，
+     * 	数组的长度可以在程序运行期间根据需要
+     * 	动态的发生改变
+     * 
+     * 	数组的 length 不仅仅是只读的，还可以修改
+     * */
+    //================================
+    var arr = ["asd",5,"qwe"];
+    console.log(arr.length);		//3
+    arr.length = 6;
+    console.log(arr.length);		//6
+    //4,5,6位实际放的是 undefined
+    console.log(arr);	
+    console.log(arr[5]);
+    
+    arr.length = 2;
+    console.log(arr.length);
+    console.log(arr);
+    //修改长度为 2 时候，则下标大于等于数组
+    	//长度的内容，会被直接移除
+    	//==================================
+    	//通过给最后一个元素赋值来动态的修改数组长度
+    	var arr = [4,5,6];
+    	console.log(arr.length);	//3
+    	//给下标为 11 的元素赋予初始值
+    	//因为初始长度为 3，这个操作完后，
+    	//数组长度会变为 12
+    	arr[11] = 678;
+    	console.log(arr.length);
+    	console.log(arr);
+    	//没有初始值的元素默认全部为 undefined
+    	console.log(arr[6]);
+</script>
+</html>

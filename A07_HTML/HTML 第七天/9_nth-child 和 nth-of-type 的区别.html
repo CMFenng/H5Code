@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.ul li:nth-child(2){
+			background: red;
+		}
+		/*
+		nth-child(n)
+			是父元素标签内的第二个元素
+			这个元素必须是 li，如果不是，不生效
+		 */
+		.ul li:nth-of-type(2){
+			background: blue;
+		}
+		/*
+		nth-of-type(n)
+			选择父元素标签的第二个 li 元素
+		 */
+	</style>
+</head>
+<body>
+	<ul class="ul">
+		<p>这是一个对比</p>
+		<p>这是一个对比</p>
+		<li>列表第一项</li>
+		<li>列表第二项</li>
+	</ul>
+</body>
+</html>

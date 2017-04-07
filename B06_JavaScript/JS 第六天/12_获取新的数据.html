@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     获取新的数据
+     * 
+     * 1.concat()
+     * 2.slice()
+     * 3.splice()(重点)
+     * */
+    //============================
+    /*
+     concat()
+     * 该方法用于连接两个或者多个数组
+     * 
+     * 至少需要传入一个参数，参数可以是元素，
+     * 也可以是数组
+     * 
+     * 该方法返回一个新的数组，原数组没有改变
+     * */
+    var arr = ["a","b","c","d"];
+    var newArr = arr.concat(["e","f"]);
+    console.log(newArr.length);	//6
+    console.log(arr.length);		//4
+    
+    //把两个元素和一个数组全部进行连接，
+    //实际出现的会是一个完整的“新数组”
+    var newArr_2 = arr.concat("e","f",["g","h"]);
+    console.log(newArr_2.length);//8
+    //=================================
+    /*
+     arr.slice( start , end )
+     * 截取数组，并返回截取到的新数组
+     * 
+     * 参数：
+     * 		start：必选
+     * 			   从原数组中的开始的位置
+     * 			   如果是负数，则表示从尾部开始截取
+     * 			   -1 -> 表示最后一个元素
+     * 		end：  可选
+     * 			   截取到指定的位置
+     * 			   不包括 end 的位置
+     * 			   如果没有给定 end，
+     * 			   则表示截取到最后
+     * 		
+     * 		end 要大于 start ，否则无法截取元素
+     * 
+     * 		截取出来是一个新的数组，对原始数组
+     * 		没有任何影响
+     * */
+    var arr = ["a","b","c","d","e"];
+    var newArr = arr.slice(0,2);
+    console.log(newArr);		//a,b
+    console.log(arr);		//a,b,c,d,e
+    
+    console.log(arr.slice(3));//d,e
+    
+    console.log(arr.slice(-1));//e
+    
+    console.log(arr.slice(2, 1));//空
+    
+    console.log(arr.slice(-3,-2));//c
+    //====================================
+    /*
+     arr.splice(index,howmany,item1..itemN)
+     * 
+     * 该方法 从/向 数组中 添加/删除 元素，
+     * 然后返回被删除的数组
+     * 
+     * 参数：
+     * 		index ： 必要参数
+     * 				 规定 添加/删除 元素的位置
+     * 				 使用负数可以从数组的结尾开始
+     * 		howmany：必要参数
+     * 				 要删除的元素数量
+     * 				 如果设为0，则不会删除元素
+     * 				 如果需要添加元素，同样应该为0
+     * 		item	 ：	 可选参数
+     * 				 向数组中添加的新元素
+     * 
+     * 
+	 * 这个方法会对原数组产生影响
+     * */
+    //====================================
+    //添加元素
+    var arr = ["a","b","c","d","e"];
+    var v = arr.splice(1,0,"asd","qwe");
+    //因为是添加元素，所以返回的 v 的长度为0
+    console.log(v.length);		//0
+    console.log(arr.length);		//7
+    //因为插入位置为 1，所以添加后其他元素自动后移
+    console.log(arr);
+    //===================================
+    //删除元素
+    var arr = ["a","b","c","d","e"];
+    //返回值为删除的元素的数组
+    var deleted = arr.splice(1,2);
+    //因为第二个参数不为0，所以表示删除元素
+    //从下标为 1 的位置开始删除
+    //删除两个元素
+    console.log(deleted);	//b,c
+    console.log(arr);		//a,d,e
+    //=================================
+    //替换元素
+    var arr = ["a","b","c","d","e"];
+    //返回值是删除元素组成的数组
+    var change = arr.splice(1,1,"bbbbb");
+    console.log(change);
+    console.log(arr);
+    
+    var change_2 = arr.splice(1,1,"bbb","ccc");
+    console.log(arr.length);
+    console.log(arr);
+    
+    
+    
+    
+    
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     函数的递归调用
+     * 递归是指 在函数的内部调用当前函数
+     * 自己调用自己
+     * 
+     * 使用递归的时候要满足以下条件，
+     * 否则非常用以出现死循环
+     * 	1.一定要有结束条件
+     * 	2.随着递归的进行，应该逐步靠近结束条件
+     * */
+    function jiecheng(num){
+    		if(num == 1){
+    			return 1;
+    		}
+    		return jiecheng(num - 1) * num;
+    }
+    alert("5的阶乘是" + jiecheng(5));
+    // 5! = 1 * 2 * 3 * 4 * 5
+    	//	  = 6 * 20
+    	//	  = 120
+    
+</script>
+</html>

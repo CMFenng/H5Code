@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            function click1() {
+                console.log("第一个处理函数");
+            }
+            function click2() {
+                console.log("第二个处理函数");
+            }
+
+            // 用on给同一个元素注册同类型的事件也不会把前面注册的给覆盖掉
+            // 这里点击按钮1同时执行click1和click2
+//            $("button:eq(0)").on("click", click1);
+//            $("button:eq(0)").on("click", click2);
+
+            $("button:eq(1)").on("click", function () {
+                // 解除click1事件，但click2事件还存在
+//                $("button:eq(0)").unbind("click", click1);
+
+                // 解除所有的click事件
+                $("button:eq(0)").off("click");
+            });
+
+            // 直接绑定一个click事件
+            $("button:eq(0)").click(function () {
+                alert("abc");
+            });
+            $("button:eq(2)").click(function () {
+                // 触发这个元素的点击事件
+                $("button:eq(0)").click();
+            });
+        });
+    </script>
+</head>
+<body>
+<button>按钮1</button>
+<button>解除按钮1绑定的事件</button>
+<button>按钮3</button>
+</body>
+</html>

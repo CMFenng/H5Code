@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//通过点语法存储数据
+			console.log(window.localStorage);
+			window.localStorage.userName = '小雪';
+			
+			//使用相关API来存储数据
+			window.localStorage.setItem('userAge', 18);
+			
+			//通过点语法获取数据
+			console.log(window.localStorage.userName);
+			//使用相关API来获取数据
+			console.log(window.localStorage.getItem('userAge'));
+			
+			var personObj = {
+				name : '凤九',
+				age : 18,
+				isMarry : false,
+				friends : [
+					{ name : '帝君' },
+					{ name : '真真' }
+				]
+			}
+			
+			window.localStorage.setItem('personObj', personObj);
+			
+			console.log(window.localStorage.getItem('personObj'));
+			
+			/*
+			 * 以上如果存储的是复杂结构（对象）的话，浏览器会把我们要存储
+			 * 的这个对象的类型转换成一个字符串，然后存储到localStorage里，
+			 * 我们获取后依然是一个 [object Object]的字符串，这样的存储，
+			 * 毫无意义！！！！
+			 */
+			
+			/*
+			 * 在JS里
+			 * 序列化：把对象转换成JSON、XML等操作叫做序列化
+			 * 反序列化：把JSON、XML转换成对象的操作叫做反序列化
+			 */
+			
+			//存储复杂结构先进行序列化操作
+			window.localStorage.setItem('personObj', JSON.stringify(personObj));
+			
+			//通过反序列化进行获取
+			console.log(JSON.parse(window.localStorage.getItem('personObj')));
+			
+			//查看存储的个数
+			console.log(window.localStorage.length);
+			
+			//遍历
+			for (var tempProp in window.localStorage) {
+//				console.log(tempProp + " === " + window.localStorage[tempProp]);
+			}
+	
+			//移除某一组
+			window.localStorage.removeItem('personObj');
+			
+			//清空所有（将来开发中慎用！！根据需求而用！）
+			window.localStorage.clear();
+			
+		</script>
+	</body>
+</html>

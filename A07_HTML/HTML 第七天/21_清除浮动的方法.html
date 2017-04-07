@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrap{
+			width: 1300px;
+			/*
+			解决方案1 ： 给父级设置高度
+				缺点：拓展性太差
+			 */
+			/*height: 600px;*/
+
+
+			/*
+			解决方案2 ： 给父级设置浮动
+				缺点：拓展性太差
+					 本末倒置
+			 */
+			/*float: left;*/
+			border: 3px solid #000;
+
+			/*
+			解决方案 3 ： 给父级设置
+						 overflow
+				缺点：
+					可能会造成当前内容不可见
+
+					兼容性差
+			 */
+			/*overflow: hidden;*/
+
+			/*
+			解决方案 4 ：display:
+						inline-block;
+				缺点：
+					再次引发其他的问题
+			 */
+			/*display: inline-block;*/
+
+			/*
+			解决方案 5 ：使用 clear 清除
+
+			float -> clear
+			none 	 none
+			left 	 left
+			right 	 right
+					 both
+				缺点：
+					每一次需要确定清除的元素位置（找后一个）
+			 */
+		}
+		.div_1{
+			width: 300px;
+			height: 300px;
+			background: red;
+
+			float: left;
+		}
+		.div_2{
+			width: 600px;
+			height: 600px;
+			background: blue;
+
+			float: right;
+		}
+		.wrap:after{
+			content: "";
+			clear: both;
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="div_1"></div>
+		<div class="div_2"></div>
+	</div>
+</body>
+</html>

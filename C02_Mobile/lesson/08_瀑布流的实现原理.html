@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box{
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        #box ul{
+            list-style: none;
+            float: left;
+            width: 24%;
+            margin: 5px;
+        }
+
+        #box li img{
+            width: 100%;
+            margin: 5px;
+        }
+    </style>
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="lib/jquery.lazyload.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script type="text/javascript">
+    // 获取所有的 ul
+    var ulArr = document.querySelectorAll("ul");
+
+    // 初始化图片数量
+    function initImg(count) {
+        for (var i = 0; i < count; i++){
+            var li = document.createElement("li");
+            var img = document.createElement("img");
+            // 设置图片的 src（因为这里用到 jQuery 插件实现懒加载，所以要用 data-original）
+//            img.src = "./img/美女/" + i + ".jpg";
+            img.setAttribute("data-original", `./img/美女/${ i }.jpg`);
+            li.appendChild(img);
+
+            // 需要判断哪个 ul 最短，就把 li 放进去
+            // 定义一个临时最短 ul 的变量，假设某个 ul 最短
+            var shortUl = ulArr[0];
+            for (var j = 0; j < ulArr.length; j++){
+                if (shortUl.offsetHeight >= ulArr[j].offsetHeight){
+                    // 获取高度最小的 ul
+                    shortUl = ulArr[j];
+                }
+            }
+            // 向高度最小的 ul 中追加 里 li
+            shortUl.appendChild(li);
+            // 懒加载（需要导入 jquery.js 和 jquery.lazyload.min.js）
+            $(img).lazyload({
+                effect : "fadeIn"
+            });
+        }
+    }
+
+    initImg(120);
+</script>
+</body>
+</html>

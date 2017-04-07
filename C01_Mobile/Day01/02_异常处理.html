@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charet="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		// name = "小雪"; 
+
+		// console.log(name);
+
+		/*
+			利用try..catch 进行异常的捕获
+		*/
+
+		try {
+			//我们把有可能出现异常的代码，放到try代码中执行
+			console.log(age);
+		} catch (e) {
+			//e 是异常
+			console.log(e.toString());
+		}
+
+		console.log("-------");
+
+		//主动抛出异常
+		throw new Error("想趁虚而入，stop！！！");
+
+		console.log("======");
+
+	</script>
+</body>
+</html>

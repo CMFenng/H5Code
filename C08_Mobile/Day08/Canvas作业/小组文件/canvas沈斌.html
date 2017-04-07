@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas width="800" height="500"></canvas>
+<script type="text/javascript">
+    var cvs = document.querySelector("canvas");
+    var ct = cvs.getContext("2d");
+    ct.fillStyle = "white";
+    ct.fillRect(0,0,800,500);
+    ct.beginPath();
+    ct.fillStyle = "yellow";
+    for(var i=0;i<30;i++){
+        ct.lineTo(100+Math.sin(Math.PI/15*11*i)*100,100+Math.cos(Math.PI/15*11*i)*100)
+    }
+    ct.stroke();
+    ct.fill();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.fillStyle = "orange";
+    for(var i=0;i<28;i++){
+        ct.lineTo(100+Math.sin(Math.PI/14*9*i)*40,100+Math.cos(Math.PI/14*9*i)*40)
+    }
+    ct.stroke();
+    ct.fill();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.fillStyle = "yellow";
+    for(var i=0;i<30;i++){
+        ct.lineTo(350+Math.sin(Math.PI/15*11*i)*80,200+Math.cos(Math.PI/15*11*i)*80)
+    }
+    ct.stroke();
+    ct.fill();
+    ct.closePath();
+
+
+    ct.strokeStyle = "green";
+    ct.lineWidth = 10;
+    ct.beginPath();
+    ct.moveTo(120,120);
+    ct.quadraticCurveTo(150,60,200,500);
+    ct.stroke();
+    ct.closePath();
+
+    //叶子
+    ct.fillStyle = "green";
+    ct.beginPath();
+    ct.moveTo(180,320);
+    ct.quadraticCurveTo(80,250,186,400);
+    ct.fill();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.moveTo(180,300);
+    ct.quadraticCurveTo(300,250,180,370);
+    ct.fill();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.strokeRect(350,280,6,200);
+    ct.fill();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.moveTo(360,380);
+    ct.quadraticCurveTo(450,380,450,332);
+    ct.fill();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.moveTo(356,380);
+    ct.quadraticCurveTo(420,300,450,332);
+    ct.fill();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.moveTo(350,400);
+    ct.quadraticCurveTo(320,400,286,340);
+    ct.fill();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.moveTo(350,400);
+    ct.quadraticCurveTo(300,330,286,340);
+    ct.fill();
+    ct.closePath();
+
+    //眼睛
+    ct.beginPath();
+    ct.lineCap = "round";
+    ct.strokeStyle="orange";
+//    ct.rotate(20*Math.PI/180);
+    ct.arc(330,200,14,0,Math.PI,true);
+    ct.stroke();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.strokeStyle="orange";
+    //    ct.rotate(20*Math.PI/180);
+    ct.arc(380,200,14,0,Math.PI,true);
+    ct.stroke();
+    ct.closePath();
+
+    ct.beginPath();
+    ct.lineWidth = 5;
+    ct.strokeStyle="orange";
+    ct.moveTo(316,218);
+    ct.quadraticCurveTo(360,280,390,220);
+    ct.stroke();
+    ct.closePath();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p:first-line{
+				color: red;
+			}
+			
+			p:first-letter{
+				font-size: 30px;
+				color: blue;
+				font-weight: bold;
+			}
+			
+			h1:before{
+				content: "🇨🇳🇨🇳";
+			}
+			
+			h1:after{
+				content: "🆙🆙";
+			}
+			
+			h1::selection{
+				color: red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<p>
+			哈哈，深圳你好。<br />
+			嘿嘿，北京再见。
+		</p>
+		
+		<h1>我是东华帝君！</h1>
+		
+	</body>
+</html>

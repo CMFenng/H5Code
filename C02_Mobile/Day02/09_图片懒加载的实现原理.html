@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul{
+				list-style: none;
+				width: 440px;
+				margin: 0 auto;
+			}
+			
+			li{
+				width: 440px;
+				height: 300px;
+			}
+			
+			li img{
+				width: 440px;
+				height: 300px;
+				/* 以下css样式是为了做渐变效果 */
+				opacity: 0;
+				/* 这里用到一个过渡动画（明天就会讲了。。） 
+				 	意思就是说当发现opacity的值发生变化的时候会触发一个动画效果，时间为2s
+				 * */
+				transition: opacity 2s;
+			}
+			
+			li img[src]{
+				opacity: 1;	
+			}
+			
+			
+						
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><img data-src="img/美女/0.jpg" alt="" /></li>
+			<li><img data-src="img/美女/1.jpg" alt="" /></li>
+			<li><img data-src="img/美女/2.jpg" alt="" /></li>
+			<li><img data-src="img/美女/3.jpg" alt="" /></li>
+			<li><img data-src="img/美女/4.jpg" alt="" /></li>
+			<li><img data-src="img/美女/5.jpg" alt="" /></li>
+			<li><img data-src="img/美女/6.jpg" alt="" /></li>
+			<li><img data-src="img/美女/7.jpg" alt="" /></li>
+			<li><img data-src="img/美女/8.jpg" alt="" /></li>
+			<li><img data-src="img/美女/9.jpg" alt="" /></li>
+			<li><img data-src="img/美女/10.jpg" alt="" /></li>
+			<li><img data-src="img/美女/11.jpg" alt="" /></li>
+			<li><img data-src="img/美女/12.jpg" alt="" /></li>
+			<li><img data-src="img/美女/13.jpg" alt="" /></li>
+			<li><img data-src="img/美女/14.jpg" alt="" /></li>
+			<li><img data-src="img/美女/15.jpg" alt="" /></li>
+		</ul>
+		<script type="text/javascript">
+			/*
+			 * 图片懒加载的原理：
+			 * 	1、提前给图片设置好宽度和高度用来站位（将来可以找占位图来做）
+			 *  2、不去设置src属性，设置一个自定义属性例如data-src，我们把图片的路径地址，存
+			 * 到data-src中。
+			 * 3、在滚动的过程中，判断屏幕的底部（滚动过去的距离 + 屏幕的高度）是否大于图片的
+			 * top值 来控制是否真正的显示图片
+			 * 4、最后把存在data-src中的图片地址，设置到src属性中即可。
+			 */
+			
+			//获取所有图片
+			var imgs = document.querySelectorAll("img");
+			
+			//获取屏幕的高度
+			var sh = window.innerHeight;
+			
+			//刚进来需要看到
+			lazyloadFn();
+			
+			//绑定滚动事件
+			window.onscroll = lazyloadFn;
+			
+			function lazyloadFn () {
+				//获取滚动的距离
+				var st = document.body.scrollTop;
+//				console.log(st);
+				//计算当前屏幕低端的位置 = 滚动的距离 + 屏幕的高度
+				var sb = sh + st;
+				console.log(sb);
+				for (var i = 0; i < imgs.length; i++) {
+					//判断图片的top是否小于等于屏幕底端 ，如果小于的话就设置src属性
+					if (imgs[i].offsetTop <= sb) {
+						imgs[i].src = imgs[i].getAttribute('data-src');						
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

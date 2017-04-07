@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table{
+			border: 1px solid #000;
+
+			/*
+				用于将边框进行合并（解决双边框问题）
+
+				如果用于单元格双边框，则需要设置给 table
+				border-collapse: collapse;
+			*/
+			border-collapse: collapse;
+		}
+		table td , table th{
+			/*border: 5px solid;*/
+			/*border-color: red green yellow blue;*/
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		table
+			双标签
+			语义：定义表格
+
+			属性
+				cellspacing
+					指定单元格之间的间隙
+				cellpadding
+					指定单元格和内容之间的间距
+				border
+					指定边框宽度（默认为 3D 垄状边框）
+					border="3px"
+	 -->
+	<table  cellspacing="1000px" cellpadding="20px">
+
+		<!-- 
+			caption
+				双标签
+				语义：定义表格的标题
+		 -->
+		<caption>SZ1605 班级最帅的人的名单</caption>
+		<!-- 
+			tr
+				双标签
+				语义：定义表格中的行
+		 -->
+		<!-- <tr>
+			我是表格中的行
+		</tr> -->
+		<!-- <tr> -->
+			<!-- 
+				td
+					双标签
+					语义：定义单元格
+			 -->
+			<!-- 
+				th
+					双标签
+					语义：定义表格页眉的单元格
+
+					浏览器会以 加粗 并 居中 来显示 th 中的内容
+			 -->
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>性取向</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td>李先生</td>
+				<td colspan="2">男</td>
+				<!-- <td>女</td> -->
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>陈杰</td>
+				<!--
+				合并单元格
+					1.找到需要合并单元格的起始位置
+					2.确定合并的方向
+						横向合并
+							colspan
+						纵向合并
+							rowspan
+					3.确定合并几个单元格
+					4.处理多余的单元格
+				 -->
+				<td  rowspan="2">不确定</td>
+				<td>双向</td>
+			</tr>
+			<tr>
+				<td>徐新伟</td>
+				<!-- <td>男</td> -->
+				<td>美女</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
+<!--░░░░░░░░░░░░░░░░░░░░░░░░▄░░-->
+<!--░░░░░░░░░▐█░░░░░░░░░░░▄▀▒▌░-->
+<!--░░░░░░░░▐▀▒█░░░░░░░░▄▀▒▒▒▐-->
+<!--░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐-->
+<!--░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐-->
+<!--░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌-->
+<!--░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒-->
+<!--░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐-->
+<!--░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄-->
+<!--░▌░▒▄██▄▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒-->
+<!--▀▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒-->
+<!--单身狗就这样默默地看着你，一句话也不说。-->
+

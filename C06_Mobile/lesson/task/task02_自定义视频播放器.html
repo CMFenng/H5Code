@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video controls="controls" src="source/终结者_Larry.MP4"></video>
+<br />
+<input id="play" type="button" value="播放" />
+<input id="mute" type="button" value="静音" />
+<input type="button" id="fullScreen" value="全屏" />
+播放进度：<input id="progress" type="range" max="100" value="0"/>
+音量：<input id="volume" type="range" max="100"/><span></span>
+<script type="text/javascript">
+	var video = document.querySelector("video");
+	var playBtn = document.getElementById("play");
+	var muteBtn = document.getElementById("mute");
+	var fullScreen = document.getElementById("fullScreen");
+	var progressRange = document.getElementById("progress");
+	var volumeRange = document.getElementById("volume");
+	var span = document.querySelector("span");
+	var flag = true;
+    volumeRange.value = video.volume * 100;
+	
+	// 播放、暂停
+	playBtn.onclick = function () {
+		if (flag) {
+			video.play();
+			playBtn.value = "暂停";
+		} else {
+			video.pause();
+			playBtn.value = "播放";
+		}
+		flag = !flag;
+	}
+	
+	// 静音
+	muteBtn.onclick = function () {
+		video.muted = !video.muted;
+	}
+	
+	// 全屏
+	fullScreen.onclick = function () {
+		if (video.requestFullscreen) {
+			console.log(123);
+			video.requestFullscreen();
+		} else if (video.webkitRequestFullScreen) {
+			video.webkitRequestFullScreen();
+			console.log(456);
+		} else if (video.mozRequestFullScreen) {
+			video.mozRequestFullScreen();
+			console.log(789);
+		}
+	}
+	
+	// 播放进度
+	progressRange.oninput = function () {
+		var currentTime = progressRange.value / 100 * video.duration;
+
+		
+//		progress();
+	}
+	
+	// 音量
+	volumeRange.oninput = function () {
+		video.volume = volumeRange.value / 100;
+	}
+	
+
+	
+	function progress(){
+		var currentProMin = parseInt(video.currentTime/60);
+		var currentProSec = parseInt(video.currentTime%60);
+		var durationProMin = parseInt(video.duration/60);
+		var durationProSec = parseInt(video.duration%60);
+        currentProSec = currentProSec < 10 ? "0"+currentProSec : currentProSec;
+        durationProSec = durationProSec < 10 ? "0"+durationProSec : durationProSec;
+
+        var currentPro = currentProMin + ":" + currentProSec;
+        var durationPro = durationProMin + ":" + durationProSec;
+		
+		span.innerHTML = currentPro + " / " + durationPro;
+
+		progressRange.value = (video.currentTime/video.duration) * 100;
+//		video.value = progressRange.value;
+	}
+    video.oncanplay = progress;
+
+	progress();
+	setInterval(progress, 10);
+	
+</script>
+</body>
+</html>

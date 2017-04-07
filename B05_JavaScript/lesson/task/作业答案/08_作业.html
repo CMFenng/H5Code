@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		function add(num){
+			if(num ===1){
+				return 1;
+			}
+			return num + add(num-1)
+		}
+		alert(add(100));
+	</script>
+</body>
+
+</html>

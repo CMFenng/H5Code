@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<div id="div"></div>
+	
+	<ul id="language">
+		<li>java</li>
+		<li>c#</li>
+	</ul>
+	<button onclick="addNode()">点击添加新节点</button>
+	<button onclick="removeNode()">点击移除第一个节点</button>
+	<button onclick="replaceNode()">点击替换第一个节点</button>
+	<button onclick="cloneNode_1()">点击克隆整个列表</button>
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     修改
+     * 
+     * 1. 创建文本节点
+     * 		createTextNode()
+     * 2. 添加一个 child 元素
+     * 		appendChild()
+     * 3. 创建新的元素节点
+     * 		createElement()
+     * 4. 在一个节点之前插入新的节点
+     * 		insertBefore()
+     * 5. 移除子节点
+     * 		removeChild()
+     * 6. 替换子节点
+     * 		replaceChild()
+     * 7. 克隆节点
+     * 		cloneNode()
+     * */
+    //===========================
+    /*
+     createTextNode(text)
+     * 
+     * 创建文本节点
+     * 
+     * 参数：
+     * 		text 
+     * 			替换的文本
+     * 返回值：
+     * 		创建的文本标签
+     * 
+     * 该方法是属于 document 的
+     * */
+    var textNode = document.createTextNode("李先生");
+    console.log(textNode.nodeName);
+    console.log(textNode.nodeValue);
+    //===========================
+    /*
+     appendChild(node)
+     * 
+     * 给一个元素添加 child 元素
+     * 
+     * 参数：
+     * 		node
+     * 			需要添加的节点
+     * 			必选参数
+     * 返回值：
+     * 		参数对象本身
+     * 
+     * append 翻译过来是 追加
+     * 如果本身元素已经有 child 了，则直接
+     * 追加到 原本的 child 之后
+     * 添加进去就是 lastChild
+     * */
+    var div = document.getElementById("div");
+    div.appendChild(textNode);
+    //==========================
+    /*
+     createElement(nodeName)
+     * 
+     * 创建一个元素节点
+     * 
+     * 参数：
+     * 		nodeName
+     * 			需要创建元素的名称
+     * 返回值：
+     * 		创建的元素节点
+     * */
+    var newElement = document.createElement("a");
+    var textNode_1 = document.createTextNode("首页");
+    newElement.appendChild(textNode_1);
+    var v = div.appendChild(newElement);
+    console.log(v === newElement);	//true
+    	//是属于一个对象
+    	//=====================================
+    	/*
+    	 insertBefore(newNode,existingNode)
+    	 * 
+    	 * 在一个节点前面插入一个新的节点
+    	 * 
+    	 * 参数：
+    	 * 		newNode
+    	 * 			需要插入的新节点
+    	 * 		existingNode
+    	 * 			目标节点
+    	 * 		
+    	 * 会将参数1 的节点插入到目标节点 之前
+    	 * */
+    	function addNode(){
+    		var newItem = document.createElement("li");
+    		var textNode_2 = document.createTextNode("JavaScript");
+    		newItem.appendChild(textNode_2);
+    		
+    		var languageList = document.getElementById("language");
+    		//将 newItem 添加到 language 列表中
+    		languageList.insertBefore(newItem,languageList.firstChild);
+    	}
+    	//==================================
+    	/*
+    	 removeChild(node)
+    	 * 
+    	 * 移除子节点
+    	 * 
+    	 * 参数：
+    	 * 		node
+    	 * 			必选参数
+    	 * 			需要移除的子节点
+    	 * */
+    	function removeNode(){
+    		var languageList = document.getElementById("language");	
+    		var li_List = languageList.getElementsByTagName("li");
+    		
+    		console.log(li_List);
+    		
+    		languageList.removeChild(li_List[0]);
+    		console.log(li_List.length);
+    	}
+    	//=================================
+    	/*
+    	 replaceChild(newNode，oldNode)
+    	 * 替换子节点
+    	 * 
+    	 * 参数：
+    	 * 		newNode
+    	 * 			新节点
+    	 * 		oldNode
+    	 * 			旧节点
+    	 * */
+    	function replaceNode(){
+    		var languageList = document.getElementById("language");
+    		var newLi = document.createElement("li");
+    		newLi.innerHTML = "NodeJS";
+    		//使用新的节点替换旧的节点
+    		languageList.replaceChild(newLi,languageList.firstElementChild);
+    	}
+    	//=====================================
+    	/*
+    	 cloneNode(deep)
+    	 * 
+    	 * 克隆节点
+    	 * 
+    	 * 该方法可以用于创建指定的节点的精确拷贝
+    	 * 拷贝所有的属性和属性值
+    	 * 
+    	 * 该方法将赋值并返回它的节点的副本
+    	 * 如果传递的参数为 true，则它将递归赋值
+    	 * 当前节点的所有节点
+    	 * 
+    	 * 如果传入的参数为 false
+    	 * 则只复制当前节点
+    	 * */
+    	function cloneNode_1(){
+    		var languageList = document.getElementById("language");
+    		//克隆整个 languageList 节点
+    		//传入的参数如果为 true
+    		//则代表深拷贝
+    		//所有的子节点都 copy 下来
+    		var newList = languageList.cloneNode(false);
+    		document.getElementsByTagName("body")[0].appendChild(newList);
+    	}
+    	
+</script>
+</html>

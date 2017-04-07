@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	性别：<input type="text" id="sex"/>
+	<input type="button" name="submit" id="submit" value="确定" />
+	<script type="text/javascript">
+		var sex = document.getElementById("sex");
+		document.getElementById("submit").onclick = function(){
+			if(sex.value !== "男" && sex.value !== "女"){
+				alert("输入不正确");
+				sex.value = "";
+			}else{
+				alert(sex.value);
+			}
+		}
+	</script>
+</body>
+
+</html>

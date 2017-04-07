@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+三种截取方式之间的差别
+	1. str.substring(start,end)
+	2. str.substr(start,length)
+	3. str.slice(start,end)
+	
+	三者之间最大的差别在于 如果传递的参数是“负数”
+		1. substring
+			会把所有的负值参数转为 0
+		2. substr
+			会将第一个负参数加上字符串的长度
+			第二个负参数转化为 0
+		3. slice
+			会将负值和字符串的长度相加
+*/
+    var str = "hello world";			//长度为 11
+    var ret1 = str.substring(2,-8);		//he
+    var ret2_1 = str.substr(2,-8);		//空
+	var ret2_2 = str.substr(-7,3);		//o w
+    var ret3 = str.slice(2,-8);			//l
+    
+    console.log("substring:" + ret1);	//substring:he
+    console.log("substr:" + ret2_1);	//substr:
+    console.log("substr:" + ret2_2);	//substr:o w
+    console.log("slice:" + ret3);		//slice:l
+    console.log("原始字符串:" + str);		//原始字符串:hello world
+</script>
+</html>

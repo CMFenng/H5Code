@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		.fdj{
+			width: 1200px;
+			margin: 10px auto;
+			/*border: 1px solid #000;*/
+		}
+		.small{
+			width: 350px;
+			height: 350px;
+			border: 1px solid #000;
+			float: left;
+			position: relative;
+			cursor: move;
+		}
+		.small{
+			width: 350px;
+			height: 350px;
+		}
+		.pop{
+			width: 100px;
+			height: 100px;
+			background-color: rgba(255,255,0,0.5);
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: none;
+		}
+		.big{
+			width: 540px;
+			height: 540px;
+			border: 1px solid #000;
+			float: left;
+			display: none;
+			overflow: hidden;
+			position: relative;
+		}
+		.big img{
+			width: 800px;
+			height: 800px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="fdj">
+		<div class="small">
+			<img src="img/small.jpg"/ alt="" />
+			<div class="pop"></div>
+		</div>
+		<div class="big">
+			<img src="img/big.jpg" alt="" />
+		</div>
+	</div>
+	<script type="text/javascript">
+		var small = document.getElementsByClassName("small")[0];
+		var pop = document.getElementsByClassName("pop")[0];
+		var big = document.getElementsByClassName("big")[0];
+		var img = document.getElementsByTagName("img")[1];
+		var maxLeft;
+		var maxTop;
+		
+		small.addEventListener("mouseover",function  () {
+			//显示
+			pop.style.display = "block";
+			big.style.display = "block";
+			
+			//计算left和top的最大值
+			maxLeft = small.offsetWidth - pop.offsetWidth;
+			maxTop = small.offsetHeight - pop.offsetHeight;
+		},false);
+		small.addEventListener("mouseleave",function  () {
+			//隐藏
+			pop.style.display = "none";
+			big.style.display = "none";
+		},false);
+		small.addEventListener("mousemove",function  (e) {
+			//计算pop的left和top
+			var popLeft = e.clientX - small.offsetLeft - pop.offsetWidth/2;
+			var popTop = e.clientY - small.offsetTop - pop.offsetHeight/2;
+			
+			//限制left和top的最小值
+			popLeft = popLeft<=0 ? 0 : popLeft;
+			popTop = popTop<=0 ? 0 : popTop;
+			
+			//限制left和top的最大值
+			popLeft = popLeft>=maxLeft ? maxLeft : popLeft;
+			popTop = popTop>=maxTop ? maxTop : popTop;
+			
+			pop.style.left = popLeft + "px";
+        	pop.style.top = popTop + "px";
+        	
+        	img.style.left = -popLeft/maxLeft*260 + "px";
+        	img.style.top = -popTop/maxTop*260 + "px";
+		},false);
+	</script>
+</body>
+</html>

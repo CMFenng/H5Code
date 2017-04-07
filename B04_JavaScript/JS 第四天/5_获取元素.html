@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<input id="input" type="text"/>
+	<input type="button" name="" id="btn" value="点击后显示数值"/>
+</body>
+<script type="text/javascript" charset="utf-8">
+    var oInput = document.getElementById("input");
+    var oBtn = document.getElementById("btn");
+
+	oBtn.onclick = function(){
+		console.log(oInput.value);
+	}
+</script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    /*
+        ES6 新增了 let 指令，用来声明变量，语法类似于 var， 但和 var 的区别在于
+        使用 let 声明的变量只有在代码块内有效，也就是说 ES6 是有块级作用域的。
+    */
+    {
+        var a = 10;
+        let b = 20;
+    }
+    console.log(a);
+    // 因为 b 使用的是 let 声明的，只有在 b 的代码块中生效
+//    console.log(b);
+    
+    // 使用 var 声明 for 循环中的变量，遇到的常见问题
+    for (var i = 0; i < 5; i++){
+        
+    }
+    // 这里依然能访问到 i，而且 i 的值是 5
+    console.log(i);
+    
+    // 用 let 声明 for 循环的变量，就不会出现上面的问题
+    for (let j = 0; j < 5; j++){
+        
+    }
+    // 这里无法访问到 i
+//    console.log(j);
+
+    // 使用 var 声明变量的时候，有一个“变量提升”的概念，使用 let 就不会变量提升
+    console.log(liu);   // undefined
+    var liu = "刘";
+
+//    console.log(zhang);     // 报错：zhang is not defined
+//    let zhang = "张";
+
+    var wang = "王";
+    if (true){
+        // 在代码块中，只要存在 let 命令，它声明的所有变量都会绑定在它身上。
+//        let wang = "小王";
+        wang = "大王";
+    }
+    console.log(wang);  // 当 let 没注释掉，输出“王”，注释掉，则输出“大王”
+    
+    // 总之在代码块内，使用变量之前，一定要用 let 声明好
+    // 如果 let 在使用变量之后声明的话，我们称为：“暂时性死区”
+    // temporary dead zone，简称：TDZ）
+    if (true){
+        // TDZ 开始
+//        zhao = "赵";
+//        console.log(zhao);
+        
+        // TDZ 结束
+        let zhao = "赵四";
+        console.log(zhao);
+    }
+
+    // let 不允许声明重复的变量
+    (function () {
+        let a = "a";
+//        let a = "b";
+    })();
+
+    // 即使使用不同的关键字也不允许声明重复的变量
+    (function () {
+        let a = "a";
+//        var a = "b";
+    })();
+
+    // 不允许声明跟形参重复的变量
+    (function (arg) {
+//        let arg = "a";
+    })();
+
+    (function (arg) {
+        {
+            // 自己在独立的一个块级里，就不会和形参的 arg 有冲突了
+            let arg = "a";
+        }
+    })();
+
+    // 关于全局变量
+    // 在 ES5 中全局变量就等同于全局对象的属性
+    window.str = "abc";
+    str = 33;
+    console.log(window.str);    // 33
+
+    let str2 = "bcd";
+    console.log(window.str2);   // undefined
+    console.log(str2);  // bcd
+</script>
+</body>
+</html>

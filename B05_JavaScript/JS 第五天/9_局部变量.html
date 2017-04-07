@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     局部变量
+     * 局部变量就是在函数内部声明的变量
+     * 
+     * 局部变量的作用域是当前函数的内部
+     * 在外部是无法访问局部变量的
+     * */
+//  function f(){
+//  		alert(v);	//undefined
+//  		var v = "qwe";
+//  		alert(v);	//qwe
+//  }
+//  f();
+//  alert(v);
+
+//	var a = 100;
+//	function my(){
+////		a = 10;
+//		console.log(a);
+//		var a = 90;
+////		a = 90;
+//		console.log(a);
+//	}
+//	my();
+//	console.log(a);
+
+
+//	var m = 10;
+//	function f(){
+//		var m = 20;
+//		alert("内部方法：" + m);
+//	}
+//	f();
+//	alert("外部方法：" + m);
+	/*
+	 全局变量和局部变量 变量重名问题
+	 * 1. 当局部变量和全局变量重名的时候，
+	 * 	  局部变量的作用域会覆盖全局变量的作用域
+	 * 	  在函数内部访问重名变量，访问的是局部变量
+	 * 2. 当函数离开局部变量的作用域后，
+	 * 	  又变成全局变量的作用域
+	 * 3. 如何在函数内部去访问同名的全局变量
+	 * 	  window.全局变量名称
+	 * */
+//	var m = 10;
+//	function f(){
+//		var m = 20;
+//		alert("内部方法：" + window.m);
+//	}
+//	f();
+//	alert("外部方法：" + m);
+	
+	/*
+	 块级作用域
+	 * JS 中不存在块级作用域
+	 * JS 中的作用域是根据 函数 来划分的
+	 * */
+	var m = 5;
+	if(m == 5){
+		var n = 10;
+	}
+	alert(n);
+
+</script>
+</html>

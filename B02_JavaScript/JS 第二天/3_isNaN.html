@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+isNaN()
+	判断当前内容是否是 NaN (Not a Number 的缩写)
+		是一个数字，弹出 false -> 是数字
+		不是一个数字，弹出 true -> 不是一个数字
+	
+	0/0 不是无限大，而是 NaN
+	把一个非数字形式的字符串转换为数字的时候，也是 NaN
+	
+	数字：	false
+	字符串：不一定
+		由纯数字组成：false
+		包含了字符串：true
+	true：	false
+	false：	false
+	null：	false
+	NaN：	true
+	undefined：	true
+*/
+	console.log(0/0);				//NaN
+	console.log(parseInt("60"));	//60
+	console.log(parseInt("a"));		//NaN
+	
+	console.log(isNaN(3));			//false
+	console.log(isNaN("red"));		//true
+	
+	console.log(isNaN("3"));		//false
+	console.log(isNaN("a3"));		//true
+	console.log(isNaN("3a3"));		//true
+	
+	console.log(isNaN(true));		//false		true -> 1
+	console.log(isNaN(false));		//false		false -> 0
+	
+	console.log(isNaN(null));		//false		null -> 0
+	console.log(isNaN(NaN));		//true
+	console.log(isNaN(undefined));	//true
+</script>
+</html>

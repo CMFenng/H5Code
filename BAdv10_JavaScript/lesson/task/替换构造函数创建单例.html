@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person (name) {
+			this.name = name;
+			var instance = this;
+			console.log("这里只执行了一次");
+			
+			//重写构造函数
+			Person = function (name) {
+				instance.name = name;
+				return instance;
+			}
+			return instance;
+		}
+		
+		//被替换前的Person
+		console.log(Person);
+		var p1 = new Person("李四");
+		//被替换后的Person
+		console.log(Person);
+		var p2 = new Person("张三");
+		
+		console.log(p1 == p2);		//true	说明是同一个对象
+		console.log(p1.name);		//张三	p1的name属性被覆盖
+	</script>
+</body>
+</html>

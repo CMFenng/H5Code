@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*input[name]{
+				background-color: orange;	
+			}
+			
+			input[name][value]{
+				background-color: pink;
+			}
+			
+			input[value='我是一个提交按钮']{
+				background-color: deepskyblue;
+			}*/
+			
+			/*input[name |= 'inner']{
+				background-color: deepskyblue;
+			}*/
+			
+			/*input[name ~= 'inner']{
+				background-color: deepskyblue;
+			}*/
+			
+			/*input[name *= 'ne']{
+				background-color: deepskyblue;
+			}*/
+			
+			/*input[name ^= 'inner']{
+				background-color: deepskyblue;
+			}*/
+			
+			input[name $= 'ab']{
+				background-color: deepskyblue;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<input type="text" name="inner" /><br />
+		<input type="text" name="inner ab" /><br />
+		<input type="button" value="我是一个按钮" name="inner-hehe" /><br />
+		<input type="submit" value="我是一个提交按钮" />
+	</body>
+</html>

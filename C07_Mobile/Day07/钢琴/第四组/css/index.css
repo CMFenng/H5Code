@@ -1,0 +1,76 @@
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-family: microsoft yahei;
+			}
+			h1{
+				width: 1025px;
+				height: 40px;
+				text-align: center;
+				ling-height:40px;
+				margin: 100px auto;
+				font-size: 40px;
+			}
+			h1 b{
+				margin: 0 10px;
+				font-size: 55px;
+				color: red;
+				text-shadow:2px 2px 2px red, -2px 2px 2px red;
+			}
+			#box{
+				width: 1025px;
+				height: 315px;
+				background: #999;
+				margin: 100px auto;
+				padding: 15px 0 0 25px;
+				border-radius: 20px;
+				box-shadow: -8px 8px 8px black, 8px 8px 8px black;
+			}
+			
+			#box li{
+				width: 50px;
+				height: 50px;
+				background: white;
+				display: inline-block;
+				margin: 5px 5px 0 5px;
+				border-radius: 10px;
+				font-size: 22px;
+				line-height: 50px;
+				text-align: center;
+				border: 2px solid #333;
+				cursor: pointer;
+				box-shadow: 5px 5px 5px black;
+			}
+			#box ul{
+				margin-top: 13px;
+			}
+			/*第一排 */
+			#box ul:nth-of-type(1) li:last-of-type{
+				width: 90px;
+			}
+			/*第二排第一个键 */
+			#box ul:nth-of-type(2) li:first-of-type{
+				width: 70px;
+			}
+			/*第二排最后一个键 */
+			#box ul:nth-of-type(2) li:last-of-type{
+				width: 70px;
+			}
+			/*第三排第一个键 */
+			#box ul:nth-of-type(3) li:first-of-type{
+				width: 90px;
+			}
+			/*第三排最后一个键 */
+			#box ul:nth-of-type(3) li:last-of-type{
+				width: 119px;
+			}
+			/*第四排第一个键 */
+			#box ul:nth-of-type(4) li:first-of-type{
+				width: 110px;
+			}
+			/*第四排最后一个键 */
+			#box ul:nth-of-type(4) li:last-of-type{
+				width: 166px;
+			}

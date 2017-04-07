@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	/*点*/
+	function Point (x, y) {
+		this.x = x;
+		this.y = y;
+	}
+	/*计算距离的方法*/
+	function CalDistance (p1, p2) {
+		this.x1 = p1.x;
+		this.y1 = p1.y;
+		this.x2 = p2.x;
+		this.y2 = p2.y;
+		
+		if (!CalDistance.prototype.distance) {
+			CalDistance.prototype.distance = function () {
+				return dis = Math.sqrt((this.y2-this.y1)**2 + (this.x2-this.x1)**2);
+			}
+		}
+	}
+	var calDistance = new CalDistance(new Point(0, 0), new Point(3, 4));
+	console.log("两点距离：" + calDistance.distance());
+	
+	/*圆*/
+	function Circle (r) {
+		this.r = r;
+		//周长
+		if (!Circle.prototype.Perimeter) {
+			Circle.prototype.Perimeter = function () {
+				return 2 * Math.PI * this.r;
+			}
+		}
+		//面积
+		if (!Circle.prototype.Area) {
+			Circle.prototype.Area = function () {
+				return Math.PI * this.r**2;
+			}
+		}
+	}
+	var circle = new Circle(3);
+	console.log("圆的周长：" + circle.Perimeter());
+	console.log("圆的面积：" + circle.Area());
+	
+	/*圆柱*/
+	function Cylinder (r, h) {
+		Circle.call(this, r);
+		this.h = h;
+	}
+	Cylinder.prototype = new Circle();
+	var cylinder = new Cylinder(3, 2);
+	console.log("圆柱体的体积：" + cylinder.Area() * cylinder.h);
+</script>
+</body>
+</html>
+<!--
+	完成如下功能 
+   a: 设计构造函数表示二维平面的点Point。  应该有属性 x，y坐标。提供一个可以计算两个点距离的方法。
+   b: 设计构造函数表示二维的圆Circle，提供周长和面积
+   c: 设计构造函数表示圆柱体Cylinder，提供体积的功能
+   d: 分别使用原型继承和构造函数借调的方式来完成继承。
+-->

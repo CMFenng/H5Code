@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<p>123</p>
+	</div>
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+在 IE9 以下，当前内容通过 alert() 弹出当前节点的 firstChild 实际上应该为 p
+
+但是在现代浏览器当中，比如 Chrome, FireFox, IE11 等等
+会将<div>    </div>之间的空白节点也解析出来
+
+所以通过 alert 弹出的 #text
+
+因为空白节点也是属于 text 文本节点
+
+但是如果将多个标签中的空白内容删除
+在不同浏览器中就可以正常显示了
+
+如果不想这么去做，我们其实可以通过设置一个函数，来解决这个问题
+*/
+    function getFirst(elem){
+		for(var i = 0,e; e = elem.childNodes[i++];){
+			if(e.nodeType == 1){
+				return e;
+			}
+		}
+	}
+    
+    var first = document.getElementsByTagName("div")[0];
+//  console.log(first);
+	console.log(getFirst(first).nodeName);
+	/*
+	 经常会选择去用过一个方法直接获取到父元素的
+	 第一个节点，
+	 DOM 中直接拓展了一个 新的方法
+	 	firstElementChild
+	 * */
+	console.log(first.firstElementChild);
+	/*
+	 但是，拓展的方法 firstElementChild
+	 在现代浏览器中兼容，但是在 IE 6/7/8 中
+	 没有该方法
+	 一旦使用该方法，直接报错
+	 * */
+	/*
+	 children
+	 * 
+	 * 不是标准属性，返回指定元素的子元素集合
+	 * 但是它只返回 HTML 节点，甚至不会返回文本节点
+	 * 
+	 * 虽然不是标准的 DOM 属性，但是它和 innerHTML
+	 * 一样，得到了几乎所有浏览器的支持
+	 * 
+	 * 和 childNodes 一样，在 Firefox 中不支持
+	 * 直接获取集合元素
+	 * 
+	 * 但是如果想要去获取某一个元素的子节点
+	 * 可以直接像调用数组中内容一样去调用 children
+	 * 
+	 * 	children[0]
+	 * 
+	 * children 在 IE 当中会获取 注释节点
+	 * */
+	console.log(first.children[0]);
+	
+	/*
+	 firstChild  --> firstElementChild
+	 lastChild 	 --> lastElementChild
+	 
+	 nextSibling	 --> nextElementSibling
+	 previousSibling --> previousElementSibling
+	 
+	 childElementCount
+	 		获取子元素的数量
+	 		和 children.length 相同的
+	 		
+
+	 * */
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     匿名函数
+     * 匿名函数指没有函数名的函数
+     * 
+     * 	function(){
+     * 	
+     *  }
+     * */
+//  var f = function(){
+//  		alert("我是匿名函数");
+//  }
+//  f();
+    /*
+     1. 匿名函数除了没有函数名以外，和普通函数
+     	没有任何区别
+     2. 如果想要在其他地方调用该函数，则应该声明
+       	一个变量，并将这个匿名函数赋值给这个变量
+     3. 可以将这个变量名作为函数名来调用
+     	传递参数，方法返回值等，
+     	和普通函数是一样的
+     * */
+//  var p = function a(s,n){
+//  		return s + n;
+//  }
+//  function m(mySum,q,w){
+//  		return mySum(q,w);
+//  }
+//  var ret = m(p,1,2);
+//  console.log(ret);
+    //函数表达式可以储存在变量当中，
+    //变量也可以作为一个函数来使用
+    //=================================
+    
+    
+    //将匿名函数作为参数传递给其他函数
+    function fun1(fun){
+    		if(typeof fun =="function"){
+    			fun();
+    		}
+    }
+    fun1(function(){
+    		alert("这是一个匿名函数");
+    });
+    //=================================
+    
+    //匿名函数经常用于处理某些一次性的内容
+//  function m(mySum,q,w){
+//  		return mySum(q,w);
+//  }
+//  var ret = m(function(a,b){
+//	    	return a + b;
+//  },1,2);
+//  console.log(ret);
+    
+    
+</script>
+</html>

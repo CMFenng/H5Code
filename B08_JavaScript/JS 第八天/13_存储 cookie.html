@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+/*
+存储cookie
+	
+	在存储 cookie 的时候，name 和 value 是必须的
+	参数1：cookie 的 name
+	参数2：cookie 的 value
+	参数3：存储时间，单位天
+	
+	只要 name 不同，就可以存储多个 cookie
+*/
+	function saveCookie(name, value, expiredays){
+		var date = new Date();
+		console.log(date.getDate());
+		date.setDate(date.getDate() + expiredays);
+		console.log(date.toGMTString());
+		//cookie 的内容其实就是一串纯文本。 对字符最好进行url编码，否则如果有中文就会出现问题。
+		var cookieText = encodeURIComponent(name) + "=" + 
+						 encodeURIComponent(value) + "; expires=" + date.toGMTString();
+		console.log(cookieText);
+		document.cookie = cookieText;
+	}
+	saveCookie("name", "张三", 1);
+	
+	function getCookie(name){
+		//先拿到cookie字符串
+		var cookieText = document.cookie;
+		//获取要查找的 cookie的 name所在的下标
+		var index = cookieText.indexOf(name + "=");  // name=张三; ...
+		//如果下标不为-1，证明找到了
+		if(index != -1){
+			var endIndex = cookieText.indexOf(";", index);	//查找指定的cookie的结束为止
+			//如果等于-1，证明没有找到;号，则把末尾设置为字符串的末尾
+			endIndex = (endIndex == -1 ? cookieText.length : endIndex);
+			//把想要的 cookie 的 value 截取出来
+			var value = cookieText.substring(index + (name + "=").length, endIndex);
+			//因为存储的时候使用了url编码，所以查到的东西需要url解码
+			return decodeURIComponent(value);
+		}
+	}
+	var value = getCookie("name");
+	if(value){
+		console.log("欢迎你：" + value);
+	}
+</script>
+</html>

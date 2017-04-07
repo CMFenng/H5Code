@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+var
+	js 中的变量都是弱类型（松散类型）
+	 所谓的松散类型是指同一个变量中可以储存任何类型的数据
+	 一个变量就相当于是一个占位符
+	 为了后面的代码访问比较方便
+	js 中的变量声明统一使用 var
+*/
+    //变量的声明
+    var num;
+    //变量的赋值，将 999 赋值给变量 num
+    num = 999;
+    
+    //声明变量并且赋值
+    var num = 999;
+/*
+声明变量的注意事项
+	1. 同一个变量，可以同时声明多次，而且后面的声明不会让前面的赋值丢失
+	2. 同一行可以同时声明多个变量，声明的多个变量之间用英文的 , 隔开即可
+		多个变量声明的同时还可以进行赋值操作
+		每一个赋值语句之间还可以换行
+	3. 一个好的编码习惯是，将所有的声明全部提到代码开始的位置
+	4. 如果只进行了代码的声明，而没有进行代码的赋值操作，这个声明的内容是 undefined（未定义的）
+	5. 声明变量的过程中，一定要注意“关键字”和“保留字”
+		关键字: 在 js 中有特殊含义的单词，所有的关键字全部是小写字母
+		保留字: 在当前的 js 版本中还未使用，进行了预留，防止以后版本中使用
+ */
+/*
+JS 中变量的命名规范
+	1. 第一个字母必须是 字母（abcd..）、下划线（_）、美元符号（$）
+	2. 其他字母随意
+	3. 命名中注意大小写  a 和 A 是两个变量
+	4. 不能使用关键字和保留字
+	5. 国际惯例：命名记得采用 驼峰和下划线
+	6. 不允许使用中文
+	7. 起名字要有意义
+*/
+	//注释1
+    var num;
+    num = 10;
+    console.log(num);		//10
+    num = 20;
+    console.log(num);		//20
+	
+	//注释2
+	var num1, num2, num3 = 999, num4;
+    console.log(num3);		//999
+	
+	var num1, num2, num3 = 999;
+	console.log(num1);		//undefined
+	console.log(num2);		//undefined
+	console.log(num3);		//999
+	
+	var num1 = 999,
+		num2 = 888,
+		num3 = 777;
+	console.log(num1);		//999
+	console.log(num2);		//888
+	console.log(num3);		//777
+</script>
+</html>

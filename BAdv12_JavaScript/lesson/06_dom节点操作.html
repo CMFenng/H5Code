@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+/*
+    append()
+        a.append(b)     将b追加到a中，b是a的最后一个子元素
+    appendTo()
+        a.appendTo(b)   将a追加到b中，a是b的最后一个子元素
+
+    prepend()
+        a.prepend(b)    将b插入到a中，b是a的第一个子元素
+    prependTo()
+        a.prependTo(b)  将a插入到b中，a是b的第一个子元素
+    after()
+        a.after(b)      将b插入到a后，b是a的下一个兄弟元素
+    before()
+        a.before(b)     将b插入到a前，b是a的上一个兄弟元素
+*/
+            // 创建一个元素
+            var $li = $("<li id='item5'>5</li>");
+
+//            $(".banner").append($li).append("<li>6</li>").append("<li>");
+//            $li.appendTo($(".banner"));
+
+//            $(".banner").prepend($li);
+//            $li.prependTo($(".banner"));
+
+//            $(".banner").after($li);
+            $(".banner").before($li);
+        });
+    </script>
+</head>
+<body>
+<ul class="banner">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+一元运算符（++）
+	将自身自动增加 1
+	a++ : 先进行赋值，再进行 +1 操作
+	++a : 先进行 +1 操作，再赋值
+*/
+	var a = 10;
+	var b = a++;
+	var c = ++a;
+	console.log(b);		//10
+	console.log(c);		//12
+	
+	var d = "123";
+	var e = d++;
+	console.log(e);		//123
+	console.log(d);		//124
+	
+	var f = "asd";
+	console.log(++f);	//NaN
+	
+	var g = 10;
+	var h = g--;
+	var i = --g;
+	console.log(g);		//8
+	console.log(h);		//10
+	console.log(i);		//8
+</script>
+</html>

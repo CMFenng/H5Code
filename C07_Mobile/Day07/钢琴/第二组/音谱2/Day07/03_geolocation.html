@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//参数选项
+			var options = {
+				enableHighAccuracy : true,
+				timeout : 5,
+				maximumAge : 0
+			}
+			
+			//获取当前地理位置
+			navigator.geolocation.getCurrentPosition(successCallBack, errorCallBack, 
+				options);
+			
+			//成功返回函数
+			function successCallBack (postion) {
+				alert(postion.coords.latitude);
+//				postion.coords.latitude	纬度数值
+//				postion.coords.longitude	经度数值
+//				postion.coords.altitude	参考椭球之上的高度
+//				postion.coords.accuracy	精确度
+//				postion.coords.altitudeAccuracy	高度的精确度
+//				postion.coords.heading	设备正北顺时针前进的方位
+//				postion.coords.speed	设备外部环境的移动速度(m/s)
+//				postion.timestamp	当位置捕获到时的时间戳
+			}
+			
+			//失败返回函数
+			function errorCallBack (error) {
+				// error.code会返回失败的状态吗
+				var errorType = {
+					1 : '位置服务被拒绝',
+					2 : '获取不到位置信息',
+					3 : '获取信息超时'
+				}
+				alert(errorType[error.code]);
+			}
+			
+			
+				
+		</script>
+	</body>
+</html>

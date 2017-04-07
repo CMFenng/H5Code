@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+	    body{
+	    	height: 4000px;
+	    }
+	</style>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+/*
+onscroll
+	当窗口发生滚动会触发该事件
+	
+	获取滚动距离
+		document.body.scrollTop：只支持chrome，火狐和ie不支持
+		document.documentElement.scrollTop：ie和火狐支持，chrome不支持
+*/
+    window.onscroll = function() {
+        console.log("开始滚动...")
+        //获取滚动距离
+        //这样就可以跨浏览器了
+        console.log(document.documentElement.scrollTop || document.body.scrollTop);
+    }
+</script>
+</html>

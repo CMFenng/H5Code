@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<p>请输入年份</p>
+	<input type="text" id="num"/>
+	<input type="button" value="确定" id="submit"/>
+	<script type="text/javascript">
+		var num = document.getElementById("num");
+		document.getElementById("submit").onclick = function(){
+			var v = num.value;
+			if(parseInt(v) !== Number(v) ){
+				alert("输入错误，请重新输入！")
+				num.value = "";
+			}else if(v % 4===0 && v % 100 !== 0 || v % 400 === 0){
+				alert(v + "年是闰年");
+			}else{
+				alert(v + "年不是闰年");
+			}
+		}
+		
+	</script>
+</body>
+
+</html>

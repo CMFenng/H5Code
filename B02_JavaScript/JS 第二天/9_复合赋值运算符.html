@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+复合赋值运算符
+	+= 、-= 、 *= 、 /= 不会带来性能的提升
+*/
+	var a = 10;		//赋值操作符
+	
+	//a = a + 4;
+	a += 4;
+	console.log(a);		//14
+	
+	//a = a - 4;
+	a -= 4;	
+	console.log(a);		//10
+	
+	//a = a * 4;
+	a *= 4;	
+	console.log(a);		//40
+	
+	//a = a / 10;
+	a /= 10;
+	console.log(a);		//4
+	
+	//会直接报错
+//	a+-*/=4;
+//	console.log(a);
+</script>
+</html>

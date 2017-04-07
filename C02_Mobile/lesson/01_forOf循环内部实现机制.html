@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str = new String("abcd");
+    var person = {
+        name : "浅浅",
+        age : 18
+    }
+    var arr = ["aa", "bb", "cc"];
+    var map = new Map(
+        [
+            ["name", "折颜"],
+            ["age", "不详"]
+        ]
+    );
+    
+    console.log(str);
+    console.log(arr);
+    console.log(map);
+    console.log(person);
+
+    // person[Symbol.iterator] is no a function
+    console.log(person[Symbol.iterator]);   //undefined
+    
+    console.log(str[Symbol.iterator]);  //一个函数
+    console.log(arr[Symbol.iterator]);  //一个函数
+    console.log(map[Symbol.iterator]);  //一个函数
+
+    // 既然是函数，那么就调用它
+    console.log(str[Symbol.iterator]());    //StringIterator {}（迭代器）
+    console.log(arr[Symbol.iterator]());    //Array Iterator {}
+    console.log(map[Symbol.iterator]());    //MapIterator {["name", "折颜"], ["age", "不详"]}
+
+    // 获取字符串中的迭代器对象
+    var stringIterator = str[Symbol.iterator]();
+    console.log(stringIterator.next()); //Object {value: "a", done: false}
+    console.log(stringIterator.next()); //Object {value: "b", done: false}
+    console.log(stringIterator.next()); //Object {value: "c", done: false}
+    console.log(stringIterator.next()); //Object {value: "d", done: false}
+    // 已经遍历完成
+    console.log(stringIterator.next()); //Object {value: undefined, done: true}
+    console.log(stringIterator.next()); //Object {value: undefined, done: true}
+
+    console.log("=== 代码分割线 ===");
+
+    // 重新获取的迭代器不会对上一个有影响
+    var stringIterator2 = str[Symbol.iterator]();
+    console.log(stringIterator2.next());    //Object {value: "a", done: false}
+    console.log(stringIterator2.next());    //Object {value: "b", done: false}
+
+    console.log(stringIterator.next());     //Object {value: undefined, done: true}
+    console.log(stringIterator2.next());    //Object {value: "c", done: false}
+
+    console.log("=== 代码分割线 ===");
+
+    // 重写 String 的 split 方法
+    String.prototype.split = function () {
+        console.log("哈哈，切割不了吧！！！");
+    }
+
+    console.log(str.split("---"));  //undefined（未复写时，打印 "abcd"）
+
+    // 重写 String 的 Symbol.iterator 方法
+    String.prototype[Symbol.iterator] = function () {
+        // 记录下标
+        var num = 0;
+        // 当前字符串
+        var self = this;
+
+        return {
+            next : function () {
+                return {
+                    // 根据下标取字符串中的字符
+                    value : self[num++],
+                    // 这里 num 是加一后的值，所以需要先减一
+                    done : num-1 >= self.length ? true : false
+                }
+            }
+        }
+    }
+
+    var iteratorString3 = str[Symbol.iterator]();
+    console.log(iteratorString3.next());
+    console.log(iteratorString3.next());
+    console.log(iteratorString3.next());
+    console.log(iteratorString3.next());
+    console.log(iteratorString3.next());
+    console.log(iteratorString3.next());
+
+    var iteratorString4 = str[Symbol.iterator]();
+    console.log(iteratorString4.next());
+    console.log(iteratorString4.next());
+    console.log(iteratorString4.next());
+    console.log(iteratorString4.next());
+    console.log(iteratorString4.next());
+    console.log(iteratorString4.next());
+
+//=============================================================
+//    // for...of 循环的底层实现就是 上面的方法
+    // 复写 Symbol.iterator 方法后，for...of 功能同样可以实现
+    for (var tempChr of str) {
+        console.log(tempChr);
+    }
+//
+//    // 先打印 "-----"、"======="
+//    function fn (callbackFn) {
+//        // console.log(callbackFn);
+//        callbackFn(function () {
+//        console.log("-----");
+//        });
+//    }
+//
+//    fn(function (paramFn) {
+//        paramFn();
+//        console.log("=======");
+//    });
+</script>
+</body>
+</html>

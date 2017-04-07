@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var map = new Map(
+        [
+            ["name", "白凤九"],
+            ["age", 70000]
+        ]
+    );
+
+    // 新增
+    map.set("sex", "女");
+    // 修改
+    map.set("sex", "九尾狐");
+    // 删除
+    map.delete("age");
+    // 判断是否有某组键值对
+    console.log(map.has("age"));    //false
+    // 获取
+    console.log(map.get("sex"));    //九尾狐
+    // 获取键值对的个数
+    console.log(map.size);  //2
+    // 给 size 赋值
+    map.size = 10;
+    // 依然是 2，只读（writable 为 false）
+    console.log(map.size);  //2
+
+    console.log(map);
+
+    // map 的使用场景
+    var date = new Date();
+
+    // 将来处理匹配关系的话，我们不要写 if...else... 、switch
+    // 最好设计一个数据结构来处理这类的问题
+    var weekMap = new Map(
+        [
+            [0, "星期日"],
+            [1, "星期一"],
+            [2, "星期二"],
+            [3, "星期三"],
+            [4, "星期四"],
+            [5, "星期五"],
+            [6, "星期六"],
+        ]
+    );
+
+    // 还可以用数组来处理这个问题
+    var weekArr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+
+    console.log(weekMap.get(date.getDay()));
+    console.log(weekArr[date.getDay()]);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

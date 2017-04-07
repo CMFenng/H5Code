@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style type="text/css">
+		.outer{
+			width: 790px;
+			height: 340px;
+			border: 1px solid black;
+			position: relative;
+			overflow: hidden;
+		}
+		#box{
+			width: 6320px;
+			height: 340px;
+			position: absolute;
+		}
+		img{
+			width: 790px;
+			height: 340px;
+			float: left;
+		}
+		#nav{
+			width: 790px;
+			height: 50px;
+			background: rgba(70,70,70,.5);
+			position: absolute;
+			bottom: 0px;
+			text-align: center;
+			line-height: 50px;
+		}
+		.num{
+			width: 20px;
+			height: 20px;
+			background: #909890;
+			border: 0px solid #909890;
+			border-radius: 50%;
+			
+			display: inline-block;
+			color: #fff;
+			font-size: 8px;
+			text-align: center;
+			line-height: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div id="box">
+			<img src="img/jd1.jpg"/>
+			<img src="img/jd2.jpg"/>
+			<img src="img/jd3.jpg"/>
+			<img src="img/jd4.jpg"/>
+			<img src="img/jd5.jpg"/>
+			<img src="img/jd6.jpg"/>
+			<img src="img/jd7.jpg"/>
+			<img src="img/jd8.jpg"/>
+		</div>
+		<div id="nav">
+			<div class="num">1</div>
+			<div class="num">2</div>
+			<div class="num">3</div>
+			<div class="num">4</div>
+			<div class="num">5</div>
+			<div class="num">6</div>
+			<div class="num">7</div>
+			<div class="num">8</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		var num = document.querySelectorAll(".num");
+
+		num[0].onmouseover = function(){
+			box.style.left = "0px";
+			num[0].style.background = "#DE0828";
+		}
+		num[0].onmouseout = function(){
+			num[0].style.background = "#909890";
+		}
+		num[1].onmouseover = function(){
+			box.style.left = "-790px";
+			num[1].style.background = "#DE0828";
+		}
+		num[1].onmouseout = function(){
+			num[1].style.background = "#909890";
+		}
+		num[2].onmouseover = function(){
+			box.style.left = "-1580px";
+			num[2].style.background = "#DE0828";
+		}
+		num[2].onmouseout = function(){
+			num[2].style.background = "#909890";
+		}
+		num[3].onmouseover = function(){
+			box.style.left = "-2370px";
+			num[3].style.background = "#DE0828";
+		}
+		num[3].onmouseout = function(){
+			num[3].style.background = "#909890";
+		}
+		num[4].onmouseover = function(){
+			box.style.left = "-3160px";
+			num[4].style.background = "#DE0828";
+		}
+		num[4].onmouseout = function(){
+			num[4].style.background = "#909890";
+		}
+		num[5].onmouseover = function(){
+			box.style.left = "-3950px";
+			num[5].style.background = "#DE0828";
+		}
+		num[5].onmouseout = function(){
+			num[5].style.background = "#909890";
+		}
+		num[6].onmouseover = function(){
+			box.style.left = "-4740px";
+			num[6].style.background = "#DE0828";
+		}
+		num[6].onmouseout = function(){
+			num[6].style.background = "#909890";
+		}
+		num[7].onmouseover = function(){
+			box.style.left = "-5530px";
+			num[7].style.background = "#DE0828";
+		}
+		num[7].onmouseout = function(){
+			num[7].style.background = "#909890";
+		}
+	</script>
+</body>
+</html>

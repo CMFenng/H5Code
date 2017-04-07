@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>海底世界</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        img{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<img src="img/yuyu.png" id="fish">
+<img src="img/dayuyu.png" id="bigFish">
+<img src="img/xiaoyuyu.png" id="smallFish">
+<canvas width="1349" height="600" id="canvas"></canvas>
+<script>
+    var cvs = document.getElementById('canvas');
+    var ctx = cvs.getContext('2d');
+    var fish = document.getElementById('fish');
+    var bigFish = document.getElementById('bigFish');
+    var smallFish = document.getElementById('smallFish');
+//    console.log(fish);
+    //海的切面图
+    //沙滩
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'yellow';
+    ctx.moveTo(1349,200);
+    ctx.quadraticCurveTo(1000,180,900,300);
+    ctx.quadraticCurveTo(800,500,600,600);
+    ctx.fillStyle ='rgba(255,255,0,.5)';
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+    //土层
+    ctx.beginPath();
+    ctx.lineWidth = 0.1;
+    ctx.moveTo(1349,600);
+    ctx.lineTo(1349,200);
+    ctx.lineTo(600,600);
+    ctx.strokeStyle = 'rgba(0,0,0,.2)';
+    ctx.fillStyle = 'rgba(0,0,0,.2)';
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+    //水波
+    ctx.beginPath();
+    ctx.strokeStyle = 'blue';
+    ctx.moveTo(0,600);
+    ctx.lineTo(0,200);
+    ctx.quadraticCurveTo(100,150,150,220);
+    ctx.quadraticCurveTo(200,280,300,190);
+    ctx.quadraticCurveTo(400,120,500,220);
+    ctx.quadraticCurveTo(570,310,750,200);
+    ctx.quadraticCurveTo(800,180,900,200);
+    ctx.quadraticCurveTo(950,220,1100,210);
+    ctx.quadraticCurveTo(1150,190,1349,200);
+    ctx.quadraticCurveTo(1000,180,900,300);
+    ctx.quadraticCurveTo(800,500,600,600);
+    ctx.strokeStyle = 'rgba(0,180,255,.8)';
+    ctx.fillStyle = 'rgba(0,180,255,.6)';
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+
+    //画鱼
+    ctx.beginPath();
+    ctx.drawImage(fish,500,400);
+    ctx.drawImage(bigFish,20,400);
+    ctx.drawImage(fish,500,400);
+    ctx.drawImage(fish,30,300);
+    ctx.drawImage(fish,400,500);
+    ctx.drawImage(smallFish,300,220);
+    ctx.drawImage(smallFish,412,290);
+    ctx.drawImage(smallFish,400,250);
+    ctx.drawImage(smallFish,800,300);
+    ctx.drawImage(smallFish,900,220);
+    ctx.stroke();
+    ctx.closePath();
+    //绘制文字
+    ctx.font = "40px Courier New";
+    ctx.fillStyle = "blue";
+    ctx.fillText("海底世界", 600,100);
+
+
+</script>
+</body>
+</html>

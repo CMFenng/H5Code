@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跳动的小球</title>
+    <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+        }
+        .area{
+            height: 99%;
+            margin: auto;
+            background-color: #000;
+            position: relative;
+        }
+        .circle{
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="area">
+
+</div>
+<script>
+    function Circle(parent) {
+        /*球的运动速度*/
+        this.speedX = Math.random() * 10 - 5;
+        this.speedY = Math.random() * 10 - 5;
+        /*球的半径*/
+        this.r = parseInt(Math.random()*80 + 30);
+        /*球的颜色*/
+        this.color = `rgba(${parseInt(Math.random()*255)}, ${parseInt(Math.random()*255)}, ${parseInt(Math.random()*255)}, ${Math.random() + 0.4})`;
+        /*在屏幕初始化绘制div*/
+        this.draw = function () {
+            var div = document.createElement("div");
+            this.div = div;  //给Circle添加一个div属性，表示这个球的dom元素
+            var size = this.r * 2;
+            div.style.width = size + "px";
+            div.style.height = size + "px";
+            div.style.backgroundColor = this.color;
+            div.className = "circle";
+            div.style.left = parseInt(Math.random() * (parent.offsetWidth - size)) + "px";
+            div.style.top = parseInt(Math.random() * (parent.offsetHeight - size)) + "px";
+            parent.appendChild(div);
+        }
+        /*让球动起来*/
+        this.run = function () {
+//            var that = this;
+            setInterval(function () {
+                var lastLeft = this.div.offsetLeft;
+                var lastTop = this.div.offsetTop;
+
+                if(lastLeft <= 0 || lastLeft >= parent.offsetWidth - this.div.offsetWidth){
+                    this.speedX *= -1;
+                }
+                if(lastTop <= 0 || lastTop >= parent.offsetHeight - this.div.offsetHeight){
+                    this.speedY *= -1;
+                }
+
+                var currentLeft = lastLeft + this.speedX;
+                var currentTop = lastTop + this.speedY;
+                
+                this.X = currentLeft + this.r;
+                this.Y = currentTop + this.r;
+                impact();
+
+                this.div.style.left = currentLeft + "px";
+                this.div.style.top = currentTop + "px";
+			//因为周期调用函数是window来调用的，因此需要将this绑定为小球
+            }.bind(this), 10);
+        }
+    }
+    var parent = document.querySelector(".area");
+    var allCircle = [];
+    for(var i = 0; i < 3; i++){
+        var c1 = new Circle(parent);
+        c1.draw();  //在屏幕绘制这个球
+        c1.run();
+        allCircle.push(c1);
+    }
+//  impact();
+    function impact () {
+    	for (var i in allCircle) {
+    		for (var c of allCircle) {
+    			if (allCircle[i] !== c) {
+    				var minDistance = allCircle[i].r + c.r;
+	    			var distance = Math.sqrt((allCircle[i].X - c.X)**2 + (allCircle[i].Y - c.Y)**2);
+		    		console.log("最小"+minDistance);
+		    		var d = distance - minDistance;
+
+		    		if (d <= 2) {
+//		    			allCircle[i].speedX *= -1;
+		    			allCircle[i].speedY *= -1;
+		    			c.speedX *= -1;
+//		    			c.speedY *= -1;
+		    		}
+    			}
+	    	}
+    	}
+		console.log("实际"+distance);
+    }
+</script>
+</body>
+</html>

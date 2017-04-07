@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+        canvas{
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+<script type="text/javascript">
+	var cvs = document.querySelector("#canvas");
+	var ctx = cvs.getContext("2d");
+	
+	// 画最外面的黑框
+	ctx.beginPath();
+	ctx.fillStyle = "white";
+	ctx.lineWidth = 8;
+	ctx.arc(200, 200, 150, 0, Math.PI*2, false);
+	ctx.stroke();
+	ctx.fill();
+	ctx.closePath();
+	
+	// 画里面的黑框
+	ctx.beginPath();
+	ctx.fillStyle = "white";
+	ctx.lineWidth = 130;
+	ctx.arc(200, 200, 80, 0, Math.PI*2, false);          
+	ctx.stroke();
+	ctx.fill();
+	ctx.closePath();
+	
+	// 画中间的蓝白部分
+	ctx.beginPath();
+	ctx.arc(200, 200, 75, 0, Math.PI/2, false);
+	ctx.fillStyle = "#069ffd";
+	ctx.fill();
+	ctx.closePath();
+	
+	ctx.beginPath();
+	ctx.fillStyle = "#069ffd";
+	ctx.moveTo(276, 200);
+	ctx.lineTo(200, 200);
+	ctx.lineTo(200, 276);
+	ctx.fill();
+	ctx.closePath();
+	
+	ctx.beginPath();
+	ctx.arc(200, 200, 75, Math.PI, Math.PI*3/2, false);
+	ctx.fillStyle = "#069ffd";
+	ctx.fill();
+	ctx.closePath();
+	
+	ctx.beginPath();
+	ctx.fillStyle = "#069ffd";
+	ctx.moveTo(124, 200);
+	ctx.lineTo(200, 200);
+	ctx.lineTo(200, 124);
+	ctx.fill();
+	ctx.closePath();
+	
+	// BMW
+	ctx.beginPath();
+	ctx.fillStyle = 'white';
+	ctx.font = "normal 50px 'Arial'";
+	ctx.textAlign = "center";
+	ctx.translate(200,200);
+	ctx.save();
+	ctx.rotate(-Math.PI/4);
+	ctx.fillText("B",-20,-90);
+	ctx.restore();
+	ctx.beginPath();
+	ctx.fillText("M",0,-90);
+	ctx.beginPath();
+	ctx.rotate(Math.PI/4);
+	ctx.fillText("W",20,-90);
+	ctx.restore();
+</script>
+</body>
+</html>

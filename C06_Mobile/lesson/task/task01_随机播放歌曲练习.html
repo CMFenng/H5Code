@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<audio controls="controls" autoplay="autoplay"></audio>
+<br />
+<input type="button" value="随机切歌" />
+</body>
+<script type="text/javascript">
+	/* D:\download\cloudmusic\酷狗\... */
+	var srcArr = [
+		"纯音乐 - 忧伤还是快乐.mp3",
+		"纯音乐 - 天空之城.mp3",
+		"卢冠廷 - 一生所爱.mp3",
+		"张杰 - 我们都一样.mp3",
+		"张震岳 - 再见.mp3",
+		"张卫健 - 月圆了.mp3",
+		"吴佳 - 谁.mp3",
+		"田馥甄 - 小幸运.mp3",
+		"庞龙 - 两只蝴蝶.mp3",
+		"李翊君 - 雨蝶.mp3"
+	];
+	
+	var audio = document.querySelector("audio");
+	var btn = document.querySelector("input");
+	
+	btn.onclick = change;
+	
+	function change () {
+		var randomIndex = parseInt(Math.random() * 10);
+		audio.src = "D:\\download\\cloudmusic\\酷狗\\" + srcArr[randomIndex];
+		if (audio.src === audio.currentSrc) {
+			change();
+		}
+	}
+	
+	audio.onended = function () {
+		console.log(123);
+		change();
+	}
+</script>
+</html>

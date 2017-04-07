@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="500" height="300" id="canvas"></canvas>
+	</body>
+	<script type="text/javascript">
+		var cvs=document.querySelector("canvas");
+		var ctx=cvs.getContext("2d");
+		//
+		var x=150,y=150;
+		ctx.beginPath();
+		ctx.fillStyle="blueviolet";
+		ctx.strokeStyle="chartreuse";
+		for(var i=0;i<30;i++){
+			var x=Math.sin(i*(Math.PI/15*11));
+			var y=Math.cos(i*(Math.PI/15*11));
+			ctx.lineTo(150+x*140,150+y*140);
+		}
+		ctx.closePath();
+		ctx.fill();
+		ctx.stroke();
+		
+	</script>
+</html>

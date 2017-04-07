@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var num = 90;
+	document.write(num + " = ");
+	for(var i = 2, temp = num; i <= temp; i++){
+		if(temp % i === 0){
+			if(i === temp){
+				document.write(i);
+			}else{
+				document.write(i + " * ");
+			}
+			temp /= i;
+			i--;
+		}
+	}
+</script>
+</body>
+</html>

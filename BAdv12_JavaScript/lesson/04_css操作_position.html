@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			margin-left: 200px;
+			margin-top: 300px;
+			position: absolute;
+		}
+		p{
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			position: absolute;
+			/*left: 200px;*/
+			top: 1300px;
+		}
+	</style>
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+/*
+	position()
+		获取定位元素的left和top
+		只能获取，不能设置
+		相当于原生的offsetLeft和offsetTop
+*/
+	    $(function () {
+	        var posi = $("p").position();
+	        console.log(posi);
+	    });
+	</script>
+</head>
+<body>
+<div>
+	<p></p>
+</div>
+</body>
+</html>

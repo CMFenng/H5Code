@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var temp = 0;
+
+		function max() {
+			temp = temp > arguments[0] ? temp : arguments[0];
+			return temp;
+		}
+
+		function input() {
+			var x = prompt("请输入你要比较的值，不需要输入请点取消或直接确定");
+			if(x !== null && x !== "") {
+				x = Number(x);
+				if(x === x) {
+					document.write(x + "&nbsp;");
+					max(x);
+					input();
+				}else{
+					alert("请输入数字!");
+				}
+			}
+		}
+		document.write("[&nbsp;");
+		input();
+		document.write("]的最大值是" + temp);
+	</script>
+</body>
+
+</html>

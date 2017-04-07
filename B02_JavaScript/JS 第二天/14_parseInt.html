@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+parseInt()
+	该方法可以将内容转化为数字
+	
+	转化规则：
+		从第一个非空白字符（除了空格、tab、换行）开始转换，直到遇到一个非数字字符为止
+		如果转换失败，则直接变为 NaN
+*/
+	console.log(parseInt("123"));		//123
+	
+	console.log(parseInt("123a456"));	//123
+	
+	console.log(parseInt("a123"));		//NaN
+	
+	console.log(parseFloat("12.3"));	//12.3
+	console.log(parseFloat("123"));		//123
+	console.log(parseInt("123.3"));		//123
+	console.log(parseFloat("12..3"));	//12
+	
+	console.log(parseInt("123",10));	//123
+	console.log(parseInt("123",2));		//1
+	console.log(parseInt("123",8));		//83
+	console.log(parseInt("123",16));	//291
+</script>
+</html>

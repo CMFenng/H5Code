@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+/*
+	toggle()
+		切换元素的显示和隐藏状态
+		用于替换show()和hide()
+	fadeToggle()
+		切换元素的淡入和淡出状态
+		用于替换fadeIn()和fadeOut()
+	slideToggle()
+		切换元素的展开和收起状态
+		用于替换slideDown()和slideUp()
+	fadeTo()
+		改变透明度到指定透明度值
+		参数1：周期
+		参数2：指定的透明度值
+*/
+	    $(function () {
+	        var div = $("div");
+	        $("button:eq(0)").click(function () {
+	        	div.toggle(2000);
+	        });
+	        $("button:eq(1)").click(function () {
+	        	div.fadeToggle(2000);
+	        });
+	        $("button:eq(2)").click(function () {
+	        	div.slideToggle(2000);
+	        });
+	        $("button:eq(3)").click(function () {
+	        	//在2000ms内将透明度改为0.5
+	        	div.fadeTo(2000, .5);
+	        })
+	    });
+	</script>
+</head>
+<body>
+<button>toggle</button>
+<button>fadeToggle</button>
+<button>slideToggle</button>
+<button>fadeTo</button>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj = {};
+		obj.a = "我是A";
+
+
+		/*
+			三个参数 （都是必填项）
+			第一个参数：要设置属性所在的对象
+			第二个参数：要设置的属性名字
+			第三个参数：设置属性的特性
+		*/
+		Object.defineProperty(obj, 'userName', {
+			// 设置初始值
+			//注意：如果只设置这个特性的话，默认是不可修改的
+			//换句话说，writable 属性的值是 false
+			// value : '小雪',
+			// writable : true,
+			//是否可使用for..in遍历
+			//默认是false 不可这个属性不遍历
+			enumerable : true,
+			//设置属性 存取器 (这个方法不能和 value、writable共存)
+			//当使用obj.userName = "xxx" 的时候就会进入到这个方法内
+			set : function () {
+				console.log("------");
+			},
+			//当使用obj.userName 获取的时候会调用这个方法
+			get : function () {
+				console.log("======");
+			}
+		});
+
+		// console.log(obj);
+
+		obj.userName = "小黑";
+
+		// console.log(obj);
+
+		obj.userName;
+
+		// for (var prop in obj) {
+		// 	console.log(prop);
+		// }
+
+
+	</script>
+</body>
+</html>

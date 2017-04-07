@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{ margin: 0; padding: 0;}
+        table{ width: 1000px; height: 500px;box-shadow: 10px 10px 10px black}
+        table td{ border:1px  dotted gray;}
+        canvas{ top: 0; left: 0; position: absolute;}
+    </style>
+</head>
+<body>
+<table border="1" cellpadding="0" cellspacing="0">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<canvas id="canvas" width="1000" height="500"></canvas>
+<script>
+    //获取canvas
+    var cvs=document.querySelector('canvas');
+    //获取上下文对象
+    var ctx=cvs.getContext('2d');
+    //设置填充颜色
+//    ctx.fillStyle='blue';
+
+    //黄色部分
+    ctx.beginPath();
+    ctx.arc(550,300,100,0,Math.PI*2,false);
+    ctx.fillStyle='gold';
+    ctx.fill();
+    ctx.closePath();
+
+    //黑色笑容
+    ctx.beginPath();
+    ctx.moveTo(475,330);
+//    ctx.lineTo(630,330)
+    ctx.bezierCurveTo(500,400,600,400,630,330);
+//    ctx.lineTo(600,350);
+    ctx.lineWidth=4;
+    ctx.strokeStyle='black';
+    ctx.stroke();
+    ctx.closePath();
+
+    //左侧眼球
+    ctx.beginPath();
+    ctx.moveTo(480,265);
+    ctx.bezierCurveTo(480,280,530,280,530,265);
+    //    ctx.lineTo(600,350);
+    ctx.fillStyle='white';
+    ctx.fill();
+    ctx.closePath();
+
+
+    ctx.beginPath();
+    ctx.moveTo(480,265);
+    ctx.bezierCurveTo(480,250,530,250,530,265);
+    //    ctx.lineTo(600,350);
+    ctx.fillStyle='white';
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(495,265,8,0,Math.PI*2,false);
+    ctx.fillStyle='black';
+    ctx.fill();
+    ctx.closePath();
+
+    //左侧粉红
+    ctx.beginPath();
+    ctx.moveTo(480,300);
+    ctx.bezierCurveTo(480,310,530,310,530,300);
+    //    ctx.lineTo(600,350);
+    ctx.fillStyle='pink';
+    ctx.fill();
+    ctx.closePath();
+
+
+    ctx.beginPath();
+    ctx.moveTo(480,300);
+    ctx.bezierCurveTo(480,290,530,290,530,300);
+    //    ctx.lineTo(600,350);
+    ctx.fillStyle='pink';
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(495,265,8,0,Math.PI*2,false);
+    ctx.fillStyle='black';
+    ctx.fill();
+    ctx.closePath();
+
+
+
+//右侧眼球
+
+    ctx.beginPath();
+    ctx.moveTo(580,265);
+    ctx.bezierCurveTo(580,280,630,280,630,265);
+    //    ctx.lineTo(600,350);
+    ctx.fillStyle='white';
+    ctx.fill();
+    ctx.closePath();
+
+
+    ctx.beginPath();
+    ctx.moveTo(580,265);
+    ctx.bezierCurveTo(580,250,630,250,630,265);
+    //    ctx.lineTo(600,350);
+    ctx.fillStyle='white';
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(595,265,8,0,Math.PI*2,false);
+    ctx.fillStyle='black';
+    ctx.fill();
+    ctx.closePath();
+
+//右侧粉红
+    ctx.beginPath();
+    ctx.moveTo(580,300);
+    ctx.bezierCurveTo(580,310,630,310,630,300);
+    //    ctx.lineTo(600,350);
+    ctx.fillStyle='pink';
+    ctx.fill();
+    ctx.closePath();
+
+
+    ctx.beginPath();
+    ctx.moveTo(580,300);
+    ctx.bezierCurveTo(580,290,630,290,630,300);
+    //    ctx.lineTo(600,350);
+    ctx.fillStyle='pink';
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(595,265,8,0,Math.PI*2,false);
+    ctx.fillStyle='black';
+    ctx.fill();
+    ctx.closePath();
+
+//名字
+    ctx.beginPath();
+    ctx.moveTo(0,50);
+    ctx.lineTo(150,50);
+    ctx.lineTo(75,50);
+
+    ctx.lineTo(75,125);
+    ctx.lineTo(0,125);
+    ctx.lineTo(150,125);
+    ctx.lineTo(75,125);
+
+    ctx.lineTo(75,200);
+    ctx.lineTo(0,200);
+    ctx.lineTo(150,200);
+    ctx.lineTo(75,200);
+
+    ctx.lineWidth=5;
+    ctx.strokeStyle='black';
+    ctx.stroke();
+    ctx.closePath();
+
+</script>
+</body>
+</html>

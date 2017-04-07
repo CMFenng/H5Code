@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			/*
+			 * ES6新添加了class（类）的概念，其实核心依然没有像java等语言
+			 * 那种真实的类，只是在原来的构造函数和原型概念的基础上，包装了
+			 * 一层语法糖，只是用起来感觉像是真的类一样而已。
+			 */
+			//声明一个人的类（这是原来的构造函数）
+			class Person {
+				//构造器 name 和 age 是传进来的形参
+				constructor (name, age) {
+					this.name = name;
+					this.age = age;
+				}
+				//方法 (这就是原来的原型方法)
+				sayHello () {
+					console.log("大家好，我叫：" + this.name + ",年龄：" 
+						+ this.age);
+				}
+			}
+			
+			//创建一个人的实例
+			let person1 = new Person("小雪", 18);
+			let person2 = new Person("小黑", 20);
+			
+			console.log(person1 instanceof Person);
+			console.log(person2 instanceof Person);
+			console.log(person1 === person2);
+			console.log(person1);
+			console.log(person2);
+			person1.sayHello();
+			person2.sayHello();
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

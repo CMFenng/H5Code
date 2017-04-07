@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>生成验证码</title>
+	<style type="text/css">
+	    #div{
+    		width: 400px;
+    		height: 150px;
+    		background: gray;
+    		display: inline-block;
+    		vertical-align: middle;
+    		font-size: 100px;
+    		text-align: center;
+    		color: orange;
+	    }
+	</style>
+</head>
+<body>
+	<div id="div"></div>
+	<a href="javascript:void(0);" id="a">看不清，换一个</a>
+</body>
+<script type="text/javascript" charset="utf-8">
+    var oDiv = document.getElementById("div");
+    var oA = document.getElementById("a");
+//  console.log(oDiv);
+	//声明一个随机数的方法
+	function Random(min,max){
+		var rand = Math.random() * (max - min + 1);
+		rand = Math.floor(rand) + min;
+		return rand;
+	}
+	function RandomNumber(){
+		var arr = [];
+		for(var i = 0; i < 4; i++){
+			arr[i] = Random(0,9);
+		}
+		return arr;
+	}
+	var arr1 = RandomNumber();
+//	console.log(arr1);
+	var str = arr1.join("");
+//	console.log(str);
+	oDiv.innerHTML = str;
+	
+	oA.onclick = function(){
+		var arr1 = RandomNumber();
+		var str = arr1.join("");
+		oDiv.innerHTML = str;
+	}
+</script>
+</html>

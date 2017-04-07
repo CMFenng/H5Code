@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		#wrap{
+			margin: 0 auto;
+			background-color: greenyellow;
+		}
+		.video{
+			width: 220px;
+			height: 180px;
+			margin: 20px;
+			border-radius: 10px;
+			background-color: #ebebeb;
+			text-decoration: none;
+			color: #000;
+			overflow: hidden;
+			display: inline-block;
+			position: relative;
+		}
+		img{
+			width: 220px;
+			height: 140px;
+		}
+		p{
+			margin: 0;
+			font-size: 12px;
+			text-align: center;
+		}
+		.timeLength{
+			width: 50px;
+			height: 20px;
+			background-color: rgba(0,0,0,.6);
+			border-radius: 3px;
+			font-size: 14px;
+			text-align: center;
+			color: #fff;
+			position: absolute;
+			top: 110px;
+			left: 160px;
+		}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<!--生成的样式-->
+	<!--<a class="video" href="http://www.iqiyi.com/v_19rrok4nt0.html">
+		<img src="http://pic9.qiyipic.com/image/20150803/96/f9/v_109343020_m_601.jpg"/>
+		<p class="vn">航海王 第1集</p>
+		<p class="vt">我是路飞！ 将要成为海贼王的男人</p>
+		<div class="timeLength">1500</div>
+	</a>-->
+</div>
+<script type="text/javascript">
+	//回调函数，直接在内部处理
+	function foo (obj) {
+		//获取到的数据对象
+		var videoObj = obj.data.vlist;
+		
+		//生成每一个video的构造函数
+		function createVideo (videoObj, parent, i) {
+			//创建a标签，包裹整个块
+			var a = document.createElement("a");
+			a.setAttribute("class", "video");
+			a.setAttribute("href", videoObj[i].vurl);
+			this.video = parent.appendChild(a);
+			
+			//创建img标签，用于显示图片
+			var img = document.createElement("img");
+			img.setAttribute("src", videoObj[i].vpic);
+			this.img = this.video.appendChild(img);
+			
+			//创建p标签，用于显示集数
+			var pVn = document.createElement("p");
+			pVn.setAttribute("class", "vn");
+			pVn.innerHTML = videoObj[i].vn;
+			this.pVn = this.video.appendChild(pVn);
+			
+			//创建p标签，用于显示标题
+			var pVt = document.createElement("p");
+			pVt.setAttribute("class", "vt");
+			pVt.innerHTML = videoObj[i].vt;
+			this.pVt = this.video.appendChild(pVt);
+			
+			//生成div标签，用于显示时长
+			var timeLength = document.createElement("div");
+			timeLength.setAttribute("class", "timeLength");
+			//将时间单位转化为分钟
+			var tL = parseInt(videoObj[i].timeLength / 60);
+			timeLength.innerHTML = "00:" + tL;
+			this.timeLength = this.video.appendChild(timeLength);
+		}
+		
+		//获取父元素
+		var wrap = document.getElementById("wrap");
+		//循环生成对象
+		for (var i = 0; i < videoObj.length; i++) {
+			new createVideo(videoObj, wrap, i);
+		}
+	}
+</script>
+<script src="http://cache.video.iqiyi.com/jp/avlist/202861101/1/?callback=foo"></script>
+</body>
+</html>
+<!--
+	
+练习jsonp跨域请求数据
+
+http://cache.video.iqiyi.com/jp/avlist/202861101/1/?callback=foo
+
+把请求到的信息在页面展示。
+
+-->

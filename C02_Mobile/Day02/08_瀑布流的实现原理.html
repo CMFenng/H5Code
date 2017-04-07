@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				width: 90%;
+				margin: 20px auto;
+			}
+			
+			#box ul{
+				list-style: none;
+				float: left;
+				width: 24%;
+				margin: 5px;
+			}
+			
+			#box li img{
+				width: 100%;
+				margin: 5px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+			<ul></ul>
+		</div>
+		<script type="text/javascript">
+			//获取所有的ul
+			var ulArr = document.querySelectorAll("ul");
+			
+			//初始化图片数量
+			function initImg (count) {
+				for (var i = 0; i < count; i++) {
+					var li = document.createElement("li");
+					var img = document.createElement("img");
+					//设置图片的src
+					img.src = './img/美女/' + i + '.jpg';
+					li.appendChild(img);
+					
+					//需要判断哪个ul最短，就把li放进去
+					//定义一个临时最短ul的变量，假设某个ul最短
+					var shortUl = ulArr[0];
+					for (var j = 0; j < ulArr.length; j++) {
+						if (shortUl.offsetHeight >= ulArr[j].offsetHeight) {
+							shortUl = ulArr[j];
+						}
+					}
+					shortUl.appendChild(li);					
+				}
+			}
+			
+			initImg(66);
+			
+			
+		</script>
+	</body>
+</html>

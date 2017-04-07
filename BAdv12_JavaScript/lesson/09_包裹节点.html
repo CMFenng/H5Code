@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+/*
+	wrap()
+		a.wrap(b)	每个a都各用一个b包裹
+	wrapAll()
+		a.wrapAll(b)	所有a都用同一个b包裹
+	wrapInner()
+		a.wrapInner(b)	b会成为a的唯一子元素（包裹原先a元素中的后代）
+	unwrap()
+		a.unwrap()		去掉a的直接父容器
+*/
+			// 一个ul包裹一个li，每个li都有一个ul包裹
+//			$("li").wrap("<ul></ul>");
+			// 一个ul包裹所有的li，中间有不是li的标签存在，则会被扔到后面
+//			$("li").wrapAll("<ul></ul>");
+			// div会成为li的唯一子元素
+//			$("li").wrapInner("<div></div>");
+			// 去掉a标签的直接父元素
+			$("a").unwrap();
+		})
+	</script>
+</head>
+<body>
+<li>
+	<div><a href="">上面没人1</a></div>
+</li>
+<p>我不是li</p>
+<li>上面没人2</li>
+</body>
+</html>

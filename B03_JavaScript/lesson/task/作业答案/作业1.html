@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title></title>
+</head>
+
+<body>
+<div>
+	请输入消费金额：<input type="text" id="consumeMoney" />
+	<p>
+		是否参加优惠活动：
+		<br /> 1.满50元，加2元换购百事可乐饮料一瓶。
+		<br /> 2.满100元，加3元换购500ml百事可乐一瓶。
+		<br /> 3.满50元，加10元换购5公斤面粉。
+		<br /> 4.满200元， 加20元换购炒锅。
+		<br /> 5.满200元， 加20元换购爽肤水。
+		<br /> 0.不换购。
+		<br />
+	</p>
+	<p>
+		请选择：<input type="text" id="select" />
+	</p>
+	<button id="result">结算</button>
+</div>
+<script type="text/javascript">
+	var inputs = document.getElementsByTagName("input");
+	document.getElementById("result")
+		.onclick = function() {
+			var consumeMoney = parseFloat(inputs[0].value);
+			var select = parseInt(inputs[1].value);
+			var sumMoney, product;
+			switch(select) {
+				case 0:
+					sumMoney = consumeMoney;
+					product = "你没有换购";
+					break;
+				case 1:
+					if(consumeMoney >= 50){
+						sumMoney = consumeMoney + 2;
+						product = "百事可乐饮料一瓶";
+					}else{
+						sumMoney = consumeMoney;
+						product = "消费金额不足，不给换购";
+					}
+					break;
+				case 2:
+					
+					break;
+				case 3:
+					
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+
+			}
+			
+			alert("本次消费总额：" + sumMoney + "\n" + product);
+		}
+</script>
+</body>
+
+</html>

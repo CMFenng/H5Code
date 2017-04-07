@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var map = new Map(
+			[
+				['name', '白凤九'],
+				['age', 70000]
+			]
+		);
+
+		//新增
+		map.set('sex', '女');
+		//修改
+		map.set('sex', '九尾狐');
+		//删除
+		map.delete('age');
+		//判断是否有某组键值对
+		console.log(map.has('age'));
+		//获取
+		console.log(map.get('sex'));
+		//获取键值对的个数
+		console.log(map.size);
+
+		map.size = 10;
+		//依然是2 原理看上午讲的Object.defineProperty()
+		console.log(map.size);
+
+		console.log(map);
+
+		//map的使用场景
+		var date = new Date();
+
+		//将来处理匹配关系的话，我们不要写if else、switch，
+		// 最好设计一个数据结构来处理这类的问题
+		var weekMap = new Map(
+			[
+				[0, '星期日'],
+				[1, '星期一'],
+				[2, '星期二'],
+				[3, '星期三'],
+				[4, '星期四'],
+				[5, '星期五'],
+				[6, '星期六']
+			]
+		);
+
+		//还可以用一个数组来处理这个问题
+		var weekArr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+
+		console.log(weekMap.get(date.getDay()));
+		console.log(weekArr[date.getDay()]);
+
+		// if (date.getDay() == 1) {
+		// 	return "星期一"
+		// } else if (.. 2) {
+		// 	return "星期二"
+		// }
+
+		// switch (date.getDay()) {
+		// 	case 1:
+
+		// 	return '星期1'...
+		// }
+
+
+
+	</script>
+</body>
+</html>

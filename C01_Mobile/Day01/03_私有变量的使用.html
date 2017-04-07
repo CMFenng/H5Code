@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person () {
+			var userName = '';
+			var dog = null;
+			var age = 0;
+
+			//我们可以设计一个私有变量存取器来进行访问
+			Person.prototype.setUserName = function (newUserName) {
+				if (typeof(newUserName) == 'string') {
+					userName = newUserName;
+					return;
+				}
+				throw new Error("不好意思，类型不是字符串！");
+			}
+
+			Person.prototype.getUserName = function () {
+				return userName;
+			}
+
+			//我们可以设计一个私有变量存取器来进行访问
+			Person.prototype.setDog = function (newDog) {
+				if (newDog instanceof Dog) {
+					dog = newDog;
+					return;
+				}
+				throw new Error("不好意思，类型不是🐶！");
+			}
+
+			Person.prototype.getDog = function () {
+				return dog;
+			}
+		}
+
+
+		var person1 = new Person();
+
+		function Dog () {
+
+		}
+
+		//设值
+		person1.setUserName("小雪");
+		//取值
+		console.log(person1.getUserName());
+
+		person1.setDog(new Dog());
+
+		console.log(person1.getDog());
+
+	</script>
+</body>
+</html>

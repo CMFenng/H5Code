@@ -1,0 +1,100 @@
+body,ul{
+	margin: 0;
+	padding: 0;
+}
+body,html{
+	height: 100%;
+}
+body{
+	overflow: hidden;
+}
+ul{
+	list-style: none;
+}
+#containner{
+	width: 480px;
+	height: 100%;
+	margin: 0 auto;
+	background: url(../img/images/bg.jpg) repeat-y;
+	overflow: hidden;
+	position: relative;
+}
+#list{
+	width: 202px;
+	margin: 100px auto 0;
+}
+#list li{
+	width: 200px;
+	height: 80px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	background: red;
+	margin-top: 30px;
+	text-align: center;
+	font-size: 30px;
+	line-height: 80px;
+	font-family: "微软雅黑";
+	cursor: pointer;
+}
+#logo{
+	width: 428px;
+	height: 104px;
+	margin: 100px auto 0;
+	background: url(../img/images/logo.png);
+}
+#load{
+	width: 192px;
+	height: 41px;
+	margin: 0 auto;
+	background: url(../img/images/loading1.png);
+}
+#ownPlane{
+	width: 98px;
+	height: 122px;
+	position: absolute;
+	left: 190px;
+	bottom: 0;
+	background-image: url(../img/images/me.png);
+}
+.bullet{
+	width: 7px;
+	height: 18px;	
+	position: absolute;
+	background: url(../img/images/bullet.png);
+}
+.bullet_die{
+	width: 41px;
+	height: 39px;	
+	position: absolute;
+}
+.plane1{
+	width: 59px;
+	height: 36px;
+	position: absolute;
+	background: url(../img/images/plane1.png);
+}
+.plane2{
+	width: 70px;
+	height: 92px;
+	position: absolute;
+	background: url(../img/images/plane2.png);
+}
+.plane3{
+	width: 165px;
+	height: 256px;
+	position: absolute;
+	background: url(../img/images/plane3.png);
+}
+#score{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 25px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: orange;
+	display: none;/*不显示*/
+	text-align: center;
+	font-family: "微软雅黑";
+}

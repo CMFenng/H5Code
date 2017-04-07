@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box{
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+            border: 2px solid darkgreen;
+        }
+
+        #top{
+            width: 100%;
+            height: 50px;
+        }
+
+        #top input{
+            height: 50px;
+            font-size: 30px;
+        }
+
+        #top input:first-of-type{
+            width: 390px;
+            border: 1px solid darkgreen;
+        }
+
+        #top input:last-of-type{
+            width: 100px;
+            background-color: darkgreen;
+            color: white;
+        }
+
+        #middle ol li{
+            margin-left: 20px;
+            border: 1px dashed darkgreen;
+        }
+        
+        #middle span{
+        	padding: 10px;
+        }
+
+        #bottom input{
+            width: 200px;
+            height: 50px;
+            background-color: darkgreen;
+            color: white;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="top">
+        <input type="text" id="msgInput" placeholder="请输入留言">
+        <input type="button" id="msgBtn" value="留言">
+    </div>
+
+    <div id="middle">
+        <ol></ol>
+    </div>
+
+    <div id="bottom">
+        <input type="button" id="clearAllBtn" value="全部清空">
+    </div>
+</div>
+<script type="text/javascript">
+    var msgInput = document.querySelector("#msgInput");
+    var msgBtn = document.querySelector("#msgBtn");
+    var msgOl = document.querySelector("ol");
+    var clearAllBtn = document.querySelector("#clearAllBtn");
+    
+    msgBtn.onclick = function () {
+        console.log(msgInput.value);
+        console.log(msgInput.value.length);
+
+        // 清空字符串两端的空格
+        console.log(msgInput.value.trim());
+        console.log(msgInput.value.trim().length);
+
+        // 清空字符串左边的空格
+        console.log(msgInput.value.trimLeft());
+        console.log(msgInput.value.trimLeft().length);
+        
+        // 清空字符串右边的空格
+        console.log(msgInput.value.trimRight());
+        console.log(msgInput.value.trimRight().length);
+
+        // 当 msgInput 存在，且除了两端之外不为空字符串
+        if (msgInput && msgInput.value.trim() != "") {
+            // 封装留言信息对象
+            var msgObj = {
+            	date : new Date().getTime(),
+            	msg : escape(msgInput.value.trim())
+            }
+            
+            // 存储数据
+            window.localStorage.setItem("msg_" + msgObj.date, JSON.stringify(msgObj));
+            
+            // 页面展示
+            msgOl.appendChild(createLi(msgObj));
+            
+            // 每次留言完后，清空输入框
+            msgInput.value = "";
+        }
+    }
+    
+    // 创建 li
+    function createLi (msgObj) {
+    	var msgLi = document.createElement("li");
+    	
+    	var msgSpan = document.createElement("span");
+    	msgSpan.innerHTML = unescape(msgObj.msg);
+    	
+    	// 时间
+    	var dateSpan = document.createElement("span");
+    	dateSpan.innerHTML = new Date(msgObj.date).toLocaleString();
+    	
+    	// 删除按钮
+    	var delBtn = document.createElement("input");
+    	delBtn.type = "button";
+    	delBtn.value = "X";
+    	delBtn.onclick = function () {
+    		// this 是当前按钮，msgObj 是留言对象
+    		delMsg(this, msgObj);
+    	}
+    	
+    	msgLi.appendChild(msgSpan);
+    	msgLi.appendChild(dateSpan);
+    	msgLi.appendChild(delBtn);
+    	
+    	return msgLi;
+    }
+    
+    // 删除某一条信息
+    function delMsg (ele, msgObj) {
+    	console.log(ele);
+    	console.log(msgObj);
+    	
+    	// 删除本地数据
+    	if (confirm("确定删除此条信息吗？")) {
+    		// 删除本地信息
+    		window.localStorage.removeItem("msg_" + msgObj.date);
+    		
+    		// 页面删除
+    		msgOl.removeChild(ele.parentNode);
+    	}
+    }
+    
+    // 清空全部
+    clearAllBtn.onclick = function () {
+    	if (confirm("确定删除所有留言吗？")) {
+    		for (var tempKey in window.localStorage) {
+    			if (/^(msg_)/.test(tempKey)) {
+    				window.localStorage.removeItem(tempKey);
+    			}
+    		}
+    		
+    		// 页面清空
+    		msgOl.innerHTML = "";
+    	}
+    }
+    
+    // 页面初始化读取数据显示留言信息
+    function initPage () {
+    	for (var tempKey in window.localStorage) {
+    		if (/^(msg_)/.test(tempKey)) {
+    			msgOl.appendChild(createLi(JSON.parse(window.localStorage.getItem(tempKey))));
+    		}
+    	}
+    }
+    
+    initPage();
+</script>
+</body>
+</html>
+<!--
+	trim()
+		清空字符串两端的空格
+	trimLeft()
+		清空字符串左边的空格
+	trimRight()
+		清空字符串右边的空格
+		
+	存储键值对时：
+		为了键的易操作，建议键名加入前缀
+		为了键的唯一性，建议使用时间戳命名
+		如：msg_1490582762607
+-->

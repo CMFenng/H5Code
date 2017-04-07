@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+创建字符串
+	
+	JS 中的字符串是不可变的！
+	任何涉及到字符串变化的操作都不会改变原始字符串
+	都是重新创建一个新的字符串
+	
+	JS 中，有两种字符串。
+	第一种是	基本类型的字符串，
+	另一种是	对象类型（引用类型）的字符串
+*/
+//====================================================
+/*基本类型*/
+    
+    //1. 字符串直接量
+    var str = "MR_LP";			//str 为基本类型的字符串
+    console.log(typeof str);	//string
+    
+    //2. 转换函数（注意：没有 new 关键字的）
+    var str = String(123);
+    //把一个基本数据类型的 Number,转化为基本数据类型的 String
+    console.log(typeof str);	//string
+//====================================================
+/*引用类型*/
+    
+    //通过 new 关键字来使用 String() 构造方法
+    //获取到的是一个对象，是引用类型
+    var str = new String("asd");
+    console.log(typeof str);	//object
+//====================================================
+/*
+注意：
+	通过 new 关键字获取到的是引用类型的字符串
+	不使用 new 关键字则是基本类型的字符串
+*/
+</script>
+</html>

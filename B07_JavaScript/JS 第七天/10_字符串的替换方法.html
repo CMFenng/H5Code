@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+字符串的替换方法
+	
+	1. str.replace(regExp/substr,replaceElement)
+	2. str.match(匹配值)
+	3. str.search(匹配的参数)
+*/
+//==========================================================
+/*
+str.replace(regExp/substr,replaceElement)
+	
+	regExp/substr
+		必选参数
+		regExp -> 正则表达式
+		substr -> 字符串
+		需要注意，如果第一个值是字符串
+		则将这个字符串作为检索的直接量
+		而不是去查看是否能够转化为 regExp
+	replaceElement
+		必选参数
+		规定了替换文本，或者生成替换文本的函数
+		一般为一个字符串值
+*/
+    var str = "abcabc";
+    var newStr = str.replace("ab","**");
+    console.log(newStr);		//**cabc
+    //替换只针对检索到的第一个匹配元素
+    
+    console.log(str.replace(/AB/gi,"**"));		//**c**c
+	/*
+	/AB/gi
+		
+		g
+			正则对象中的修饰符
+			表示匹配时进行全局匹配（当前字符中全部进行替换）
+		i
+			正则对象中的修饰符
+			表示匹配的时候不区分大小写
+	*/
+//==========================================================
+/*
+str.match(匹配值)
+	
+	该方法用于在字符串中检索指定的值
+	
+	匹配的参数只有一个
+	要么是正则表达式
+	要么是字符串
+	
+	返回值：
+		存放匹配结果的数组
+*/
+    var str = "abcabc";
+    var arr = str.match("ab");
+    console.log(arr);				//["ab"]
+    console.log(str.match(/ab/gi));	//["ab","ab"]
+    
+    var timer = "2017年02月08日15:25:30";
+    var num = timer.match(/\d+/gi);
+    console.log(num.join("-"));		//2017-02-08-15-25-30
+//==========================================================
+/*
+str.search(匹配的参数)
+	
+	匹配的参数只有一个
+	要么是正则表达式
+	要么是字符串
+	
+	返回值：
+		第一个匹配项的索引，
+		如果没有找到，则返回 -1
+	
+	不支持全局匹配
+*/
+    var str = "abcabc";
+    var arr = str.search("ab");
+    console.log(arr);					//0
+    console.log(str.search(/ab/gi));	//0
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				height: 50px;
+				background-color: orange;
+			}
+			
+			:root{
+				background-color: pink;
+			}
+			
+			p:empty{
+				background-color: blue;
+			}
+			
+			#box :first-child{
+				height: 100px;
+				background-color: red;
+			}
+			
+			#box :last-child{
+				height: 100px;
+				background-color: red;
+			}
+			
+			#box :nth-child(2){
+				height: 100px;
+			}
+			
+			#box :nth-last-child(2){
+				height: 100px;
+			}
+			
+			#box2 :only-child{
+				height: 100px;
+				background-color: cyan;
+			}
+			
+			#box :nth-child(odd){
+				background-color: brown;
+			}
+			
+			#box :nth-child(2n){
+				background-color: yellow;
+			}
+			
+			#box p:first-of-type{
+				background-color: purple;
+			}
+			
+			#box div:last-of-type{
+				background-color: orchid;
+			}
+			
+			#box p:nth-of-type(2){
+				background-color: blanchedalmond;
+			}
+			
+			#box div:only-of-type{
+				background-color: deepskyblue;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<p></p>
+		<p>&nbsp;</p>
+		<p>
+			
+		</p>
+		<p><!-- 这里是注释 --></p>
+		<p>有内容的P元素</p>
+		
+		<div id="box">
+			<div></div>
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+			<p>4</p>
+			<p>5</p>
+			<p>6</p>
+		</div>
+		
+		<div id="box2">
+			<div></div>
+		</div>
+		
+	</body>
+</html>

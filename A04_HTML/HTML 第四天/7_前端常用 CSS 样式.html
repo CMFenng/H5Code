@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.div_1{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+
+			font-size: 50px;
+
+			/*
+				设置文字的大小写转换
+					text-transform
+						uppercase
+							所有单词全部大写
+						lowercase
+							所有单词全部小写
+						capitalize
+							所有单词首字母大写
+							eg: mr_lp -> Mr_lp
+								mr-lp -> Mr-Lp;
+			*/
+			/*text-transform: capitalize;*/
+
+			/*
+				设置水平对齐方式
+					text-align
+						left
+						right
+						center
+					不能为bottom，因为是水平对齐
+
+					text-align针对的不是它本身
+						针对内部具有内联元素特征的元素生效（内联/内联块）
+			*/
+			text-align: center;
+
+			/*
+				设置文字行高
+					跟div高度一样
+			*/
+			line-height: 600px;
+
+			/*
+				设置文字样式
+					font-style
+						normal		正常
+						italic		斜体字
+						oblique		倾斜的文字
+
+						italic 失效的时候，需要使用 oblique 替代
+						平时尽量使用 italic
+			*/
+			/*font-style: oblique;*/
+
+			/*
+				设置文字的粗细程度
+					font-weight
+						normal	正常
+						bold	加粗
+						bolder	更粗
+			*/
+			/*font-weight: bolder;*/
+
+			/*
+				设置字体样式
+					font-family
+						黑体		SimHei
+						宋体		SimSun
+						华文行楷	STKaiti
+						微软雅黑	Microsoft YaHei
+						Helvetica	不用加""
+
+			*/
+			/*font-family: "SimHei",
+						 "SimSun",
+						 "STKaiti",
+						 "Microsoft YaHei",
+						 Helvetica;*/
+
+			/*
+				用于某个元素的字体族的名称或者类族的名称的一个优先表
+				浏览器会使用它可识别的第一个值
+				每一个值使用 , 分割
+				始终需要提供一个类族名称作为最后选择
+			*/
+
+	/*font-family: "SimasdjkhHei",
+				 "SimakjshdSun",
+				 "STKaakjshditi",
+				 "Microalkjdlkasoft YaHei",
+				 Helvetica;*/
+
+			/*
+				设置文字中“英文”的显示方式
+					font-variant
+						normal
+						small-caps		英文全部变成大写，并且以小字号显示
+			*/
+			font-variant: small-caps;
+
+			background: red;
+
+			margin: 0 auto;
+
+			margin-left: auto;
+			margin-right: auto;
+		}
+		em{
+			/*font-style: normal;*/
+		}
+		.div_2{
+			width: 200px;
+			height: 200px;
+			background: blue;
+
+			display: inline-block;
+		}
+		h1{
+			font-weight: 900;
+		}
+	</style>
+</head>
+<body>
+	<div class="div_1">
+		<!-- my NAME is mr_lp. -->
+		<!-- <em>李先生</em> -->
+		<!-- <div class="div_2"> -->
+			<!-- 没时间解释了 -->
+		<!-- </div> -->
+
+		李先生 this is my name.
+		<!-- <h1>aksjhd</h1> -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+<!--
+script 标签
+	script 标签内部的 type 是必选的属性
+	平时推荐大家使用 text/javascript
+	
+type 可书写的属性：
+	text/javascript
+		传统的写法，兼容性很好
+	application/javascript
+		标准写法，但是存在兼容性问题
+	text/x-javascript
+		x 这是个实验性的标志
+		不是标准的类型（x 实际上代表 experiment）
+	text/vbscript
+		是用于服务器上 ASP 页面时使用
+		不应该使用该类型作为客户端的脚本
+	text/jscript
+		jscript 实际上只代表了 IE 浏览器
+		其他浏览器无法识别
+-->
+	<script type="text/javascript">
+    	//单行注释
+    	//单行注释
+    	
+		/*
+		 * 多行注释
+		 * 多行注释
+		 */
+    		
+    	//警告框
+		alert("head 中--今天学习了新的开发工具");
+	</script>
+	<style type="text/css">
+	    div{
+	    	width: 100px;
+	    	height: 100px;
+	    	background: red;
+	    }
+	</style>
+</head>
+<body>
+<!--
+JS 引入的三种方法
+	
+	1.内部添加
+		直接在 HTML 文件内部书写 script 标签
+		书写的 <script> 标签理论上可以出现在任何位置，但是推荐放在 head 标签内部或者 body 标签的下方
+	2.外部链接添加
+		在 HTML 文件内部书写 script 标签
+		在 script 标签内部的 src 属性中，引入特定的 JS 文件
+	3.直接在标签当中添加
+	
+书写时的注意事项：
+	当我们书写 JS 的时候，数字可以直接书写，不需要添加引号
+	如果需要书写文字，则需要使用引号将内容括起来
+	输出文字的时候，使用单引号和双引号包裹，效果其实是相同的
+	如果在书写的过程中，需要使用某些特定的符号或者格式，这时候我们可以去使用转义字符(\" \' \n)
+-->
+	<div></div>
+</body>
+<script>
+	//警告框会导致当前界面加载被截断
+	//所以，现阶段更推荐大家将 script 书写在 body 标签的下方
+    alert("body 下方--今天学习了新的开发工具");
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		#header{
+			height: 100px;
+			background-color: pink;
+		}
+		#content{
+			height: 600px;
+			background-color: cyan;
+		}
+		#footer{
+			height: 200px;
+			background-color: blue;
+		}
+	</style>
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+	    $(function () {
+	        //url添加空格之后，可以添加选择器，来决定哪些元素会插入到div中
+	        $("#header").load("header.html ul");
+	        $("#content").load("content.html div");
+	        $("#footer").load("footer.html div");
+	    });
+	</script>
+</head>
+<body>
+<div id="header"></div>
+<div id="content"></div>
+<div id="footer"></div>
+</body>
+</html>

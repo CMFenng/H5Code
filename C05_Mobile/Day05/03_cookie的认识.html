@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//获取cookie （获取所有cookie）
+			console.log(document.cookie);
+			
+			//设置cookie
+			//注意：设置cookie的时候如果没有设置过期时间的话，默认是session
+			//（会话级别存储）意思就是说只有在当前这次会话（访问）才生效，彻底关闭
+			// 浏览器之后，该cookie则会消失
+			document.cookie = "userName=" + escape('小雪'); 
+			
+			//我们可以在设置cookie的时候 设置一个过期时间
+			var date = new Date();
+			
+			//设置10天后过期
+			date.setTime(date.getTime() + 10 * 24 * 3600 * 1000);
+			
+			//设置一个10天后过期的cookie, 使用expires=过期时间 来设置过期时间
+			document.cookie = "userAge=18;expires=" + date.toGMTString();
+			
+			//设置10秒后过期
+			date = new Date();
+			date.setTime(date.getTime() + 10 * 1000);
+			document.cookie = "userSex=" + escape('女') + ";expires=" 
+								+ date.toGMTString();
+			
+			//删除cookie，我们可以设置把时间设置为过期就好了
+			date.setTime(0);
+			document.cookie = 'userAge=xxx;expires=' + date.toGMTString();
+			
+			
+		</script>
+	</body>
+</html>

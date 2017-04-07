@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	/*农民、服务生*/
+	function FarmerOrAttendant (basePay) {
+		this.basePay = basePay;
+	}
+	/*教师*/
+	function Teacher (classPay) {
+		this.classPay = classPay;
+	}
+	/*科学家*/
+	function Scientist (yearAward) {
+		this.yearAward = yearAward;
+	}
+	
+	var farmerOrAttendant = new FarmerOrAttendant(3000);
+	console.log(farmerOrAttendant.basePay);
+	
+	Teacher.prototype = new FarmerOrAttendant(4000);
+	var teacher = new Teacher(1000);
+	console.log(teacher.basePay + teacher.classPay);
+	
+	Scientist.prototype = new FarmerOrAttendant(5000);
+	var scientist = new Scientist(2000);
+	console.log(scientist.basePay + scientist.yearAward);
+</script>
+</body>
+</html>
+<!--
+有农民(farmer),教师(teacher),科学家(scientist),服务生(attendant)
+	a: 其中农民,服务生只有基本工资
+	b: 教师除基本工资外,还有课酬(元/天)
+	c: 科学家除基本工资外,还有年终奖
+	D: 使用原型继承的方式完成时上面的功能
+-->

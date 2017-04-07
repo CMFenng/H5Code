@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<input type="text" id="ele" />
+<button id="btn" onclick="addEleToArr();">添加元素到数组中</button>
+<p id="showArr"></p>
+<script type="text/javascript">
+	var ele = document.getElementById("ele");
+	function getArr () {
+		var arr = [];
+		return arr;
+	}
+	
+	var arr = getArr();
+	function addEleToArr () {
+		if(arr.length === 10){
+			return;
+		}
+		
+		var e = ele.value;
+		arr.push(e);
+		if(arr.length === 10){
+			arr.forEach(function(el, i) {
+				/*document.write(el + "<br/>");*/
+				showArr.innerHTML += el + "<br/>";
+			})
+		}
+	}
+	
+	
+</script>
+</body>
+
+</html>

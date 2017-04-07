@@ -1,0 +1,1 @@
+document.writeln('<a href="http://zgmlsj.com/affiche.php?ad_id=111&from=&uri=http%3A%2F%2Fwww.zgmlsj.com%2Fgoods.php%3Fid%3D340" target="_blank"><img src="http://zgmlsj.com/data/afficheimg/1477897314274329774.png" border="0" alt="TER广告2" /></a>');

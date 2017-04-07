@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="cookieUtil.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    // 设置多个 cookie
+	Cookie.setCookie({
+		name : "小雪",
+		age : 18,
+		sex : "女"
+	}, 10 * 24 * 3600 * 1000);
+
+	// 获取某个 cookie
+	console.log(Cookie.getCookie("sex"));
+
+	// 删除 cookie
+	Cookie.delCookie("name");
+	Cookie.delCookie("userName");
+</script>
+</body>
+</html>

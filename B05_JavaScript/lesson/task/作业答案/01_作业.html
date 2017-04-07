@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<input type="text" placeholder="请输入年份"/>
+	<button>计算是否为闰年</button>
+	<script type="text/javascript">
+		var input1 = document.getElementsByTagName("input")[0];
+		document.getElementsByTagName("button")[0].onclick = function(){
+			var year = parseInt(input1.value);
+			if(isLeapYear(year)!== undefined && isLeapYear(year)){
+				alert(year + "是闰年");
+			}else if(isLeapYear(year) !== undefined && !isLeapYear(year)){
+				alert(year + "不是闰年");
+			}else{
+				alert("输入错误");
+			}
+			input1.value = "";
+		}
+		//判断是否为闰年
+		function isLeapYear(num){
+			if(num > 0){
+				var TF = year % 4 === 0 && year % 100 !== 0 || year % 400 === 0 ? true : false;
+				return TF;
+			}
+		}
+	</script>
+</body>
+
+</html>

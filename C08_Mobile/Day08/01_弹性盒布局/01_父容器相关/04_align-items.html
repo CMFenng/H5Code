@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<style type="text/css">
+			/*align-items: flex-start | flex-end | center | baseline | stretch;*/
+    /*交叉轴对齐方式：顶部对齐 | 底部对齐 | 居中对齐 | 文本基线对齐 | 
+     * 如果子元素未设置高度或设为auto，将占满整个容器的高度。（默认） */
+    			
+    			ul:nth-of-type(1){
+    				align-items: flex-start;
+    			}
+    			
+    			ul:nth-of-type(2){
+    				align-items: flex-end;
+    			}
+    			
+    			ul:nth-of-type(3){
+    				justify-content: center;
+    				align-items: center;
+    			}
+    			
+    			ul:nth-of-type(4){
+    				align-items: baseline;
+    			}
+    			
+    			ul li{
+    				height: auto;
+    			}
+    			
+    			ul:nth-of-type(5){
+    				align-items: stretch;
+    			}
+    			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li style="line-height: 80px;">3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>

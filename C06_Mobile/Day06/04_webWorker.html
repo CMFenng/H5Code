@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="我是一个按钮" />
+		<h1></h1>
+		
+		<script type="text/javascript">
+			var btn = document.querySelector("input");
+			var h1 = document.querySelector("h1");
+			//通过循环，来模拟一个耗时操作
+//			for (var i = 0; i < 2000000000; i++) {
+//				
+//			}
+//			
+//			h1.innerHTML = i;
+
+			//创建了个Worker对象，（相当于开启了一个子线程）
+			//构造函数中的参数是 执行耗时操作的JS文件
+			//我们会把耗时操作放到子线程中去执行（也就是放到woker.js这文件中）
+			var worker = new Worker('./woker.js');
+			//给woker绑定一个监听事件，当子线程调用postMessage方法的时候，就
+			//会触发该事件， 在这个事件回调函数中更新UI代码
+			worker.onmessage = function (e) {
+				//e.data 就是子线程耗时操作后返回的数据
+				//更新UI
+				h1.innerHTML = e.data;
+			}
+			
+			console.log("=== 上面那个是子线程，不会影响我的执行！！！ ===");
+			
+			btn.onclick = function () {
+				alert("123");
+			}
+			
+		</script>
+	</body>
+</html>

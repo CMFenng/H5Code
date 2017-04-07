@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj = {
+			name : '铁蛋儿',
+			age : 24
+		}
+
+		//接下来的操作，以后不要去写(这里仅仅是为了学习使用！！)
+		//千万不要给Object的原型上加任何自定义的东西！！！！
+		Object.prototype[Symbol.iterator] = function () {
+			//记录下标
+			var num = 0;
+			//用来存储值的数组
+			var valueArr = new Array();
+			//遍历当前对象，把每个值存储在数组中valueArr
+			for (var tempProp in this) {
+				valueArr.push(this[tempProp]);
+			}
+
+			return {
+				next : function () {
+					return {
+						value : valueArr[num++],
+						done : num - 1 >= valueArr.length ? true : false
+					}
+				}
+			}
+		}
+
+		var objIterator = obj[Symbol.iterator]();
+		console.log(objIterator.next());
+		console.log(objIterator.next());
+		console.log(objIterator.next());
+		console.log(objIterator.next());
+
+		var objIterator2 = obj[Symbol.iterator]();
+		console.log(objIterator2.next());
+		console.log(objIterator2.next());
+		console.log(objIterator2.next());
+		console.log(objIterator2.next());
+
+		for (var tempVal of obj) {
+			console.log(tempVal);
+		}
+
+
+
+	</script>
+</body>
+</html>

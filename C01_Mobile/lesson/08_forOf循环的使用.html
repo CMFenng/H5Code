@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str = "abcd";
+    var person = {
+        name : "浅浅",
+        age : 18
+    }
+    var arr = ["aa", "bb", "cc"];
+    var map = new Map(
+        [
+            ["name", "折颜"],
+            ["age", "不详"]
+        ]
+    );
+    
+    // 遍历字符串（支持）
+    for (var tempChr of str){
+        console.log(tempChr);   // a、b、c、d
+    }
+    
+    console.log("=== 代码分割线 ===");
+    
+    // 遍历自定义对象（不支持）
+    // 报错：person[Symbol.iterator] is not a function
+//    for (var tempVal of person){
+//        console.log(tempVal);
+//    }
+    
+    // 遍历数组（支持）
+    for (var tempEle of arr){
+        console.log(tempEle);   // aa、bb、cc
+    }
+
+    console.log("=== 代码分割线 ===");
+
+    // 遍历 map（支持）
+    for (var tempArr of map){
+        // tempArr[0] ：键
+        // tempArr[1] ：值
+        console.log(tempArr[0] + " == " + tempArr[1]);  //name == 折颜、age == 不详
+    }
+
+    console.log("=== 代码分割线 ===");
+
+    for (var [key, value] of map){
+        console.log(key + " : " + value);   //name : 折颜、age : 不详
+    }
+    
+    console.log("=== 代码分割线 ===");
+
+    // 遍历 map 中所有的 key
+    for (var tempKey of map.keys()){
+        console.log(tempKey);   //name、age
+    }
+
+    console.log("=== 代码分割线 ===");
+
+    // 遍历 map 中所有的 value
+    for (var tempValue of map.values()){
+        console.log(tempValue); //折颜、不详
+    }
+</script>
+</body>
+</html>

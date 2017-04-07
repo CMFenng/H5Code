@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function Person () {
+			this.name = '小雪';
+		}
+
+		var person1 = new Person();
+		var person2 = new Person();
+
+		var person3 = person2;
+
+		person3.name = "小黑";
+
+		console.log(person1.name);	//小雪
+		console.log(person2.name);  //小黑
+		console.log(person3.name);  //小黑
+
+		person3 = new Person();
+
+		console.log(person1.name);	//小雪
+		console.log(person2.name);  //小黑
+		console.log(person3.name);  //小雪
+
+		person1 = person3;
+
+		person1.name = "小红";
+
+		console.log(person1.name);	//小红
+		console.log(person2.name);  //小黑
+		console.log(person3.name);  //小红
+
+		//手动清空指针
+		person2 = null;
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

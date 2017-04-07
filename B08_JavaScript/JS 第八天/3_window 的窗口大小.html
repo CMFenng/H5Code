@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+window 的窗口大小
+	
+	有三种方式来进行获取
+	
+1. 针对 IE9+,Chrome,FireFox,Opera 和 Safari
+	
+	window.innerWidth
+		浏览器窗口的内部宽度
+	window.innerHeight
+		浏览器窗口的内部高度
+*/
+    var msg = "窗口的宽度" + window.innerWidth + 
+    			"\n窗口的高度" + window.innerHeight;
+    alert(msg);
+/*
+2. 针对 IE6 / IE7 / IE8 / IE5
+	支持 Chrome 和 FireFox
+	
+	document.documentElement.clientWidth
+		浏览器内部宽度
+	document.documentElement.clientHeight
+		浏览器内部高度
+*/
+	var msg = "窗口宽度" + document.documentElement.clientWidth + 
+				"\n窗口高度" + document.documentElement.clientHeight;
+	alert(msg);
+/*
+3. 兼容的版本
+*/
+	var w = window.innerWidth || document.documentElement.clientWidth;
+	var h = window.innerHeight || document.documentElement.clientHeight;
+	alert("窗口宽度：" + w + "\n窗口高度：" + h);
+</script>
+</html>

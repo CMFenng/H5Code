@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="12.js"></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			body{
+				background: #425 url(img/timg.jpg);
+			}
+			.box {
+				margin: 50px 0 0 40px;
+				width: 1000px;
+				height: 480px;
+				position: relative;
+				transform-style: preserve-3d;
+				perspective: 2000px;
+				text-align: center;
+				color: red;
+				float: left;
+				
+			}
+			.box div{
+				transform: rotateX(45deg);
+			}
+			
+			.box .mainKey {
+				width: 80px;
+				height: 400px;
+				background-color: white;
+				border: 1px solid black;
+				float: left;
+				box-shadow: 5px 5px 5px black;
+				font-size: 25px;
+			}
+			
+			#btn10 {
+				width: 35px;
+				height: 220px;
+				background-color: black;
+				position: absolute;
+				font-style: normal;
+				left: 70px;
+				top: 30px;
+				color: white;
+			}
+			
+			#btn11 {
+				width: 35px;
+				height: 220px;
+				background-color: black;
+				position: absolute;
+				font-style: normal;
+				left: 150px;
+				top: 30px;
+				color: white;
+			}
+			
+			#btn12 {
+				width: 35px;
+				height: 220px;
+				background-color: black;
+				position: absolute;
+				font-style: normal;
+				left: 308px;
+				top: 30px;
+				color: white;
+			}
+			
+			#btn13 {
+				width: 35px;
+				height: 220px;
+				background-color: black;
+				position: absolute;
+				font-style: normal;
+				left: 385px;
+				top: 30px;
+				color: white;
+			}
+			
+			#btn14 {
+				width: 35px;
+				height: 220px;
+				background-color: black;
+				position: absolute;
+				font-style: normal;
+				left: 545px;
+				top: 30px;
+				color: white;
+			}
+			#btn15 {
+				width: 35px;
+				height: 220px;
+				background-color: black;
+				position: absolute;
+				font-style: normal;
+				left: 630px;
+				top: 30px;
+				color: white;
+			}
+			#menu{
+				width: 200px;
+				float: right;
+				margin: 100px 0 0 0;
+			}
+			#menu h2{
+				color: #FFFFFF;
+				height: 80px;
+				line-height: 80px;
+			}
+			#menu li{
+				height: 40px;
+				line-height: 40px;
+				text-indent: 20px;
+				color: #fff;
+				font-weight: bold;
+				font-size: 16px;
+			}
+			#word{
+				clear: both;
+				width: 1000px;
+				height: 200px;
+				/*background: yellow;*/
+				text-align: center;
+				margin: 0 auto;
+				line-height: 200px;
+				;
+			}
+			
+		</style>
+		<script src = 'index.js'></script>
+	</head>
+
+	<body>
+		<audio></audio>
+		<div class="box">
+			<div id="btn1" class="mainKey">A</div>
+			<div id="btn2" class="mainKey">S</div>
+			<div id="btn3" class="mainKey">D</div>
+			<div id="btn4" class="mainKey">F</div>
+			<div id="btn5" class="mainKey">G</div>
+			<div id="btn6" class="mainKey">H</div>
+			<div id="btn7" class="mainKey">J</div>
+			<div id="btn8" class="mainKey">K</div>
+			<div id="btn9" class="mainKey">L</div>
+
+
+			<div id="btn10">1</div>
+			<div id="btn11">2</div>
+			<div id="btn12">3</div>
+			<div id="btn13">4</div>
+			<div id="btn14">5</div>
+			<div id="btn15">6</div>
+		</div>
+		<div id="menu">
+			<h2>请选择歌曲</h2>
+			<ol>
+				<li>小苹果</li>
+				<li>big big world</li>
+				<li>小星星</li>
+				<li>同桌的你</li>
+				<li>征服</li>
+			</ol>
+			
+		</div>
+		<div id="word"></div>
+	</body>
+
+</html>

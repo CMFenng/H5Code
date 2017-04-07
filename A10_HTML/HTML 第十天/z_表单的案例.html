@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <form action="http://api.map.baidu.com/place/v2/search" method="get">
+    <input type="text" placeholder="酒店" name="query">
+    <br>
+    <select name="region" id="">
+      <option value="郑州">郑州</option>
+      <option value="北京">北京</option>
+      <option value="深圳">深圳</option>
+      <option value="东莞">东莞</option>
+    </select>
+    <br>
+    <input type="radio" name="output" value="json">json
+    <input type="radio" name="output" value="xml">xml
+    <br>
+    <input type="hidden" value="6E823f587c95f0148c19993539b99295" name="ak">
+
+    <br>
+    <input type="submit" value="提交">
+    <input type="reset" value="重置">
+
+    <br>
+  </form>
+</body>
+</html>

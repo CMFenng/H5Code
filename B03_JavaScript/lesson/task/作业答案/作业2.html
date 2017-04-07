@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title></title>
+</head>
+
+<body>
+<div>
+	请选择你要飞行的月份：
+	<select id="season">
+		<option value="wj">4,5,6,7,8,10月份</option>
+		<option value="dj">1,2,3,11,12月份</option>
+	</select>
+	<select id="type">
+		<option value="top">头等舱</option>
+		<option value="low">经济舱</option>
+	</select>
+	<button id="calc">计算价格</button>
+	
+</div>
+<script type="text/javascript">
+	var selects = document.getElementsByTagName("select");
+	document.getElementById("calc").onclick = function  () {
+		var season = selects[0].value;
+		var type = selects[1].value;
+		var init = 4000;
+		if(season === "wj"){
+			if(type === "top"){
+				init *= 0.9;
+			}else{
+				init *= 0.75;
+			}
+		}else{
+			if(type === "top"){
+				init *= 0.6;
+			}else{
+				init *= 0.3;
+			}	
+		}
+		alert("你选择的飞行，需要付款：" + init + "圆");
+		
+		
+	}
+</script>
+</body>
+
+</html>
+<!--
+	东方航空从北京飞往马尔代夫的机票原价为4000元，
+	4到10月份为旺季，其他月份为淡季，	旺季时候头等舱打9折，
+	经济舱打7.5折；淡季头等舱打6折，经济舱打3折。
+	
+	从页面输入出行的月份和选择的舱型计算出机票价格。
+	
+-->

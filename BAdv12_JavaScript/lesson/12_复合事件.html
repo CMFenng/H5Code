@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			background-color: pink;
+		}
+	</style>
+	<!--jQuery1.8版本-->
+	<!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.8.3.js"></script>-->
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+/*
+	hover(handlerIn, handlerOut)
+		参数1：鼠标进入元素时的执行函数
+		参数2：鼠标移出元素时的执行函数
+
+	toggle()
+		让元素显示或隐藏
+		不传任何参数也可以，传递number表示显示或隐藏使用的时间
+
+		在1.9以前的版本中，toggle支持传入多个function
+		每次触发toggle就轮流触发里面的函数，执行完所有方法后再触发就从第一个方法执行
+*/
+		$(function () {
+			$("div").hover(function () {
+				$(this).css({
+					backgroundColor : "pink"
+				});
+			},function () {
+				$(this).css({
+					backgroundColor : "blue"
+				});
+			});
+
+			$("button").click(function () {
+			    // 显示或隐藏所用的时间：2000ms
+				$("div").toggle(2000);
+			});
+//=======================================================
+			// 在1.9之前的版本支持。模拟鼠标多次点击，轮流执行传递的函数
+//			$("button").toggle(function () {
+//				console.log("第一次");
+//            }, function () {
+//				console.log("第二次");
+//            }, function () {
+//				console.log("第三次");
+//            });
+		})
+	</script>
+</head>
+<body>
+	<button>按钮</button>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 141px;
+			height: 90px;
+			/*border: 1px solid #000;*/
+			background: url(img/bird.jpg) no-repeat;
+		}
+	</style>
+	<script type="text/javascript" src="suanzi.js"></script>
+	<script type="text/javascript" src="Animator.js"></script>
+</head>
+<body>
+<div></div>
+<script type="text/javascript">
+	var bird = document.querySelector("div");
+	var i = 0;
+	var j = 0;
+	setInterval(function () {
+		bird.style.backgroundPosition = -141 * (i % 4) + "px " + (-85) * (j % 2) + "px";
+		i++;
+		if (i % 4 == 0) {
+			j++;
+		}
+	}, 100);
+	
+	var animator = new Animator(10000, Easing.linear, function (easing, p) {
+		bird.style.transform = "translateX(" + 1000 * easing + "px)";
+	});
+	animator.start(true);
+</script>
+</body>
+</html>

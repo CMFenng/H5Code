@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<script type="text/javascript">
+	function reverse1 (s) {
+		var r = "";
+		for (var i = s.length - 1; i >= 0; i--) {
+			r += s.charAt(i);
+		}
+		return r;
+	}
+	function reverse2 (s) {
+		return s.split("").reverse().join("");
+	}
+	
+	
+	console.log(reverse2("iOS Android HTML5 Java"))
+</script>
+</body>
+
+</html>
+<!--
+传入："iOS Android HTML5 Java"
+返回："avaJ 5LMTH diordnA SOi"
+	
+	
+	
+	
+-->

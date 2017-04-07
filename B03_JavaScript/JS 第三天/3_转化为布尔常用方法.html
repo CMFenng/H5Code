@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+转化为布尔  Boolean()
+	
+	JS 中存在的布尔类型和其他编程语言不一样
+	JS 中是存在 Truthy 和 Falsy
+	
+	falsy：数字0、NaN、字符串内容为空、false、undefined、null
+	truthy：Infinity、空数组（转化为0）、字符串 0（"0"）
+*/
+	console.log(Boolean(1));		//true
+	console.log(Boolean(0));		//false
+	console.log(Boolean(NaN));		//false
+	console.log(Boolean(""));		//false
+	console.log(Boolean(false));	//false
+	console.log(Boolean(undefined));//false
+	console.log(Boolean(null));		//false
+	console.log(Boolean(Infinity));	//true
+	console.log(Boolean([]));		//true
+	console.log(Number([]));		//0
+	console.log(Boolean("0"));		//true
+</script>
+</html>

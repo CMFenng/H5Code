@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			font-size: 100px;
+		}
+		.div_2{
+			position: relative;
+			left: 700px;
+			/*
+				特性4：相对定位的位移是参考于自身原始位置移动的
+			*/
+		}
+		span{
+			font-size: 50px;
+		}
+		.span_1{
+			position: relative;
+			/*top: 500px;*/
+			/*
+				特性5：相对定位不会使元素脱离文档流（布局的时候还是需要考虑的）
+			*/
+
+			/*left: 300px;*/
+			/*
+				特性6：相对定位偏移的时候，属性会保留在原始位置，内容会进行偏移
+						“灵魂出窍”
+			*/
+
+			/*
+				特性7：如果只设置相对定位，而不进行偏移的话，对当前元素本身没有任何影响
+						相对定位主要适用于辅助绝对定位来使用的
+			*/
+		}
+	</style>
+</head>
+<body>
+	<!-- <div>我是没有位移的</div>
+	<div class="div_2">我是向左位移的</div>
+	<div class="div_3">我是向右位移的</div> -->
+	<span>我是没有位移的</span>
+	<span class="span_1">我是向左位移的</span>
+	<span>我是向右位移的</span>
+</body>
+</html>

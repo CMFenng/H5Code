@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<!--<pre>
+		this 
+			is 
+				pre.
+	</pre>
+	<code>this is code.</code>-->
+</body>
+<!--
+document.write() 和 document.writeln() 的区别
+	
+	1. document.write() 将内容写入文档，当前编辑位置为写入的内容的后一个字符
+	2. document.writeln() 将内容写入文档，并添加一个换行符，当前编辑位置为写入的内容的后一行
+	3. document.write() 和 document.writeln() 都是 JavaScript 向客户端写入的方法
+	4. writeln 是以行方式输出的，但并不是指页面实际效果中的换行
+	5. 一般情况下用两种方法输出的效果在页面上是没有区别的，除非是输出到 pre 或 xmp 元素内
+	6. 两种方法在查看源代码时才看得出区别
+-->
+<script type="text/javascript" charset="utf-8">
+    document.write("<pre>我是用 write 输出的。");
+    document.write("我是用 write 输出的。");
+    document.write("我是用 write 输出的。"); 
+    document.writeln("我是用 writeln 输出的。");
+    document.writeln("我是用 writeln 输出的。");
+    document.writeln("我是用 writeln 输出的。<pre>");
+</script>
+</html>

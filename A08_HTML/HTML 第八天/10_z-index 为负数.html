@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			width: 1100px;
+			height: 500px;
+			/*background-color: #8DB3ED;*/
+			border: 3px solid red;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 3px solid #ccc;
+			margin-top: 30px;
+			border-radius: 10px;
+			position: absolute;
+		}
+		.div_1{
+			left: 200px;
+			z-index: 1;
+		}
+		.div_2{
+			left: 500px;
+			z-index: 0;
+		}
+		.div_3{
+			left: 800px;
+			z-index: -1;
+			/*
+
+			z-index 如果设置为负数
+			它将无法响应任何点击事件
+			 */
+		}
+	</style>
+</head>
+<body>
+	<div class="div_1" onclick="alert(1)">div_1</div>
+	<div class="div_2" onclick="alert(0)">div_2</div>
+	<div class="div_3" onclick="alert('-1')">div_3</div>
+</body>
+</html>

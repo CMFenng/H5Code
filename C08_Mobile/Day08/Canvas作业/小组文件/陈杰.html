@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas作业</title>
+    <style>
+        canvas{
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            border: 1px solid #000;
+        }
+        table{
+            width: 1000px;
+            height: 500px;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            box-shadow: 10px 10px 10px gray;
+        }
+        table td{
+            border: 1px dashed gray;
+        }
+    </style>
+</head>
+<body>
+<!--<table border="1" cellpadding="0" cellspacing="0">-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+    <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <!--<td></td>-->
+    <!--</tr>-->
+<!--</table>-->
+<canvas id="first-canvas" width="1000" height="500"></canvas>
+<script>
+    var cvs = document.querySelector("#first-canvas");
+    var ctx = cvs.getContext('2d');
+    ctx.save();
+    /*橙色的底部*/
+    ctx.arc(200,200,100,0,Math.PI*2,false);
+    ctx.clip();
+    ctx.beginPath();
+    ctx.arc(200,200,100,0,Math.PI*2,false);
+    ctx.fillStyle = 'orangered';
+    ctx.fill();
+    ctx.closePath();
+    /*左侧红色的圆*/
+    ctx.beginPath();
+    ctx.arc(100,200,100,0,Math.PI*2,false);
+    ctx.fillStyle = 'red';
+    ctx.fill();
+    ctx.closePath();
+
+
+    /*右侧蓝色的圆*/
+    ctx.beginPath();
+    ctx.arc(300,200,100,0,Math.PI*2,false);
+    ctx.fillStyle = '#1D2088';
+    ctx.fill();
+    ctx.closePath();
+
+    var rightBlueLight = ctx.createRadialGradient(250, 170, 0, 250, 180, 40);
+    rightBlueLight.addColorStop(0, '#0090DB');
+    rightBlueLight.addColorStop(1, '#1D2088');
+
+    /*右侧蓝色上面的白色光斑*/
+    ctx.beginPath();
+    ctx.arc(250,180,50,0,Math.PI*2,false);
+    ctx.fillStyle = rightBlueLight;
+    ctx.fill();
+    ctx.closePath();
+
+    /*左下的蓝色的圆*/
+    ctx.beginPath();
+    ctx.arc(155,305,100,0,Math.PI*2,false);
+    ctx.fillStyle = '#1D2088';
+    ctx.fill();
+    ctx.closePath();
+
+    /*黄色背景, 使用shadow方式 颜色显示不出来,不明显*/
+    var topLight = ctx.createRadialGradient(200, 120, 0, 200, 120, 30);
+    topLight.addColorStop(0, 'yellow');
+    topLight.addColorStop(1, 'orangered');
+    ctx.beginPath();
+    ctx.arc(200,120,30,0,Math.PI*2,false);
+    ctx.fillStyle = topLight;
+    ctx.fill();
+    ctx.closePath();
+
+    /*上面中间的小圆*/
+    ctx.beginPath();
+    ctx.arc(200,120,10,0,Math.PI*2,false);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    ctx.closePath();
+
+
+//    /*上面中间的小圆*/
+//    ctx.beginPath();
+//    ctx.arc(200,120,10,0,Math.PI*2,false);
+//    ctx.fillStyle = 'white';
+//    ctx.shadowColor='#FFAF00';
+//    ctx.shadowBlur = 20;
+//    ctx.shadowOffsetY = 1;
+//    ctx.shadowOffsetY = 0;
+//    ctx.fill();
+//    ctx.closePath();
+
+//    ctx.shadowColor= null;
+//    ctx.shadowBlur = 0;
+    /*上面的白色线条 左边*/
+    ctx.beginPath();
+    ctx.moveTo(200,200);
+    ctx.quadraticCurveTo(200,120,100,100);
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth=20;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+    ctx.closePath();
+
+    /*上面的白色线条 右边*/
+    ctx.beginPath();
+    ctx.moveTo(200,200);
+    ctx.quadraticCurveTo(200,120,300,100);
+    ctx.stroke();
+    ctx.closePath();
+
+    /*中间横的白线*/
+    ctx.beginPath();
+    ctx.moveTo(100,220);
+    ctx.quadraticCurveTo(170,200,230,210);
+    ctx.stroke();
+    ctx.closePath();
+
+    /*后面 的白线*/
+    ctx.beginPath();
+    ctx.moveTo(230,210);
+    ctx.quadraticCurveTo(100,300,280,270);
+    ctx.stroke();
+    ctx.closePath();
+
+    /*覆盖后面白线 让其变小*/
+    ctx.beginPath();
+    ctx.moveTo(100,250);
+    ctx.quadraticCurveTo(170,330,285,270);
+    ctx.strokeStyle = '#1D2088';
+    ctx.stroke();
+    ctx.closePath();
+
+    /*还原刚开始保存的画布,开始绘制文字*/
+    ctx.restore();
+
+
+    function drawText() {
+        ctx.beginPath();
+        ctx.font = 'bold 32px consolas';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillStyle = '#1D2088';
+        ctx.fillText('YU   ZHI   TONG   CHUANG', 350, 250);
+
+        ctx.font = 'bold 120px arial';
+        ctx.fillText('育知同创', 300,125);
+        ctx.closePath();
+    }
+    drawText();
+</script>
+</body>
+</html>

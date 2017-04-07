@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			background-color: aqua;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+	function Rectangle (length, width) {
+		//创建div元素
+		var createDiv = document.createElement("div");
+		createDiv.style.width = length;
+		createDiv.style.height = width;
+		//获取生成的div
+		this.div = document.body.appendChild(createDiv);
+		var div = this.div;
+		
+		this.length = parseInt(length);
+		this.width = parseInt(width);
+		div.innerHTML = "长：" + this.length + "px" + "<br />";
+		div.innerHTML += "宽：" + this.width + "px" + "<br />";
+		
+		//计算面积
+		if (!Rectangle.prototype.calArea) {
+			Rectangle.prototype.calArea = function () {
+				var areaResult = this.length * this.width;
+				this.div.innerHTML += "面积：" + areaResult + "px" + "<br />";
+			}
+		}
+		//计算周长
+		if (!Rectangle.prototype.calPerimeter) {
+			Rectangle.prototype.calPerimeter = function  () {
+				var perimeterResult = (this.length + this.width) * 2;
+				this.div.innerHTML += "周长：" + perimeterResult + "px" + "<br />";
+			}
+		}
+	}
+	
+	var div1 = new Rectangle("200px", "150px");
+	var div2 = new Rectangle("300px", "150px");
+	var div3 = new Rectangle("400px", "150px");
+	div1.calArea();
+	div1.calPerimeter();
+	div2.calArea();
+	div2.calPerimeter();
+	div3.calArea();
+	div3.calPerimeter();
+</script>
+</body>
+</html>
+<!--
+
+定义一个创建“长方形”的构造函数（有参数，通过参数给属性赋值）
+属性：
+ 	长（length）；（实例属性）
+ 	宽（width）；（实例属性）
+方法：
+	求面积；（原型方法）
+	求周长；（原型方法）
+
+-->

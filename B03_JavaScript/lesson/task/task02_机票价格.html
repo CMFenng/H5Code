@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	出行月份：
+	<input type="text" name="month" id="month" value="" />
+	舱型：
+	<select name="" id="cabinType">
+	    <option value="firstClass">头等舱</option>
+	    <option value="economyClass">经济舱</option>
+	</select>
+	<input type="button" name="btn" id="btn" value="计算" />
+</body>
+<script type="text/javascript" charset="utf-8">
+    var monthId = document.getElementById("month");
+    var cabinTypeId = document.getElementById("cabinType");
+    
+    document.getElementById("btn").onclick = function  () {
+    	var month = parseInt(monthId.value);
+    	var cabinType = cabinTypeId.value;
+    	var price = 4000;
+    	
+    	switch (month){
+    		case 1:
+    		case 2:
+    		case 3:
+    		case 11:
+    		case 12:
+    			if (cabinType == "firstClass") {
+    				price *= 0.6;
+    			} else if (cabinType == "economyClass") {
+    				price *= 0.3;
+    			}
+    			break;
+    		case 4:
+    		case 5:
+    		case 6:
+    		case 7:
+    		case 8:
+    		case 9:
+    		case 10:
+    			if (cabinType == "firstClass") {
+    				price *= 0.9;
+    			} else if (cabinType == "economyClass") {
+    				price *= 0.75;
+    			}
+    			break;
+    		default:
+    			alert("输入有误！");
+    			break;
+    	}
+    	if (price != 4000) {
+    		alert("票价：" + price);
+    	}
+    }
+</script>
+</html>

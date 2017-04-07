@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+Switch 语句
+	
+	switch(expression){
+		case value1:
+			//语句1
+			break;
+		case value2:
+			//语句2
+			break;
+		default:
+			//default 语句
+	}
+	
+	1. switch 语句的含义：如果某个 case 的值和 express 相等，则会执行这个 case，碰到 break 语句就会结束当前 switch
+	2. 如果没有一个 case 能够匹配，最后则会执行 default 的语句
+	3. 如果没有 default，并且没有 case 匹配，则会自动结束 switch，一句都不执行
+	4. 对于 JS 中来说，express 可以是任何类型（基础类型、引用类型），而 case 的 value 可以是变量、常量、对象、表达式都可以。（C / java 只能是常量）
+	5. 在执行的过程中，如果匹配了某一个 case ，会一直执行下去直到结束或者遇到 break
+*/
+	var month = parseInt(prompt("请输入当前月份"));
+	var sum = 0;
+	switch(month){
+		case 12:
+			sum += 31;
+		case 11:
+			sum += 30;
+		case 10:
+			sum += 31;
+		case 9:
+			sum += 30;
+		case 8:
+			sum += 31;
+		case 7:
+			sum += 31;
+		case 6:
+			sum += 30;
+		case 5:
+			sum += 31;
+		case 4:
+			sum += 30;
+		case 3:
+			sum += 31;
+		case 2:
+			sum += 28;
+		case 1:
+			sum += 31;
+	}
+	alert("从年初至现在总共" + sum + "天");
+</script>
+</html>

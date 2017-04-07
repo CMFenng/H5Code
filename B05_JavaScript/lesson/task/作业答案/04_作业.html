@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		div {
+			text-align: center;
+			margin-top: 80px;
+		}
+		
+		input {
+			width: 40px;
+			text-align: center;
+		}
+		
+		p {
+			text-align: center;
+			font-size: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<input type="text" placeholder="年" /> -
+		<input type="text" placeholder="月" /> -
+		<input type="text" placeholder="日" /> -
+		<button>确定</button>
+	</div>
+	<p></p>
+	<script type="text/javascript">
+		var inputYear = document.getElementsByTagName("input")[0];
+		var inputMonth = document.getElementsByTagName("input")[1];
+		var inputDay = document.getElementsByTagName("input")[2];
+		var p = document.getElementsByTagName("p")[0];
+		document.getElementsByTagName("button")[0].onclick = function() {
+			var year = parseInt(inputYear.value);
+			var month = parseInt(inputMonth.value);
+			var day = parseInt(inputDay.value);
+
+			function fun(year, month, day) {
+				if(isNormalYear(year)) {
+					if(isNormalMonth(month)) {
+						if(isNormalDay(day)) {
+							p.innerHTML = (year + "年的第" + calDays(year, month, day) + "天");
+						}
+					}
+				}
+			}
+			fun(year, month, day);
+			//判断年份输入的范围
+			function isNormalYear(year) {
+				if(year > 0) {
+					return true;
+				}
+				alert("年份输入错误！");
+			}
+
+			//判断月份输入的范围
+			function isNormalMonth(month) {
+				if(month > 0 && month < 13) {
+					return true;
+				}
+				alert("月份输入错误！");
+			}
+
+			//判断天数输入的范围
+			function isNormalDay(day) {
+				if(day > 0 && day < 32) {
+					return true;
+				}
+				alert("天数输入错误！");
+			}
+
+			//判断是否为闰年
+			function isLeapYear(year) {
+				var TF = year % 4 === 0 && year % 100 !== 0 || year % 400 === 0 ? true : false;
+				return TF;
+			}
+
+			//计算天数
+			function calDays(year, month, day) {
+				var sum = 0;
+				for(var i = 1; i < month; i++) {
+					if(i === 1 || i === 3 || i === 5 || i === 7 ||
+						i === 8 || i === 10) {
+						sum += 31;
+					} else if(i === 2) {
+						if(isLeapYear(year)) {
+							sum += 29;
+						} else {
+							sum += 28;
+						}
+					} else {
+						sum += 30;
+					}
+				}
+				 return sum += day;
+			}
+		}
+	</script>
+</body>
+
+</html>

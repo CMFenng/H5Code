@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			margin-top: 2000px;
+		}
+	</style>
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		$(function () {
+/*
+	传入一个数组，表示获取多个属性值
+	返回的是一个对象，键值对就包含了获取的属性和值
+	获取到的宽度和高度没有单位，适合用于计算
+*/
+			var atts = $("div").css(["width", "height"]);
+			console.log(atts);
+			//获取到的宽度和高度没有单位，适合用于计算
+			console.log($("div").width());
+			console.log($("div").height());
+//==========================================================
+/*
+	offset()
+		返回值是一个对象
+		两个属性：left top
+		相对于文档边缘
+		不需要传入任何的参数
+*/
+			$("button:eq(1)").click(function () {
+				var offset = $("div").offset();
+				console.log(offset);
+				console.log(offset.left);
+				console.log(offset.top);
+			});
+		});
+	</script>
+</head>
+<body>
+<div></div>
+<button>设置宽和高</button>
+<button>查看offset</button>
+</body>
+</html>

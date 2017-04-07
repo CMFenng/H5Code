@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     数组的遍历
+     * 
+     * 1.for 循环遍历数组（推荐使用）
+     * 2.for..in 循环遍历数组
+     * 3.for..each遍历数组
+     * */
+    //==============================
+    //for 循环遍历数组
+    
+//  var arr = [10,20,40,60,30,80];
+    //数组的长度是多少，就循环遍历多少次
+    //循环变量作为数组的下标
+//  for(var i = 0; i < arr.length;i++){
+//  		console.log(arr[i]);
+//  }
+    
+    //==============================
+    //for..in 循环遍历数组
+    
+//  var arr = [50,40,30,20,60,80];
+    
+    //每循环一轮，都会把数组的下标赋值给 index
+    //index 就相当于拿到了数组每一个元素的下标
+    //index 是从 0 开始获取的
+//  for(var index in arr){
+    		//循环输出：0，1，2，3，4，5
+//  		console.log(index);
+//  }
+    //将声明变量的 var 进行省略
+    //不太推荐大家这么写
+//  for(i in arr){
+//  		console.log(arr[i]);
+//  }
+    
+    //==============================
+    //for..each遍历数组
+    //ES5 中增加的内容
+    //我们可以使用 for..each 循环遍历
+    //数组中每一个元素
+    //调用数组的 for..each 方法，
+    //需要传入一个匿名函数
+    var arr = [4,8,10,6,99];
+    arr.forEach(function(element,index){
+    		console.log(element);
+    		console.log("index:" + index);
+    });
+    //匿名函数中需要两个参数
+    //参数1：循环遍历的那个元素
+    //参数2：循环遍历元素的下标
+    //
+    //我们可以在匿名函数内部出添加额外的代码
+    //==============================
+</script>
+</html>
+
+
+
+
+
+
+

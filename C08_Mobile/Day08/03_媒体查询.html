@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+								
+			}
+			
+			#box div{
+				float: left;
+				width: 25%;
+				border: 1px solid black;
+				height: 150px;
+				background-color: pink;
+			}
+			
+			@media only screen and (min-width: 720px) and (max-width: 920px) {
+				#box div{
+					width: 33.3%;
+				}
+				
+				#box img{
+					width: 100px;
+				}
+				
+				#box span{
+					font-size: 20px;
+				}
+			}
+			
+			@media only screen and (min-width: 550px) and (max-width: 719px) {
+				#box div{
+					width: 50%;
+				}
+				
+				#box img{
+					width: 120px;
+				}
+				
+				#box span{
+					font-size: 30px;
+				}
+			}
+			
+			@media only screen and (max-width: 549px) {
+				#box div{
+					width: 100%;
+				}
+				
+				#box img{
+					width: 140px;
+				}
+				
+				#box span{
+					font-size: 40px;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div><img src="img/star.png" alt="" /><span>第一个</span></div>
+			<div><img src="img/star.png" alt="" /><span>第二个</span></div>
+			<div><img src="img/star.png" alt="" /><span>第三个</span></div>
+			<div><img src="img/star.png" alt="" /><span>第四个</span></div>
+		</div>
+	</body>
+</html>

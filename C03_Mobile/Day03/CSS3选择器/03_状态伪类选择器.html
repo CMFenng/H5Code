@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			
+			input:disabled{
+				background-color: gray;
+			}
+			
+			input:enabled{
+				background-color: orange;
+			}
+			
+			input:read-only{
+				background-color: green;
+			}
+			
+			/* 这个要放在最下面 */
+			input:focus{
+				background-color: black;
+			}
+			
+			input:checked{
+				height: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		获得焦点：<input type="text" /><br />
+		禁用：<input type="text" disabled="disabled" /><br />
+		非禁用：<input type="text" /><br />
+		只读：<input type="text" readonly="readonly" /><br />
+		选中：<input type="checkbox" />
+		
+	</body>
+</html>

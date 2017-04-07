@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+随机数函数
+	
+	目标：
+		创建一个函数，我们可以自己控制输出的随机数的区间
+	预留参数：
+		1. 随机数区间的最大值
+		2. 随机数区间的最小值
+	函数的名称：
+		getRandom
+	函数的实现过程：
+		Math.random()
+		返回是 0 ~ 1
+		给当前这个随机数放大
+		做出最大值限制
+			-> 将最大值和最小值进行相减
+			-> 将差值 +1
+*/
+    function Random(min,max){
+		var rand = Math.random() * (max - min + 1);
+		rand = Math.floor(rand) + min;
+		return rand;
+    }
+    
+    for(var i = 0; i < 100; i++){
+		console.log(Random(10,100));
+    }
+</script>
+</html>

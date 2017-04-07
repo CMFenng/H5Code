@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="flexible.js" ></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				width: 300px;
+				height: 300px;
+				background-color: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<h1></h1>
+			<h1></h1>
+			<h1></h1>
+		</div>
+		<script type="text/javascript">
+			var box = document.querySelector('#box');
+			
+			//PC端的click事件
+			box.addEventListener('click', function (e) {
+				console.log("=== click ===");
+				console.log(e);
+			})
+			
+			//手势 手指按下
+			box.addEventListener('touchstart', function (e) {
+				console.log("=== touchstart ===");
+				console.log(e);
+				fn(e);
+			})
+			
+			//手指抬起
+			box.addEventListener('touchend', function (e) {
+				console.log("=== touchend ===");
+				fn(e);
+			})
+			
+			//手指移动
+			box.addEventListener('touchmove', function (e) {
+				console.log("=== touchmove ===");
+//				fn(e);
+			})
+			
+			//被打断后触发
+			box.addEventListener('touchcancel', function (e) {
+				alert("打断了！！！！！");
+			})
+			
+			var touchesH1 = document.querySelector("#box h1:nth-of-type(1)");
+			var targetTouchesH1 = document.querySelector("#box h1:nth-of-type(2)");
+			var changedTouchesH1 = document.querySelector("#box h1:nth-of-type(3)");
+			
+			function fn (e) {
+				touchesH1.innerHTML = "touches：" +  e.touches.length;
+				targetTouchesH1.innerHTML = "targetTouches：" +  e.targetTouches.length;
+				changedTouchesH1.innerHTML = "changedTouches：" +  e.changedTouches.length;
+			}
+			
+			
+		</script>
+	</body>
+</html>

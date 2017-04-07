@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.div_1{
+			width: 300px;
+			height: 300px;
+			background: red;
+			/*
+				让元素消失
+				1.设置宽度或者高度为零
+				2.display: none;
+				3.设置一个非常大的偏移量
+				4.visibility: hidden;
+			*/
+
+			/*
+				visibility
+					规定元素内容是否可见
+
+					属性
+						hidden
+							让元素隐藏
+							会占空间
+						visible
+							元素显示（默认）
+			*/
+		}
+		.div_1:hover{
+			/*
+				让元素完全消失，不会占据“文档流”的空间
+			*/
+			/*height: 0;*/
+
+			/*
+				让元素完全消失，不会占据“文档流”的空间
+			*/
+			/*display: none;*/
+
+			/*
+				元素会消失，依旧会占据“文档流”的空间
+				布局的时候依旧会考虑该内容
+			*/
+			/*margin-left: -999999px;*/
+
+			/*
+				元素会消失，依旧会占据“文档流”的空间
+				布局的时候依旧会考虑该内容
+			*/
+			visibility: hidden;
+		}
+		.div_2{
+			width: 300px;
+			height: 300px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="div_1"></div>
+	<div class="div_2"></div>
+</body>
+</html>

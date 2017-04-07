@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="12.js"></script>		
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background:black url(imgs/29q58PICGCB_1024.jpg) no-repeat;
+			}
+			#box{
+				width: 816px;
+				height: 502px;
+				margin: 200px auto;
+				transform-style: preserve-3d;
+				perspective: 2000px;
+			}
+			.mykey{
+				float: left;
+				width: 100px;
+				height: 500px;
+				border: 1px solid gold;
+				color: gold;
+				text-align: center;
+				font-size: 30px;	
+				transform: rotateX(60deg);	
+				box-shadow: 1px 15px 3px gray;							
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="mykey">A</div>
+			<div class="mykey">B</div>
+			<div class="mykey">C</div>
+			<div class="mykey">D</div>
+			<div class="mykey">E</div>
+			<div class="mykey">F</div>
+			<div class="mykey">G</div>
+			<div class="mykey">H</div>
+		</div>
+		<audio src="music/1.ogg" id="myAudio"></audio>
+		<script type="text/javascript">
+			var mykeys = document.getElementsByClassName("mykey");
+			var myAudio = document.getElementById("myAudio");
+			
+			//创建一个方法，点击按键播放音频---------------------
+			startAudio = function (myUrl) {				
+				myAudio.src = "music/" + myUrl + ".ogg";				
+				myAudio.play();
+			}
+			changeColor = function (num) {
+				num.style.background = "rgba(222,222,100,0.5)";
+				return num.style.background;
+			}
+			changeShadow = function (num2) {
+				num2.style.boxShadow = "1px 15px 3px rgba(0,0,0,0.5)";
+				return num2.style.boxShadow;
+			}
+			//给每个按键添加音节---------么的怎么能用循环能搞一搞啊。这种写法太low了吧 O.O
+			mykeys[0].onclick = function () {
+				startAudio(1);
+				changeColor(this);
+				changeShadow(this);
+			}
+			mykeys[1].onclick = function () {
+				startAudio(2);
+				changeColor(this);
+				changeShadow(this);
+			}				
+			mykeys[2].onclick = function () {
+				startAudio(3);
+				changeColor(this);
+				changeShadow(this);
+			}				
+			mykeys[3].onclick = function () {
+				startAudio(4);
+				changeColor(this);
+				changeShadow(this);
+			}				
+			mykeys[4].onclick = function () {
+				startAudio(5);
+				changeColor(this);
+				changeShadow(this);
+			}				
+			mykeys[5].onclick = function () {
+				startAudio(6);
+				changeColor(this);
+				changeShadow(this);
+			}				
+			mykeys[6].onclick = function () {
+				startAudio(7);
+				changeColor(this);
+				changeShadow(this);
+			}				
+			mykeys[7].onclick = function () {
+				startAudio(8);
+				changeColor(this);
+				changeShadow(this);
+			}							
+			
+			//给对应按键添加音节
+			document.onkeydown = function (event) {
+				var e = window.event || event;
+				
+				if(e.keyCode==49){
+					startAudio(1);
+					changeColor(mykeys[0]);
+					changeShadow(mykeys[0]);
+				}else if (e.keyCode==50){
+					startAudio(2);
+					changeColor(mykeys[1]);
+					changeShadow(mykeys[1]);
+				}else if (e.keyCode==51) {
+					startAudio(3);
+					changeColor(mykeys[2]);	
+					changeShadow(mykeys[2]);
+				}else if (e.keyCode==52) {
+					startAudio(4);
+					changeColor(mykeys[3]);
+					changeShadow(mykeys[3]);
+				}else if (e.keyCode==53) {
+					startAudio(5);
+					changeColor(mykeys[4]);	
+					changeShadow(mykeys[4]);
+				}else if (e.keyCode==54) {
+					startAudio(6);
+					changeColor(mykeys[5]);
+					changeShadow(mykeys[5]);
+				}else if (e.keyCode==55) {
+					startAudio(7);
+					changeColor(mykeys[6]);		
+					changeShadow(mykeys[6]);
+				}else if (e.keyCode==56) {
+					startAudio(8);
+					changeColor(mykeys[7]);	
+					changeShadow(mykeys[7]);
+				}	
+			}	
+			
+			
+			
+			
+			//鼠标离开后让按键恢复透明-------------------
+			for (var i=0; i<mykeys.length; i++) {
+				mykeys[i].onmouseout = function () {
+					this.style.background = "none";
+					this.style.boxShadow = "1px 15px 3px gray";
+				}				
+			}
+			document.onkeyup = function (event) {
+				var e = window.event || event;
+				for (var i=0; i<mykeys.length; i++) {
+					mykeys[i].style.background = "none";
+					mykeys[i].style.boxShadow = "1px 15px 3px gray";
+				}				
+			}
+
+			
+		</script>
+		
+	</body>
+</html>

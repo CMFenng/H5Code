@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../style.css"/>
+    <style type="text/css">
+    	ul li:nth-of-type(1){
+    		flex-shrink: 0;
+    	}
+    	
+    	ul li:nth-of-type(5){
+    		/* 0 不变 */
+    		flex-shrink: 0;
+    	}
+    	
+    	ul li:nth-of-type(2){
+    		/* 会缩小，默认是 1 等比例缩小 */
+    		flex-shrink: 2;
+    	}
+    	
+    	ul li:nth-of-type(3){
+    		flex-shrink: 3;
+    	}
+    	
+    	ul li:nth-of-type(4){
+    		flex-shrink: 4;
+    	}
+    </style>
+</head>
+<body>
+<ul>
+	<li>1</li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li>5</li>
+	<li>6</li>
+	<li>7</li>
+	<li>8</li>
+	<li>9</li>
+	<li>10</li>
+</ul>
+</body>
+</html>

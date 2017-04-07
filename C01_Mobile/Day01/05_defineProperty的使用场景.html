@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<style type="text/css">
+		input{
+			width: 200px;
+			height: 50px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+
+	<input type="button" value="点我！！！" />
+
+	<script type="text/javascript">
+		function Person () {
+			this.dog = new Dog();
+			this.cat = new Cat();
+			this.mouse = new Mouse();
+
+			var self = this;
+			//统一设置宠物的名字
+			Object.defineProperty(self, 'petName', {
+				//参数是要设置的宠物名字
+				set : function (newPetName) {
+					self.dog.dogName = "🐶🐶：" + newPetName;
+					self.cat.catName = "🐱🐱：" + newPetName;
+					self.mouse.mouseName = "🐭🐭：" + newPetName;
+				},
+				get : function () {
+					return [self.dog.dogName, self.cat.catName, self.mouse.mouseName];
+				}
+
+			});
+		}
+
+		function Dog () {}
+		function Cat () {}
+		function Mouse () {}
+
+		var person1 = new Person();
+		// 统一给这些宠物设置一个名字name， 原来的做法如下：
+		// person1.dog.dogName = '妞妞';
+		// person1.cat.catName = '妞妞';
+		// person1.mouse.mouseName = '妞妞';
+
+		// 用Object.defineProperty 来实现以上功能
+		//会自动调入到上面的set方法中
+		person1.petName = '妞妞';
+
+		console.log(person1.petName);
+
+		console.log(person1);
+
+
+		//场景2：点击按钮，边框变椭圆
+		var btn = document.querySelector("input");
+
+		Object.defineProperty(btn, 'borderRadius', {
+			//参数是borderRadius的值
+			set : function (borderRadiusValue) {
+				btn.style.webkitBorderRadius = borderRadiusValue;
+				btn.style.mozBorderRadius = borderRadiusValue;
+				btn.style.borderRadius = borderRadiusValue;
+			}
+		});
+
+		btn.onclick = function () {
+			//就会自动调入到上面的set方法
+			btn.borderRadius = "50%";
+		}
+
+
+	</script>
+</body>
+</html>

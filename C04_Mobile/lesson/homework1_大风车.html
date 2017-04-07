@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #wrap{
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            background-color: pink;
+            border-radius: 50%;
+            position: relative;
+
+            animation: moveCircle 2s linear infinite;
+        }
+
+        @keyframes moveCircle{
+            from{
+                transform: rotate(0);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        #div_1, #div_2, #div_3, #div_4{
+            width: 150px;
+            height: 50px;
+            border-radius: 150px 0 0 0 / 50px 0 0 0;
+            transform-origin: bottom right;
+        }
+        #div_1{
+            background-color: red;
+            transform: translateY(100px);
+        }
+        #div_2{
+            background-color: green;
+            transform: rotate(90deg) translateX(50px);
+        }
+        #div_3{
+            background-color: orange;
+            transform: rotate(180deg);
+        }
+        #div_4{
+            background-color: deepskyblue;
+            transform: rotate(270deg) translateX(50px);
+        }
+
+        button{
+            width: 100px;
+            height: 50px;
+            background-color: yellow;
+            font-weight: bold;
+            font-size: 20px;
+            position: absolute;
+            top: 500px;
+            left: 600px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="div_1">1</div>
+    <div id="div_2">2</div>
+    <div id="div_3">3</div>
+    <div id="div_4">4</div>
+</div>
+<button>开始</button>
+<script type="text/javascript">
+    var btn = document.querySelector("button");
+    var wrap = document.getElementById("wrap");
+    wrap.style.animationPlayState = "paused";
+    btn.onclick = function () {
+        if (wrap.style.animationPlayState == "running"){
+            wrap.style.animationPlayState = "paused";
+            btn.style.backgroundColor = "yellow";
+            btn.innerHTML = "开始";
+        } else if (wrap.style.animationPlayState == "paused"){
+            wrap.style.animationPlayState = "running";
+            btn.style.backgroundColor = "pink";
+            btn.innerHTML = "暂停";
+        }
+    }
+</script>
+</body>
+</html>

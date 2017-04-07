@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            width: 200px;
+            height: 200px;
+            margin-left: 2000px;
+            background-color: pink;
+        }
+    </style>
+    <script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 原生的绑定事件
+//            $("button")[0].onclick = function (event) {
+//                // event对象，有鼠标点击后的坐标等参数
+//                console.log(event);
+//                // 原生DOM元素
+//                console.log($("button")[0]);
+//            }
+
+/*
+    clientX / clientY
+        相对于客户端边缘的偏移量，跟滚动条是否滚动无关
+    offsetX / offsetY
+        相对于元素自身边缘的偏移量
+    pageX / pageY
+        相对于整个文档（document）边缘的偏移量，需要考虑页面滚动的距离
+    screenX / screenY
+        相对于整个屏幕的偏移量，取决于电脑屏幕
+    which
+        针对鼠标事件来说：
+            0：没有点击
+            1：左键点击
+            2：中键点击（如果存在）
+            3：右键点击
+        针对键盘事件来说：
+            返回输入按键的对应键码
+*/
+            // jQuery绑定事件
+            $("button").on("click", function (event) {
+                console.log(event.clientX, event.clientY);
+                console.log(event.offsetX, event.offsetY);
+                console.log(event.pageX, event.pageY);
+                console.log(event.screenX, event.screenY);
+                console.log(event.which);
+            });
+            $("input").keydown(function (event) {
+                // 返回键码
+                console.log(event.originalEvent.keyCode);
+                console.log(event.which);
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <button id="btn">我是按钮</button>
+</div>
+<input type="text">
+</body>
+</html>

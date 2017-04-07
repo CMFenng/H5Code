@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Person() {
+        // 给变量赋初始值
+        var userName = "";
+        var dog = null;
+        var age = 0;
+
+        // 我们可以设计一个私有变量存取器来进行访问
+        // 设置用户名
+        Person.prototype.setUserName = function (newUserName) {
+            // 如果类型是 string
+            if (typeof(newUserName) == "string"){
+                userName = newUserName;
+                return;
+            }
+            // 如果类型不是 string，则抛异常
+            throw new Error("不好意思，类型不是字符串！");
+        }
+        // 获取字符串
+        Person.prototype.getUserName = function () {
+            return userName;
+        }
+
+        Person.prototype.setDog = function (newDog) {
+            // 如果类型是 Dog
+            if (newDog instanceof Dog){
+                dog = newDog;
+                return;
+            }
+            // 如果类型不是 Dog，抛异常
+            throw new Error("不好意思，类型不是狗");
+        }
+
+        Person.prototype.getDog = function () {
+            return dog;
+        }
+    }
+
+    var person1 = new Person();
+    function Dog() {
+
+    }
+
+    // 设值
+    person1.setUserName("小雪");
+    // 取值
+    console.log(person1.getUserName());
+
+    person1.setDog(new Dog());
+
+    console.log(person1.getDog());
+</script>
+</body>
+</html>

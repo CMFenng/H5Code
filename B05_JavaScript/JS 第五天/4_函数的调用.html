@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    var sum = function add(num1,num2){
+		return num1 + num2;
+	}
+    	/*
+    	 函数的调用
+    	 * 函数只有在被调用的时候，才会执行
+    	 * 如果需要让函数内部的代码执行，就需要调用
+    	 * 
+    	 * 方法名（参数1，参数2）
+    	 * 		调用函数的时候，括号内部参数称之为
+    	 * 		实参
+    	 * */
+    	
+//  	var sum = add(3,6);
+    	console.log(sum);
+    	console.log(add(6,9));
+    	console.log(sum(4,2));
+    	/*
+    	 注意：
+    	 * 1.调用函数的时候，方法名是必须的
+    	 * 		方法名是找到函数的唯一标示
+    	 * 2.方法后面的括号不能省略
+    	 * 3.实参列表和形参列表是一一对应的
+    	 * 		function aa(形参1，形参2){}
+    	 * 		aa(实参1，实参2)
+    	 * */
+    	/*
+    	 函数的命名规范
+    	 * 1.不能使用系统的关键字和保留字
+    	 * 2.函数的命名要有意义
+    	 * 3.函数的命名同样遵从“驼峰命名”
+    	 * 4.函数的命名严格区分大小写
+    	 * 		add() 和 ADD() 是两个方法
+    	 * 5.声明函数的时候，如果后面的函数和前面的函数
+    	 * 	 命名重复，后面定义的会覆盖前面定义的
+    	 * */
+</script>
+</html>

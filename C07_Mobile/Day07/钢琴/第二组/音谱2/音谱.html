@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 416px;
+				height: 150px;
+				margin: 20px auto;
+				transform-style: preserve-3d;
+				perspective: auto;
+				position: relative;
+			}
+			#btn{
+				margin: 20px auto;
+				display: block;
+				width: 150px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				border-radius: 40% 40%;
+				font-size: 22px;
+				background: paleturquoise;
+			}
+			.pu, .pu1, .pu2{
+				width: 416px;
+				margin: 40px auto;
+				display: none;
+			}
+			.pu h1, .pu1 h1, .pu2 h1{
+				text-align: center;
+				color: greenyellow;
+			}
+			.pu p, .pu1 p, .pu2 p{
+				width: 20px;
+				line-height: 40px;
+				color: palevioletred;
+				font-size: 30px;
+				font-weight: bold;
+				letter-spacing: 30px;
+			}
+			#box p{
+				width: 50px;
+				height: 150px;
+				float: left;
+				border: 1px solid black;
+				background: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+		
+		<input type="button" name="btn" id="btn" value="点我换曲" />
+		<div id="qupu">
+			<div class="pu">
+				<h1>命运交响曲</h1>
+				<p>DDFGGFDSAASD<br>DSSDDFGGFDSA<br>ASDSAASSDASD<br>FDSASADDFGGF<br>DSAASDSAA</p>
+			</div>
+			<div class="pu1">
+				<h1>光阴的故事</h1>
+				<p>GGGHGDDSDADK<br>KHKHGKKHKHGG<br>HGADGGHGDS<br>GGGHGDDSDADKK<br>HKHGKKHKHGGHG<br>DGKKKHJKL</p>
+			</div>
+			<div class="pu2">
+				<h1>同桌的你</h1>
+				<p>GGGGDFGJHHHH<br>FHGGGGGJHGFF<br>FFFDSAKKKK<br>GHKKKKLLLL<br>KJHJJJJJKL<br>GJJKLKJK</p>
+			</div>
+		</div>
+		<audio autoplay="autoplay"></audio>
+		<script type="text/javascript">
+			var myaudio = document.querySelector("audio");
+			var allp = document.querySelectorAll("p");
+			var btn = document.querySelector("#btn");
+			var arr = ["pu","pu1", "pu2"]; 
+			btn.onclick = function(){
+				var num = parseInt(Math.random()*arr.length);
+				var alldiv = document.querySelector("#qupu").querySelectorAll("div");
+				for(var j = 0; j < alldiv.length; j++){
+					alldiv[j].style.display = "none";
+				}
+				alldiv[num].style.display = "block";
+			};
+			
+			
+			window.onkeydown = function(e){
+				var e = e || window.event;
+				switch(e.keyCode){
+					case 65 : myaudio.src = "Day07/music/" + 1 + ".ogg"; 
+							allp[0].style.transform = "rotateX("　+ 20 + "deg)";
+						    break;
+					case 83 : myaudio.src = "Day07/music/" + 2 + ".ogg"; 
+							allp[1].style.transform = "rotateX("　+ 20 + "deg)";
+							break;
+					case 68 : myaudio.src = "Day07/music/" + 3 + ".ogg"; 
+							allp[2].style.transform = "rotateX("　+ 20 + "deg)";
+							break;
+					case 70 : myaudio.src = "Day07/music/" + 4 + ".ogg"; 
+							allp[3].style.transform = "rotateX("　+ 20 + "deg)";
+							break;
+					case 71 : myaudio.src = "Day07/music/" + 5 + ".ogg"; 
+							allp[4].style.transform = "rotateX("　+ 20 + "deg)";
+							break;
+					case 72 : myaudio.src = "Day07/music/" + 6 + ".ogg"; 
+							allp[5].style.transform = "rotateX("　+ 20 + "deg)";
+							break;
+					case 74 : myaudio.src = "Day07/music/" + 7 + ".ogg"; 
+							allp[6].style.transform = "rotateX("　+ 20 + "deg)";
+							break;
+					case 75 : myaudio.src = "Day07/music/" + 8 + ".ogg"; 
+							allp[7].style.transform = "rotateX("　+ 20 + "deg)";
+							break;
+					case 76 : myaudio.src = "Day07/music/" + 9 + ".ogg"; 
+							allp[7].style.transform = "rotateX("　+ 20 + "deg)";
+							break;		
+				}
+			};
+			window.onkeyup = function(e){
+				var e = e || window.event;
+				for(var i = 0; i < allp.length; i++){
+					allp[i].style.transform = "none";
+				}
+			};
+		</script>
+	</body>
+</html>

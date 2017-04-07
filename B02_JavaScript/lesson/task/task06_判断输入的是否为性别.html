@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" name="sex" id="sex" value="" placeholder="请输入性别"/>
+	<input type="button" name="btn" id="btn" value="判断" />
+</body>
+<script type="text/javascript">
+	var sex = document.getElementById("sex");
+	document.getElementById("btn").onclick = function  () {
+		var inputValue = sex.value;
+		switch (inputValue){
+			case "男":
+				alert("输入正确！输入的性别为：" + inputValue);
+				break;
+			case "女":
+				alert("输入正确！输入的性别为：" + inputValue);
+				break;
+			default:
+				alert("输入不正确！");
+				break;
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 500px;
+			height: 500px;
+			/*background: red url("http://img5.duitang.com/uploads/item/201408/19/20140819121724_8FBa3.thumb.224_0.gif") no-repeat center;*/
+			/*background: red no-repeat center;*/
+			/*background-image: url("http://img5.duitang.com/uploads/item/201408/19/20140819121724_8FBa3.thumb.224_0.gif");*/
+			margin: 100px auto;
+
+			/*
+				background-size
+					设置背景图片尺寸
+					CSS 3 属性
+
+					数值的填写
+						具体尺寸
+							500px 500px
+						百分比
+						英文
+							auto
+								默认原始大小
+							cover
+								等比例的缩放
+								直至完全覆盖容器
+								背景图片可能会超出容器
+							contain
+								将背景图片等比例缩放
+								宽度或者高度和父容器相等的时候停止
+								背景图片不会超出父容器
+
+
+					??需要放在 background（-image）的后面
+					否则会失效
+			*/
+			background-size: contain;
+			background: red url("http://img5.duitang.com/uploads/item/201408/19/20140819121724_8FBa3.thumb.224_0.gif") no-repeat center;
+			/*background: red no-repeat center;*/
+			/*background-color: red;*/
+			/*background-repeat: no-repeat;*/
+			/*background-position: center;*/
+			/*background-image: url("http://img5.duitang.com/uploads/item/201408/19/20140819121724_8FBa3.thumb.224_0.gif");*/
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

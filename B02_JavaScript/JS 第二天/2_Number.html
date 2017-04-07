@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+Number
+	
+	在 JS 中，Number 是不区分 整数 和 浮点数 的
+	所有的数值全部以浮点数值的方式展示
+	
+	一个数值直接出现在 JS 程序当中，我们把这个数字称为 数字直接量
+*/
+	var num1 = 10000;		//以十进制的方式展示
+	console.log(num1);		//10000
+    
+    //定义十六进制的数字 
+    // 0x... 或者 0X...
+	var num2 = 0x25;		//以十六进制的方式展示
+	console.log(num2);		//37
+    
+    //十六进制
+    // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+    // 0 1 2 3 4 5 6 7 8 9 A  B  C  D  E  F
+    var num3 = 0xAF;
+    console.log(num3);		//175
+    
+    //JS 中不支持八进制
+    //可以通过特殊方式模拟八进制
+    var num4 = 025;
+    console.log(num4);		//21
+    
+    //但是需要注意，在模拟的过程中，如果八进制的数字超出了当前进制的范围，则自动忽略前面的 0，直接将这个数字作为十进制数字处理
+    var num5 = 089;
+    console.log(num5);		//89
+    
+    //浮点直接量可以包含小数点
+    var fu1 = 3.14;
+    console.log(fu1);		//3.14
+    
+    var fu2 = 3.14159265873;
+    
+    //可以采用科学计数法（指数计法）
+    var num6 = 10e10;		//10 * 10^10
+    console.log(num6);		//100000000000
+/*
+JS 运算时的特殊情况
+	
+	1. 溢出
+		运算结果超出了 JS 所能表示的数字上限
+		超过最大正值 以 Infinity 来表示
+		超过最小负值 以 -Infinity 来表示
+	2. 下溢
+		运算结果无限接近于 0，并且要比 JS 所能表示的最小的数值还要小
+		正数		0
+		负数		-0（跟 0 是一样的）
+	3. 被零整除
+		正常状态下 返回 Infinity 或 -Infinity
+		0 除以 0
+			无意义，返回结果将是 NaN（Not-a-Number）
+		Infinity 除以 Infinity
+		给负数开平方
+		数字运算符 和 非数字运算符 和 无法转换为数字的数
+	
+	注意：
+		上述三种情况，在运行中都不会报错
+		处理的时候一定要注意参加运算的数字的类型
+*/
+	//正常状态下被零整除的情况
+	console.log(1.1/0);		//Infinity
+	console.log(-1.1/0);	//-Infinity
+	
+	//0 除以 0 的情况
+	console.log(0/0);		//NaN
+/*
+二进制浮点的四舍五入错误
+	
+	0.3 - 0.2 = 0.1(不会这么运算)
+	0.3 - 0.2 = 0.099999999...9999999998
+	
+	JS 中的数字会自动提供足够的精度，这个精度计算偶尔也会出现 BUG
+*/
+	var x = 0.3 - 0.2;
+	var y = 0.2 - 0.1;
+	console.log(x == y);		//false
+	console.log(x == 0.1);		//false
+	console.log(y == 0.1);		//true
+/*
+JS 中数值最大支持多少位
+	
+	正数 ： 1.7976931348623157e+308    
+	负数 ： 5e-324
+*/
+	console.log(Number.MAX_VALUE);		//1.7976931348623157e+308
+	console.log(Number.MIN_VALUE);		//5e-324
+/*
+	JS 权威指南中，Number 类型统一按照浮点数处理。
+	64位储存，整数按照最大的 54 位来计算最大数和最小数，否则会丧失精度。
+	在某些特殊操作（数组索引、位操作）按照 32 位来处理
+	
+	可以通过特殊的 JS 库来解决最大数字问题
+	https://www.npmjs.com/package/bignumber.js
+*/
+</script>
+</html>

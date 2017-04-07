@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	var p = (function () {
+		var Person = {
+			name : "张三",
+			age : 20,
+			sex : "男"
+		}
+		return {
+			getName : function(){
+				return Person.name;
+			},
+			setName : function(name){
+				Person.name = name;
+			},
+			getAge : function(){
+				return Person.age;
+			},
+			setAge : function(age){
+				if(age > 100 || age < 0){
+					throw Error("年龄范围错误");
+				} else {
+					Person.age = age;
+				}
+			}
+		}
+	})();
+	
+	console.log(p.getName());
+	p.setName("李四");
+	console.log(p.getName());
+	console.log(p.getAge());
+	p.setAge(15);
+	console.log(p.getAge());
+	p.setAge(-15);
+	console.log(p.getAge());
+</script>
+</body>
+</html>

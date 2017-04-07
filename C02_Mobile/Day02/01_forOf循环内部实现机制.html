@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = new String("abcd");
+		var person = {
+			name : '浅浅',
+			age : 18
+		}
+		var arr = ['aa', 'bb', 'cc'];
+		var map = new Map(
+			[
+				['name', '折颜'],
+				['sex', '不详']
+			]
+		);
+
+		console.log(str);
+		console.log(arr);
+		console.log(map);
+		console.log(person);
+
+		// person[Symbol.iterator] is not a function
+
+		console.log(person[Symbol.iterator]);
+
+		console.log(str[Symbol.iterator]);
+		console.log(arr[Symbol.iterator]);
+		console.log(map[Symbol.iterator]);
+
+
+		console.log(str[Symbol.iterator]());
+		console.log(arr[Symbol.iterator]());
+		console.log(map[Symbol.iterator]());
+
+		//获取字符串中的迭代器对象
+		var stringIterator = str[Symbol.iterator]();
+		console.log(stringIterator.next());
+		console.log(stringIterator.next());
+		console.log(stringIterator.next());
+		console.log(stringIterator.next());
+		console.log(stringIterator.next());
+		console.log(stringIterator.next());
+
+		console.log("=== 代码分割线 ===");
+
+		var stringIterator2 = str[Symbol.iterator]();
+		console.log(stringIterator2.next());
+		console.log(stringIterator2.next());
+
+		console.log(stringIterator.next());
+
+		console.log(stringIterator2.next());
+
+		console.log("=== 代码分割线 ===");
+
+		String.prototype.split = function () {
+			console.log("哈哈 ，切割不了吧！！！");
+		}
+
+		console.log(str.split('---'));
+
+
+		//重写字符串的 Symbol.iterator 方法
+		String.prototype[Symbol.iterator] = function () {
+			//记录下标
+			var num = 0;
+			//当前字符串
+			var self = this;
+
+			return {
+				next : function () {
+					return {
+						value : self[num++],
+						done : num - 1 >= self.length ? true : false
+					}
+				}
+			}
+		}
+
+		var iteratorString3 = str[Symbol.iterator]();
+		console.log(iteratorString3.next());
+		console.log(iteratorString3.next());
+		console.log(iteratorString3.next());
+		console.log(iteratorString3.next());
+		console.log(iteratorString3.next());
+		console.log(iteratorString3.next());
+
+		var iteratorString4 = str[Symbol.iterator]();
+		console.log(iteratorString4.next());
+		console.log(iteratorString4.next());
+		console.log(iteratorString4.next());
+		console.log(iteratorString4.next());
+		console.log(iteratorString4.next());
+		console.log(iteratorString4.next());
+
+
+		//for..of循环的底层实现就是 上面的方法
+		for (var tempChr of str) {
+			console.log(tempChr);
+		}
+
+
+		// function fn (callbackFn) {
+		// 	// console.log(callbackFn);
+		// 	callbackFn(function () {
+		// 		console.log("-----");
+		// 	});
+		// }
+
+		// fn(function (paramFn) {
+		// 	paramFn();
+		// 	console.log("=======");
+		// });
+
+
+
+
+	</script>
+</body>
+</html>

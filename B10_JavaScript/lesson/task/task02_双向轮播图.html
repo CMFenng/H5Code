@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Title</title>
+	<style type="text/css">
+		.outer{
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+			position: relative;
+			overflow: hidden;
+		}
+		#box{
+			width: 3200px;
+			height: 300px;
+			position: absolute;
+		}
+		img{
+			width: 400px;
+			height: 300px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="outer">
+		<div id="box">
+			<img src="img/1.jpg"/>
+			<img src="img/2.jpg"/>
+			<img src="img/3.jpg"/>
+			<img src="img/4.jpg"/>
+			<img src="img/5.jpg"/>
+			<img src="img/6.jpg"/>
+			<img src="img/7.jpg"/>
+			<img src="img/8.jpg"/>
+		</div>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+	    var box = document.getElementById("box");
+	    var left = 0;
+	    var flag  = true;
+	    setInterval(function() {
+	    	if(left<-2800 || left>0){
+	    		flag = !flag;
+	    	}
+	    	if(flag){
+	    		left = left - 8;
+	    	}else{
+	    		left = left + 8;
+	    	}
+	    	box.style.left = left + "px";
+	    },20);
+	</script>
+</body>
+</html>
+<!--
+	写一个轮播效果图。当所有的图片轮播完成后，可以反方向轮播。 
+-->

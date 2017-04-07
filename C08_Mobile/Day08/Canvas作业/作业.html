@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            width: 1000px;
+            height: 500px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 10px 10px 10px gray;
+            background: orange;
+        }
+        table td{
+            border: 1px dashed gray;
+        }
+        canvas{
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<canvas id="canvas" width="1000" height="500">
+
+</canvas>
+<script>
+    //获取canvas元素
+    var cvs = document.querySelector('#canvas');
+    //获取上下文对象（画笔）
+    var ctx = cvs.getContext('2d');
+
+    //绘制最外层黑边
+    ctx.beginPath();
+    ctx.arc(250,250,215,0,Math.PI * 2,true);
+    ctx.strokeStyle = "#000000";
+    ctx.lineWidth = 4;
+    ctx.stroke();
+    ctx.closePath();
+
+    //绘制第二层白边
+    ctx.beginPath();
+    ctx.arc(250,250,210,0,Math.PI * 2,true);
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 6;
+    ctx.stroke();
+    ctx.closePath();
+
+    //绘制第三层黑边
+    ctx.beginPath();
+    ctx.arc(250,250,167,0,Math.PI * 2,true);
+    ctx.strokeStyle = "#000000";
+    ctx.lineWidth = 80;
+    ctx.stroke();
+    ctx.closePath();
+
+    //绘制第四层白边
+    ctx.beginPath();
+    ctx.arc(250,250,124,0,Math.PI * 2,true);
+    ctx.strokeStyle = "#ffffff";
+    ctx.fillStyle = '#ffffff';
+    ctx.lineWidth = 6;
+    ctx.stroke();
+    ctx.fill();
+    ctx.closePath();
+
+    //扇形
+    ctx.beginPath();
+    ctx.arc(250,250,120,-Math.PI,-Math.PI / 2,false);
+    ctx.fillStyle = '#3298FE';
+    ctx.fill();
+    ctx.closePath();
+    //扇形
+    ctx.beginPath();
+    ctx.arc(250,250,120,0,Math.PI / 2,false);
+    ctx.fillStyle = '#3298FE';
+    ctx.fill();
+    ctx.closePath();
+    //三角形
+    ctx.beginPath();
+    ctx.moveTo(250,250);
+    ctx.lineTo(129,250);
+    ctx.lineTo(250,129);
+    ctx.fill();
+    ctx.fillStyle = '#3298FE';
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(250,250);
+    ctx.lineTo(371,250);
+    ctx.lineTo(250,371);
+    ctx.fill();
+    ctx.fillStyle = '#3298FE';
+    ctx.closePath();
+
+    //绘制文字B
+    ctx.beginPath();
+    ctx.font="65px Arial";
+    ctx.fillStyle = "#ffffff";
+    ctx.save();
+    ctx.translate(133, 163);
+    ctx.rotate(-Math.PI/4);
+    ctx.fillText("B", 0, 0);
+    ctx.restore();
+    ctx.closePath();
+
+    //绘制文字M
+    ctx.beginPath();
+    ctx.font="65px Arial";
+    ctx.fillStyle = "#ffffff";
+    ctx.save();
+    ctx.translate(222, 105);
+    ctx.fillText("M", 0, 0);
+    ctx.restore();
+    ctx.closePath();
+
+    //绘制文字W
+    ctx.beginPath();
+    ctx.font="65px Arial";
+    ctx.fillStyle = "#ffffff";
+    ctx.save();
+    ctx.translate(333, 133);
+    ctx.rotate(Math.PI/4);
+    ctx.fillText("W", 0, 0);
+    ctx.restore();
+    ctx.closePath();
+
+
+
+
+
+
+
+
+
+
+    //奥迪logo
+    ctx.beginPath();
+    ctx.arc(650,200,50,0,Math.PI * 2,true);
+    var f = ctx.createLinearGradient(600,150, 700, 250);
+    f.addColorStop(0,'#fff');
+    f.addColorStop(1,'#5D5F5E');
+    ctx.strokeStyle = f;
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(730,200,50,0,Math.PI * 2,true);
+    var g = ctx.createLinearGradient(680,150, 780, 250);
+    g.addColorStop(0,'#fff');
+    g.addColorStop(1,'#5D5F5E');
+    ctx.strokeStyle = g;
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(810,200,50,0,Math.PI * 2,true);
+    var h = ctx.createLinearGradient(760,150, 840, 250);
+    h.addColorStop(0,'#fff');
+    h.addColorStop(1,'#5D5F5E');
+    ctx.strokeStyle = h;
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.arc(890,200,50,0,Math.PI * 2,true);
+    var j = ctx.createLinearGradient(840,150, 920, 250);
+    j.addColorStop(0,'#fff');
+    j.addColorStop(1,'#5D5F5E');
+    ctx.strokeStyle = j;
+    ctx.stroke();
+    ctx.closePath();
+
+
+//
+//    ctx.beginPath();
+//    ctx.moveTo(600,300);
+//    ctx.lineTo(600,450);
+//    ctx.lineTo(950,450);
+//    ctx.lineTo(950,300);
+//    var k = ctx.createRadialGradient(780, 375, 5, 780, 375, 300);
+//    k.addColorStop(0, 'white');
+//    k.addColorStop(1, 'black');
+//    ctx.fillStyle = k;
+//    ctx.fill();
+//    ctx.closePath();
+</script>
+</body>
+</html>

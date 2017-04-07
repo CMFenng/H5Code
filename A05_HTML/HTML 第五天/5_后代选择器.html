@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*p{
+			font-size: 50px;
+		}*/
+
+		/*.p_1 , .p_2 , .p_3{
+			font-size: 50px;
+		}*/
+
+		/*
+			CSS 后代选择器
+
+			选择器1 + “空格” + 选择器2{
+				CSS 样式
+			}
+
+			控制的这两个内容需要是“父子关系”
+
+			控制所有的后代
+		*/
+		.wrap p{
+			font-size: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<p class="p_1">
+			<span>asdas</span>
+		</p>
+		<p class="p_2">作死无极限</p>
+		<p class="p_3">作死无极限</p>
+		<p class="p_4">作死无极限</p>
+		<p class="p_5">作死无极限</p>
+		<p class="p_6">作死无极限</p>
+		<p class="p_7">作死无极限</p>
+	</div>
+
+	<p>12</p>
+	<p>23</p>
+	<p>41324</p>
+	<p>15212</p>
+</body>
+</html>

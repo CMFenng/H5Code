@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * ES6新增了let指令，用来声明变量，语法类似于var，但和var的区别在于
+			 * 使用let声明的变量只有在代码块内有效，也就是说ES6是有块级作用域的。
+			 */
+			{
+				var a = 10;
+				let b = 20;
+			}
+			console.log(a);
+			// 因为b使用的是let声明的，只有在b的代码块中生效。
+//			console.log(b);
+			
+			//使用var声明for循环中的变量，遇到的常见问题
+			for (var i = 0; i < 5; i++) {
+				
+			}
+			// 这里依然能访问到i，而且i的值是5
+			console.log(i);
+			
+			//用let声明for循环的变量，就不会出现上面的问题
+			for (let j = 0; j < 5; j++) {
+				
+			}
+//			console.log(j);
+			//使用var声明变量的时候，有一个“变量提升”的概念，使用let就不会变量提升
+			console.log(liu);
+			var liu = "刘";
+			
+//			console.log(zhang);
+//			let zhang = "张";
+			var wang = "王";
+			if (true) {
+				wang = "大王";
+				//在代码块中，只要存在let命令，它声明的所有变量都会绑定在它身上。
+//				let wang = "小王";
+			}
+			
+			//总之在代码块内，使用变量之前，一定要用let声明好。
+			//如果let在使用变量之后声明的话，我们称为："暂时性死区" 
+			//（temporary dead zone，简称：TDZ）
+			if (true) {
+				//TDZ 开始
+//				zhao = "赵";
+//				console.log(zhao);
+				
+				//TDZ 结束
+				let zhao = "赵四";
+				console.log(zhao);
+			}
+			
+			// let不允许声明重复的变量
+			(function () {
+				let a = "a";
+//				let a = "b";
+			})();
+			
+			(function () {
+				let a = "a";
+//				var a = "b";
+			})();
+//			
+			(function (arg) {
+//				let arg = "a";
+			})();
+//			
+			(function (arg) {
+				{
+					//自己在独立的一个块级里，就不会和形参的arg有冲突了。
+					let arg = "a";
+				}
+			})();
+			
+			//关于全局变量，
+			//在ES5中全局变量就等同于全局对象的属性
+			window.str = "abc";
+			str = 33;
+			console.log(window.str);
+			
+			let str2 = "bcd";
+			console.log(window.str2);
+			console.log(str2);
+			
+			/*
+			 * const命令用来声明常量，常量一旦声明，就无法改变
+			 * const 和 let一样只在块级作用域内生效
+			 * 一样不支持变量（常量）提升，一样存在"TDZ"
+			 */
+			const PI = "3.1415..";
+			console.log(PI);
+//			PI = "能修改吗？";
+//			console.log(PI);
+			
+			const OBJ = {};
+//			// 针对于引用类型，修改值就是修改变量指针的指向。指向不同的对象实例
+//			OBJ = { age : 18 };
+			OBJ.name = "小雪";
+			console.log(OBJ);
+//			
+			//我们可以使用Object.freeze()冻结这个对象，从而达到不能操作对象的属性
+			Object.freeze(OBJ);
+			OBJ.age = 18;
+			OBJ.name = "小虹";
+			console.log(OBJ);
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #container{
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            border: 3px solid black;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .text{
+            width: 150px;
+            height: 20px;
+            /*background-color: pink;*/
+            position: absolute;
+            top: 140px;
+            transform-origin: right center;
+        }
+
+        .text span{
+            display: block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            /*background-color: red;*/
+        }
+
+        .pointer{
+            position: absolute;
+            transform-origin: center 90%;
+        }
+
+        #hour{
+            width: 8px;
+            height: 110px;
+            background-color: blue;
+            top: 51px;
+            left: 146px;
+        }
+
+        #minute{
+            width: 6px;
+            height: 130px;
+            background-color: green;
+            top: 33px;
+            left: 147px;
+        }
+
+        #second{
+            width: 4px;
+            height: 150px;
+            background-color: red;
+            top: 15px;
+            left: 148px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="text"><span>9</span></div>
+    <div class="text"><span>10</span></div>
+    <div class="text"><span>11</span></div>
+    <div class="text"><span>12</span></div>
+    <div class="text"><span>1</span></div>
+    <div class="text"><span>2</span></div>
+    <div class="text"><span>3</span></div>
+    <div class="text"><span>4</span></div>
+    <div class="text"><span>5</span></div>
+    <div class="text"><span>6</span></div>
+    <div class="text"><span>7</span></div>
+    <div class="text"><span>8</span></div>
+    <div id="hour" class="pointer"></div>
+    <div id="minute" class="pointer"></div>
+    <div id="second" class="pointer"></div>
+</div>
+<script type="text/javascript">
+    var divs = document.querySelectorAll(".text");
+    var spans = document.querySelectorAll("span");
+
+    // 将每个包裹刻度的 div 旋转
+    for (var i = 0; i < divs.length; i++) {
+        divs[i].style.transform = `rotate(${ 30 * i }deg)`;
+    }
+
+    // 将 div 中的文本旋转到正常角度
+    for (var i = 0; i < spans.length; i++) {
+        spans[i].style.transform = `rotate(${ -30 * i }deg)`;
+    }
+
+    var hour = document.querySelector("#hour");
+    var min = document.querySelector("#minute");
+    var sec = document.querySelector("#second");
+
+    setTimeout(function Clock() {
+        var date = new Date();
+        var nowHour = date.getHours();
+        var nowMin = date.getMinutes();
+        var nowSec = date.getSeconds();
+
+//        console.log(nowHour,nowMin, nowSec);
+
+        hour.style.transform = `rotate(${ (nowHour + nowMin/60) * 30 }deg)`;
+        min.style.transform = `rotate(${ (nowMin + nowSec/60) * 6 }deg)`;
+        sec.style.transform = `rotate(${ nowSec * 6 }deg)`;
+        
+        console.log(nowHour,nowMin, nowSec, (nowHour + nowMin/60) * 30, (nowMin + nowSec/60) * 6, nowSec * 6);
+
+        setTimeout(Clock, 1000);
+    }, 0)
+</script>
+</body>
+</html>

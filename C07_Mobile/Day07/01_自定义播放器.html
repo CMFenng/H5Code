@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video width="800" height="500" id="video" controls="controls">
+			<source src="source/终结者_Larry.MP4"></source>
+		</video>
+		<div id="controlDiv">
+			<input type="button" value="播放" id="playBtn" />
+			<input type="button" value="静音" id="mutedBtn" />
+			<input type="button" value="全屏" id="allScreenBtn" />
+			<input type="button" value="下一首" id="nextBtn" />
+			播放进度：<input type="range" value="0" id="proRange" />
+			音量：<input type="range" value="100" max="100" id="volumeRange" />
+			<span id="leftSpan">0:00</span>
+				/
+			<span id="rightSpan"></span>
+		</div>
+		
+		<script type="text/javascript">
+			var playBtn = document.querySelector('#playBtn');
+			var mutedBtn = document.querySelector('#mutedBtn');
+			var allScreenBtn = document.querySelector('#allScreenBtn');
+			var nextBtn = document.querySelector('#nextBtn');
+			var proRange = document.querySelector('#proRange');
+			var volumeRange = document.querySelector('#volumeRange');
+			var leftSpan = document.querySelector('#leftSpan');
+			var rightSpan = document.querySelector('#rightSpan');
+			var video = document.querySelector("#video");
+			
+			
+			//定时器标识
+			var timerId;
+			//播放按钮
+			playBtn.onclick = function () {
+				//判断是否是暂停状态
+				if (video.paused) {
+					video.play();
+					//设置播放进度range最大值
+					proRange.max = video.duration;
+					timerId = setInterval(progressFn, 100);
+					this.value = '暂停';
+				} else {
+					video.pause();
+					this.value = '播放';
+					clearInterval(timerId);
+				}
+			}
+			
+			//播放进度方法
+			function progressFn () {
+				proRange.value = video.currentTime;
+				leftSpan.innerHTML = timeFn(video.currentTime);
+				if (video.ended) {
+					playBtn.value = '播放';
+					clearInterval(timerId);
+				}
+			}
+			
+			//播放进度range
+			proRange.oninput = function () {
+				video.currentTime = this.value;
+				leftSpan.innerHTML = timeFn(video.currentTime);
+			}
+			
+			//保存音量值
+			var volumeNum;
+			//静音按钮
+			mutedBtn.onclick = function () {
+				if (video.muted) {
+					video.muted = false;
+					this.value = '静音';
+					//还原之前的音量
+					volumeRange.value = volumeNum;
+				} else {
+					video.muted = true;
+					//当静音的时候需要把之前的音量保存起来，方便还原使用
+					volumeNum = volumeRange.value;
+					volumeRange.value = 0;
+					this.value = '取消静音';
+				}
+			}
+			
+			//音量range
+			volumeRange.oninput = function () {
+				video.volume = this.value / 100;
+			}
+			
+			//全屏
+			allScreenBtn.onclick = function () {
+				video.webkitRequestFullScreen();
+			}
+			
+			//处理显示时间
+			function timeFn (num) {
+				return parseInt(num / 60) + ":" + addZero(parseInt(num % 60));
+			}
+			
+			//补零
+			function addZero (num) {
+				return num >= 10 ? num : '0' + num;
+			}
+			
+			//视频/音频加载完媒体数据后触发的事件
+			video.onloadedmetadata = function () {
+				console.log(this.duration);
+				proRange.max = this.duration;
+				leftSpan.innerHTML = '0:00';
+				rightSpan.innerHTML = timeFn(this.duration);
+			}
+			
+			//视频列表
+			var videoArr = ['./source/Nimo.MP4', './source/终结者_Larry.MP4'];
+			
+			//记录上一次播放的下标
+			var prevNum = 1;
+			
+			//下一首按钮
+			nextBtn.onclick = function () {
+				clearInterval(timerId);
+				video.src = videoArr[randomFn()];
+			}
+			
+			//随机函数（保证新的一次和上一次不重复）
+			function randomFn () {
+//				var newNum = Math.floor(Math.random() * videoArr.length);
+//				while (newNum == prevNum) {
+//					newNum = Math.floor(Math.random() * videoArr.length);
+//				}
+				
+				do {
+					console.log("=======");
+					var newNum = Math.floor(Math.random() * videoArr.length);	
+				} while(newNum == prevNum)
+				
+				//更新上一次的下标
+				prevNum = newNum;
+				return newNum;
+			}
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

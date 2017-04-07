@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+/*
+绑定事件（尽量用on）
+    bind()
+        参数1：事件类型
+        参数2：事件处理程序
+
+    on()
+        参数1：事件类型
+        参数2：选择器，要绑定的元素的后代
+        参数3：当事件触发的时候，会通过事件对象传递到处理函数的内部（event.data）
+        参数4：事件处理程序
+*/
+        $(function () {
+//            $("button").bind("mouseover", function () {
+//                alert("你好");
+//            })
+
+            // 调用foo方法
+            foo($("div"));
+        });
+
+        // 声明foo函数（参数是jQuery对象）
+        function foo(jObj) {
+            // 这里给div注册事件，但只有被选中的a，button才被绑定了事件
+            // 如果这里参数2不填，则所有div都会被绑定点击事件
+            jObj.on("click", "a, button", {"name" : "abc"}, function (event) {
+                console.log(event.data);
+            })
+        }
+    </script>
+</head>
+<body>
+<div>
+    <button>按钮</button>
+</div>
+<div><a href="#">按钮</a></div>
+<div>按钮</div>
+</body>
+</html>

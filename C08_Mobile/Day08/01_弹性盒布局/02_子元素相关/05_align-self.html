@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<style type="text/css">
+			/* align-self: auto | flex-start | flex-end | center |
+			 *  baseline | stretch;
+		    单独对齐方式：自动（默认） | 顶部对齐 | 底部对齐 |
+		      居中对齐 | 文本基线对齐 | 和之前的strech效果一样 */
+		     
+		     ul{
+		     	align-items: flex-start;
+		     }
+		     
+		     ul li{
+		     	height: auto;
+		     }
+		     
+		     ul li:nth-of-type(1){
+		     	align-self: auto;
+		     }
+		     
+		     ul li:nth-of-type(2){
+		     	align-self: flex-start;
+		     }
+		     
+		     ul li:nth-of-type(3){
+		     	align-self: flex-end;
+		     }
+		     
+		     ul li:nth-of-type(4){
+		     	align-self: center;
+		     }
+		     
+		     ul li:nth-of-type(5){
+		     	align-self: baseline;
+		     }
+		     
+		     ul li:nth-of-type(6){
+		     	align-self: baseline;
+		     }
+		     
+		     ul li:nth-of-type(7){
+		     	align-self: stretch;
+		     }
+		     
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li style="line-height: 80px;">5</li>
+			<li style="line-height: 200px;">6</li>
+			<li>7</li>
+		</ul>
+		
+	</body>
+</html>

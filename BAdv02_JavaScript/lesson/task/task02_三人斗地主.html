@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		.playerDiv{
+			height: 100px;
+			margin: 10px auto;
+			background-color: green;
+		}
+		.pokeDiv{
+			width: 50px;
+			height: 80px;
+			margin: 10px 5px;
+			background-color: #fff;
+			border-radius: 10px;
+			float: left;
+		}
+		.playerName{
+			width: 100px;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+			color: gold;
+			font-weight: bold;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+<button id="washBtn">洗牌</button>
+<script type="text/javascript">
+	//游戏对象
+	//参数：玩家，一副扑克牌
+	function Game (players, pokes) {
+		//参与游戏的玩家
+		this.players = players;
+		//游戏的道具
+		this.pokes = pokes;
+		//发牌功能
+		this.sendPoke = function () {
+			this.pokes.allPoke.forEach(function (poke, index) {
+				if (index > 50) {
+					this.players[3].hasPokes.push(poke);
+				} else {
+					var i = index % 3;
+					this.players[i].hasPokes.push(poke);
+				}
+			})
+		}
+		//展示牌功能
+		this.showPoke = function () {
+			for (var player of this.players) {
+				for (var poke of player.hasPokes) {
+					player.div.appendChild(poke.div)
+				}
+			}
+		}
+		//游戏开始
+		this.startGame = function () {
+			//洗牌
+			this.pokes.washPoke();
+			//发牌
+			this.sendPoke();
+			//展示牌
+			this.showPoke();
+		}
+	}
+	
+	//一副扑克牌对象
+	function Pokes () {
+		//一张扑克牌对象
+		//参数：花色，点数
+		function Poke (color, point) {
+			this.color = color;
+			this.point = point;
+			//如果直接输出一个对象的时候，就是输出这个对象的toString方法的返回值
+//			this.toString = function () {
+//				return this.color + this.point;
+//			}
+			var pokeDiv = document.createElement("div");
+			pokeDiv.setAttribute("class", "pokeDiv");
+			pokeDiv.innerHTML = this.color + this.point;
+			if (color === "♦" || color === "♥" || color === "大王") {
+				pokeDiv.style.color = "red";
+			}
+			this.div = document.body.appendChild(pokeDiv);
+		}
+		
+		//存储这幅扑克牌
+		this.allPoke = [];
+		//初始化所有扑克
+		//匿名函数的自执行
+		(function (allPoke) {
+			var colors = ["♠", "♣", "♦", "♥"];
+			var points = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+			for (var i = 0; i < colors.length; i++) {
+                for (var j = 0; j < points.length; j++) {
+                    var poke = new Poke(colors[i], points[j]);
+                    allPoke.push(poke);
+                }
+            }
+			allPoke.push(new Poke("大王", ""));
+			allPoke.push(new Poke("小王", ""));
+		})(this.allPoke);
+		
+		//洗牌
+		this.washPoke = function () {
+			return this.allPoke.sort(function(){ return 0.5 - Math.random() });
+		}
+	}
+	
+	//玩家对象
+	function Player (name) {
+		//玩家名字
+		this.name = name;
+		//玩家手中的牌
+		this.hasPokes = [];
+		
+		var playerDiv = document.createElement("div");
+		playerDiv.setAttribute("class", "playerDiv");
+		this.div = document.body.appendChild(playerDiv);
+		
+		var playerName = document.createElement("div");
+		playerName.setAttribute("class", "playerName");
+		playerName.innerHTML = this.name;
+		this.div.appendChild(playerName);
+	}
+	
+	//创建玩家
+	var player1 = new Player("张三");
+	var player2 = new Player("李四");
+	var player3 = new Player("王五");
+	//地主
+	var host = new Player("地主牌");
+	var players = [player1, player2, player3, host];
+	
+	var playerDiv = document.querySelector(".playerDiv");
+	//一副扑克牌
+	var pokes = new Pokes();
+	
+	//创建游戏
+	var game = new Game(players, pokes);
+	//开始游戏
+	game.startGame();
+	
+	var washBtn = document.getElementById("washBtn");
+	washBtn.onclick = function () {
+		player1.hasPokes = [];
+		player2.hasPokes = [];
+		player3.hasPokes = [];
+		host.hasPokes = [];
+		game.startGame();
+	}
+</script>
+</body>
+</html>
+<!--
+	
+写一个三个人玩斗地主的游戏。实现随机发牌的功能。使用面向对象的思路完成。
+最后把每个玩家的牌在页面展示出来，只展示花色♣️♠️♥️♦️和点数即可。
+
+提示：
+a：游戏本身是个对象，比如有游戏名字、玩家、一副扑克等属性，应该有开始游戏的功能。
+b：每一副扑克本身也应该是个对象，有牌的数量的属性，和存储每一张扑克的数组，洗牌等功能。
+c：每副牌也应该是个对象，有花色和点数等属性。
+d：每个玩家也应该是个对象，比如玩家的姓名，玩家手里的牌等属性。
+
+-->

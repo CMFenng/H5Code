@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.div_1{
+			width: 100px;
+			height: 100px;
+			padding: 100px;
+			border: 100px solid blue;
+			margin: 100px;
+
+			background: red;
+			background-clip: content-box;
+		}
+		.div_2{
+			width: 500px;
+			height: 500px;
+			padding:100px;
+			border: 100px solid red;
+			margin: 100px;
+
+			background: yellow;
+
+			box-sizing: border-box;
+			/*
+
+			box-sizing
+			设置盒模型的计算方式
+				content-box
+					正常盒模型
+					width = 内容的宽度
+				border-box
+					怪异盒模型
+					width =
+					内容的宽度 + 内边距的宽度 +边框的宽度
+			 */
+		}
+	</style>
+</head>
+<body>
+	<div class="div_1"></div>
+	<br><br><br><br><br><br>
+	<div class="div_2"></div>
+</body>
+</html>

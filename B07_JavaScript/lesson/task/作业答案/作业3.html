@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+<script type="text/javascript">
+	function isRigth (s) {
+		if(s.length < 4 || s.length > 16){
+			alert("长度必须是在4-16位，你的长度目前是：" + s.length);
+			return false;
+		}
+		for (var i = 0; i < s.length; i++) {
+			var c = s.charAt(i);
+			if(i === 0 && c >= '0' && c <= '9'){
+				alert("第一个不能是数字");
+				return false;
+			}
+			if(i > 0 && !((c >= 'a' && c <= 'z') || (c >= 'A' && c <= "Z") || c == "_" )){
+				alert("必须是数字字母下划线")
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	isRigth("abcd%& ")
+	
+	
+</script>
+</body>
+
+</html>
+<!--
+	验证字符串：长度4-16; 只能包含数字、英文字符、下划线三种符号; 首字符不能是数字";
+	
+	
+	
+-->

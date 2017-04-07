@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body{
+				
+				position: relative;
+				/*background: black;*/
+				background: url(img/22320228_210246930232_2.jpg) round;
+				/*background-size: 100%;*/
+			}
+			#box{
+				width: 722px;
+				height: 250px;
+				border: 1px solid black;
+				transform-style: preserve-3d;
+				perspective: auto;
+				transform: skew(-20deg,0deg);
+				position: absolute;
+				top: 500px;
+				left: 400px;
+			}
+			ul{
+				list-style: none;
+			}
+			li{
+				float: left;
+				width: 80px;
+				height: 250px;
+				border: 1px solid black;
+				background: rgba(255,255,255,0.5);
+				transform-origin: top center;
+			}
+			#autop{
+				width: 200px;
+				height: 500px;
+				position: absolute;
+				top: 100px;
+				right: 100px;
+				/*background: red;*/
+			}
+			input{
+				width: 100px;
+				height: 50px;
+				margin: 10px 0px 10px 40px;
+				font-size: 20px;
+			}
+			p{
+				width: 200px;
+				text-align: center;
+				font-size: 30px;
+				line-height: 30px;
+				color: white;
+			}
+			#sdp{
+				width: 200px;
+				height: 500px;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				/*background: red;*/
+			}
+			span{
+				position: absolute;
+				top: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li><audio src="music/1.ogg"></audio></li>
+				<li><audio src="music/2.ogg"></audio></li>
+				<li><audio src="music/3.ogg"></audio></li>
+				<li><audio src="music/4.ogg"></audio></li>
+				<li><audio src="music/5.ogg"></audio></li>
+				<li><audio src="music/6.ogg"></audio></li>
+				<li><audio src="music/7.ogg"></audio></li>
+				<li><audio src="music/8.ogg"></audio></li>
+				<li><audio src="music/9.ogg"></audio></li>
+			</ul>
+		</div>
+		<div id="autop">
+			<p>自动播放专区</p>
+			<input type="button" name="" id="" value="小星星" /><br />
+			<input type="button" name="" id="" value="爱情转移" /><br />
+			<input type="button" name="" id="" value="茉莉花" /><br />
+			<input type="button" name="" id="" value="卖报歌" />
+		</div>
+		<div id="sdp">
+			<p>练习专区</p>
+			<input type="button" name="" id="" value="小星星" /><br />
+			<input type="button" name="" id="" value="爱情转移" /><br />
+			<input type="button" name="" id="" value="茉莉花" /><br />
+			<input type="button" name="" id="" value="卖报歌" />
+		</div>
+		<script type="text/javascript">
+			var lis = document.querySelectorAll("li");
+			var audios = document.querySelectorAll("audio");
+			var atuoplay = document.querySelectorAll("#autop input");
+			var sdplay = document.querySelectorAll("#sdp input");
+			var allInput = document.querySelectorAll("input");
+			var atuoplaytime = -100;
+			var count=0;
+			
+			for(var i=0;i<lis.length;i++){
+				lis[i].index=i;
+				lis[i].onmousedown=function(){
+					lis[this.index].style.transform = "rotateX(30deg)";
+					audios[this.index].src="music/"+(this.index+1)+".ogg"
+					audios[this.index].autoplay="autoplay";
+				}
+				lis[i].onmouseup = function(){
+					lis[this.index].style.transform = "";
+				}
+			}
+			
+			var song=["115566544332215544332554433211556654433221","187767656532356556566665653123532112353211118888686865","335688655653356886556555535666532353211213212356865523532121","5555553565323553532132332612665365532355323532361231"]
+			
+			for(var i=0;i<atuoplay.length;i++){
+				atuoplay[i].index=i;
+				atuoplay[i].onclick=function(){
+					for(j=0;j<allInput.length;j++){
+						allInput[j].disabled="disabled";
+					}
+					var songarr = song[this.index].split("");
+					atuoplaytime=setInterval(function(){
+						audios[songarr[count]-1].src="music/"+(songarr[count])+".ogg"
+						audios[songarr[count]-1].autoplay="autoplay";
+						for(var j=0;j<lis.length;j++){
+							lis[j].style.transform="";
+						}
+						lis[songarr[count]-1].style.transform = "rotateX(30deg)";
+						count++;
+						if(count>=songarr.length){
+							count=0;
+							for(j=0;j<allInput.length;j++){
+								allInput[j].disabled="";
+							}
+							for(var j=0;j<lis.length;j++){
+								lis[j].style.transform="";
+							}
+							clearInterval(atuoplaytime);
+						}
+					},500);
+				}
+			}
+			var speed=6;
+			var createspan=-100;
+			var countxue=0;
+			for(var i=0;i<sdplay.length;i++){
+				sdplay[i].index = i;
+				sdplay[i].onclick=function(){
+					for(j=0;j<allInput.length;j++){
+						allInput[j].disabled="disabled";
+					}
+					var songarr = song[this.index].split("");
+
+					createspan=setInterval(function(){
+						var span = document.createElement("span");
+						span.innerHTML="※";
+						span.style.color = "white";
+						span.style.left=((songarr[countxue]-1)*80+480)+"px";
+						document.querySelector("body").appendChild(span);
+						
+						clearInterval(atuoplaytime);
+						atuoplaytime=setInterval(function(){
+							var spans = document.querySelectorAll("span");
+							
+							for(var k=0;k<spans.length;k++){
+								spans[k].style.top=spans[k].offsetTop+speed+"px";
+								if(spans[k].offsetTop>=510){
+									document.querySelector("body").removeChild(spans[k]);
+								}
+							}
+							if(spans.length==0){
+								clearInterval(atuoplaytime);
+								for(j=0;j<allInput.length;j++){
+									allInput[j].disabled="";
+								}
+							}
+						},50);
+						countxue++;
+						if(countxue>=songarr.length){
+							countxue=0;
+							clearInterval(createspan);
+						}
+					},500);
+				}
+			}
+		</script>
+	</body>
+</html>

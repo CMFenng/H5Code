@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		p{
+			text-align: center;
+			margin: 40px auto;
+			font-size: 20px;
+		}
+		.question{
+			width: 60%;
+			text-align: left;
+			text-indent: 2em;
+		}
+	</style>
+</head>
+
+<body>
+	<p class="question">定义函数，宰相的麦子：相传古印度宰相达依尔，是国际象棋的发明者。有一次，国王因为他的贡献要奖励他，问他想要什么。达依尔说：“只要在国际象棋棋盘上（共64格）摆上这么些麦子就行了：第一格一粒，第二格两粒，……，后面一格的麦子总是前一格麦子数的两倍，摆满整个棋盘，我就感恩不尽了。”国王一想，这还不容易，刚想答应，如果你这时在国王旁边站着，你会不会劝国王别答应，为什么？</p>
+	<p></p>
+	<script type="text/javascript">
+		(function (num){
+			document.getElementsByTagName("p")[1].innerHTML = "摆满整个棋盘,需要" + calSum(num) + "粒麦子";
+		}(64));
+		
+		//计算总数量
+		function calSum(num){
+			var sum = 0;
+			for(var i = 1; i <= num; i++){
+				sum += calNum(i);
+			}
+			return sum;
+		}
+		
+		//计算每个格子的数量
+		function calNum(num){
+			if(num === 1){
+				return 1;
+			}
+			return calNum(num - 1) * 2;
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*.div_1 p{
+			background: blue;
+		}*/
+		.div_1>p{
+			background: blue;
+		}
+
+		/*
+			CSS 子代选择器
+
+			选择器1 + > + 选择器2{
+				CSS 样式
+			}
+
+			只选择儿子，而不选择孙子
+
+			后代选择器和子代选择器的区别
+				后代选择器选择所有的后代
+				子代选择器选择直系的子代
+		*/
+	</style>
+</head>
+<body>
+	<div class="div_1">
+		<p>我是儿子</p>
+		<div class="div_2">
+			<p>我是孙子</p>
+		</div>
+	</div>
+</body>
+</html>

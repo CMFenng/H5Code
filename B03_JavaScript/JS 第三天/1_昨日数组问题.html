@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+	//数组是一个对象 object
+	var arr = ["123","456"];
+	console.log(typeof arr);		//object
+	
+	var a = function(){};
+	console.log(typeof a);			//function
+	
+	var b = "123a456";
+	console.log(Number(b));			//NaN
+	console.log(parseInt(b));		//123
+	
+	console.log(parseInt("a123"));		//NaN
+	console.log(parseInt("123.3456"));	//123
+	console.log(parseInt("123.5456"));	//123	不会四舍五入
+	console.log(parseFloat("123.456"));	//123.456
+/*
+toFixed()
+	保留小数
+	按照指定的小数返回数值的字符串内容
+	转化的过程中小心数值的四舍五入
+*/
+	var num = 10;
+	console.log(num.toFixed(2));	//10.00
+	
+	var num1 = 10.345678;
+	console.log(num1.toFixed(2));	//10.35
+</script>
+</html>

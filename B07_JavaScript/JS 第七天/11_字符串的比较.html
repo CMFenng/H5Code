@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+字符串的比较
+	1. ==
+	2. ===
+	3. str.localeCompare(other)
+*/
+//=====================================================
+/*==*/
+	
+    var str1 = "今天是个好日子";
+    var str2 = new String("今天是个好日子");
+    console.log(typeof str1);		//string
+    console.log(typeof str2);		//object
+    console.log(str1 == str2);		//true
+    //虽然两个字符串一个是 基本类型
+    //另外一个是 引用类型对象
+    //但是他们的内容是相等的，所以返回 true
+//=====================================================
+/*===*/
+	
+    var str1 = "哈哈";
+    var str2 = String("哈哈");
+    
+    var str3 = new String("哈哈");
+    var str4 = new String("哈哈");
+    
+    //内容和类型都相等，所以恒等
+    console.log(str1 === str2);		//true
+    
+    //虽然内容相等，但是类型不同，所以不算恒等
+    console.log(str1 === str3);		//false
+    
+    //3 和 4 虽然类型和内容都相等，
+    //但是他们是对象，必须是一个对象才能算恒等
+    //当前通过 new 的方式创建，这块等讲对象详细说
+    console.log(str3 === str4);		//false
+//=====================================================
+/*
+str.localeCompare(other)
+	
+	如果字符串在字母表中排在字符串参数之前，则返回一个负数
+	如果字符串等于字符串参数，则返回 0
+	如果字符串在字母表中排在字符串参数之后，则返回一个正数
+*/
+    var str = "b";
+    var compare_1 = str.localeCompare("abbb");
+    console.log(compare_1);					//1
+    console.log(str.localeCompare("c"));	//-1
+    console.log(str.localeCompare("b"));	//0
+    
+    var str1 = "李";		//l
+    var str2 = "赵";		//z
+    console.log(str1.localeCompare(str2));	//-1
+    
+    var str3 = "a";
+    var str4 = "ab";
+    console.log(str3.localeCompare(str4));	//-1    
+</script>
+</html>

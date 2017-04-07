@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+navigator 对象
+	
+	navigator 对象包含有关浏览器的信息
+	navigator 对象包含的属性描述了正在使用的浏览器
+	我们可以根据这些属性，进行专门平台的配置
+	
+	属性：
+		appCodeName			浏览器代码名的字符串表示
+		appName				官方浏览器的字符串表示
+		appVersion			浏览器版本信息的字符串
+		systemLanguage		操作系统的语言
+		language			浏览器的主语言
+		onLine				是否连接互联网
+		cookieEnable		是否启用了 Cookie
+							如果启用为 true
+							没有启用为 false
+		platform			浏览器所在计算机平台的字符串
+		plugins				安装在浏览器中插件的数组
+		userAgent			用户代理头的字符串
+	用法：
+		navigator.对应的属性
+*/
+	document.write("appName ：" + navigator.appName + "<br>");
+	document.write("appVersion ：" + navigator.appVersion + "<br>");
+	document.write("systemLanguage ：" + navigator.systemLanguage + "<br>");
+	document.write("language ：" + navigator.language + "<br>");
+	document.write("onLine ：" + navigator.onLine + "<br>");
+	document.write("cookieEnable ：" + navigator.cookieEnable + "<br>");
+	document.write("platform ：" + navigator.platform + "<br>");
+	document.write("plugins ：" + navigator.plugins + "<br>");
+	document.write("userAgent ：" + navigator.userAgent + "<br>");
+</script>
+</html>

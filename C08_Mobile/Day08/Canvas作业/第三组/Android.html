@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        table{
+            width: 1000px;
+            height: 650px;
+
+
+
+            box-shadow: 10px 10px 10px gray;
+        }
+
+        table td{
+            border: 1px dashed gray;
+        }
+
+        canvas{
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+<body>
+<table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<canvas id="canvas" width="1000" height="500">
+
+</canvas>
+<script type="text/javascript">
+    //获取canvas元素
+    var cvs = document.querySelector('canvas');
+    //获取上下文对象（画笔）
+    var ctx = cvs.getContext("2d");
+
+    ctx.fillStyle = "yellowgreen";
+    ctx.beginPath();
+
+    //头部框架
+    ctx.arc(300,150,100,0,Math.PI,true);
+    ctx.fill();
+    ctx.closePath();
+
+//    //头上触角
+//    ctx.fillStyle = "yellowgreen";
+//    ctx.beginPath();
+//    ctx.moveTo(200,0);
+//    ctx.lineTo(196)
+//    ctx.closePath();
+
+
+    //眼睛
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(340,100,10,0,Math.PI*2,true);
+    ctx.arc(260,100,10,0,Math.PI*2,true);
+    ctx.fill();
+    ctx.closePath();
+
+    //上面身体
+    ctx.fillStyle = "yellowgreen";
+    ctx.beginPath();
+    ctx.fillRect(200,160,200,160);
+    ctx.fillRect(225,320,150,25);
+    ctx.fill();
+    ctx.closePath();
+
+    //下面身体两侧的圆弧
+    ctx.fillStyle = "yellowgreen";
+    ctx.beginPath();
+    ctx.arc(225,320,25,0,Math.PI,false);
+    ctx.arc(375,320,25,0,Math.PI,false);
+    ctx.fill();
+    ctx.closePath();
+
+
+    //胳膊
+    ctx.fillStyle = "yellowgreen";
+    ctx.beginPath();
+    ctx.fillRect(165,165,25,150);
+    ctx.fillRect(410,165,25,150);
+    ctx.fill();
+    ctx.closePath();
+
+
+
+    //胳膊上的上面圆弧
+    ctx.fillStyle = "yellowgreen";
+    ctx.beginPath();
+    ctx.arc(177.5,165,12.5,0,Math.PI,true);
+    ctx.arc(422.5,165,12.5,0,Math.PI,true);
+    ctx.fill();
+    ctx.closePath();
+
+    //胳膊上的下面的圆弧
+    ctx.fillStyle = "yellowgreen";
+    ctx.beginPath();
+    ctx.arc(177.5,315,12.5,0,Math.PI,false);
+    ctx.arc(422.5,315,12.5,0,Math.PI,false);
+    ctx.fill();
+    ctx.closePath();
+
+    //腿上面
+    ctx.fillStyle = "yellowgreen";
+    ctx.beginPath();
+    ctx.fillRect(245,345,35,45);
+    ctx.fillRect(325,345,35,45);
+
+    ctx.fill();
+    ctx.closePath();
+
+    //腿下面
+    ctx.fillStyle = "yellowgreen";
+    ctx.beginPath();
+    ctx.arc(262.5,390,17.5,0,Math.PI,false);
+    ctx.arc(342.5,390,17.5,0,Math.PI,false);
+    ctx.fill();
+    ctx.closePath();
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

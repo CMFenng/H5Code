@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			.container{
+				width: 50%;
+				height: 300px;
+				position: relative;
+				float: left;
+				border: 1px solid black;
+			}
+			
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: orange;
+				position: absolute;
+			}
+			
+			#box1{
+				/* 设置animation动画 */
+				animation: moveRect1 2s  linear infinite alternate forwards;
+			}
+			
+			/* 设置关键帧moveRect1 */
+			@keyframes moveRect1{
+				from{
+					transform: translate(0, 0);
+				}
+				to{
+					transform: translate(300px, 200px);
+				}
+			}
+			
+			#box2{
+				/* 这是animation动画 */
+				animation: moveRect2 2s infinite alternate-reverse linear;
+			}
+			
+			/* 设置关键帧moveRect2 */
+			@keyframes moveRect2{
+				0%{
+					transform: translate(0, 0);
+				}
+				25%{
+					transform: translate(400px, 0);
+				}
+				50%{
+					transform: translate(400px, 400px) scale(2, 2);
+					border-radius: 50%;
+					background-color: purple;
+				}
+				75%{
+					transform: translate(0, 400px);
+				}
+				100%{
+					transform: translate(0, 0);
+				}
+			}
+			
+			#box3{
+				border-radius: 50%;
+				margin: 100px auto;
+				border: 2px solid brown;
+				position: relative;
+				
+				animation: moveCircle 2s linear infinite;
+			}
+			
+			#box3:before{
+				content: "";
+				display: block;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				left: 50px;
+				top: -7px;
+				border-radius: 50%;
+				background-color: red;
+				border: 1px solid brown;
+			}
+			
+			@keyframes moveCircle{
+				from{
+					transform: rotate(0);
+				}
+				to{
+					transform: rotate(360deg);
+				}
+			}
+			
+			
+			
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="box1" class="box"></div>
+		</div>
+		
+		<div class="container">
+			<div id="box2" class="box"></div>
+		</div>
+		
+		<div class="container">
+			<div id="box3" class="box"></div>
+		</div>
+	</body>
+</html>

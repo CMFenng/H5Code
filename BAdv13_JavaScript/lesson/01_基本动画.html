@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+/*
+	show() / hide()
+		显示 / 隐藏
+		元素的透明度和尺寸都改变
+		参数默认值为0
+	
+	fadeIn() / fadeOut()
+		淡入 / 淡出
+		元素的透明度改变，尺寸不改变
+		参数默认值为nomal(400ms)
+	
+	slideDown() / slideUp()
+		展开 / 收起
+		元素的透明度不改变，尺寸改变
+		参数默认值为nomal(400ms)
+	
+	参数：时间	单位：ms
+	JQuery提供了3个值：slow(600ms), nomal(400ms),fast(200ms)
+	如：show("slow")
+*/
+	    $(function () {
+	    	var div = $("div");
+	        $("button:eq(0)").click(function () {
+	        	//显示
+	        	div.show(2000);
+	        });
+	        $("button:eq(1)").click(function () {
+	        	//隐藏
+	        	div.hide(2000);
+	        });
+	        $("button:eq(2)").click(function () {
+	        	//淡入
+	        	div.fadeIn(2000);
+	        });
+	        $("button:eq(3)").click(function () {
+	        	//淡出
+	        	div.fadeOut(2000);
+	        });
+	        $("button:eq(4)").click(function () {
+	        	//展开
+	        	div.slideDown(2000);
+	        });
+	        $("button:eq(5)").click(function () {
+	        	//收起
+	        	div.slideUp(2000);
+	        });
+	    });
+	</script>
+</head>
+<body>
+<button>显示</button>
+<button>隐藏</button>
+<button>淡入</button>
+<button>淡出</button>
+<button>展开</button>
+<button>收起</button>
+<div></div>
+</body>
+</html>

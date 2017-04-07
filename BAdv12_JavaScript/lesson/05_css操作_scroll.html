@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			/*
+				超出部分出现滚动条
+				    overflow: scroll;   超出xy都出现滚动条
+				    overflow-x: scroll;   超出x出现滚动条
+				    overflow-y: scroll;   超出y出现滚动条
+			*/
+			overflow: scroll;
+		}
+	</style>
+	<script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+/*
+	scrollTop() / scrollLeft()
+		不传参数，获取元素滚动的值
+		传入参数，设置元素滚动的距离
+*/
+	    $(function () {
+	        $("button").click(function () {
+	        	var top = $("div").scrollTop();
+	        	var left = $("div").scrollLeft();
+	        	console.log(top, left);
+	        	//===========================================
+	        	var div = $("div");
+	        	setInterval(function () {
+	        		//设置滚动的距离
+	        		div.scrollTop(div.scrollTop() + 2);
+	        	}, 20);
+	        })
+	    });
+	</script>
+</head>
+<body>
+<div>
+	aaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbcccccccccccccccccaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbccccccccccccccccc我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦
+	aaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbcccccccccccccccccaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbccccccccccccccccc我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦
+	aaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbcccccccccccccccccaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbccccccccccccccccc我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦我要滚动啦
+</div>
+<button>自动滚动</button>
+</body>
+</html>

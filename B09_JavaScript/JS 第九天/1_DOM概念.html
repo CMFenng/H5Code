@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     DOM 概念
+     * 
+     * Document Object Model
+     * 文档对象模型
+     * 
+     * DOM 是针对 HTML 和 XML 文档的一个 api，
+     * DOM 中描述了一个层级化的节点树，
+     * 允许开发人员进行添加，移除和修改页面中的
+     * 某一部分
+     * 
+     * W3C 中的 DOM 标准化分为 三部分
+     * 1. 核心 DOM - 针对任何结构化文档的标准模型
+     * 2. XML DOM - 针对 XML 文档的标准模型
+     * 3. HTML DOM - 针对 HTML 文档的标准模型
+     * 
+     * HTML DOM 是关于如何获取，修改，添加 或 删除
+     * HTML 元素的标准，即操作 HTML 元素
+     * 
+     * api：应用程序编程接口
+     * 
+     * 
+     * <html>
+     * 		<head>
+     * 			<title>DOM</title>
+     * 		</head>
+     * 		<body>
+     * 			<p>我是李先生</p>
+     * 		</body>
+     * </html>
+     * 
+     * 获取的信息：
+     * 		1.Document 节点是每一个文档的根节点
+     * 		2.Document 节点下 有一个 HTML 节点
+     * 		  我们将这个节点称之为 文档元素
+     * 		  文档元素是文档最外层的元素，其他的
+     * 		  元素都包含在文档元素之中
+     * 		  一个文档只能有一个文档元素，在 HTML 
+     * 		  中，文档元素永远是 <html> 元素
+     * 		3.在 DOM 树中，HTML 文档的每一处标记
+     * 		  都可以用树中的一个节点来表示
+     * 		  	html 元素标签 - 元素节点 来表示
+     * 			属性 -> 属性节点 来表示
+     * 			文档类型 -> 文档类型节点 来表示
+     * 			注释  -> 注释类型 来表示
+     * 
+     * 通用的 Document 和 Element 类型 与
+     * HTMLDocument 和 HTMLElement 是有区分的
+     * 		Document 只代表一个 HTML 或者 XML 文档
+     * 		Element 类型代表的是该文档的一个元素
+     * 		HTMLDocument 和 HTMLElement 子类
+     * 		只针对 HTML 文档 和 元素
+     * 
+     * DOM 中 节点分类
+     * 		DOM 中一共存在 12 种节点类型
+     * 		任意一个节点都一定属于这12个类型之中
+     * 
+     * */
+    	Node.ELEMENT_NODE 		//元素
+    	Node.ATTRIBUTE_NODE		//元素中的属性
+    	Node.TEXT_NODE			//纯文本（没有子节点）
+    	Node.CDATA_SECTION_NODE	//子节点是TextNode
+    	Node.ENTITY_REFERENCE_NODE
+    							//文档中的实体引用
+    	Node.ENTITY_NODE
+    							//DTD 中实体定义
+    	Node.PROCESSING_INSTRUCTION_NODE
+    							//一个文档处理程序中
+    							//使用的特有指令
+    	Node.COMMENT_NODE
+    							//注释
+    	Node.DOCUMENT_NODE	
+    							//最外层的 根节点
+    	Node.DOCUMENT_TYPE_NODE
+					//文档类型定义
+    	Node.DOCUMENT_FRAGMENT_NODE
+					//更小型的 Document 节点
+					//定义这个数据类型主要是为
+					//了方便只希望提取文档的
+					//某一部分时使用
+	Node.NOTATION_NODE
+					//DTD 的 Nation 定义
+					//在 XML 文档中表示一个符号
+					
+	/*
+	 需要记住的文档类型节点
+	 * 
+	 * 1.元素		Node.ELEMENT_NODE
+	 * 2.属性		Node.ATTRIBUTE_NODE
+	 * 3.文本		Node.TEXT_NODE
+	 * 4.注释		Node.COMMENT_NODE
+	 * 5.文档		Node.DOCUMENT_NODE
+	 * */
+	
+	/*
+	 节点属性
+	 * 
+	 * nodeName
+	 * 		节点名称
+	 * 		nodeName 是只读的
+	 * 		nodeName 始终包含 HTML 元素的大写字母
+	 * 				 标签名
+	 * nodeValue
+	 * 		节点值
+	 * 		或者进行设置或返回节点的值
+	 * nodeType
+	 * 		节点的类型
+	 * */
+</script>
+</html>
+
+
+
+

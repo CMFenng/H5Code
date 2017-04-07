@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+字符串的切割
+	
+	str.split(separator,howmany)
+		
+		separator
+			必选参数
+			字符串或者正则表达式，
+			从该参数指定的位置进行切割
+		howmany
+			可选参数
+			该参数指定可返回的数组的最大长度
+			如果设置了该参数，返回的子串不会多于这个参数
+			如果没有设置，则不考虑长度，将字符串全部切割
+			一般不设置该参数
+*/
+   	var str = "how old are you";
+   	var arr = str.split(" ");
+   	console.log(arr);			//["how", "old", "are", "you"]
+   	console.log(arr.length);	//4
+</script>
+</html>

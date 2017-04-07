@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		form
+			双标签
+			语义：定义表单
+
+			属性
+				action
+					表单提交的 URL，数据可以通过 URL 提交给服务器。
+					双引号中间填写提交的地址
+				method
+					用于记录我们和服务器进行交互时的方式
+					GET
+						直接提交，需要的数值会直接以字符串拼接的方式显示在地址栏中
+						（请求不安全）
+					POST
+						先将数据打包，然后传送到对应地址，地址栏中是不显示提交内容的
+						（相对 GET 更安全）
+
+	 -->
+	<form action="http://api.map.baidu.com/place/v2/search"
+		  method="GET">
+
+	</form>
+</body>
+</html>

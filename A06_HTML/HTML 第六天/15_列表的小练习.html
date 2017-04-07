@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width: 600px;
+			/*height: 400px;*/
+			border: 5px solid #000;
+		}
+		ul>li{
+			width: 600px;
+			/*height: 98px;*/
+			background:red;
+			border: solid green;
+			border-width: 1px 0;
+
+			font-size: 40px;
+
+			text-align: center;
+			line-height: 98px;
+		}
+		/*.son li{
+			background: yellow;
+			display: none;
+		}
+		.wrap li:hover .son li{
+			display: block;
+		}*/
+
+		/*简化写法*/
+		.son li{
+			background: yellow;
+		}
+		.son{
+			display: none;
+		}
+		li:hover .son{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<!-- 最外层大块 -->
+	<ul class="wrap">
+		<!-- li{我是一级标题}*4 -->
+		<li>
+			我是一级标题
+			<!--
+				当鼠标挪进一级标题内部的时候
+				让内部的二级标题出现
+
+				1.得先写出来二级标题
+				2.在鼠标未挪入之前，
+				  二级标题不显示的
+				3.当鼠标挪入对应的
+					一级标题的时候
+					让对应的二级标题出现
+			 -->
+			<ul class="son">
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 </ul>
+		</li>
+		<li>
+			我是一级标题
+			<ul class="son">
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 </ul>
+		</li>
+		<li>
+			我是一级标题
+			<ul class="son">
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 </ul>
+		</li>
+		<li>
+			我是一级标题
+			<ul class="son">
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 	<li>我是二级标题</li>
+			 </ul>
+		</li>
+	</ul>
+</body>
+</html>

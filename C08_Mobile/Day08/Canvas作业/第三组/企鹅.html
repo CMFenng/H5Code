@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 400px;
+            height: 250px;
+        }
+        table td{
+            border:1px dashed black;
+        }
+        canvas{
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<canvas width="400" height="250">
+</canvas>
+<script>
+    var cvs = document.querySelector('canvas');
+    var ctx = cvs.getContext('2d');
+
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+//    ctx.moveTo(120,87);
+//    ctx.bezierCurveTo(120,17,265,17,265,87);
+    ctx.arc(195,90,70,0,Math.PI,true)
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(120,87);
+    ctx.quadraticCurveTo(195,138,270,87);
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(115,115);
+    ctx.quadraticCurveTo(195,168,275,115);
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(120,87);
+    ctx.lineTo(115,115);
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(270,87);
+    ctx.lineTo(275,115);
+    ctx.stroke();
+    ctx.closePath();
+
+    //眼睛
+    EllipseBorder(ctx,210,60,12,18);
+    EllipseBorder(ctx,175,60,12,18);
+
+    //眼珠
+    EllipseFill(ctx,180,60,6,10);
+    EllipseFill(ctx,205,60,6,10);
+
+    //嘴巴
+    ctx.beginPath();
+    ctx.moveTo(160,90)
+    ctx.quadraticCurveTo(190,75,225,90);
+    ctx.quadraticCurveTo(220,95,215,95)
+    ctx.lineTo(217,90);
+    ctx.quadraticCurveTo(190,100,170,90)
+    ctx.lineTo(172,95);
+    ctx.quadraticCurveTo(170,95,160,90);
+    ctx.stroke();
+    ctx.closePath();
+
+    //身体
+    ctx.beginPath();
+    ctx.moveTo(115,115);
+    ctx.quadraticCurveTo(80,160,95,180);
+    ctx.quadraticCurveTo(100,185,110,163);
+//    ctx.quadraticCurveTo(195,240,268,163);
+    ctx.quadraticCurveTo(110,200,195,200);
+    ctx.quadraticCurveTo(270,200,268,163)
+    ctx.quadraticCurveTo(290,190,290,180);
+    ctx.quadraticCurveTo(295,170,275,115)
+    ctx.stroke();
+    ctx.closePath();
+
+    //肚子
+    ctx.beginPath();
+    ctx.moveTo(130,125);
+    ctx.quadraticCurveTo(100,200,195,200);
+    ctx.quadraticCurveTo(280,200,250,130)
+    ctx.stroke();
+    ctx.closePath();
+
+    //脚
+    ctx.beginPath();
+    ctx.moveTo(130,190);
+    ctx.quadraticCurveTo(120,190,120,205)
+    ctx.quadraticCurveTo(170,220,180,199)
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(250,190);
+    ctx.quadraticCurveTo(260,190,260,210)
+    ctx.quadraticCurveTo(200,220,200,199)
+    ctx.stroke();
+    ctx.closePath();
+
+    //围巾
+    ctx.beginPath();
+    ctx.moveTo(150,132);
+    ctx.lineTo(150,160);
+    ctx.lineTo(170,160);
+    ctx.lineTo(170,138);
+    ctx.stroke();
+    ctx.closePath();
+
+
+    //椭圆方法边框
+    function EllipseBorder(context, x, y, a, b) {
+        var ox = 0.5 * a,
+            oy = 0.6 * b;
+        context.save();
+        context.translate(x, y);
+        context.beginPath();
+        context.moveTo(0, b);
+        context.bezierCurveTo(ox, b, a, oy, a, 0);
+        context.bezierCurveTo(a, -oy, ox, -b, 0, -b);
+        context.bezierCurveTo(-ox, -b, -a, -oy, -a, 0);
+        context.bezierCurveTo(-a, oy, -ox, b, 0, b);
+        context.closePath();
+        context.stroke();
+        context.restore();
+    }
+
+    function EllipseFill(context, x, y, a, b) {
+        var ox = 0.5 * a,
+            oy = 0.6 * b;
+        context.save();
+        context.translate(x, y);
+        context.beginPath();
+        context.moveTo(0, b);
+        context.bezierCurveTo(ox, b, a, oy, a, 0);
+        context.bezierCurveTo(a, -oy, ox, -b, 0, -b);
+        context.bezierCurveTo(-ox, -b, -a, -oy, -a, 0);
+        context.bezierCurveTo(-a, oy, -ox, b, 0, b);
+        context.closePath();
+        context.fill()
+        context.restore();
+    }
+
+</script>
+</body>
+</html>

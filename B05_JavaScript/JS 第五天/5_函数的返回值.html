@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     编写一个函数，
+     实现计算后将输入的两个数的和返回给输入者
+     
+     编写一个函数，
+     实现用户输入一个数值，返回给用户该数字
+     是否是偶数
+     * */
+//  var num1 = parseInt(prompt("请输入一个整数"));
+//  var num2 = parseInt(prompt("请输入另一个整数"));
+//  function sum(num1,num2){
+//  		sum = num1 + num2;
+//  		return sum;
+//  }
+//  alert("您输入的两个数之和是" + sum(num1,num2));
+    
+    //=============================
+    var num = parseInt(prompt("请输入一个整数"));
+    function a(num){
+    		if(num % 2 == 0){
+    			return true;
+    		}
+    		return false;
+    }
+    var ret = a(num);
+    if(ret){
+    		alert("您输入的" + num + "是偶数");
+    }
+    else{
+    		alert("您输入的" + num + "不是偶数");
+    }
+</script>
+</html>

@@ -1,0 +1,14 @@
+@base: #ff0000;
+@w: 200px;
+@h: 200px;
+
+div{
+  width: @w;
+  height: @h;
+  background: @base;
+}
+div:nth-child(2){
+  width: @w * 2;
+  height: @h * 2;
+  background: @base + 222;
+}

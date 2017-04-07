@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+    	*{
+    		margin: 0;
+    		padding: 0;
+    	}
+    	
+    	#box{
+    		width: 300px;
+    		height: 300px;
+    		margin: 100px auto;
+    		border: 5px solid black;
+    		border-radius: 50%;
+    		position: relative;
+    	}
+    	
+    	#box .kedu{
+    		width: 30px;
+    		height: 150px;
+    		position: absolute;
+    		top: 0;
+    		left: 135px;
+    		text-align: center;
+    		
+    		/* 改变中心点  */
+    		transform-origin: bottom center;
+    	}
+    	
+    	#hour{
+    		width: 14px;
+    		height: 90px;
+    		position: absolute;
+    		background-color: black;
+    		left: 145px;
+    		top: 60px;
+    		transform-origin: bottom center;
+    	}
+    	
+    	#minute{
+    		width: 12px;
+    		height: 110px;
+    		position: absolute;
+    		background-color: deepskyblue;
+    		left: 145px;
+    		top: 40px;
+    		transform-origin: bottom center;
+    	}
+    	
+    	#second{
+    		width: 10px;
+    		height: 130px;
+    		position: absolute;
+    		background-color: deeppink;
+    		left: 145px;
+    		top: 20px;
+    		transform-origin: bottom center;
+    	}
+    </style>
+</head>
+<body>
+<div id="box">
+	<!-- 表针 -->
+	<div id="hour"></div>
+	<div id="minute"></div>
+	<div id="second"></div>
+</div>
+<script type="text/javascript">
+	var box = document.querySelector("#box");
+	
+	// 循环动态创建刻度
+	for (var i = 0; i < 12; i++) {
+		var tempkeDuDiv = document.createElement("div");
+		tempkeDuDiv.className = "kedu";
+		
+		var tempKeDuP = document.createElement("p");
+		tempKeDuP.innerHTML = (i == 0) ? 12 : i;
+		tempkeDuDiv.appendChild(tempKeDuP);
+		
+		// 表盘的一圈是 360deg，总共有 12 个刻度，每个刻度之间是 360/12 = 30deg
+		tempkeDuDiv.style.transform = "rotate(" + (i * 30) + "deg)";
+		// 每个刻度自身再转回去
+		tempKeDuP.style.transform = "rotate(" + (-i * 30) + "deg)";
+	
+		box.appendChild(tempkeDuDiv);
+	}
+	
+	var hourDiv = document.querySelector("#hour");
+	var minuteDiv = document.querySelector("#minute");
+	var secondDiv = document.querySelector("#second");
+	
+	var date = new Date();
+	
+	// 因为 24 小时制计算起来比较麻烦，我们改成 12 小时制就可以了。
+	var hour;
+	var minute;
+	var second = date.getSeconds();
+	
+	// 设置表针
+	function setPointers () {
+		second++;
+		date.setSeconds(second);
+		
+		hour = date.getHours() % 12;
+		minute = date.getMinutes();
+		second = date.getSeconds();
+		
+		console.log(hour + " : " + minute + " : " + second);
+		
+		// 1 圈是 360deg，1 圈是 60s，每秒走多少度：360/60 = 6deg
+		secondDiv.style.transform = "rotate(" + second * 6 + "deg)";
+		
+		// 1 圈是 360deg，1 圈是 60m，每分走多少度：360/60 = 6deg
+		minuteDiv.style.transform = "rotate(" + minute * 6 + "deg)";
+		
+		// 1 圈是 360deg，1 圈是 12h，每小时走多少度：360/12 = 30deg
+		// 1 小时是 60 分钟，1 小时是 30deg，每分钟多少度：30/60 = 0.5deg
+		hourDiv.style.transform = "rotate(" + (hour * 30 + minute * 0.5) + "deg)";
+	}
+	
+	// 初始化调用下设置表针
+	setPointers();
+
+	setInterval(setPointers, 1000);
+</script>
+</body>
+</html>

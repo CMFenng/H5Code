@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./css/index.css">
+		<script type="text/javascript" src="./js/base.js"></script>
+	</head>
+	<body>
+		<h1>再牛逼的肖邦也弹不出<b>程序猿</b>的悲伤</h1>
+		<div id="box">
+			<ul>
+				<li>`</li>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>0</li>
+				<li>-</li>
+				<li>+</li>
+				<li>delete</li>
+			</ul>
+			<ul>
+				<li>Tab</li>
+				<li>Q</li>
+				<li>W</li>
+				<li>E</li>
+				<li>R</li>
+				<li>T</li>
+				<li>Y</li>
+				<li>U</li>
+				<li>I</li>
+				<li>O</li>
+				<li>P</li>
+				<li>[</li>
+				<li>]</li>
+				<li>\</li>
+			</ul>
+			<ul>
+				<li>Caps</li>
+				<li>A</li>
+				<li>S</li>
+				<li>D</li>
+				<li>F</li>
+				<li>G</li>
+				<li>H</li>
+				<li>J</li>
+				<li>K</li>
+				<li>L</li>
+				<li>;</li>
+				<li>'</li>
+				<li>Enter</li>
+			</ul>
+			<ul>
+				<li>Shift</li>
+				<li>Z</li>
+				<li>X</li>
+				<li>C</li>
+				<li>V</li>
+				<li>B</li>
+				<li>N</li>
+				<li>M</li>
+				<li>,</li>
+				<li>.</li>
+				<li>/</li>
+				<li>Shift</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+	var myLis = document.querySelectorAll('li');
+	var myUls = document.querySelectorAll('ul');
+	var strW = "192,49,50,51,52,53,54,55,56,57,48,189,187,8,9,81,87,69,82,84,89,85,73,79,80,219,221,220,20,65,83,68,70,71,72,74,75,76,186,222,13,16,90,88,67,86,66,78,77,188,190,191,16,32";
+	var arr = strW.split(",");
+	// 删除空白节点
+	for(var tempUl of myUls){
+		deleleSpace(tempUl);
+	}
+	// 按下键的动作
+	function ohMyDown(obj){
+		obj.style.boxShadow = "1px 1px 1px 1px black, -1px 1px 1px black";
+	}
+	// 松开键的动作
+	function ohMyUp(obj){
+		obj.style.boxShadow = "5px 5px 5px black";
+	}
+	// 循环遍历 鼠标事件
+	for(var tempLi of myLis){
+		tempLi.onmousedown = function(){ohMyDown(this);}
+		tempLi.onmouseup = function(){ohMyUp(this);}
+	} 
+	// 循环遍历 键盘事件
+	for(var i=0;i<myLis.length;i++){
+		myLis[i].id = arr[i];
+		// console.log(myLis[i].id);
+	}
+	window.onkeydown = function(e){
+		for(var i=0;i<myLis.length;i++){
+			if (e.keyCode == myLis[i].id) {
+				ohMyDown(myLis[i]);
+				changeColor(myLis[i]);
+				playMusic(myLis[i])
+				break;
+			}
+			if (e.keyCode == myLis[myLis.length-1].id) {
+				ohMyDown(myLis[myLis.length-1]);
+				ohMyDown(myLis[myLis.length-12]);
+				break;
+			}
+		}
+	}
+	window.onkeyup = function(e){
+		for(var i=0;i<myLis.length;i++){
+			if (e.keyCode == myLis[i].id) {
+				ohMyUp(myLis[i]);
+				returnColor(myLis[i]);
+				pauseMusic(myLis[i]);
+				break;
+			}
+			if (e.keyCode == myLis[myLis.length-1].id) {
+				ohMyUp(myLis[myLis.length-1]);
+				ohMyUp(myLis[myLis.length-12]);
+				break;
+			}
+		}
+	}
+	// 炫酷吊炸天要飞了变色
+	function changeColor(obj){
+		for(var i=0;i<5;i++){
+			obj.style.background = "rgb("+randRgb()+","+randRgb()+","+randRgb()+")";
+			myLis[parseInt(Math.random()*53)].style.boxShadow = "2px 2px 2px 2px"+randColor()+ ", -2px 2px 2px"+ randColor();
+		}
+	}	
+	function returnColor(obj){
+		for(var i=0;i<myLis.length;i++){
+			obj.style.background = "";
+			myLis[i].style.boxShadow = "5px 5px 5px black";
+		}
+	}	
+	// 初始化给按键绑定音乐
+	function initMusic(){
+		for(var i=0;i<myLis.length-11;i++){
+			myLis[i].innerHTML += `<audio src="./mp3/${i}.mp3"><audio>`
+		}
+		for(var j=myLis.length-3;j>=myLis.length-11;j--){
+			myLis[j].innerHTML += `<audio src="./mp3/${j}.ogg"><audio>`
+		}
+		myLis[myLis.length-2].innerHTML += `<audio src="./mp3/53.mp3"><audio>`
+	}
+	initMusic();
+	function playMusic(obj){
+		var myAudio = obj.querySelector('audio');
+		if (myAudio.duration >=2) {
+			myAudio.playBackRate = 2.0;
+		}
+		myAudio.play();
+	}
+	function pauseMusic(obj){
+		var myAudio = obj.querySelector('audio');
+		myAudio.load();
+	}
+
+	// window.onkeydown = function(e){
+	// 	for(var tempArr of arr){
+	// 		if (e.keyCode == tempArr) {
+
+	// 		}
+	// 	}
+	// }
+
+
+	// window.onkeydown = function(e){
+	// 	console.log(e.keyCode);
+	// 	arr.push(e.keyCode);
+	// 	console.log(arr);
+	// 	if (e.keyCode == 32) {
+	// 		window.localStorage.setItem('keyArr', arr);
+	// 		return;
+	// 	}
+	// }
+
+	</script>
+</html>

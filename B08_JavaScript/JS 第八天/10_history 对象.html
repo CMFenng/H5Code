@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<button onclick="urlCount()">显示历史记录列表个数</button>
+	<button onclick="myForward()">前进</button>
+	<button onclick="myBack()">后退</button>
+	<button onclick="myGo(-2)">后退两步</button>
+	<!--正数代表前进，负数代表后退-->
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+History 对象
+	
+	history 对象包含用户（当前浏览器窗口）中访问过的 URL
+	
+	history 对象是 window 对象的一部分
+	可以通过 window.history 进行访问
+	
+	属性：
+		length
+			返回浏览器历史列表中的 URL 的数量
+	方法：
+		back()
+			加载 history 列表中的前一个 URL
+		forward()
+			加载 history 列表中的下一个 URL
+		go()
+			加载 history 列表中的指定的某个页面
+			如果为负数，则代表后退
+			如果为正数，则代表前进
+*/
+    function urlCount(){
+		console.log("历史列表中有" + history.length + "个 URL");
+    }
+    function myForward(){
+		//前进
+		history.forward();
+    }
+    function myBack(){
+		//后退
+		history.back();
+    }
+    function myGo(index){
+		//指定跳转
+		history.go(index);
+    }
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.div_1{
+			width: 600px;
+			height: 600px;
+			background: red;
+
+			position: relative;
+		}
+		.div_2{
+			width: 300px;
+			height: 300px;
+			background: blue;
+
+			/*第一种*/
+			display: none;
+
+			/*第二种*/
+			opacity: 0;
+
+			/*第三种*/
+			height: 0;
+
+			/*第四种*/
+			visibility: hidden;
+
+			/*第五种*/
+			margin-left: -9999px;
+
+			/*第六种*/
+			position: absolute;
+			top: -9999px;
+
+
+			/*第七种*/
+			position: absolute;
+			top: 0;left: 0;
+			z-index: -999;
+		}
+		.div_1:hover .div_2{
+			/*display: block;*/
+
+			/*opacity: 1;*/
+
+			/*height: 300px;*/
+
+			/*visibility: visible;*/
+
+			/*margin-left: 0;*/
+
+			/*top: 0;*/
+
+			/*z-index: 0;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="div_1">
+		<div class="div_2"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,421 @@
+@charset "utf-8";
+/*Reset*/
+
+/*ban*/
+.ban{ height:415px; position:relative; text-align:center;}
+.banner{ min-width:1100px;  position:relative;  height:415px; overflow:hidden;  }
+.banner .bd{ position:relative; z-index:0;  }
+.banner .bd ul{ width:100% !important; }
+.banner .bd li{ width:100% !important;  height:415px; }
+.banner .bd li .siteWidth{ width:1100px; position:relative;  margin:0 auto;  height:415px;  }
+.banner .bd .btn{ display:block; zoom:1; margin-top:8px;  width:72px; padding-right:10px;  height:31px; line-height:31px; text-align:center; color:#fff; font-size:12px;}
+.banner .hd{position:absolute; z-index:10; bottom:25px; left:50%; margin-left:-50px; height:24px; line-height:22px; text-align:center; width:200px; }
+.banner .hd ul li{ width:24px; height:24px; float:left; font-size:19px; font-size:1.9rem; color:#fff;overflow:hidden; cursor:pointer;}
+.banner .hd ul .on{ background:#dca27a; color:#fff; border-radius:50%; -moz-border-radius:50%;-ms-border-radius:50%;-o-border-radius:50%; -webkit-border-radius:50%;}
+.bantxt{ float:left; width:250px; background:#cf8048; position:relative; z-index:9; height:415px;}
+.bantxt .txt{ width:200px; padding:22px 0 0 30px; text-align:left; font-size:15px; font-size:1.5rem; line-height:20px;}
+.bantxt .txt h2{ font-size:32px; font-size:3.2rem; line-height:36px; padding-bottom:20px;}
+.bantxt .txt h2 a{ color:#fff;}
+.wordlist{ display:block; float:left; width:100%;}
+.wordlist a{ color:#f0d8c8;}
+.ranknum{ float:left; width:162px; line-height:23px; text-align:center; margin:12px 0 0 0; background:#fff; color:#e4b799;}
+
+
+.bgban{ float:left; width:100%; height:47px; background:url("../images/bgban1.png")/*tpa=http://www.bears.com.cn/images/bgban1.png*/ left top repeat-x; margin-top:-26px; position:relative; z-index:6;}
+.m1{ float:left; width:100%; height:244px;}
+.m1ads1{width:544px; height:244px; overflow:hidden;background:#FC6;}
+.m1ads2{ width:267px; margin-left:13px; position:relative; overflow:hidden; background:#ff8410;}
+.m1ads2 a{ color:#fff;}
+.m1ads2 img,.m1ads1 img{ display:block;}
+.m1ads2 a:hover,.m1ads1 a:hover{ color:#000;filter:alpha(opacity=60);-moz-opacity:0.6;-khtml-opacity:0.6;opacity:0.6;}
+
+.title1{ position:absolute; left:20px; top:5px; font-size:14px; }
+.title1 h2{ font-size:20px;  line-height:40px;}
+.fastsch{ width:223px; height:244px; background:#ffaa00; padding:0 18px 0 22px;}
+.fastsch h2{ font-size:20px; color:#fff; line-height:50px; }
+.fastsch h2 a{ color:#fff;}
+
+.selectnav{ float:left; width:263px;position:relative; background:#f49501; margin: 0 -22px;}
+.heigtindex{ z-index:99;}
+.selectnav h3{ margin:0 22px;border-bottom:1px solid #ffd580;width:223px; height:62px; line-height:62px; font-size:14px;  color:#fff; background:url("../images/xjiao1.png")/*tpa=http://www.bears.com.cn/images/xjiao1.png*/ 195px center no-repeat; cursor:pointer;}
+.selectnav h3.hover{ background:url("../images/xjiao2.png")/*tpa=http://www.bears.com.cn/images/xjiao2.png*/ 195px center no-repeat;}
+.selectnav2 h3{ border-bottom:none;}
+.selectbox{ position:absolute; left:0; top:50px; width:263px; background:#f49501; height:136px; display:none; z-index:9;}
+.sch2{ margin:0; float:left; border:none; margin-left:22px;}
+.result_con{ float:left; padding:7px 0 0 22px; width:230px; color:#fff; line-height:16px;font-family:"\5B8B\4F53";}
+.schtxt2,.schbtn2{ font-size:14px; }
+.selectnav3,.selectbox2{ background:#ffaa00}
+
+
+.m2{ float:left; width:100%; height:244px; margin:13px 0 0 0;}
+.ipro{ width:269px; height:244px; position:relative;}
+.ipro_tit{ position:absolute; left:16px; top:0; float:left; line-height:60px; font-size:20px;z-index:9;}
+.inews{ width:263px; height:244px; background:#4396e8; margin-left:13px;}
+.inews_con{ display:block; overflow:hidden; clear:both; padding:0 15px;}
+.inews_tit{ font-size:20px;  line-height:30px; padding-top:13px;}
+.inews_tit a{ color:#fff;}
+.inewslist{ float:left; width:100%; height:170px;}
+.inewslist li{ float:left; width:100%; background:url("../images/jiao2.png")/*tpa=http://www.bears.com.cn/images/jiao2.png*/ right 5px no-repeat; font-size:14px; margin-top:10px;}
+.inewslist li a,.inews span.more a{ color:#fff;}
+.inewslist li a:hover,.inews span.more a:hover{ color:#f75c00;}
+.inews span.more{ display:block; text-align:center; font-size:14px; }
+.ikitchen{ float:right; background:url("../images/ipic4.jpg")/*tpa=http://www.bears.com.cn/images/ipic4.jpg*/ no-repeat; width:542px; height:244px; position:relative;}
+.ikit_tit{ padding-left:15px;}
+.imenu{margin:10px 48px 0; float:left; width:440px;height:190px;}
+.ikitchenlist li{ float:left; width:220px; text-align:center; font-size:14px;  line-height:36px;}
+.ikitchenlist li span{ display:block; background:url("../images/bgicon1.png")/*tpa=http://www.bears.com.cn/images/bgicon1.png*/ no-repeat; height:127px; padding:24px 0 0 11px; width:201px;}
+.ikitchenlist li span img{ display:block; border:1px solid #fff; box-shadow:1px 1px 3px #000; -webkit-box-shadow:1px 1px 3px #000;-ms-box-shadow:1px 1px 3px #000;-o-box-shadow:1px 1px 3px #000;-o-box-shadow:1px 1px 3px #000;}
+.ikitchenlist li a{ display:block; color:#fff;}
+.ikitchenlist li a:hover{color:#f75c00;}
+.lrbtn{ background:url("../images/bgtm75.png")/*tpa=http://www.bears.com.cn/images/bgtm75.png*/ repeat; width:542px; position:absolute; left:0; bottom:0; height:63px; line-height:63px; text-align:center; font-size:20px; display:none;}
+.lrbtn h2 a{ color:#fff;}
+.lrbtn h2 a:hover{color:#f75c00;}
+.lrbtn a.prev,.lrbtn a.next{ background:url("../images/jiao1.png")/*tpa=http://www.bears.com.cn/images/jiao1.png*/ no-repeat; width:20px; height:30px; position:absolute; left:80px; top:28px;}
+.lrbtn a.prevStop{ display:none;}
+.lrbtn a.nextStop{ display:none;}
+.lrbtn a.next{ left:auto;right:70px; background:url("../images/jiao3.png")/*tpa=http://www.bears.com.cn/images/jiao3.png*/ no-repeat;}
+.ikitchen:hover .lrbtn{ display:block;}
+.m3{ float:left; width:100%; margin:13px 0 0 0;}
+.ieshop{ width:269px; height:244px; position:relative; background:#999; overflow:hidden;}
+.ieshop a:hover img{-moz-transform:scale(1.1,1.1);-webkit-transform:scale(1.1,1.1); -ms-transform:scale(1.1,1.1);-o-transform:scale(1.1,1.1);}
+.ivedio{ float:left; width:543px; height:244px; background:#646464; margin-left:13px; position:relative;}
+.player{ float:left; width:371px;}
+.ivideo_list{ position:absolute; right:0; top:0; width:157px; height:244px;background:#646464; padding:0 15px 0 0;}
+.ivideo_list h2{ text-align:center; color:#fff; line-height:40px; font-size:20px; line-height:30px; margin:10px 0 5px 0;}
+.ivideo_list{ padding-left:15px;}
+.ivideolist{ height:164px; overflow:hidden; padding-left:5px;}
+.ivideo_list li{ float:left; width:110px; text-align:center; margin:10px 5px 0;}
+.ivideo_list li a{ display:block; width:100%;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity:0.2;opacity:0.2;}
+.ivideo_list li a img{ display:block; border:1px solid #646464;}
+.ivideo_list li a:hover img,.ivideo_list li.hover a img{ border:1px solid #fff;}
+.ivideo_list li a:hover,.ivideo_list li.hover a{filter:alpha(opacity=100);-moz-opacity:1.0;-khtml-opacity:1.0;opacity:1.0;}
+.ivideo_list span.more{ text-align:center; color:#ffffff; font-size:14px; display:block; line-height:26px;}
+.ivideo_list span.more a{ color:#fff;}
+.ivideo_list span.more a:hover{color:#f75c00;}
+.openbtn{ position:absolute; left:-20px; top:50%; margin-top:-22px; cursor:pointer; width:20px; height:45px;}
+.openbtn b{ display:block; background:url("../images/prev1.png")/*tpa=http://www.bears.com.cn/images/prev1.png*/ no-repeat; width:20px; height:45px;}
+.openbtn.hover b{ background:url("../images/prev11.png")/*tpa=http://www.bears.com.cn/images/prev11.png*/ no-repeat;}
+.iservice{ width:263px; position:relative; height:244px; background:#000;}
+.iservice a{ color:#fff;-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;-o-transition: all 0.3s ease-in-out;-mz-transition: all 0.3s ease-in-out;transition: all 0.3s ease-in-out;}
+.iservice a .aa{ display:block;}
+.iservice a .bb{ display:none;}
+.iservice a:hover{color:#f75c00;}
+.iservice a:hover .aa{ display:none;}
+.iservice a:hover .bb{ display:block;}
+
+
+
+
+.bglayout{background-color:#000;width: 100%;height: 100%;left:0;top:0;filter:alpha(opacity=60);-moz-opacity:0.6;-khtml-opacity:0.6;opacity:0.6;position:fixed!important;/*FF IE7*/position:absolute;/*IE6*/_top:expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/ z-index:8888;}			
+.mydiv { position:fixed!important;/*FF IE7*/position:absolute;/*IE6*/height:393px;width:393px;left:50%;/*FF IE7*/top:50%;/*FF IE7*/margin-left:-196px!important;/*FF IE7 该值为本身宽的一半 */margin-top:-196px!important;/*FF IE7 该值为本身高的一半*/margin-top:0px;
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+z-index:9999;background:#fff; border-radius:15px;}
+
+.close_x{ position:absolute; top:17px; right:17px;}
+.ivip{ float:left; width:200px; margin:12px 0 0 100px;color:#808080;}
+.viptable{ float:left; width:100%; margin:32px 0 0 0;}
+.viptable td{ padding-bottom:15px;}
+.viptxt1{ border:1px solid #9f9b9d; width:169px; padding-left:23px; background:url("../images/bgtxt1.jpg")/*tpa=http://www.bears.com.cn/images/bgtxt1.jpg*/ 5px center no-repeat; height:24px; line-height:24px; color:#808080;font-family:"\5FAE\8F6F\96C5\9ED1";}
+.viptxt2{ background:url("../images/bgtxt2.jpg")/*tpa=http://www.bears.com.cn/images/bgtxt2.jpg*/ 5px center no-repeat;}
+.vipbtn1{ float:left; height:26px; width:88px; box-shadow:0 1px 1px #888; background:#ebebeb; border:none;color:#808080;font-family:"\5FAE\8F6F\96C5\9ED1"; cursor:pointer;}
+.viptxt3{ width:100px; padding-left:6px; background:none;}
+.vipbtn2{ width:196px; border:none; cursor:pointer; background:#f75c00; color:#fff; font-size:15px; font-size:1.5rem;box-shadow:0 1px 1px #888; height:26px;font-family:"\5FAE\8F6F\96C5\9ED1";}
+.loginway{ float:left; width:100%;}
+.loginway span{ display:block; margin:7px 0 0 0;text-align:center;line-height:24px;}
+.loginway span a{color:#808080;border:1px solid #a29fa1; display:block;}
+.loginway span a b{ margin:4px 5px 0 0; display:inline-block;}
+.loginway span a:hover{ border:1px solid #f70; color:#f70;}
+.vipnav{ float:left; width:200px; height:40px; margin:10px 0 0 0; border-bottom:1px solid #9f9f9f; position:relative;}
+.vipnavlist{ position:absolute; left:0; width:100%; top:0;}
+.vipnavlist li{ float:left; width:100px; line-height:38px; text-align:center; font-size:15px; font-size:1.5rem;}
+.vipnavlist li a:hover,.vipnavlist li.hover a{ border-bottom:3px solid #f75c00; display:block; height:38px; background:url("../images/hover.png")/*tpa=http://www.bears.com.cn/images/hover.png*/ center bottom no-repeat;transition: none;}
+
+/*贴心熊 start*/
+.smain{ float:left; width:100%; border-top:1px solid #646464; min-height:689px;}
+.iservice2{ float:right; height:494px; width:516px; margin:40px 70px 0 0; position:relative;}
+.ser_item1{ float:left; width:167px; height:365px;position:absolute; left:170px; top:0;}
+.ser_item1 a,.ser_item2 a{ display:block; width:100%; height:100%;background:#90bf00; color:#fff; font-size:27px; font-size:2.7rem; text-align:center; line-height:124px;}
+.ser_item1 a:hover{ background:#a1d503;}
+.ser_item2{ position:absolute; right:0; top:0; width:166px; position:absolute;height:241px;}
+.ser_item2 a{background:#f49501;}
+.ser_item2 a:hover{background:#FC0;}
+.ser_item3{ position:absolute; left:0; bottom:0; width:337px; position:absolute;height:119px;}
+.ser_item3 a,.ser_item4 a{display:block; width:100%; height:100%;background:#646464; color:#fff; font-size:27px; font-size:2.7rem; text-align:center; line-height:119px;}
+.ser_item3 a:hover{ background:#999;}
+.ser_item3 h2{ float:left; width:175px;}
+.ser_item4{ position:absolute; right:0; bottom:0; width:166px; position:absolute;height:243px;}
+.ser_item4 a{ background:#4396e8;}
+.ser_item4 a:hover{ background:#61adf8;}
+.smain2{ background:url("../images/bgtm2.png")/*tpa=http://www.bears.com.cn/images/bgtm2.png*/ repeat; padding-bottom:24px; min-height:580px;}
+.bgmtop{ background:url("../images/bgmtop.png")/*tpa=http://www.bears.com.cn/images/bgmtop.png*/ center top no-repeat; height:30px; float:left; width:100%;}
+.inquery_tit{ float:left; width:100%; padding-bottom:8px;}
+.inquery_left{ float:left; width:535px; height:482px; background:#fff3cc;}
+.inquery_right{ float:right; width:558px;}
+.sch_tit{ float:left; width:100%; background:#ffaa01; line-height:56px; font-size:27px; font-size:2.7rem; color:#fff;}
+.sch_tit h2{ padding-left:24px;}
+.result{ float:left; width:492px; margin:25px 0 0 23px;}
+.sch3{ float:left; margin:0px; border:none;}
+.result_show{ float:left;border-top:2px solid #ffaa01; margin:16px 0 0 0; background:url("../images/bear3.jpg")/*tpa=http://www.bears.com.cn/images/bear3.jpg*/ right 140px no-repeat; width:315px; height:314px; padding:8px 177px 34px 0;}
+
+#Scroller-1 { float:left;width:280px;overflow:hidden; height:314px; position:relative;}
+.Scroller-Container{ position: absolute;  top:0px; left:0px; width:280px; z-index:999999;}
+#Scrollbar-Container {position:relative;float:right;height:314px;width:35px;overflow:hidden;display:inline;}
+.Scrollbar-Track {width:35px; height:278px; position: absolute; top:18px; left: 0; background:url("../images/dian1.jpg")/*tpa=http://www.bears.com.cn/images/dian1.jpg*/ center top repeat-y;}
+.Scrollbar-Handle { position: absolute;width:35px; height: 32px;cursor:pointer;}
+.Scrollbar-Down,.Scrollbar-Up{cursor: pointer; position: absolute;top:0; left:11px; width:13px; height:8px; background:url("../images/lrbtn1.jpg")/*tpa=http://www.bears.com.cn/images/lrbtn1.jpg*/ no-repeat;}
+.Scrollbar-Down {top:auto;bottom:0; background-position:0 -8px;}
+.kuaidi{ line-height:25px; font-size:14px; font-size:1.4rem;}
+.fangwei{ float:left; width:100%; height:242px; background:#fff3cc;}
+.shopsch{ float:left; width:100%; margin:9px 0 0 0; background:#e6e6e6; height:230px;}
+.sch_tit2{ background:#646464;}
+.sch_tit3{ background:#90bf00;}
+.fwcon{ width:425px; margin:25px 0 0 25px; float:left;}
+.fw_result{ margin:16px 0 0 0; float:left; width:100%;border-top:2px solid #ffaa01; height:90px; position:relative; padding:12px 0 0 0; line-height:24px; font-size:14px; font-size:1.4rem;}
+.zpicon{ position:absolute; bottom:0; right:-72px;}
+.fw_result2{ padding-top:8px;}
+.ask_left{ float:left; width:545px; height:474px; background:#e6e6e6;}
+.ask_right{ float:right; width:543px; background:#f2fac8; height:474px;}
+.ask_right2{ background:#e6e6e6;}
+.online{ float:left; width:505px; padding:0 0 0 20px;}
+.online_QQ{ float:left; width:100%; margin:24px 0 0 0; border-bottom:2px solid #cccccc; height:180px; text-align:center; line-height:22px; font-size:15px; font-size:1.5rem;}
+.online_QQ h2{ background:url("../images/bgqq1.jpg")/*tpa=http://www.bears.com.cn/images/bgqq1.jpg*/ left top repeat-x; border:1px solid #d5d4d5;  border-radius:2px; line-height:42px; width:278px; text-align:center; margin:0 0 10px 110px; border-bottom:1px solid #adabac; box-shadow:1px 1px 3px #bbb;}
+.hot_line{ float:left; width:100%; height:176px; margin:12px 0 0 0;line-height:22px; font-size:15px; font-size:1.5rem; padding-top:20px; overflow:hidden; position:relative;}
+.hot_line .txt{ display:block;}
+.bear4{ float:left; position:absolute; right:0; top:0;}
+.bear4 img:hover{transform:scale(1.02);-moz-transform:scale(1.02);-ms-transform:scale(1.02);-o-transform:scale(1.02);-webkit-transform:scale(1.02);transition: all 0.1s ease-in-out;}
+.hot_line p.f27{ line-height:36px;}
+.msgboard{ float:left; width:490px; margin:33px 0 0 26px; height:308px; overflow:hidden;}
+.msg_tips{ float:left; width:100%; height:56px; background:#90bf00; font-size:15px; font-size:1.5rem; text-align:center; line-height:22px; color:#fff; padding-top:14px;}
+.ask_right2 .msg_tips{ background:#646464;}
+.msgtable{ float:left; width:100%;}
+.msgtable td{ padding-bottom:13px;}
+.msgtxt1{ background:#f3f0ee; font-size:15px; font-size:1.5rem; line-height:30px; width:475px; padding-left:15px;font-family:"\5FAE\8F6F\96C5\9ED1"; height:209px; resize:none; border:none; box-shadow:2px 2px 5px #aaa inset;}
+.msgdiv1{width:237px;}
+.mgicon1,.mgicon2{ background:url("../images/icon1.png")/*tpa=http://www.bears.com.cn/images/icon1.png*/ no-repeat; width:33px; height:30px; float:left;}
+.mgicon2{ background-position:-34px 0;}
+.msgtxt2{ border:none; padding-left:15px; width:181px; height:30px;color:#000;font-family:"\5FAE\8F6F\96C5\9ED1";box-shadow:2px 2px 5px #aaa inset;background:#f3f0ee; font-size:15px; font-size:1.5rem; line-height:30px; float:right;}
+.msgbtn1{ float:right; width:141px; height:32px; background:url("../images/bgqq1.jpg")/*tpa=http://www.bears.com.cn/images/bgqq1.jpg*/ left bottom repeat-x;cursor:pointer; border:1px solid #e0e7b9;font-family:"\5FAE\8F6F\96C5\9ED1";font-size:15px; font-size:1.5rem; margin-right:2px;}
+.mydiv2{ background:#e6e6e6; width:302px; height:152px;margin-left:-151px!important;/*FF IE7 该值为本身宽的一半 */margin-top:-76px!important; border-radius:6px; box-shadow:2px  2px 3px #666; border:1px solid #d5d5d5;}
+.mydiv3{ height:546px; width:786px;margin-left:-393px!important;/*FF IE7 该值为本身宽的一半 */margin-top:-273px!important;}
+.online_ask{ margin:49px 0 0 30px; width:210px; text-align:center; position:relative;}
+.online_ask h2{ font-size:20px; font-size:2.0rem; color:#90bf00; line-height:30px;}
+.bear5{ position:absolute; right:-23px; top:39px;}
+
+.E-commerce{ float:left; width:100%; background:#e6e6e6; position:relative;}
+.commerce{ float:left; width:1066px; padding:10px 0 34px 17px; }
+.letter{ float:left; width:100%; border-bottom:1px solid #000;color:#888; font-size:14px; font-size:1.4rem; line-height:18px; padding:0 0 18px 0;}
+.shop_enter{ float:left; width:100%; line-height:38px; color:#666; font-size:27px; font-size:2.7rem; margin:10px 0 0 0;}
+.shop_enter h2{ float:left;}
+.shop_enter .ebtn1{ background:url("../images/bgdp1.jpg")/*tpa=http://www.bears.com.cn/images/bgdp1.jpg*/ left top repeat-x; height:38px; width:168px; border:1px solid #d5d4d5; float:left; margin-left:12px; text-align:center; border-bottom:1px solid #adabac; box-shadow:1px 1px 2px #aaa; border-radius:4px;}
+.jdshop{ float:left; width:100%; border-bottom:1px solid #000; padding-bottom:32px;}
+.jdshoplist{ float:left; width:840px;}
+.jdshoplist li{ float:left;width:168px; background:url("../images/bgdp1.jpg")/*tpa=http://www.bears.com.cn/images/bgdp1.jpg*/ left top repeat-x; height:42px;border:1px solid #d5d4d5; float:left;text-align:center; border-bottom:1px solid #adabac; box-shadow:1px 1px 2px #aaa; border-radius:4px; margin:28px 16px 0 0; line-height:42px; font-size:15px; font-size:1.5rem;}
+.jdshoplist li .img{width:168px;height:42px;text-align:center; display: table-cell;vertical-align:middle;*display: block;*font-family: Arail;*font-size:36.66px;/*为高度的0.873，130*0.873 约为113.49px*/}
+.jdshoplist li .img img{vertical-align:middle;}
+
+.jdshoplist2 li{ width:260px; height:65px;background:url("../images/bgdp11.jpg")/*tpa=http://www.bears.com.cn/images/bgdp11.jpg*/ left top repeat-x;}
+.jdshoplist2 li .img{width:260px;height:65px;text-align:center; display: table-cell;vertical-align:middle;*display: block;*font-family: Arail;*font-size:56.745px;/*为高度的0.873，130*0.873 约为113.49px*/}
+.jdshoplist2 li.nor{ margin-right:0;}
+.taobao_tit{ margin-top:20px;}
+.bear6{ float:right; position:absolute; right:32px; bottom:-24px;}
+.bear6 img{ display:block; }
+.bear6 img:hover{transform:scale(1.02);-moz-transform:scale(1.02);-ms-transform:scale(1.02);-o-transform:scale(1.02);-webkit-transform:scale(1.02);transition: all 0.1s ease-in-out;}
+.sale{ float:left; width:100%; margin:19px 0 0 0; background:#e6e6e6;}
+.sale_con{ float:left; width:1100px; }
+.saletable{ float:left; width:100%; line-height:25px;}
+.saletable th{ font-size:27px; font-size:2.7rem; text-align:center; font-weight:normal; line-height:63px; color:#666666;}
+.saletable td{ border-top:1px solid #fff;font-size:15px; font-size:1.5rem;text-align:center;}
+.saletable th.spa,.saletable td.spa{ background:#cccccc; color:#000;}
+
+/*about*/
+.bear7{ position:absolute; left:50%; margin-left:-820px;  top: 335px;}
+.bear7 img{ display:block;}
+.bear7 img:hover{transform:translate(10px);-moz-transform:translate(10px);-ms-transform:translate(10px);-o-transform:translate(10px);-webkit-transform:translate(10px);transition: all 0.3s ease-in-out}
+.about_index{ margin-top:53px;}
+.ab_item1 a{ background:#2d76df;}
+.ab_item1 a:hover{ background:#2586fb;}
+.ab_item2{ height:121px;}
+.ab_item2 h2{ float:left; width:170px;}
+.ab_item2 img{ float:right; margin-top:-8px;}
+.ab_item3 a{ background:#719f01;}
+.ab_item3 a:hover{ background:#89c005;}
+.bigbear{ float:left; width:296px; height:360px; margin:80px 0 0 240px;}
+.bigbear img{ display:block; border-radius:10px;}
+.smallbear{ float:left; margin:10px 0 0 237px;}
+.smbearlist li{ float:left; margin:0 10px; cursor:pointer;}
+.jobwrap{ float:left; width:890px;}
+.job{ float:left; width:100%; height:470px; background:#e6e6e6; position:relative;}
+.bear8{ position:absolute; bottom:-20px; right:-120px;}
+.bear8 img:hover{transform:rotate(10deg);-moz-transform:rotate(10deg);-ms-transform:rotate(10deg);-o-transform:rotate(10deg);-webkit-transform:rotate(10deg);transition: all 0.1s ease-in-out;}
+.job_left{ float:left; width:263px; background:#646464; height:470px;}
+.job_right{ float:right; width:548px; margin:18px 48px 0 0; color:#808080; font-size:13px; font-size:1.3rem; line-height:20px;}
+
+.jobnavlist li{ float:left; width:215px; line-height:37px; border-bottom:2px solid #7f7f7f; text-align:center; margin:0 21px 0 27px; color:#fff; font-size:15px; font-size:1.5rem; position:relative; cursor:pointer;}
+.jobnavlist li b{ position:absolute; right:-12px; top:50%; margin-top:-10px; display:none; background:url("../images/jiao5.png")/*tpa=http://www.bears.com.cn/images/jiao5.png*/ no-repeat; width:12px; height:20px;}
+.jobnavlist li.hover{ background:#cccccc; margin:0; width:263px; line-height:57px; color:#000; border-bottom:none;}
+.jobnavlist li.hover b{ display:block; float:left;}
+.lxbar{ float:left; width:100%; margin:16px 0 0 0; background:#cccccc; padding:10px 0 8px 0; height:35px; line-height:35px;}
+.lxbarlist li{ float:left; border-right:2px solid #838383; font-size:15px; font-size:1.5rem; text-align:center;}
+.lxbarlist li b{ float:left;}
+.lxbarlist li span{ display:inline-block; margin-right:12px; background:url("../images/icon2.png")/*tpa=http://www.bears.com.cn/images/icon2.png*/ no-repeat;margin-top:7px; float:left;height:21px;}
+.lxbarlist li.list1{ width:167px; padding-left:58px;}
+.lxbarlist li.list2{ width:240px; padding-left:70px;}
+.lxbarlist li.list3{ width:293px; border-right:none; padding-left:58px;}
+.lxbarlist li span.lxicon1{ width:18px;background-position: 0 0; }
+.lxbarlist li span.lxicon2{ width:25px;background-position: -19px 0; }
+.lxbarlist li span.lxicon3{ width:24px;background-position: -44px 2px;}
+
+.intro{ float:left; width:100%; margin:30px 0 0 0;}
+.intro_left{ float:left; width:484px; margin:0 0 0 0;}
+.intro_left .txt{ color:#636363; font-size:15px; font-size:1.5rem; line-height:18px; margin:45px 0 0 0;}
+.intro_right{ width:605px; height:590px; float:right; position:relative;}
+.intro_right .pic0{ float:right; position:absolute; right:-233px; top:0;}
+.intro_right .pic1{ position:absolute; right:-28px; top:175px;}
+.intro_right .pic2{position:absolute; right:-233px; top:175px;}
+.intro_right .pic3{ float:left; margin-left:5px;}
+.bear9{ position:absolute; left:275px; top:254px; z-index:101;}
+/*2015-4-20*/
+.intro_right .pic{ cursor:pointer;}
+.intro_right .pic.hover{ z-index:9;}
+
+
+.book{ float:left; width:1040px; margin-left:60px;}
+.booklet{-moz-box-shadow:0px 0px 1px #dcdcdc;-webkit-box-shadow:0px 0px 1px #dcdcdc;box-shadow:0px 0px 1px #dcdcdc;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;}
+.booklet .b-wrap-left  {background:#fbf8f0;-webkit-border-top-left-radius: 10px;-webkit-border-bottom-left-radius: 10px;-moz-border-radius-topleft:10px;-moz-border-radius-bottomleft: 10px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;}
+.booklet .b-wrap-right {background:#fbf8f0;-webkit-border-top-right-radius: 10px;-webkit-border-bottom-right-radius: 10px;-moz-border-radius-topright: 10px;-moz-border-radius-bottomright: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
+.booklet .b-counter {bottom:10px;position:absolute;display:block;width:90%;height:20px;border-top:1px solid #ddd;color:#222;text-align:center;}
+.book_wrapper{ float:left;width:1000px;height:574px;position:relative;border:10px solid #6e9612; background:#fdfaf2; border-radius:6px; padding:10px;}
+.book_wrapper h1{color:#709412; margin:20px 0 26px 14px;font-size:35px; line-height:44px;}
+.book_wrapper p{font-size:14px;margin:5px 5px 5px 15px;}
+.book_wrapper span.txt1{ display:block; width:100%; height:160px; float:left; overflow:hidden;}
+.book_wrapper a.article,.book_wrapper a.demo{background:transparent url("../images/circle.png")/*tpa=http://www.bears.com.cn/images/circle.png*/ no-repeat 50% 0px;display:block;width:95px;height:41px;text-decoration:none;outline:none;font-size:16px;color:#555;float:left;line-height:41px;padding-left:47px;}
+.book_wrapper a.demo{margin-left:50px;}
+.book_wrapper a.article:hover,.book_wrapper a.demo:hover{background-position:50% -41px;color:#13386a;}
+.book_wrapper img{ max-width:100%;}
+.booklet .b-wrap-right img{border:1px solid #E6E3C2;}
+a#next_page_button,a#prev_page_button{display:none;position:absolute;width:66px;height:50px;cursor:pointer;margin-top:-20px;top:50%; background:url("../images/buttoms.png")/*tpa=http://www.bears.com.cn/images/buttoms.png*/ no-repeat; }
+a#prev_page_button{left:-66px; background-position:0 0;}
+a#next_page_button{right:-66px;background-position:-67px 0;}
+a#prev_page_button.prevStop{ display:none;}
+a#next_page_button.nextStop{ display:none;}
+.loading{width:160px;height:56px;position: absolute;top:50%;margin-top:-28px;right:135px;line-height:56px;color:#fff;padding-left:60px;font-size:15px;background: #000 url("../images/ajax-loader.gif")/*tpa=http://www.bears.com.cn/images/ajax-loader.gif*/ no-repeat 10px 50%;opacity: 0.7;z-index:9999;-moz-border-radius:20px;-webkit-border-radius:20px;border-radius:20px;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=70);}
+/*end*/
+.history{ float:left; width:1089px; height:512px; background:url("../images/bghis1.jpg")/*tpa=http://www.bears.com.cn/images/bghis1.jpg*/ center top no-repeat; position:relative;}
+.picScroll-left{width:1089px; height:512px; overflow:hidden; position:relative;}
+.picScroll-left .hd{ overflow:hidden;  height:51px;padding-left:80px; float:left; width:1009px;}
+.picScroll-left .hd .prev,.picScroll-left .hd .next{ display:none;width:5px; height:9px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;cursor:pointer;}
+.picScroll-left .hd ul{ float:left; overflow:hidden; zoom:1;  zoom:1; }
+.picScroll-left .hd ul li{ float:left;  width:90px; height:46px; overflow:hidden;cursor:pointer; line-height:46px; color:#fff; text-align:center; font-size:23px; font-size:2.3rem; }
+.picScroll-left .hd ul li.on{ background:url("../images/bghis3.jpg")/*tpa=http://www.bears.com.cn/images/bghis3.jpg*/ no-repeat; color:#f75000; }
+.picScroll-left .bd{ float:left; width:100%;}
+.picScroll-left .bd ul{ overflow:hidden; zoom:1; }
+.picScroll-left .bd ul li{ float:left; width:50%; height:330px;}
+.picScroll-left .bd ul li a{ color:#fff; display:block;}
+.picScroll-left .bd ul li .deng{ float:left; width:124px; height:120px;}
+.picScroll-left .bd ul li a .txt{ float:left; width:122px; margin:38px 0 0 0; background:url("../images/bghis1.png")/*tpa=http://www.bears.com.cn/images/bghis1.png*/ no-repeat; text-align:center; font-size:15px; font-size:1.5rem;}
+.picScroll-left .bd ul li a .txt h2{ line-height:24px; font-size:23px; font-size:2.3rem; padding-top:3px;}
+.picScroll-left .bd ul li a .txt p.more{ float:left; width:100%; color:#000; margin:8px 0 0 0;}
+.picScroll-left .bd ul li a .pic{ background:url("../images/bghis2.jpg")/*tpa=http://www.bears.com.cn/images/bghis2.jpg*/ no-repeat; width:251px; height:270px; float:left; margin:38px 0 0 8px; padding:10px 10px}
+
+
+.slideGroup{width:1089px; height:512px; overflow:hidden; position:relative;}
+.slideGroup .parHd{overflow:hidden;  height:51px;padding-left:80px; float:left; width:1009px;}
+.slideGroup .parHd ul{float:left; overflow:hidden; zoom:1;  zoom:1;}
+.slideGroup .parHd ul li{ float:left;  width:90px; height:46px; overflow:hidden;cursor:pointer; line-height:46px; color:#fff; text-align:center; font-size:23px; font-size:2.3rem;}
+.slideGroup .parHd ul li.on{background:url("../images/bghis3.jpg")/*tpa=http://www.bears.com.cn/images/bghis3.jpg*/ no-repeat; color:#f75000;}
+.slideGroup .slideBoxx{float:left; width:80%; margin:40px 0 0 10%;}
+.slideGroup .sPrev,.slideGroup .sNext{ position:absolute; left:5px; top:50%; display:block; width:25px; height:46px; margin-top:-33px; background:url("../images/lrbtn6.png")/*tpa=http://www.bears.com.cn/images/lrbtn6.png*/ no-repeat;/*filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity:0.5;opacity:0.5;*/}
+    .slideGroup .prevStop { display:none }
+    .slideGroup .nextStop { display:none }
+.slideGroup .sNext{ left:auto; right:5px; background-position:-25px 0;}
+.slideGroup .sPrev:hover,.slideGroup .sNext:hover{filter:alpha(opacity=100);-moz-opacity:1.0;-khtml-opacity:1.0;opacity:1.0;}
+.slideGroup .parBd ul{ overflow:hidden; zoom:1;   }
+.slideGroup .parBd ul li{ float:left; width:33.3%; height:330px; }
+.slideGroup .parBd ul li a{ color:#fff; display:block;}
+.slideGroup .parBd ul li .deng{ float:left; width:124px; height:120px;}
+.slideGroup .parBd ul li a .pic{ width:251px; height:270px; float:left; margin:38px 0 0 8px; padding:10px 10px; text-align:center; color:#000; line-height:30px; font-size:15px;}
+
+		
+
+.bear10{ position:absolute; left:88px; bottom:5px; z-index:9; width:150px;}
+.bear10 img{ max-width:100%;}
+.bear10 img:hover{transform:scale(1.02);-moz-transform:scale(1.02);-ms-transform:scale(1.02);-o-transform:scale(1.02);-webkit-transform:scale(1.02);transition: all 0.1s ease-in-out;}
+#bg2{background-color:#000;width: 1089px;height: 512px;left:0;top:0;filter:alpha(opacity=60);-moz-opacity:0.6;-khtml-opacity:0.6;opacity:0.6;position:absolute; left:0; top:0;z-index:159;}
+.historybox{ position:absolute; width:376px; height:397px; float:left; left:50%; top:50%; margin:-198px 0 0 -188px; background:url("../images/bghispic2.jpg")/*tpa=http://www.bears.com.cn/images/bghispic2.jpg*/ no-repeat; z-index:180;}
+.hisdt{ width:316px; float:left; height:330px; margin:36px 0 0 29px; position:relative; color:#4c4c4c; font-size:15px; font-size:1.5rem; line-height:24px;}
+.close_his{ position:absolute; right:0; top:0;}
+.hisdt h2{ color:#ffaa01;  font-size:44px; font-size:4.4rem; font-weight:bold; line-height:60px; padding:0 0 5px;}
+.historybox2{ width:516px; height:396px; margin:-258 0 0 -198px; background:url("../images/bghis4.jpg")/*tpa=http://www.bears.com.cn/images/bghis4.jpg*/ no-repeat;}
+.hisdt2{ float:left; width:432px; margin:36px 0 0 44px; padding-top:10px;}
+.hisdt2 .txt{ float:left; width:196px;}
+.hisdt2 .pic{ margin:13px 0 0 0;}
+
+.layout_video{ width:641px; height:461px; background:#fff; border-radius:0; margin-left:-315px !important; margin-top:-280px !important; z-index: 999999;}
+.video_out{ float:left; width:658px; margin:42px 0 0 35px;}
+.share_video{ float:left; width:100%; margin:12px 0 0 0; width:658px; height:44px; margin-left:34px;}
+.share_video .likelist{ float:left; width:85px;}
+.share_video .likelist li{ float:left; width:50px; text-align:center;}
+.share_video .likelist li span{ display:inline-block; background:url("../images/test/vicon3.jpg")/*tpa=http://www.bears.com.cn/images/test/vicon3.jpg*/ no-repeat; width:26px; height:32px;}
+.share_video .likelist li span.lkicon2{ background-position:-28px 0; width:28px;}
+.share_video .share{ float:left; border-left:1px solid #8a8a8a; height:44px; padding-left:35px; font-size:14px; text-align:center; line-height:24px;}
+
+
+/*2015-6-29*/
+.multipleColumn{ position:relative;}
+.multipleColumn .hd{ overflow:hidden;  height:20px; text-align:center; margin-top:10px; position:absolute; left:50%; margin-left:-50px; bottom:-30px;}
+.multipleColumn .hd .prev,.multipleColumn .hd .next{ display:inline-block;margin-right:5px;overflow:hidden; float:left; cursor:pointer; background:url("../images/jiao1.png")/*tpa=http://www.bears.com.cn/images/jiao1.png*/ no-repeat; width:8px; height:17px;}
+.multipleColumn .hd .next{ background:url("../images/jiao3.png")/*tpa=http://www.bears.com.cn/images/jiao3.png*/ no-repeat; }
+.multipleColumn .hd ul{overflow:hidden; zoom:1; zoom:1; display:inline-block; float:left; width:70px; text-align:center;}
+.multipleColumn .hd ul li{ width:6px; height:6px; border-radius:50%; -webkit-border-radius:50%; background:#fff; overflow:hidden; margin-right:6px; text-indent:-999px; cursor:pointer; display:inline-block;margin:4px 5px 0 0; float:none; text-align:center;}
+.multipleColumn .hd ul li.on{ background:#f3c047;}
+.multipleColumn .bd{ overflow:hidden; margin-left:6px;}
+.multipleColumn .bd ul{overflow:hidden; zoom:1;float:left; _display:inline; width:250px;}
+.multipleColumn .bd ul li{float:left; width:110px; text-align:center; margin:10px 5px 0;}
+.multipleColumn .bd ul li a{ display:block; width:100%;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity:0.2;opacity:0.2;}
+.multipleColumn .bd ul li a img{ display:block; border:1px solid #646464;}
+.multipleColumn .bd ul li a:hover img,.multipleColumn .bd ul li.hover a img{ border:1px solid #fff;}
+.multipleColumn .bd ul li a:hover,.multipleColumn .bd ul li.hover a{filter:alpha(opacity=100);-moz-opacity:1.0;-khtml-opacity:1.0;opacity:1.0;}
+
+
+.search_tit{ float:left; width:100%; font-size:27px; background:#f59502; line-height:57px; text-align:center; color:#fff;}
+.schbar{ float:left; width:100%; border-bottom:3px solid #ffaa01; margin:21px 0 0 0; height:57px; position:relative;}
+.bear_sch{ position:absolute; right:0; top:-55px;}
+.search_con{ background:#fff; display:block; clear:both; padding:0 36px 22px 42px; min-height:500px;}
+.schbar_con{ float:left; width:648px; height:40px; background:url("../images/bgsch2.jpg")/*tpa=http://www.bears.com.cn/images/bgsch2.jpg*/ no-repeat;}
+.schbartxt{ float:left; width:526px; padding-left:10px; height:40px; line-height:40px; font-size:21px; color:#000000;font-family:"\5FAE\8F6F\96C5\9ED1"; background:none; border:none;}
+.schbarbtn{ float:right; width:112px; height:40px; border:none; background:none; cursor:pointer;}
+.schresult{ float:left; width:100%; margin:30px 0 0 0;}
+.schresult_list li{ float:left; width:100%; line-height:26px; margin-bottom:15px; font-size:16px;}
+.schresult_list li a span{ width:65px; float:left; margin-right:16px; text-align:center; color:#fff; border-radius:5px;}
+.schresult_list li a span.spa1{ background:#90bf00;}
+.schresult_list li a span.spa2{ background:#ff3000;}
+.schresult_list li a span.spa3{ background:#41a08c;}
+.schresult_list li a span.spa4{ background:#654425;}
+.schresult_list li a span.spa5{ background:#5b5a56;}
+.schresult_list li a span.spa6{ background:#ffb700;}
+.schresult_list li a span.spa7{ background:#a7a7a7;}
+
+.actcom{ float:left; width:100%; background:#e6e6e6; min-height:500px; margin:25px 0 0 0; padding:34px 0; border-radius:3px;}
+.actnav{ margin:0 auto; width:220px; background:#aeaeae; line-height:38px; border-radius:5px; text-align:center; overflow:hidden; cursor:pointer;}
+.actnav span{ float:left; width:50%; font-size:16px; color:#fff;}
+.actnav span.hover{ background:#f59502;}
+.actcomlist{ display:block; overflow:hidden; clear:both; padding:0 0 0 43px;}
+.actcomlist li{ float:left; width:290px; padding:10px 10px 0; height:310px; background:#fff; margin:32px 37px 0 0;}
+.actcomlist li h2{ border-bottom:1px dashed #cacaca; height:65px; font-size:15px; color:#333; line-height:24px; padding-top:4px;}
+.actcomlist li span.time{ float:right; color:#666666; font-size:14px; margin:10px 0 0 0;}
+.actcomlist li .pic{display:block; width:100%; height:185px; background:#888;}
+.actcomlist li.spa .pic img{filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity:0.2;opacity:0.2;}
+
+
+
+
+
+ 
+

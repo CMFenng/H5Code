@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var r = parseInt(Math.random()*255);
+		var g = parseInt(Math.random()*255);
+		var b = parseInt(Math.random()*255);
+		var a = Math.random() + 0.4;
+		var s1 = `rgba(${r}, ${g}, ${b}, ${a})`;
+		var s2 = "rgba(${r}, ${g}, ${b}, ${a})";
+		console.log(s1);
+		console.log(typeof s1);
+		console.log("=====================");
+		console.log(s2);
+		console.log(typeof s2);
+	</script>
+</body>
+</html>

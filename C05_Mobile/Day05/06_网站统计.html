@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			h1{
+				text-align: center;
+				margin: 10px;
+			}
+			
+			h1 span{
+				color: red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1>web页面总访问人数：<span id="localSpan"></span></h1>
+		<h1>web页面当前会话访问人数：<span id="sessionSpan"></span></h1>
+		
+		<script type="text/javascript">
+			var localSpan = document.querySelector("#localSpan");
+			var sessionSpan = document.querySelector("#sessionSpan");
+			
+			//总访问文人数
+			if (window.localStorage.pageCount) {
+				window.localStorage.pageCount = Number(window.localStorage.pageCount) + 1;
+			} else {
+				window.localStorage.pageCount = 1;
+			}
+			
+			//当前会话访问人数
+			if (window.sessionStorage.pageCount) {
+				window.sessionStorage.pageCount = Number(window.sessionStorage.pageCount) + 1;
+			} else {
+				window.sessionStorage.pageCount = 1;
+			}
+			
+			localSpan.innerHTML = window.localStorage.pageCount;
+			sessionSpan.innerHTML = window.sessionStorage.pageCount;
+			
+		</script>
+	</body>
+</html>

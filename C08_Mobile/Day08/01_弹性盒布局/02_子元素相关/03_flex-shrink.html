@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../style.css"/>
+		<style type="text/css">
+			 /* flex-shrink: <number>;  default 1 
+			    缩小：如果所有项目的flex-shrink属性都为1，当空间不足时，
+			    都将等比例缩小。如果一个项目的flex-shrink属性为0，
+			    其他项目都为1，则空间不足时，前者不缩小。
+			负值对该属性无效。）*/
+			
+			ul li:nth-of-type(1){
+				flex-shrink: 0;
+			}
+			
+			ul li:nth-of-type(5){
+				/* 0不变 */
+				flex-shrink: 0;
+			}
+			
+			ul li:nth-of-type(2){
+				/* 会缩小，默认是1等比例缩小 */
+				flex-shrink: 2;
+			}
+			
+			ul li:nth-of-type(3){
+				flex-shrink: 3;
+			}
+			
+			ul li:nth-of-type(4){
+				flex-shrink: 4;
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+		</ul>
+	</body>
+</html>

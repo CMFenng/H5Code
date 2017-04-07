@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     数组的索引
+     * 
+     * indexOf(item)
+     * 		从开始向后面进行查找，直至找到 item
+     * 		第一次出现的位置
+     * lastIndexOf(item)
+     * 		从最后开始向前查找，知道找到 item
+     * 		第一次出现的位置
+     * 		（查找最后一次出现的位置）
+     * */
+    var arr = ["张三","李四","王五","赵六","李四","赵六"];
+    	console.log(arr.indexOf("李四"));	//1
+    	console.log(arr.lastIndexOf("李四"));//4
+    	
+    	//indexOf(searchValue,fromIndex)
+    	//	searchValue: 所需要搜索的字符
+    	//	fromIndex：从第几个元素开始进行搜索
+    	console.log(arr.indexOf("李四",2));	//4
+    	console.log(arr.lastIndexOf("李四",2));//1
+    	
+    	console.log(arr.indexOf("王二麻子"));//-1
+    	//关于查找元素，indexOf()和lastIndexOf()
+    	//如果元素无法找到，则会返回 -1
+    	
+    	console.log(arr.indexOf("王五",3));//-1
+    	
+    	console.log(arr.indexOf("张三","李四"));
+    	
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			/*#box{
+				width: 320px;
+				height: 320px;
+				background-color: pink;
+			}*/
+			
+			/*html{
+				 以后不会写写死，而且不会写这么大，会分成10分来计算 
+				font-size: 320px;
+			}*/
+			
+			/* rem布局： 1rem = 根元素的字体大小 */
+			#box{
+				width: 10rem;
+				height: 10rem;
+				background-color: pink;
+				font-size: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script type="text/javascript" src="flexible.js" ></script>
+		
+		<script type="text/javascript">
+			//自己写一个监听屏幕宽大大小改变的一个js
+//			(function () {
+//				//初始化应该出发一次
+//				size();
+//				//监听尺寸变化
+//				window.onresize = function () {
+//					size();
+//				}
+//				//计算根元素字体大小（也就是1rem代表的大小）
+//				function size () {
+//					var winW = document.documentElement.clientWidth || 
+//						document.body.clientWidth;
+//					//我们一般把font-size分成10分来计算，这样比较方便
+//					document.documentElement.style.fontSize = winW / 10 + 'px';					
+//				}
+//			})();
+			
+		</script>
+	</body>
+</html>

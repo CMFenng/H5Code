@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     数组的栈方法
+     * 
+     * 栈：一种数据结构，特点：FILO（先进后出）
+     * 
+     * 向栈内部存入元素，我们称之为“入栈”（push）
+     * 从栈中移除元素，我们称之为“出栈”（pop）
+     * 
+     * 先入栈的元素在栈的下方，
+     * 后入的元素在栈的顶部
+     * 
+     * 这两个操作都是对栈顶元素进行操作
+     * 
+     * “吃多了拉就是队列，吃多了吐就是栈”
+     * */
+    //向栈中添加元素（最后添加的元素在栈顶）
+    var arr = ["沈斌","陈杰","吴志鹏"];
+    
+    var len = arr.push("李鹏");
+    //push() 方法返回添加成功后数组的长度
+    console.log(len);	//4
+    console.log(arr);	
+    
+    arr.push("a","b");
+    console.log(arr);
+
+	//pop() 出栈操作，一次只能出栈一个元素
+	var item = arr.pop();
+	//pop()方法将栈顶元素从栈顶移除，
+	//并返回移除的这个元素
+	console.log(item);	//李鹏
+	console.log(arr);	
+	
+	console.log(arr.pop());
+    
+</script>
+</html>

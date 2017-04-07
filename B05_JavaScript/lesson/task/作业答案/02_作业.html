@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		document.write("1999--2050年中间所有的闰年<br /><br />");
+		(function(from, to) {
+			for(var i = from; i < to; i++) {
+				if(isLeapYear(i)) {
+					document.write("&nbsp;" + i + "年是闰年<br /><br />");
+				}
+			}
+		})(1999, 2050);
+		//判断是否是闰年
+		function isLeapYear(num) {
+			if(num > 0) {
+				var TF = year % 4 === 0 && year % 100 !== 0 || year % 400 === 0 ? true : false;
+				return TF;
+			}
+		}
+	</script>
+</body>
+
+</html>

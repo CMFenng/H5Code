@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<button id="btn1">注册观察者1</button>
+<button id="btn2">删除观察者1</button>
+<button id="btn3">注册观察者2</button>
+<button id="btn4">注册观察者3</button>
+<button id="btn5">发布信息</button>
+<script type="text/javascript">
+	//发布者、被观察者	售楼小姐
+	var publisher = {
+		//用于存储观察者
+		observers : {},
+		//注册观察者
+		registerObserver : function (key, observer) {
+			//如果对象中不存在这个键
+			if (!this.observers[key]) {
+				//声明这个键，并赋值空数组
+				this.observers[key] = [];
+			}
+			//添加一个属性来存储观察者
+			this.observers[key].push(observer);
+		},
+		//发布信息
+		publishInfo : function (msg) {
+			//如果对象中不存在这个属性
+			if (!(msg.area in this.observers)) {
+				//则直接返回，不执行下面的代码
+				return;
+			}
+			//如果存在，则遍历这个属性的数组
+			this.observers[msg.area].forEach(function (observer) {
+				//调用观察者，并传入发布的信息
+				observer(msg);
+			});
+		},
+		//移除观察者
+		removeObserver : function (key, observer) {
+			//如果对象中不存在key这个属性
+			if (!(key in this.observers)) {
+				//则直接返回，不执行下面代码
+				return;
+			}
+			//如果存在，查询要移除的观察者在数组中的下标
+			var index = this.observers[key].indexOf(observer);
+			//如果能查询到下标
+			if (index != -1) {
+				//删除数组中的元素（参数：要删除元素的下标，删除的数量）
+				this.observers[key].splice(index, 1);
+			}
+		}
+	};
+	//发布信息
+	btn5.onclick = function () {
+		publisher.publishInfo({area : "120平", price : "600万"});
+	}
+	
+	//注册观察者1
+	var f;	//因为要删除观察者，所以先声明变量来存储
+	btn1.onclick = function () {
+		//注册观察者		传递进去的函数就是观察者
+		publisher.registerObserver("120平", f = function (msg) {
+			console.log("观察者1：" + msg.price);
+		})
+	};
+	//删除观察者1
+	btn2.onclick = function () {
+		publisher.removeObserver("120平", f);
+	}
+	//注册观察者2
+	btn3.onclick = function () {
+		//注册观察者		传递进去的函数就是观察者
+		publisher.registerObserver("140平", function (msg) {
+			console.log("观察者2：" + msg.price);
+		})
+	};
+	//注册观察者3
+	btn4.onclick = function () {
+		//注册观察者		传递进去的函数就是观察者
+		publisher.registerObserver("120平", function (msg) {
+			console.log("观察者3：" + msg.price);
+		})
+	};
+</script>
+</body>
+</html>

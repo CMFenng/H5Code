@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 100px;
+			height: 100px;
+		}
+		.div_1{
+			background: red;
+			margin-bottom: 10px;
+		}
+		.div_2{
+			background: blue;
+			margin-top: 15px;
+		}
+		/*
+			当两个元素是兄弟关系的时候，
+			第一个元素的 margin-bottom 和
+			第二个元素的 margin-top
+			会产生叠压（两者取最大值）
+		*/
+	</style>
+</head>
+<body>
+	<div class="div_1"></div>
+	<div class="div_2"></div>
+</body>
+</html>

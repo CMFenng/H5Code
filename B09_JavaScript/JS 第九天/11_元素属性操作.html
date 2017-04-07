@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<a href="http://www.baidu.com" id="a_id" target="_blank">点击打开百度</a>
+	<button onclick="getShuXing()">获取属性值</button>
+	<button onclick="setShuXin()">设置新属性</button>
+	<button onclick="removeShuXin()">移除属性</button>
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     元素属性操作
+     * 
+     * 获取属性值
+     * 		getAttribute()
+     * 设置属性值
+     * 		setAttribute()
+     * 移除属性值
+     * 		removeAttribute()
+     * 检查是否包含某个属性值
+     * 		hasAttribute()
+     * */
+    //===============================
+    /*
+     getAttribute(attributName)
+     * 
+     * 获取属性值
+     * 
+     * 参数：
+     * 		attributName
+     * 			获取元素的某个属性名称
+     * 			id、classname
+     * 返回值：
+     * 		获取指定属性的属性值
+     * */
+    function getShuXing(){
+    		var a = document.getElementById("a_id");
+    		console.log("id = " +  a.getAttribute("id") + "\ntarget = " + a.getAttribute("target"));
+    }
+    //=================================
+    /*
+     setAttribute(AttributeName，AttributeValue)
+     * 
+     * 设置属性值
+     * 
+     * 作用：
+     * 		创建或者更改某个属性
+     * 		如果指定的属性已经存在，则只设置该值即可
+     * 		如果指定的属性不存在，
+     * 		则创建该属性并且设置该属性值
+     * 
+     * 参数：
+     * 		AttributeName
+     * 			属性名称
+     * 		AttributeValue
+     * 			新的属性值
+     * */
+    function setShuXin(){
+    		var a = document.getElementById("a_id");
+    		a.setAttribute("href","http://www.yztcedu.com");
+    }
+    //====================================
+    /*
+     removeAttribute(AttributeName)
+     * 
+     * 移除属性
+     * 
+     *  参数：
+     * 		AttributeName
+     * 			必选参数
+     * 			需要移除的属性的名称
+     * */
+    function removeShuXin(){
+    		var a = document.getElementById("a_id");
+    		a.removeAttribute("target");
+    }
+    //===========================
+    /*
+     hasAttribute(AttributeName)
+     * 
+     * 检测是否包含某个属性
+     * 
+     * 前面方法的需要检查的名称
+     * 返回值为 true 或 false
+     * 判断某个属性是否存在
+     * */
+//  console.log(document.getElementById("a_id").hasAttribute("target"));
+console.log(document.getElementById("a_id").hasAttribute("type"));
+</script>
+</html>

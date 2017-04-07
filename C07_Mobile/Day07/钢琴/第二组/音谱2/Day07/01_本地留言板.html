@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				width: 500px;
+				height: 500px;
+				margin: 100px auto;
+				border: 2px solid green;
+			}
+			
+			#top{
+				height: 50px;
+				line-height: 50px;
+			}
+			
+			#msgInput{
+				width: 400px;
+				height: 50px;
+				border: 1px solid green;
+				font-size: 30px;
+			}
+			
+			#msgBtn{
+				width: 90px;
+				background-color: green;
+				color: white;
+				height: 50px;
+				font-size: 30px;
+			}
+			
+			#clearAllBtn{
+				width: 200px;
+				background-color: green;
+				color: white;
+				height: 50px;
+				font-size: 30px;
+			}
+			
+			li{
+				margin-left: 20px;
+				border: 1px dashed black;
+			}
+			
+			li span{
+				padding: 10px;
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="top">
+				<input type="text" placeholder="请输入留言：" id="msgInput" />
+				<input type="button" value="留言" id="msgBtn" />
+			</div>
+			<div id="middle">
+				<ol></ol>
+			</div>
+			<div id="bottom">
+				<input type="button" value="清空所有留言" id="clearAllBtn" />
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var msgInput = document.querySelector("#msgInput");
+			var msgBtn = document.querySelector("#msgBtn");
+			var msgOl = document.querySelector("ol");
+			var clearAllBtn = document.querySelector("#clearAllBtn");
+			
+			//留言按钮点击
+			msgBtn.onclick = function () {
+				/*
+				 * 字符串的trim方法可以帮我们过滤掉 前后的空格
+				 * trimLeft方法是过滤 前面的空格
+				 * trimRight方法是过滤 后面的空格
+				 */
+				var str = msgInput.value.trimLeft();
+				console.log(str);
+				console.log(str.length);
+				if (str != "" && str != null) {
+					//留言信息对象
+					var msgObj = {
+						msg : escape(str),
+						// date是为了让key标识不重复 和 作为留言日期使用
+						date : new Date().getTime()
+					}
+					
+					//本地存储数据的操作
+					window.localStorage.setItem("msg_" + msgObj.date, 
+						JSON.stringify(msgObj));
+						
+					//UI相关的操作
+					msgOl.appendChild(createLi(msgObj));
+						
+					//留言后清空输入框
+					msgInput.value = "";
+				}
+			}
+			
+			//创建li
+			function createLi (msgObj) {
+				var msgLi = document.createElement("li");
+				//添加一个自定义属性，方便找到该留言的唯一标识（给删除使用）
+				msgLi.setAttribute("key", "msg_" + msgObj.date);
+				
+				//留言内容span
+				var msgSpan = document.createElement("span");
+				msgSpan.innerHTML = unescape(msgObj.msg);
+				//时间span
+				var dateSpan = document.createElement("span");
+				dateSpan.innerHTML = new Date(msgObj.date).toLocaleString();
+				//单个删除按钮
+				var delBtn = document.createElement("input");
+				delBtn.type = "button";
+				delBtn.value = "❌";
+				
+				msgLi.appendChild(msgSpan);
+				msgLi.appendChild(dateSpan);
+				msgLi.appendChild(delBtn);
+				
+				return msgLi;
+			}
+			
+			//事件委托
+			msgOl.onclick = function (e) {
+				if (e.target.nodeName == "INPUT") {
+					if (confirm("你确定要删除该条留言么？")) {
+						//删除该条存储的本地数据
+						window.localStorage.removeItem(e.target.parentNode.getAttribute("key"));
+						//删除相应li
+						this.removeChild(e.target.parentNode);
+					}
+				}
+			}
+			
+			//清空所有留言
+			clearAllBtn.onclick = function () {
+				if (confirm("你确定要清空所有留言吗？")) {
+					for (var tempKey in window.localStorage) {
+						if (/^(msg_)/.test(tempKey)) {
+							window.localStorage.removeItem(tempKey);
+						}
+					}
+					//清空页面
+					msgOl.innerHTML = "";
+				}
+			}
+			
+			//页面初始化数据和UI
+			function initPage () {
+				for (var tempKey in window.localStorage) {
+					if (/^(msg_)/.test(tempKey)) {
+						msgOl.appendChild(createLi(JSON.parse(window.localStorage.getItem(tempKey))));
+					}
+				}
+			}
+			
+			initPage();
+				
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

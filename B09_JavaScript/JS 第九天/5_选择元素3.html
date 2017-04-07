@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<!--.p_$*3-->
+	<div class="p_1"></div>
+	<div class="p_1"></div>
+	<div class="p_1"></div>
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     querySelectorAll()
+     * 
+     * 返回所有匹配的元素
+     * 
+     * HTML 5 中引入的
+     * 
+     * 返回不是实时，
+     * 返回是调用时刻所匹配的内容
+     * 
+     * :hover 、:visited 去访问到用户的浏览习惯等
+     * 很多浏览器会直接拒绝使用这个内容
+     * */
+    var all = document.querySelectorAll(".p_1");
+    console.log(all);			//[div.p_1, div.p_1, div.p_1]
+    console.log(all.length);	//3
+    console.log(all[1]);		//<div class="p_1"></div>
+    //==========================
+    //获取 documentElement 元素
+    console.log(document.documentElement.nodeName);		//HTML
+	console.log(document.documentElement.nodeValue);	//null
+	console.log(document.documentElement.nodeType);		//1
+</script>
+</html>

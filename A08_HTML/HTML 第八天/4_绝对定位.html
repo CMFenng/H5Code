@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 300px;
+		}
+		.div_1{
+			background: red;
+		}
+		.div_2{
+			background: blue;
+			/*绝对定位*/
+			/*
+				position: absolute;
+				会激发
+					top
+					right
+					bottom
+					left
+					z-index
+						控制层级的属性
+						内部填写的是数字
+						未被激活的时候默认是 auto
+
+						z-index 如果设置为负数，它将无法响应任何点击事件
+			*/
+			position: absolute;
+			/*
+				特性1：绝对定位会使元素脱离文档流
+
+				特性2：提升层级 1 级
+					（会同时压住属性和内容）
+			*/
+		}
+		.div_3{
+			width: 600px;
+			height: 600px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<!-- .div_$*3 -->
+	<div class="div_1"></div>
+	<div class="div_2"></div>
+	<div class="div_3">
+		1234567890
+		李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生李先生
+	</div>
+</body>
+</html>

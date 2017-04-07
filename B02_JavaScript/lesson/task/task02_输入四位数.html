@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	/*
+	 * 编程实现：弹出输入框，提示内容为：请输入一个4位数，
+	 * 如果输入的是四位数就弹出消息框“OK”，否则提示“输入不正确”
+	 */
+	var num = parseInt(prompt("请输入一个4位数"));
+	
+	var num1 = parseInt(num / 1000);
+	var num2 = parseInt((num % 1000)/100);
+	var num3 = parseInt((num % 100)/10);
+	var num4 = parseInt(num % 10);
+	
+	console.log(num1);
+	console.log(num2);
+	console.log(num3);
+	console.log(num4);
+		
+	if((num1 >= 0)&&(num1 <= 9)){
+		if((num2 >= 0)&&(num2 <= 9)){
+			if((num3 >= 0)&&(num3 <= 9)){
+				if((num4 >= 0)&&(num4 <= 9)){
+					alert("OK");
+				}
+			}
+		}
+	}else{
+		alert("输入不正确");
+	}
+</script>
+</html>

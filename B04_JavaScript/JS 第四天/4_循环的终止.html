@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+循环的"终止"
+	
+	1. continue
+		跳过本次循环，直接进行下一次循环
+	2. break
+		直接结束循环
+*/
+//=============================================================
+/*酒吧里的 “数七” 游戏*/
+	for(var i = 0; i < 100; i++){
+		//去掉 7 的倍数
+		if(i % 7 == 0){
+			continue;
+		}
+		//去掉 十位 带 7 的数字
+		if(parseInt(i / 10) == 7){
+			continue;
+		}
+		//去掉 个位 是 7 的数字
+		if(i % 10 == 7){
+			continue;
+		}
+		//去掉 7 的倍数、十位 带 7 的数字、个位 是 7 的数字（综合写法）
+		if(i % 7 == 0 || parseInt(i / 10) == 7 || i % 10 == 7){
+			continue;
+		}
+		document.write(i + "<br>");
+	}
+//=============================================================
+	var i = 0;
+	for(;;){
+		console.log("asd");		//99次 asd
+		i++;
+		
+		if(i == 99){
+			break;
+		}
+	}
+</script>
+</html>

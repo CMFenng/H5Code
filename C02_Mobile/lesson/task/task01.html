@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 员工类
+    class Staff{
+        constructor(name, departmentName, time){
+            // 员工姓名
+            this.name = name;
+            // 所在部门名字
+            this.departmentName = departmentName;
+            // 入职时间
+            this.time = time;
+        }
+    }
+
+    class Company{
+
+        constructor(){
+            this.departmentMap = new Map(
+//            [
+//                ["研发",[{name:"小雪",time:"2016"},{name:"小雪",time:"2011"}]],
+//                ["销售",[{name:"小刚",time:"2016"},{name:"小明",time:"2011"}]],
+//                ["产品",[{name:"小小",time:"2016"},{name:"大大",time:"2011"}]]
+//            ]
+            );
+        }
+
+        addStaff(newStaff){
+            // 判断员工是否重复添加
+            for (let tempStaffArr of this.departmentMap.values()){
+                for (let tempStaff of tempStaffArr){
+                    if (newStaff.name == tempStaff.name && newStaff.time == tempStaff.time){
+                        console.log("不能重复添加员工");
+                        return;
+                    }
+                }
+            }
+
+            // 判断部门是否存在
+            let staffArr = this.departmentMap.get(newStaff.departmentName);
+            if (!staffArr){
+                staffArr = new Array();
+                this.departmentMap.set(newStaff.departmentName, staffArr);
+            }
+            staffArr.push(newStaff);
+        }
+
+        showInfo(){
+            this.departmentMap.forEach(function (value, key, ownMap){
+                console.log(`${key}部门：`);
+                for(let person of value){
+                    console.log(`姓名：${person.name} 入职时间：${person.time}`);
+                }
+            });
+        }
+    }
+
+    let staff1 = new Staff("小雪", "研发", 2015);
+    let staff2 = new Staff("小刚", "销售", 2017);
+    let staff3 = new Staff("小明", "销售", 2014);
+    let staff4 = new Staff("小刚", "研发", 2016);
+    let staff5 = new Staff("小明", "研发", 2014)
+    let company = new Company();
+    company.addStaff(staff1);
+    company.addStaff(staff2);
+    company.addStaff(staff3);
+    company.addStaff(staff4);
+    company.addStaff(staff5);
+
+    company.showInfo();
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../library/libs/jquery-3.1.1.js"></script>
+    <script type="text/javascript">
+        $(function () {
+/*
+    remove()
+        删除元素，绑定在元素上的事件也会丢失
+    detached()
+        删除元素，绑定在元素上的事件不会丢失
+    empty() 和 html("")
+        清空元素
+*/
+            // 返回被删除的节点
+//            var removed = $("li:nth-child(1)").remove();
+//            console.log(removed);
+//======================================================================
+//            var removed = $("li:nth-child(1)").click(function () {
+//                alert("我会被干掉");
+//                // 事件触发后删除元素，但绑定的事件也会被删除
+//                removed.remove();
+//                // 将删除的元素重新插入，绑定的事件丢失
+//                $("ul").append(removed);
+//            });
+//======================================================================
+//            var detached = $("li:nth-child(1)").click(function () {
+//                alert("我不会被干掉");
+//                // 事件触发后删除元素，但绑定的事件不会被删除
+//                detached.detach();
+//                // 将删除的元素重新插入，绑定的事件还在
+//                $("ul").append(detached);
+//            });
+//======================================================================
+            // 清空ul所有的后代，但ul还在
+//            $("ul").empty();
+            $("ul").html("");
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>

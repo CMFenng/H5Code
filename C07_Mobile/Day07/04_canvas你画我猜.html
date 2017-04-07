@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				width: 600px;
+				height: 500px;
+				margin: 100px auto;
+				border: 1px solid black;
+			}
+			
+			#box .control{
+				height: 100px;
+			}
+			
+			#box .control div{
+				height: 50px;
+				line-height: 50px;
+			}
+			
+			#box .control .changeColor{
+				padding-left: 15px;
+			}
+			
+			#box .control .changeColor input{
+				width: 30px;
+				height: 30px;
+				margin: 0 15px;
+				font-size: 0;
+				/*background-color: orange;*/
+				vertical-align: middle;
+			}
+			
+			#box .control .changeColor input:nth-of-type(1){
+				background-color: black;
+			}
+			
+			#box .control .changeColor input:nth-of-type(2){
+				background-color: pink;
+			}
+			
+			#box .control .changeColor input:nth-of-type(3){
+				background-color: red;
+			}
+			
+			#box .control .changeColor input:nth-of-type(4){
+				background-color: orange;
+			}
+			
+			#box .control .changeColor input:nth-of-type(5){
+				background-color: brown;
+			}
+			
+			#box .control .changeColor input:nth-of-type(6){
+				background-color: purple;
+			}
+			
+			#box .control .clear{
+				height: 50px;
+			}
+			
+			#box .control .clear input{
+				width: 100px;
+				height: 50px;
+				margin: 0 15px;
+				font-size: 20px;
+				background-color: #FDF5E5;
+			}
+			
+			#canvas{
+				background-color: #FFEBCB;
+			}
+			
+			b{
+				font-size: 20px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="control">
+				<div class="changeColor">
+					选择画笔颜色：
+					<input type="button" value="黑色" />
+					<input type="button" value="粉色" />
+					<input type="button" value="红色"/>
+					<input type="button" value="橘色"/>
+					<input type="button" value="棕色" />
+					<input type="button" value="紫色" />
+				</div>
+				<div class="clear">
+					<input type="button" value="清空画布" id="clearAllBtn" />
+					当前选中的颜色：<b>黑色</b>
+					<input type="button" value="橡皮擦" id="rubberBtn" />
+				</div>
+			</div>
+			<canvas id="canvas" width="600" height="400"></canvas>
+		</div>
+		<script type="text/javascript">
+			var cvs = document.querySelector("#canvas");
+			var ctx = canvas.getContext("2d");		
+			
+			//记录坐标的对象（用来给move使用）
+			var pointerObj = {
+				
+			}
+			//切换橡皮擦的状态
+			var isRubber = false;
+			
+			//按下
+			cvs.addEventListener('mousedown', function (e) {
+				var x = e.offsetX;
+				var y = e.offsetY;
+				
+				console.log(x + " : " + y);
+				
+				pointerObj.x = x;
+				pointerObj.y = y;
+				
+				if (isRubber) {
+					//橡皮擦
+					rubberFn(x, y);	
+				} else {
+					//画画
+					draw(x, y);
+				}
+				
+				
+				//移动和抬起
+				this.addEventListener('mousemove', move);
+				this.addEventListener('mouseup', up);
+			})
+			
+			//移动
+			function move (e) {
+				var x = e.offsetX;
+				var y = e.offsetY;
+				
+				if (isRubber) {
+					//橡皮擦
+					rubberFn(x, y);	
+				} else {
+					//画画
+					draw(x, y);
+				}
+				
+				//在移动的时候把之前的存储起来
+				pointerObj.x = x;
+				pointerObj.y = y;
+			}
+			
+			//抬起
+			function up () {
+				cvs.removeEventListener('mousemove', move);
+			}
+			
+			//画画
+			function draw (x, y) {
+				ctx.beginPath();
+				ctx.lineWidth = 5;
+				//设置样式为圆头
+				ctx.lineCap = "round";
+				ctx.moveTo(x, y);
+				ctx.lineTo(pointerObj.x, pointerObj.y);
+				ctx.stroke();
+				ctx.closePath();
+			}
+			
+			var colorBtns = document.querySelectorAll('.changeColor input');
+			for (var i = 0; i < colorBtns.length; i++) {
+				colorBtns[i].onclick = changeColor;
+			}
+			
+			//改变画笔颜色
+			function changeColor () {
+				ctx.strokeStyle = getComputedStyle(this, null).backgroundColor;
+				var b = document.querySelector("b");
+				b.style.color = ctx.strokeStyle;
+				b.innerHTML = this.value;
+				
+				//改变橡皮擦的状态
+				isRubber = false;
+			}
+			
+			var clearAllBtn = document.querySelector("#clearAllBtn");
+			var rubberBtn = document.querySelector("#rubberBtn");
+			
+			//清空画布
+			clearAllBtn.onclick = function () {
+				ctx.clearRect(0, 0, cvs.width, cvs.height);
+			}
+			
+			//橡皮擦按钮
+			rubberBtn.onclick = function () {
+				//开启橡皮擦功能
+				isRubber = true;
+			}
+			
+			//橡皮擦功能
+			function rubberFn (x, y) {
+				ctx.beginPath();
+				//裁剪之前先把当前场景保存下来
+				ctx.save();
+				//裁剪区域
+				ctx.arc(x, y, 20, 0, Math.PI * 2, false);
+				//裁剪
+				ctx.clip();
+				//在裁剪之后画一个清空矩形，但根据裁剪的原理，只有在裁剪区域才生效
+				ctx.clearRect(0, 0, cvs.width, cvs.height);
+				//然后在还原之前的场景
+				ctx.restore();
+				ctx.closePath();
+			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

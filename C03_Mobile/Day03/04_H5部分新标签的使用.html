@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			mark{
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>今天深圳要<mark>下雨了！！！</mark></h1>
+		
+		播放进度：<progress max="100" value="50"></progress>
+		
+		<form action="#" method="post">
+			颜色选择器：<input type="color"  value="#ff6666" /><br />
+			数字：<input type="number" min="0" max="10"  /><br />
+			搜索框：<input type="search" placeholder="请输入搜索内容" /><br />
+			范围：<input type="range" max="100" min="0" value="0" /><br />
+			年月日：<input type="date" required="required" /><br />
+			年月：<input type="month" /><br />
+			第几周：<input type="week" /><br />
+			时间：<input type="time" /><br />
+			三生三世角色喜爱排行榜：<input type="search" placeholder="输入喜欢的角色" 
+						list="dataList" />
+			<datalist id="dataList">
+				<option label="Top1" value="白凤九"></option>
+				<option label="Top2" value="东华帝君"></option>
+				<option label="Top3" value="白浅浅"></option>
+				<option label="Top4" value="夜华"></option>
+				<option label="Top5" value="墨渊"></option>
+			</datalist>
+			<br />
+			
+			邮箱：<input type="email" placeholder="请输入邮箱" required="required" 
+					autofocus="autofocus" autocomplete="on" name="a" />
+			<br />
+			地址：<input type="url" placeholder="请输入网址" required="required" />
+			<br />
+			
+			<select multiple="multiple" style="width: 200px;">
+				<option>凤九</option>
+				<option>凤九2</option>
+				<option>凤九3</option>
+			</select>
+			
+			<input type="submit"  value="提交" />
+		</form>
+		
+		<figure>
+			<img src="51.jpg" />
+			<figcaption>
+				<h1>这是一个美女！</h1>
+			</figcaption>
+		</figure>
+		<script type="text/javascript">
+			var progress = document.querySelector("progress");
+			
+			var timerId = setInterval(function () {
+				progress.value++;
+				if (progress.value == progress.max) {
+//					alert("播放完毕！");
+					clearInterval(timerId);
+				}
+			}, 100);
+			
+			var color = document.querySelector('input[type=color]');
+			
+			color.onchange = function () {
+				console.log(this.value);
+				document.body.style.backgroundColor = this.value;
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            width: 160px;
+            height: 80px;
+            padding: 10px;
+            margin: 200px auto;
+
+            border-radius: 5%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    R: <input type="range" min="0" max="255" value="0"><br>
+    G: <input type="range" min="0" max="255" value="0"><br>
+    B: <input type="range" min="0" max="255" value="0"><br>
+</div>
+<script type="text/javascript">
+    var inputs = document.getElementsByTagName("input");
+    var div = document.getElementsByTagName("div")[0];
+    var rValue = inputs[0].value;
+    var gValue = inputs[1].value;
+    var bValue = inputs[2].value;
+    document.body.style.backgroundColor = `rgb(${rValue},${gValue},${bValue})`;
+    div.style.color = `rgb(${255-rValue},${255-gValue},${255-bValue})`;
+
+    for (let i = 0; i < inputs.length; i++){
+        inputs[i].onmousemove = function () {
+            var newValue = inputs[i].value;
+            switch (i){
+                case 0:
+                    rValue = newValue;
+                    break;
+                case 1:
+                    gValue = newValue;
+                    break;
+                case 2:
+                    bValue = newValue;
+                    break;
+            }
+            document.body.style.backgroundColor = `rgb(${rValue},${gValue},${bValue})`;
+            div.style.color = `rgb(${255-rValue},${255-gValue},${255-bValue})`;
+        }
+    }
+</script>
+</body>
+</html>
+<!--
+1、range相关  三个range 分别控制 R G B 三种颜色，
+   每次调整之后，都会改变其背景颜色
+-->

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #container{
+            width: 400px;
+            min-height: 500px;
+            margin: 100px auto;
+            border: 3px solid green;
+            position: relative;
+        }
+        #top{
+            height: 44px;
+        }
+        #inputBox{
+            width: 320px;
+            height: 40px;
+            border: 1px solid green;
+            font-size: 25px;
+            position: absolute;
+        }
+        #ensureBtn{
+            width: 78px;
+            height: 44px;
+            background-color: green;
+            font-size: 25px;
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 322px;
+        }
+
+        ol{
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li{
+            margin: 0;
+            padding-left: 10px;
+            border: 1px dashed black;
+            border-top: none;
+            font-size: 12px;
+        }
+
+        li input, button{
+            color: red;
+            background-color: white;
+            border-radius: 5px;
+        }
+        #clearBtn{
+            height: 44px;
+            background-color: green;
+            font-size: 25px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="top">
+        <input type="text" id="inputBox" placeholder="请输入留言:">
+        <input type="button" id="ensureBtn" value="留言">
+    </div>
+    <ol></ol>
+    <input type="button" id="clearBtn" value="清空所有留言">
+</div>
+<script type="text/javascript">
+    var ensureBtn = document.querySelector("#ensureBtn");
+    var clearBtn = document.querySelector("#clearBtn");
+    var inputBox = document.querySelector("#inputBox");
+    var ol = document.querySelector("ol");
+    var idFlag = 1;
+    for (let i = 1; i < window.localStorage.length;) {
+        var msg = window.localStorage.getItem(`id${ i++ }`);
+        if (msg) {
+            new createLi(msg);
+        }
+    }
+
+    ensureBtn.onclick = function () {
+        // 如果没有输入内容
+        if (inputBox.value == "") {
+            alert("请输入留言内容");
+            return;
+        }
+        // 如果有输入内容，则拼接留言文本和时间和创建 li
+        var msg = `${inputBox.value}    ${new Date().toLocaleString()}`;
+        new createLi(msg);
+        // 清空输入框
+        inputBox.value = "";
+    }
+
+    clearBtn.onclick = function () {
+        // 用户确认是否清空
+        if (confirm("确定清空所有留言？")) {
+            idFlag = 1;
+             var msgLen = window.localStorage.length;
+            for (let i = 1; i < msgLen;) {
+                window.localStorage.removeItem(`id${ i++ }`);
+            }
+            ol.innerHTML = "";
+        }
+    }
+
+    function createLi (msg) {
+        // 创建 li
+        var li = document.createElement("li");
+        li.innerHTML = msg;
+        // 创建删除按钮
+        var btn = document.createElement("button");
+        btn.innerHTML = "x";
+        li.appendChild(btn);
+        ol.appendChild(li);
+
+        this.idFlag = idFlag++;
+
+        window.localStorage.setItem(`id${ this.idFlag }`, msg);
+
+        // 删除按钮注册事件
+        var self = this;
+        btn.onclick = function () {
+            console.log(self);
+            ol.removeChild(li);
+            window.localStorage.removeItem(`id${ self.idFlag }`);
+        }
+    }
+</script>
+</body>
+</html>

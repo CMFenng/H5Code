@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            position: absolute;
+            width: 245px;
+            height: 145px;
+            /*border: 1px solid #000;*/
+            background: url(img/bird.png) no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var box = document.querySelector("div");
+    var i = 0, j = 0;
+    var direction = 1;
+    setInterval(function () {
+        box.style.backgroundPosition
+            = -245 * (i % 4) + "px " + (-145 * (j % 2)) + "px";
+        i++;
+        if(i % 4 == 0){
+            j++;
+        }
+
+        box.style.left = box.offsetLeft + 20 * direction + "px";
+        if(box.offsetLeft >= 1680){
+            box.style.transform = "rotateY(180deg)";
+            direction = -1;
+        }else if(box.offsetLeft <= -180){
+            box.style.transform = "rotateY(0deg)";
+            direction = 1;
+        }
+
+        /*if(i % 8 == 0){
+            j = 0;
+        }else if(i % 4 == 0){
+            j = 1;
+        }*/
+    }, 100);
+</script>
+</body>
+</html>

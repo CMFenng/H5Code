@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function MyMap () {
+			var self = this;
+			Object.defineProperty(self, 'size', {
+				get : function () {
+					var num = 0;
+					for (var tempProp in self) {
+						//当只有是自己的属性的时候才记录个数
+						if (self.hasOwnProperty(tempProp)) {
+							num++;	
+						}
+						// console.log(tempProp);
+					}
+					return num;
+				}
+			});
+		}
+
+		//增、修
+		MyMap.prototype.set = function (key, value) {
+			// this.key = value;
+			this[key] = value;
+		}
+
+		//获取
+		MyMap.prototype.get = function (key) {
+			return this[key];
+		}
+
+		//判断
+		MyMap.prototype.has = function (key) {
+			return this[key] ? true : false;
+		}
+
+		//删除
+		MyMap.prototype.delete = function (key) {
+			delete this[key];
+		}
+
+		var map = new MyMap();
+
+		map.set('name', '凤九');
+		map.set('age', 18);
+
+		map.set('name', '帝君');
+		map.set('sex', '男');
+
+
+		console.log(map.get('name'));
+
+		map.delete('age');
+
+		console.log(map.has('age'));
+
+		console.log(map);
+
+		console.log(map.size);
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+	div {
+		width: 100px;
+		height: 50px;
+		background-color: #808080;
+		line-height: 50px;
+		text-align: center;
+		color: #D9A00A;
+		font-size: 30px;
+	}
+	
+</style>
+</head>
+
+<body>
+<div></div>
+<a href="">看不清，换一个</a>
+<script type="text/javascript">
+	// 生成一个 [m,n]的随机整数
+	function generateNumber(m, n) {
+		return parseInt(Math.random() * (n - m + 1) + m);
+	}
+
+	function randomNumbers() {
+		var arr = [];
+		for(var i = 0; i < 4; i++) {
+			arr[i] = generateNumber(0, 9);
+		}
+		return arr;
+	}
+	var arr = randomNumbers();
+	document.getElementsByTagName("div")[0].innerHTML = arr.join("")
+	
+	document.getElementsByTagName("a")[0].onclick = function  () {
+		var arr = randomNumbers();
+		document.getElementsByTagName("div")[0].innerHTML = arr.join("")
+		return false;  //屏蔽了a标签的默认动作
+	}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person (name, age) {
+			this.name = name;
+			this.age = age;
+			if (!Person.prototype.play) {
+				console.log("我是不是多次创建");
+				Person.prototype.play = function (playName) {
+					console.log(this.name + "爱玩" + playName);
+				}
+			}
+		}
+		
+		var p1 = new Person("张三", 10);
+		var p2 = new Person("李四", 20);
+		
+		p1.play("志玲");
+		p2.play("柳岩");
+		console.log(p1.play === p2.play);		//true，说明play是同一个
+		/*
+		因为加了判断条件，当play已经存在时，就不再创建，因此只创建了一个function
+		这里打印出来一次“我是不是多次创建”，可知只创建了一次
+		* */
+	</script>
+</body>
+</html>

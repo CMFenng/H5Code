@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+/*
+字符串相关方法
+
+str.charAt(index)
+	参数：
+		index
+			必选参数
+			表示字符串中某个位置的数字
+			字符在字符串中的下标
+	返回值：
+		返回的是指定位置的字符
+		JS 中没有字符类型
+		返回的实际是一个长度为 1 的字符串
+	
+	大家也可以将字符串想象成是一个数组，
+	具体下标同样是从 0 开始，直到最后一个元素的下标 (str.length - 1)
+*/
+    var str = "你好呀李先生";
+    console.log(str.charAt(0));		//你
+    console.log(str.charAt(2));		//呀
+    console.log(str.charAt(9999));	//空
+    console.log(typeof str.charAt(9999));	//string
+    console.log(str[0]);	//你		等同于 str.charAt(0)
+    console.log(str[4]);	//先		等同于 str.charAt(4)
+    console.log(str[5]);	//生		等同于 str.charAt(5)
+    console.log(str[9999]);	//undefined
+    console.log(str.charAt());	//你		不填默认为 0
+//===========================================================
+/*
+str.charCodeAt(index)
+	
+	返回指定位置的字符的 Unicode 编码
+	返回值范围是 0 ~ 65535 之间的整数
+*/
+	var str = "aA0你好";
+	console.log(str.charCodeAt(0));		//97
+	console.log(str.charCodeAt(1));		//65
+	console.log(str.charCodeAt(2));		//48
+	/*
+	unicode 编码中需要记住的数值
+	
+		0 -> 48
+		9 -> 57
+		A -> 65
+		Z -> 90
+		a -> 97
+		z -> 122
+	*/
+	var str = "azAZ09";
+	console.log(str.charCodeAt(0));		//97
+	console.log(str.charCodeAt(1));		//122
+	console.log(str.charCodeAt(2));		//65
+	console.log(str.charCodeAt(3));		//90
+	console.log(str.charCodeAt(4));		//48
+	console.log(str.charCodeAt(5));		//57
+</script>
+</html>

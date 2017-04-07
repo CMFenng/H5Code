@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form>
+		<!-- 
+			input
+				单标签
+				用于向表单当中填写内容
+
+				属性
+					name
+						提交内容的名称
+					value
+						提交内容的数值
+					type
+						提交内容的类型
+
+						input 未书写 type，默认成为一个文本输入域
+
+						text：文本输入框
+							maxlength：修改文本框最大输入字符
+
+						password：密码输入框
+							会将输入的内容转化为密文
+							maxlength：修改文本框最大输入字符
+
+						radio：单选框
+							注意：多个单选框中，name 属性一定要相同
+							checked：设置默认选择项
+		 -->
+		未输入 type ：
+		<input type="" name="" value="">
+		<br>
+		<!-- ================== -->
+		type : text（账号）
+		<input type="text" name="" value="" maxlength="11">
+		<br>
+		<!-- ================== -->
+		type : password
+		<input type="password" name="" value="" maxlength="11">
+		<br>
+		<!-- ================== -->
+		<input type="radio" name="sex" checked="checked">男
+		<input type="radio" name="sex">女
+
+		<input type="radio" name="sex" id="unsure">
+		<label for="unsure">
+			不确定
+		</label>
+		<!-- 
+			label
+				双标签
+				对应点击事件传递给我要设置的单选框/多选框之上
+
+				属性
+					for
+						内部需要跳转的 id 名称
+		 -->
+		<!-- 
+			checkbox
+				复选框
+
+				checkbox 中的 name 可以不相同
+
+				checked 默认选择
+
+				和 label 标签配合使用
+		 -->
+		<br>
+		爱好：
+		<br>
+		<input type="checkbox" name="" checked="checked">
+		篮球
+		<input type="checkbox" name="">
+		排球
+		<input type="checkbox" name="">
+		羽毛球
+		<input type="checkbox" name="">
+		乒乓球
+		<input type="checkbox" name="">
+		足球
+		<!-- 
+			hidden
+				隐藏
+				隐藏式的获取用户的某些信息
+		 -->
+		<input type="hidden" name="">
+
+		<!-- 
+			file
+				提交文件
+		 -->
+		<input type="file" name="">
+
+		<!-- ============== -->
+		<!-- 
+			button
+				按钮类型
+
+				如果需要修改按钮的名称，需要修改的是 value
+		 -->
+		<input type="button"
+			   name=""
+			   value="按钮">
+		<!-- 
+			submit
+				点击后将表单内容提交至服务器端
+		 -->
+		<input type="submit" name="">
+
+		<!-- 
+			reset
+				将表单输入的内容进行重置
+		 -->
+		<input type="reset" name="">
+	</form>
+</body>
+</html>

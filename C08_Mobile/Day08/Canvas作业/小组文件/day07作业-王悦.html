@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        table{
+            width: 1000px;
+            height:500px;
+            background-color: #384C91;
+            box-shadow: 10px 10px 10px gray;
+        }
+        table td{
+            border: 1px dashed grey;
+        }
+        canvas{
+            position: fixed;
+            left:0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <canvas id="canvas" width="1000" height="500">
+
+    </canvas>
+</body>
+<script>
+    //获取canvas元素
+    var cvs = document.querySelector("canvas");
+    //获取上下文对象（画笔）
+    var ctx = cvs.getContext("2d");
+
+//脸
+    ctx.beginPath();
+    ctx.moveTo(255,400); //起始点X 起始点Y
+    ctx.lineWidth = 5;
+    ctx.lineCap = "round";
+    ctx.bezierCurveTo(400,500,600,500,745,400); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    //头发
+    //绘制二次贝塞尔曲线
+    ctx.beginPath();
+    ctx.moveTo(150,200); //起始点X 起始点Y
+    ctx.quadraticCurveTo(150,400,275,450);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(250,360); //起始点X 起始点Y
+    ctx.quadraticCurveTo(250,400,275,450);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(200,150); //起始点X 起始点Y
+    ctx.quadraticCurveTo(200,350,275,375);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(275,200); //起始点X 起始点Y
+    ctx.quadraticCurveTo(250,300,275,375);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(850,200); //起始点X 起始点Y
+    ctx.quadraticCurveTo(850,400,725,450);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(750,360); //起始点X 起始点Y
+    ctx.quadraticCurveTo(750,400,725,450);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+//
+    ctx.beginPath();
+    ctx.moveTo(800,150); //起始点X 起始点Y
+    ctx.quadraticCurveTo(800,350,725,375);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+//
+    ctx.beginPath();
+    ctx.moveTo(725,200); //起始点X 起始点Y
+    ctx.quadraticCurveTo(750,300,725,375);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+//============================================================================
+    ctx.beginPath();
+    ctx.moveTo(250,150); //起始点X 起始点Y
+    ctx.quadraticCurveTo(275,225,325,250);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(350,100); //起始点X 起始点Y
+    ctx.quadraticCurveTo(300,200,325,250);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(750,150); //起始点X 起始点Y
+    ctx.quadraticCurveTo(725,225,675,250);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(650,100); //起始点X 起始点Y
+    ctx.quadraticCurveTo(700,200,675,250);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+//=======================================================
+    ctx.beginPath();
+    ctx.moveTo(500,100); //起始点X 起始点Y
+    ctx.bezierCurveTo(400,0,400,200,425,225); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+//
+    ctx.beginPath();
+    ctx.moveTo(500,100); //起始点X 起始点Y
+    ctx.bezierCurveTo(600,0,600,200,575,225); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+//==========================================
+    ctx.beginPath();
+    ctx.moveTo(350,100); //起始点X 起始点Y
+    ctx.quadraticCurveTo(350,200,425,225);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(650,100); //起始点X 起始点Y
+    ctx.quadraticCurveTo(650,200,575,225);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+//    ctx.fill();
+    ctx.closePath();
+//======================
+    ctx.beginPath();
+    ctx.moveTo(125,0); //起始点X 起始点Y
+    ctx.bezierCurveTo(100,100,150,200,100,300); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(150,250); //起始点X 起始点Y
+    ctx.quadraticCurveTo(125,300,100,300);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+    //    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(875,0); //起始点X 起始点Y
+    ctx.bezierCurveTo(900,100,850,200,900,300); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(850,250); //起始点X 起始点Y
+    ctx.quadraticCurveTo(875,300,900,300);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+    //    ctx.fill();
+    ctx.closePath();
+
+    //============
+    ctx.beginPath();
+    ctx.moveTo(420,100); //起始点X 起始点Y
+    ctx.quadraticCurveTo(450,75,500,100);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+    //    ctx.fill();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(500,100); //起始点X 起始点Y
+    ctx.quadraticCurveTo(550,75,580,100);//控制点的X 控制点的Y 结束点的X 结束点的Y
+    ctx.stroke();
+    //    ctx.fill();
+    ctx.closePath();
+    //===================================================
+    //嘴巴
+    ctx.beginPath();
+    ctx.lineWidth = 10;
+    ctx.moveTo(400,400); //起始点X 起始点Y
+    ctx.bezierCurveTo(450,410,550,410,600,390); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+    ctx.closePath();
+    //眉毛
+    ctx.beginPath();
+    ctx.moveTo(300,200); //起始点X 起始点Y
+    ctx.bezierCurveTo(350,175,400,175,450,200); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(550,200); //起始点X 起始点Y
+    ctx.bezierCurveTo(600,175,650,175,700,200); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+    ctx.closePath();
+    //眼睛
+    ctx.beginPath();
+    ctx.moveTo(300,275); //起始点X 起始点Y
+    ctx.bezierCurveTo(350,250,400,225,450,250); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(300,285); //起始点X 起始点Y
+    ctx.bezierCurveTo(350,250,400,235,440,255); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(700,275); //起始点X 起始点Y
+    ctx.bezierCurveTo(650,250,600,225,550,250); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(700,285); //起始点X 起始点Y
+    ctx.bezierCurveTo(650,250,600,235,560,255); //参数分别是控制点1的x,y 控制点2的 x,y 结束点的x,y
+    ctx.stroke();
+    ctx.closePath();
+
+</script>
+</html>

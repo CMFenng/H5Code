@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+
+		.div_1{
+			background: red;
+		}
+		.div_2{
+			background: blue;
+		}
+		.div_3{
+			background: green;
+		}
+		
+		/*
+			CSS 群组选择器
+
+			选择器1 , 选择器2{
+				CSS  样式
+			}
+
+			可以将相同部分的代码直接一次书写完成
+			可以同时针对不同内容进行设置
+			
+			选择器之间用英文逗号隔开
+		*/
+		.div_1 , .div_2 , .div_3{
+			width: 300px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div_1"></div>
+	<div class="div_2"></div>
+	<div class="div_3"></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrap{
+			width: 1300px;
+			border: 3px solid #000;
+		}
+		.width_height{
+			width: 300px;
+			height: 300px;
+		}
+		.bgc_guguai{
+			background: #a1b2c3;
+		}
+		.div_1{
+			float: left;
+		}
+		.div_2{
+			width: 600px;
+			height: 600px;
+			background: blue;
+
+			float: right;
+		}
+		.clearFix:after{
+			content: "";
+			clear: both;
+			display: block;
+		}
+		.clearFix{
+			zoom: 1;
+			/*
+			触发 IE 6 的 hasLayout
+			 */
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap clearFix">
+		<div class="div_1 width_height bgc_guguai"></div>
+		<div class="div_2"></div>
+	</div>
+</body>
+</html>

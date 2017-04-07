@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">	
+/*
+减法，乘法 和 除法
+	在运算之前会先尝试将运算数转化为数字（Number）之后再进行运算
+	
+	拓展：
+		两个操作数中有一个是对象，运算前会尝试调用对象的 valueof()
+		如果不存在这个方法，会去调用 toString() 方法
+*/
+	console.log(10 - 5);		//5
+	console.log("10" - 5);		//5
+	
+	console.log("asd" - 5);		//NaN
+	
+	console.log(true - 1);		//0
+	console.log(false - 1);		//-1
+	   
+	console.log(null - 1);		//-1
+	console.log(undefined - 1);	//NaN
+	console.log(NaN - 1);		//NaN
+</script>
+</html>

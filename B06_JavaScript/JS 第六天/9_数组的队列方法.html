@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" charset="utf-8">
+    /*
+     数组的队列方法
+     * 
+     * 队列也是一种数据结构，特点：FIFO(先进先出)
+     * 
+     * JS 中也提供了模拟队列的方法
+     * 
+     * 1.向队列头部添加元素（unshift），
+     * 	 从队列头部移除元素（shift）
+     * 2.向队列的尾部添加
+     * 	 从队列的尾部移除
+     * 
+     * 队列尾部的操作实际上是由 push 和 pop 完成的
+     * */
+    //创建一个数组，将其当做队列来进行操作
+    var arr = ["张三","李四","王五"];
+    //队列的头部是“张三”
+    //队列的尾部是“王五”
+    
+    var firstItem = arr.shift();
+    console.log(firstItem);		//张三
+    //shift()方法是将队首元素从队列中移除，
+    //并且返回这个元素
+    
+    var len = arr.unshift("王二麻子");
+    console.log(len);		//3
+    console.log(arr);
+    //unshift()方法是向队列的头部添加元素，
+    //并将添加成功后队列的长度返回回来
+    
+    
+    
+</script>
+</html>

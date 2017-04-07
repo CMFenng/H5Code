@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var monkeys = 5;
+	var peach = 6;
+	
+	//标号或标记。一定用在循环的前面，给这个循环添加了一个标记。  和break配合起来，可以退出任意深的循环
+	http:
+	for(; true; peach++){
+		//表示第 i 个猴子来的时候，看到的桃子数量
+		var temp = peach;
+		for(var monkey = 1; monkey <= monkeys; monkey++){
+			if(temp >= 6 && temp%5 == 1){
+				temp = (temp -1)/5 * 4;
+				if(monkey == monkeys){
+					break http;
+				}
+			}else{
+				break;
+			}
+		}
+	}
+	alert(peach);
+</script>
+</html>
+<!--
+五只猴子分桃。半夜，第一只猴子先起来，它把桃分成了相等的五堆，多出一只。于是，它吃掉了一个，拿走了一堆； 第二只猴子起来一看，只有四堆桃。于是把四堆合在一起，分成相等的五堆，又多出一个。于是，它也吃掉了一个，拿走了一堆；.....其他几只猴子也都是 这样分的。问：这堆桃至少有多少个？
+参考答案：先给这堆桃子加上4个,设此时共有X个桃子,最后剩下a个桃子.这样: 
+第一只猴子分完后还剩:(1-1/5)X=(4/5)X; 
+第二只猴子分完后还剩:(1-1/5)2X;
+第三只猴子分完后还剩:(1-1/5)3X;
+第四只猴子分完后还剩:(1-1/5)4X;
+第五只猴子分完后还剩:(1-1/5)5X=(1024/3125)X;
+得:a=(1024/3125)X;
+要使a为整数,X最小取3125.
+减去加上的4个,所以,这堆桃子最少有3121个。
+-->

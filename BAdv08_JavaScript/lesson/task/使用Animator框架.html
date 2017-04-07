@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			border-radius: 50%;
+		}
+	</style>
+	<script type="text/javascript" src="suanzi.js"></script>
+	<script type="text/javascript" src="Animator.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<button id="btn">点我停止运动</button>
+<script type="text/javascript">
+	var animator;
+	box.onclick = function () {
+		animator = new Animator(1000, Easing.bounce, function (easing) {
+			box.style.transform = "translateX(" + 1000*easing + "px)";
+		});
+		//true 表示循环
+		animator.start(true);
+	}
+	btn.onclick = function () {
+		animator.stop();
+	}
+</script>
+</body>
+</html>

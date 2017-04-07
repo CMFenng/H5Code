@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				width: 300px;
+				height: 300px;
+				margin: 100px auto;
+				position: relative;
+				transform-style: preserve-3d;
+				
+				animation: moveRect 2s linear infinite paused;
+			}
+			
+			@keyframes moveRect{
+				from{
+					transform: perspective(1200px) rotateX(0) rotateY(0);
+				}
+				to{
+					transform: perspective(1200px) rotateX(360deg) rotateY(360deg);
+				}
+			}	
+			
+			#box div{
+				width: 300px;
+				height: 300px;
+				position: absolute;
+				font-size: 50px;
+				font-weight: bold;
+				text-align: center;
+				line-height: 300px;
+				background-color: orange;
+			}
+			
+			#box div:nth-of-type(1){
+				background-color: red;
+				transform: translateZ(150px);
+			}
+			
+			#box div:nth-of-type(2){
+				background-color: green;
+				transform: translateZ(-150px);
+			}
+			
+			#box div:nth-of-type(3){
+				background-color: deepskyblue;
+				transform: rotateX(90deg) translateZ(150px);
+			}
+			
+			#box div:nth-of-type(4){
+				background-color: deeppink;
+				transform: rotateX(-90deg) translateZ(150px);
+			}
+			
+			#box div:nth-of-type(5){
+				background-color: yellow;
+				transform: rotateY(90deg) translateZ(150px);
+			}
+			
+			#box div:nth-of-type(6){
+				background-color: yellow;
+				transform: rotateY(-90deg) translateZ(150px);
+			}
+			
+			
+			input{
+				width: 200px;
+				height: 50px;
+				display: block;
+				margin: 50px auto;
+				font-size: 30px;
+				background-color: orange;
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+		<input type="button" value="开始" />
+		<script type="text/javascript">
+			var btn = document.querySelector("input");
+			var box = document.querySelector("#box");
+			
+			btn.onclick = function () {
+				if (this.value == '开始') {
+					this.value = '结束';
+					box.style.animationPlayState = 'running';
+				} else {
+					this.value = '开始';
+					box.style.animationPlayState = 'paused';
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

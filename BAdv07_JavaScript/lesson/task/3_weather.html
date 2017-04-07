@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		#wrap{
+			width: 1030px;
+			background-color: cornflowerblue;
+			border-radius: 50px;
+			margin: 0 auto;
+			text-align: center;
+			float: left;
+		}
+		#today{
+			width: 150px;
+			height: 350px;
+			margin: 25px 20px;
+			background-color: darkturquoise;
+			float: left;
+			border-radius: 30px;
+			font-size: 50px;
+		}
+		.day{
+			width: 100px;
+			height: 300px;
+			margin: 50px 20px;
+			background-color: darkcyan;
+			float: left;
+			border-radius: 30px;
+		}
+		.pTemp{
+			font-size: 20px;
+			margin: 40px auto;
+		}
+		span{
+			margin-bottom: 10px;
+			color: greenyellow;
+			display: block;
+		}
+	</style>
+	<script type="text/javascript" src="2_ajax的封装.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="today">
+		<p id="city"></p>
+		<p id="wendu"></p>
+	</div>
+	<span id="ganmao"></span>
+</div>
+<script type="text/javascript">
+	//获取低温到高温的数值，并返回格式化的文本
+	function temp(Low, High) {
+		//获取字符串中的number
+		var reg1 = /\d+/gi;
+		var reg2 = /\d+/gi;
+		//exec()方法返回的是一个数组
+		var low = reg1.exec(Low)[0];
+		var high = reg2.exec(High)[0];
+		return low + "~" + high + "℃"
+	}
+	//分割日期和星期，并返回
+	function date (date) {
+		return arr = date.split("星期");
+	}
+	//请求数据
+	ajax.get("http://wthrcdn.etouch.cn/weather_mini?city=深圳", function (result) {
+		//将获取的数据解析为对象
+		var obj = JSON.parse(result);
+		//城市
+		var city = obj.data.city;
+		//预报的天气信息
+		var forecasts = obj.data.forecast;
+		//温馨提示
+		var ganmao = obj.data.ganmao;
+		//温度
+		var wendu = obj.data.wendu;
+		//昨天的天气信息
+		var yesterdays = obj.data.yesterday;
+		
+		
+		//提取昨天的天气信息并显示到创建的元素中
+		var yDate = date(yesterdays.date);
+		var yTemp = temp(yesterdays.low, yesterdays.high);
+		var yType = yesterdays.type;
+		var yFl = yesterdays.fl;
+		var yFx = yesterdays.fx;
+		var yDiv = new createTemp(yDate, yTemp, yType, yFl, yFx);
+		//插入到父元素的第一个子节点之前
+		wrap.insertBefore(yDiv.div, wrap.firstChild);
+		
+		
+		//循环提取预测的天气信息并显示到创建的元素中
+		for (var i = 0; i < forecasts.length; i++) {
+			var fDate = date(forecasts[i].date);
+			var fTemp = temp(forecasts[i].low, forecasts[i].high);
+			var fType = forecasts[i].type;
+			var fFl = forecasts[i].fengli;
+			var fFx = forecasts[i].fengxiang;
+			new createTemp (fDate, fTemp, fType, fFl, fFx);
+		}
+		
+		
+		//提取当前的天气信息并显示到创建的元素中
+		var cityName = document.getElementById("city");
+		cityName.innerHTML = city;
+		var temperature = document.getElementById("wendu");
+		temperature.innerHTML = wendu + "℃";
+		var ganmaoText = document.getElementById("ganmao");
+		ganmaoText.innerHTML = "温馨提示：" + ganmao;
+		//将该元素追加到wrap中
+		wrap.appendChild(ganmaoText);
+		
+		
+		//创建显示每天天气信息的对象
+		function createTemp (dateArr, temp, type, fl, fx) {
+			var wrap = document.getElementById("wrap")
+			var div = document.createElement("div");
+			div.setAttribute("class", "day");
+			this.div = wrap.appendChild(div);
+			
+			//日期
+			var pDay = document.createElement("p");
+			pDay.setAttribute("class", "pDay");
+			pDay.innerHTML = dateArr[0];
+			this.div.appendChild(pDay);
+			
+			//星期
+			var pWeek = document.createElement("p");
+			pWeek.setAttribute("class", "pWeek");
+			pWeek.innerHTML = "星期" + dateArr[1];
+			this.div.appendChild(pWeek);
+			
+			//温度
+			var pTemp = document.createElement("p");
+			pTemp.setAttribute("class", "pTemp");
+			pTemp.innerHTML = temp;
+			this.div.appendChild(pTemp);
+			
+			//类型
+			var pType = document.createElement("p");
+			pType.setAttribute("class", "pType");
+			pType.innerHTML = type;
+			this.div.appendChild(pType);
+			
+			//风力
+			var pFl = document.createElement("p");
+			pFl.setAttribute("class", "pFl");
+			pFl.innerHTML = fl;
+			this.div.appendChild(pFl);
+			
+			//风向
+			var pFx = document.createElement("p");
+			pFx.setAttribute("class", "pFx");
+			pFx.innerHTML = fx;
+			this.div.appendChild(pFx);
+		}
+	})
+</script>
+</body>
+</html>
+<!--
+
+根据用户选择的城市，显示这个城市的天气信息。api接口：
+
+http://wthrcdn.etouch.cn/weather_mini?city=深圳
+
+注意：这个接口已经服务端打破了同源。
+
+-->

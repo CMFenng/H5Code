@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//分析字面量对象
+		var rootObj = {
+			//地区数组
+			regions : [
+				//地区对象
+				{
+					regionName : "北京地区",
+					//学校数组
+					schools : [
+						{
+							schoolName : "北京一中",
+							//班级数组
+							classes : [
+								{
+									className : "H5-1606",
+									//学生数组
+									students : [
+										{
+											studentName : "丁丁"
+										},
+										{
+											studentName : "马丹丹"
+										}
+									]
+								},
+								{
+									className : "iOS-1602",
+									//学生数组
+									students : [
+										{
+											studentName : "丁环宇"
+										},
+										{
+											studentName : "张俊"
+										}
+									]
+								}
+							]
+						},
+						{
+							schoolName : "北京二中",
+							//班级数组
+							classes : [
+								{
+									className : "H5-1605",
+									//学生数组
+									students : [
+										{
+											studentName : "刘升升"
+										},
+										{
+											studentName : "张三三"
+										}
+									]
+								},
+								{
+									className : "iOS-1603",
+									//学生数组
+									students : [
+										{
+											studentName : "丁丁"
+										},
+										{
+											studentName : "肖小军"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+
+		//写死，找到马丹丹！！！
+		console.log(rootObj.regions[0].schools[0].classes[0].students[1].studentName);
+
+		function findPersonInfo (personName) {
+			//课堂练习 5分钟时间.....
+			for (var tempRegion of rootObj.regions) {
+				for (var tempSchool of tempRegion.schools) {
+					for (var tempClass of tempSchool.classes) {
+						for (var tempStudent of tempClass.students) {
+							if (tempStudent.studentName == personName) {
+								console.log("地区：" + tempRegion.regionName + "\n学校：" + tempSchool.schoolName + "\n班级：" + tempClass.className + "\n学生：" + personName);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		findPersonInfo("丁丁");
+
+
+	</script>
+</body>
+</html>

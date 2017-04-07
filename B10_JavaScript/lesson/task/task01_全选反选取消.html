@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	兴趣爱好：
+	大宝剑：<input type="checkbox" name="hobby" id="hobby" value="" />
+	上网：<input type="checkbox" name="hobby" id="hobby" value="" />
+	看电影：<input type="checkbox" name="hobby" id="hobby" value="" />
+	敲代码：<input type="checkbox" name="hobby" id="hobby" value="" />
+	戴绿帽子：<input type="checkbox" name="hobby" id="hobby" value="" />
+	<br />
+	<button id = "allOn" onclick="allOn()">全选</button>
+	<button id="allOff" onclick="allOff()">取消全选</button>
+	<button id="invert" onclick="invert()">反选</button>
+	<script type="text/javascript">
+		var inputs = document.getElementsByName("hobby");
+		console.log(inputs);
+		/*全选*/
+		function allOn () {
+			for(var i = 0; i < inputs.length; i++){
+				inputs[i].checked = true;
+			}
+		}
+		/*取消全选*/
+		function allOff	() {
+			for(var i = 0; i < inputs.length; i++){
+				inputs[i].checked = false;
+			}
+		}
+		/*反选*/
+		function invert () {
+			for(var i = 0; i < inputs.length; i++){
+				if(inputs[i].checked){
+					inputs[i].checked = false;
+				}else{
+					inputs[i].checked = true;
+				}
+			}
+		}
+	</script>	
+</body>
+</html>
+<!--
+	实现：全选、取消、反选
+-->

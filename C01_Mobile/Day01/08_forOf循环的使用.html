@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = 'abcd';
+		var person = {
+			name : '浅浅',
+			age : 18
+		}
+		var arr = ['aa', 'bb', 'cc'];
+		var map = new Map(
+			[
+				['name', '折颜'],
+				['sex', '不详']
+			]
+		);
+
+		//遍历字符串
+		for (var tempChr of str) {
+			console.log(tempChr);
+		}
+
+		console.log("=== 代码分割线 ===");
+
+		//遍历自定义对象 (不支持)
+		//  person[Symbol.iterator] is not a function
+		// for (var tempVal of person) {
+		// 	console.log(tempVal);
+		// }
+
+		//遍历数组
+		for (var tempEle of arr) {
+			console.log(tempEle);
+		}
+
+		console.log("=== 代码分割线 ===");
+
+		//遍历map
+		for (var tempArr of map) {
+			console.log(tempArr[0] + " == " + tempArr[1]);
+		}
+
+		console.log("=== 代码分割线 ===");
+ 
+		for (var [key, value] of map) {
+			console.log(key + " : " + value);
+		}
+
+		console.log("=== 代码分割线 ===");		
+
+		for (var tempKey of map.keys()) {
+			console.log(tempKey);
+		}
+
+		console.log("=== 代码分割线 ===");		
+
+		for (var tempValue of map.values()) {
+			console.log(tempValue);
+		}		
+
+
+	</script>
+</body>
+</html>

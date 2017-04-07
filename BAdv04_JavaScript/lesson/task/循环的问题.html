@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<script type="text/javascript">
+	var btns = document.getElementsByTagName("button");
+//	for (var i = 0; i < btns.length; i++) {
+//		btns[i].onclick = function () {
+//			console.log(i);		//这里访问的是函数外的变量i,此时循环已经结束，i的值为3
+//		}
+//	}
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].index = i;	//将i的值存到btns中
+		btns[i].onclick = function () {
+			console.log(this.index);
+		}
+	}
+</script>
+</body>
+</html>

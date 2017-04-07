@@ -1,0 +1,8 @@
+MVC：
+    model  模型
+        数据的模型
+
+    view    视图
+        展示给用户的模块
+
+    controller 控制器

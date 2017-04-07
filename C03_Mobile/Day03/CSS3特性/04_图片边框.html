@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 300px;
+				height: 300px;
+				margin: 200px auto;
+				background-color: deepskyblue;
+				
+				/* 提前给div设置一个透明边框，要不显示会有一定问题 */
+				border: 1px solid transparent;
+				
+				/* 引入图片路径 */
+				border-image-source: url(../border.png);
+				
+				/* 将图片拆分成九宫格 */
+				border-image-slice: 27 27 27 27;
+				
+				/* 设置边框的宽度 */
+				border-image-width: 30px;
+				
+				/* 设置重复效果 */
+				border-image-repeat: stretch;
+				/*border-image-repeat: round;*/
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>
