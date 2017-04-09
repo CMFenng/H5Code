@@ -122,7 +122,8 @@ define(['text!./home.html', '$css!./home.css', 'template', 'lazyload'], function
 				}
 				
 				$('#hot_content').html(str);
-				
+				console.log($('#hot_content img'));
+				console.log($('#hot_content img').lazyload());
 				//懒加载, 注意:img 不要设置src属性, 把数据存储在data-original属性中
 				$('#hot_content img').lazyload({
 					effect : 'fadeIn'
