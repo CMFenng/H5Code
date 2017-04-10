@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+	ng-app指令：是告诉程序的哪一部分是由angularJS来管理的，
+	是angularJS程序的入口，整个程序应该只有一个入口（一个ng-app），
+	angularJS很灵活，并没有局限于一个项目中一定要全部使用angularJS，
+	我们可以在想使用的区域去指定这个指令。
+	注意：我们暂时不要给ng-app这个指令赋值，如果赋值的话会报错
+	Uncaught Error: [$injector:modulerr]，在过后的学习过程中
+	会解释。。
+-->
+<html ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				color: red;
+			}
+		</style>
+		<!-- 导入angularJS框架 -->
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		<h1>AngularJS Hello World</h1>
+		<h2>Hello： <span>{{ 1 + 2 }}</span></h2>
+		<h2>Hello：<span>{{ 'world' }}</span></h2>
+		
+		<hr />
+		
+		<h1>JS原生操作某个功能</h1>
+		<input type="text" id="js_input" /><br />
+		<h2 id="js_h2"></h2>
+		
+		<script type="text/javascript">
+			var jsInput = document.querySelector("#js_input");
+			var jsH2 = document.querySelector("#js_h2");
+			
+			jsInput.onkeyup = function () {
+				jsH2.innerHTML = this.value;
+			}
+		</script>
+				
+		<hr />
+		
+		<!-- ng-model指令：可以实现数据绑定。进行双向关联
+			其中msg只是随便定义的一个变量。ng-model会把输入框的
+			value进行绑定，改变其value值，那么所有关联ng-model的元素
+			值也会发生改变。
+		-->
+		<h1>AngularJS实现某种操作</h1>
+		<input type="text" ng-model="msg" />
+		<h2>{{ msg }}</h2>
+		<h2>哈哈 <span>{{ msg }}</span></h2>
+		
+	</body>
+</html>

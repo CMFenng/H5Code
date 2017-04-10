@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+
+		<input type="button" value="page1" ng-click="ctrl.changePage('page1');" />
+		<input type="button" value="page2" ng-click="ctrl.changePage('page2');" />
+		<input type="button" value="page3" ng-click="ctrl.changePage('page3');" />
+		<input type="button" value="otherPage" ng-click="ctrl.changePage('otherPage');" />
+		
+		<!-- ng-switch on="ctrl.pageName" 相当于平时JS中switch的条件 -->
+		<div ng-switch on="ctrl.pageName">
+			<!-- ng-switch-when="page1" 相当于平时JS中的case -->
+			<h1 ng-switch-when="page1">{{ ctrl.pageName }}</h1>
+			<h1 ng-switch-when="page2">{{ ctrl.pageName }}</h1>
+			<h1 ng-switch-when="page3">{{ ctrl.pageName }}</h1>
+			<!-- ng-switch-default 相当于平时JS中的default -->
+			<h1 ng-switch-default>{{ ctrl.pageName }}</h1>
+		</div>
+		
+
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', [function () {
+					var self = this;
+					//初始化显示第一页
+					self.pageName = 'page1';
+					
+					self.changePage = function (pageName) {
+						self.pageName = pageName;
+					}
+				}])
+			
+		</script>
+	</body>
+</html>
