@@ -31,9 +31,9 @@
         
         // 将来我们更常用的是使用链式语法进行创建，因为将来还会创建其他控制器、服务、过滤器等操作。
         angular.module('myApp', [])
-            .controller('MainCtrl', function () {
+            .controller('MainCtrl', [function () {
                 console.log("我是控制器--亮平局长");
-            })
+            }])
 
     </script>
 </body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+</head>
+<body>
+    <!--
+        MainCtrl 是控制器的名字，Ctrl 是这个控制器的一个实例（控制器对象）
+        使用的时候在 view 里，例如：ctrl.变量    原理和 $scope 一样。
+        都是在该作用域下生效，只不过变量存储在了当前控制器实例上而已。
+    -->
+    <div ng-controller="MainCtrl as ctrl">
+        <h1>{{ ctrl.name }}</h1>
+        <input type="text" ng-model="ctrl.name" ng-keypress="ctrl.fn();" />
+        <h1>{{ name }}</h1>
+    </div>
+    
+    <!-- 这里尽量不要也叫做  MainCtrl -->
+    <div ng-controller="MainCtrl2 as ctrl">
+        <h1>{{ ctrl.name }}</h1>
+    </div>
+    
+    <script type="text/javascript">
+        angular.module('myApp', [])
+           .controller('MainCtrl', ['$scope', function ($scope) {
+                $scope.name = '$scope小雪';
+                
+                // 这里的 this 就是当前控制器对象，也就是 view 上的别名“ctrl”,
+                // ctrl 就是当前控制器实例也就是 this。
+//              this.name = '控制器的小雪';
+                // 以后不要直接使用 this
+                var self = this;
+                self.name = '控制器的小雪';
+                self.fn = function () {
+                    console.log(self.name);
+                }
+           }])
+           .controller('MainCtrl2', [function () {
+                var self = this;
+                self.name = '控制器2的小雪';
+           }])
+    </script>
+</body>
+</html>

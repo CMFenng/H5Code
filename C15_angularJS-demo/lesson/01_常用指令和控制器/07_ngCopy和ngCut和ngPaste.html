@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../lib/angular.min.js"></script>
+</head>
+<body>
+    <!-- ng-copy 指令：是当复制 h1 内容的时候，会触发 ng-copy 指令对应的功能 -->
+    <!-- 注意：这里不能直接写 copyCount++ -->
+    <h1 ng-init="copyCount = 0" ng-copy="copyCount = copyCount + 1">copy me!</h1>
+    <h1>被copy的次数为：{{ copyCount }}</h1>
+    
+    <!-- ng-cut 指令：是当剪切 input 内容的时候，会触发 ng-cut 指令对应的功能 -->
+    <input type="text" ng-init="cutCount = 0"
+        ng-cut="cutCount = cutCount + 1" value="cut me!" />
+    <h1>被剪切的次数为：{{ cutCount }}</h1>
+    
+    <!-- ng-paste 指令：是当粘贴 input 内容的时候，会触发 ng-paste 指令对应的功能 -->
+    <input type="text" ng-init="pasteCount = 0"
+        ng-paste="pasteCount = pasteCount + 1" value="paste me!" />
+        <h1>被粘贴的次数为：{{ pasteCount }}</h1>
+</body>
+</html>
