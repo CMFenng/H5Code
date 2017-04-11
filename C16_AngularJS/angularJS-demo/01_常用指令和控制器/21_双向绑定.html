@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		
+		<div ng-controller="MainCtrl">
+			当前控制器：
+				<input type="text" ng-model="ctrlContent" /><br />
+			自定义指令：
+				<!-- 当使用 @ 的时候，这里需要加入{{ }}-->
+				<!--<xiao-xue content="{{ ctrlContent }}"></xiao-xue>-->
+				<!-- 当使用 = 的时候，不需要加入{{ }} -->
+				<xiao-xue content="ctrlContent"></xiao-xue>
+		</div>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', ['$scope', function ($scope) {
+					//初始化
+					$scope.ctrlContent = '大家好，我叫小雪';
+				}])
+				.directive('xiaoXue', [function () {
+					return {
+						restrict : 'E',
+						replace : true,
+						scope : {
+//							content : '@'
+							//双向绑定
+							content : '='
+						},
+						template : '<input type="text" ng-model="content" />'
+					}
+				}])
+			
+		</script>
+	</body>
+</html>

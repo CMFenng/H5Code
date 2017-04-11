@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.class1{
+				color: red;
+			}
+			
+			.class2{
+				color: blue;
+			}
+			
+		</style>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+		
+		<h1>普通数组</h1>
+		<ul>
+			<!-- ng-repeat指令：用来循环解析某个数据结构，并且能够循环创建当前元素
+				其语法：for..of的功能，for..in的写法
+			-->
+			<!-- item是数组中的每一项元素，ctrl.nameArr就是遍历的数组 -->
+			<!-- 如果数组中有重复元素会报错，需要加入track by $index即可 -->
+			<li ng-class="{ true : 'class1', false : 'class2' }[$middle]" 
+				ng-repeat="item in ctrl.nameArr track by $index">
+				序号：{{ $index + 1 }} 姓名：{{ item }}
+			</li>
+		</ul>
+		
+		<h1>遍历对象</h1>
+		<ul>
+			<!-- 遍历对象，对象有多少个属性，就会生成多少个li
+				key是属性名，value是属性值
+			-->
+			<li ng-repeat="(key, value) in ctrl.person">
+				{{ key }} : {{ value }}
+			</li>
+		</ul>
+		
+		<h1>遍历数组嵌套对象</h1>
+		<ul>
+			<li ng-repeat="item in ctrl.personArr">
+				<!-- 写法一：（以后会经常写的写法） -->
+				<!--<span>姓名：{{ item.name }}</span>
+				<span>年龄：{{ item.age }}</span>-->
+				
+				<!-- 写法二：(需要全部显示属性的写法) -->
+				<span ng-repeat="(key, value) in item">
+					{{ value }}
+				</span>
+			</li>
+		</ul>
+		
+		<h1>跨元素的遍历</h1>
+		<table border="1" cellspacing="0" cellpadding="0">
+			<tr ng-repeat-start="item in ctrl.movies">
+				<td>{{ item.title }}</td>
+			</tr>
+			<!--<tr>
+				<td>乱七八糟的东西。。。</td>
+			</tr>-->
+			<tr ng-repeat-end>
+				<td>{{ item.label }}</td>
+			</tr>
+		</table>
+		
+			
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', [function () {
+					var self = this;
+					
+					//普通数组
+					self.nameArr = ['达康书记', '达康书记', '育良书记', '陈海局长', '瑞金书记'];
+					
+					//对象
+					self.person = {
+						name : '小雪',
+						age : 18
+					}
+					
+					//数组套对象
+					self.personArr = [
+						{ name : '凤九', age : 18 },
+						{ name : '浅浅', age : 20 },
+						{ name : '墨渊', age : 21 },
+						{ name : '东华', age : 23 }
+					]
+					
+					//跨元素数组
+					self.movies = [
+						{ label : '速度与激情8', title : 'NO.1' },
+						{ label : '金刚：骷髅头', title : 'NO.2' },
+						{ label : '生化危机6：终章', title : 'NO.3' },
+						{ label : '电锯惊魂8', title : 'NO.4' }
+					]
+					
+				}])
+			
+		</script>
+	</body>
+</html>

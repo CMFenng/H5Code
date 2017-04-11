@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.class1{
+				display: block;
+				height: 50px;
+				background-color: deeppink;
+				color: white;
+				line-height: 50px;
+				margin-top: 5px;
+			}
+			
+			.class2{
+				background-color: blue;
+			}
+			
+		</style>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		
+		<hero class="class1" speed>恶魔猎手(DH) -- 敏捷</hero>
+		<hero class="class1" speed strength>剑圣(BM) -- 敏捷 + 力量</hero>
+		<hero class="class1" speed strength clever>死亡骑士(DK) -- 敏捷 + 力量 + 智力</hero>
+		
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.directive('hero', [function () {
+					return {
+						restrict : 'E',
+						//作用域独立（下个demo会演示一下）
+						scope : {
+							
+						},
+						/*
+						 * 这个controller不是我们提及的MVC里的controller，
+						 * 这个是指令里特有的一个函数，这个函数的功能是给
+						 * 指令暴露出一些列的方法（公开的方法）给外部进行调用
+						 */
+						controller : function ($scope) {
+							//自定义一个props数组（仅仅是用来测试打印用的）
+							$scope.props = [];
+							//添加速度
+							this.addSpeed = function () {
+								$scope.props.push('speed');								
+							}
+							//添加力量
+							this.addStrength = function () {
+								$scope.props.push('strength');
+							}
+							//添加智力
+							this.addClever = function () {
+								$scope.props.push('clever');
+							}
+						},
+						link : function (scope, element, attrs) {
+							//绑定单击事件
+							element.bind('click', function () {
+								//点击添加样式
+								element.addClass('class2');
+								console.log(scope.props);
+							})
+							
+							//绑定离开事件
+							element.bind('mouseout', function () {
+								//移除样式
+								element.removeClass('class2');
+							})
+						}
+					}
+				}])
+				.directive('speed', [function () {
+					return {
+						restrict : 'A',	
+						//依赖于hero指令
+						require : '^hero',
+						/*
+						 * 第四个参数heroCtrl是根据require : '^hero' 之后才会出现
+						 * 上面相当于依赖hero指令，然后如果使用hero指令内的对外公开的
+						 * 方法的话，就要声明heroCtrl这个形参，heroCtrl会对应
+						 * hero指令中的controller方法（在hero中解释controller）
+						 */
+						link : function (scope, element, attrs, heroCtrl) {
+							//可以调用hero指令中的 公开方法（也就是controller里的方法）
+							heroCtrl.addSpeed();
+						}
+					}
+				}])
+				.directive('strength', [function () {
+					return {
+						restrict : 'A',	
+						require : '^hero',
+						link : function (scope, element, attrs, heroCtrl) {
+							heroCtrl.addStrength();
+						}
+					}
+				}])
+				.directive('clever', [function () {
+					return {
+						restrict : 'A',	
+						require : '^hero',
+						link : function (scope, element, attrs, heroCtrl) {
+							heroCtrl.addClever();
+						}
+					}
+				}])
+				
+		</script>
+	</body>
+</html>

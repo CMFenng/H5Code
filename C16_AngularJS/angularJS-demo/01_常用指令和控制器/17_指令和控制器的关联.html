@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		<div ng-controller="MainCtrl">
+			<!-- 这是一个自定义指令loader -->
+			<loader loadFn="loadData()">点击加载数据</loader>
+		</div>
+		
+		<div ng-controller="MainCtrl2">
+			<loader loadFn="loadData2()">点击加载数据2</loader>
+		</div>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', ['$scope', function ($scope) {
+					$scope.loadData = function () {
+						console.log("下载数据中。。。");
+					}
+				}])
+				.controller('MainCtrl2', ['$scope', function ($scope) {
+					//在控制器2中 下载数据的方法名字 换了
+					$scope.loadData2 = function () {
+						console.log("下载数据中2。。。");
+					}
+				}])
+				.directive('loader', [function () {
+					return {
+						restrict : 'E',
+						/*
+						 * 把要给自定义指令处理的功能和事件响应写在link函数
+						 * 内，link函数处在链接阶段。这个函数有4个参数
+						 * scope：作用域
+						 * element：元素
+						 * attrs：属性
+						 * 第四个这里暂时用不到
+						 */
+						link : function (scope, element, attrs) {
+							//给元素绑定单击事件 (和JQ类似)
+							element.bind('click', function () {
+								//这里可以调用作用域内的方法了
+//								scope.loadData();
+								//还可以使用scope的$apply方法来调用
+//								scope.$apply('loadData()');
+								//可以写成通用，在不同控制器下执行不同的方法名
+								//注意：loadfn要写小写！！！
+								scope.$apply(attrs.loadfn);
+							})
+						}
+					}
+				}])
+				
+		</script>
+	</body>
+</html>

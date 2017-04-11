@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+		
+		<input type="button" value="{{ ctrl.flag }}" 
+			ng-click="ctrl.changeFn();" />
+			
+		<!-- ng-show 和 ng-hide 显示和 隐藏，通过布尔值去处理 -->
+		<h1 ng-show="ctrl.flag">show: {{ ctrl.flag }}</h1>
+		<h1 ng-hide="ctrl.flag">hide: {{ ctrl.flag }}</h1>
+		
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', [function () {
+					var self = this;
+					//初始化flag为true
+					self.flag = true;
+					self.changeFn = function () {
+						self.flag = !self.flag;
+					}
+				}])
+			
+		</script>
+	</body>
+</html>
