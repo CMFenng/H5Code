@@ -12,7 +12,9 @@
     <!-- 属性形式 -->
     <div xiao-xue></div>
     <!-- class 形式 -->
-    <div class="xiao-xue"></div>
+    <div class="xiao-xue">
+        <h1>嵌套的内容<h1>
+    </div>
     <!-- 注释形式 -->
     <!-- 这里注意：使用注释形式的话，注释 -- 和 -- 之间一定要有空格 -->
     <!-- directive:xiao-xue -->
@@ -46,9 +48,12 @@
                     restrict : 'EACM',
                     // 替换，特别是使用注释形式的话，必须要设置这个属性，否则不生效
                     replace : true,
-//                  template : '<div>我叫小雪</div>'
+                    // 支持嵌套的话设置为 true
+                    transclude : true,
+                    // <div ng-transclude></div> 加入这个就可以支持嵌套
+                    template : '<div>我叫小雪<div ng-transclude></div></div>'
                     // 如果内容非常多的话，可以使用 templateUrl
-                    templateUrl : './footer.html'
+//                  templateUrl : './footer.html'
                 }
             }])
     </script>
