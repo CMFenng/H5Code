@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+body{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
 ul,li{
     list-style: none;
 }
@@ -24,4 +32,16 @@ a{
 #tabBar ul{
     display: flex;
     justify-content: space-around;
+}
+
+/* footer 显示时候 切换容器的样式 */
+.class1{
+    background-color: blue;
+    height: calc(100% - 44px);
+}
+
+/* footer 隐藏时候 切换容器的样式 */
+.class2{
+    background-color: yellow;
+    height: 100%;
 }
