@@ -9,7 +9,7 @@
     <h1>搜索用户</h1>
     <input type="text" ng-model="userName" placeholder="搜索用户。。" />
     <ul>
-        <li ng-repeat="item in users | filter : userName">
+        <li ng-repeat="item in users | filter : nn">
             {{ item.username }}
         </li>
     </ul>
@@ -30,6 +30,7 @@
                             }
                             timerId = $timeout(function () {
                                 UserService.getUserList().success(function (resultData) {
+                                    $scope.nn = newUserName;
                                     $scope.users = resultData.users;
                                 });
                             }, 500);

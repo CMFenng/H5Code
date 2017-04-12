@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+#tabBar{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 44px;
+    width: 100%;
+    line-height: 44px;
+    background-color: navajowhite;
+}
+
+#tabBar ul{
+    display: flex;
+    justify-content: space-around;
+}
