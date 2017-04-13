@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		
+		<div ng-controller="MainCtrl">
+			<h1>Tab页面切换，是否能保留每个页面存储的值？</h1>
+			<input type="button" value="First Page" ng-click="changePage('first')" />
+			<input type="button" value="Second Page" ng-click="changePage('second')" />
+			
+			<div ng-switch on="pageName">
+				<div ng-switch-when="first" ng-controller="SubCtrl">
+					<h1>第一个页面</h1>
+					<ul>
+						<li ng-repeat="item in list">
+							{{ item.id }} === {{ item.label }} 
+						</li>
+					</ul>
+					<input type="button" value="First:添加一项" ng-click="addItem();" />
+				</div>	
+				
+				<div ng-switch-when="second" ng-controller="SubCtrl">
+					<h1>第二个页面</h1>		
+					<ul>
+						<li ng-repeat="item in list">
+							{{ item.id }} === {{ item.label }} 
+						</li>
+					</ul>
+					<input type="button" value="Second:添加一项" ng-click="addItem();" />
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', ['$scope', function ($scope) {
+					//初始化pageName为第一页
+					$scope.pageName = 'first';
+					
+					//切换页面的方法
+					$scope.changePage = function (pageName) {
+						$scope.pageName = pageName;
+					}
+					
+				}])
+				.controller('SubCtrl', ['$scope', function ($scope) {
+					console.log("==== ctrl ====");
+					//初始化列表数据
+					$scope.list = [
+						{ id : 1, label : 'Item 1' },
+						{ id : 2, label : 'Item 2' }
+					]
+					
+					//添加数据项的方法
+					$scope.addItem = function () {
+						$scope.list.push({
+							id : $scope.list.length + 1,
+							label : 'Item ' + ($scope.list.length + 1)
+						});
+					}
+					
+				}])
+				
+		</script>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+<div id="home">
+	<h1>{{ pageName }}</h1>
+	<h1>{{ homeCtrl.asPageName }}</h1>
+	
+	<ul>
+		<li ng-repeat="item in userList">
+			<a href="#/userDetail/{{ item.userId }}">姓名：{{ item.userName }}</a> 
+		</li>
+	</ul>
+</div>

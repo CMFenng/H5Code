@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		
+		<!-- ng-view：做单页应用进行切换的容器指令 -->
+		<div ng-view ng-class="{ true : 'class1', false : 'class2'}[rootIsShowFooter]">
+			
+		</div>
+		
+		<!-- rootIsShowFooter 这个是一个全局作用域下的变量
+			用来控制是否显示footer
+		-->
+		<footer id="tabBar" ng-show="rootIsShowFooter">
+			<ul>
+				<li><a href="#/home">首页</a></li>
+				<!-- 传参 -->
+				<li><a href="#/market/小雪/18">闪送超市</a></li>
+				<li><a href="#/cart">购物车</a></li>
+				<li><a href="#/mine">我的</a></li>
+			</ul>	
+		</footer>
+		<!-- 要注意导入顺序 -->
+		<script type="text/javascript" src="../lib/angular-css.js" ></script>
+		<script type="text/javascript" src="../lib/angular-route.js" ></script>
+		<!-- 导入主入口文件 -->
+		<script type="text/javascript" src="app.js" ></script>
+		<!-- 注意这里服务文件要放在控制器文件之前 -->
+		<script type="text/javascript" src="js/services.js" ></script>
+		<!-- 导入控制器文件 -->
+		<script type="text/javascript" src="js/controllers.js" ></script>
+		
+		
+		
+	</body>
+</html>

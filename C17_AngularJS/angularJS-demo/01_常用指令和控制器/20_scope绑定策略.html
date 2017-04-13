@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		
+		<div ng-controller="MainCtrl">
+			<xiao-xue content="{{ ctrlContent }}"></xiao-xue>	
+		</div>
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', ['$scope', function ($scope) {
+					//初始化一个$scope下的变量
+					$scope.ctrlContent = '大家好，我叫小雪';
+				}])
+				.directive('xiaoXue', [function () {
+					return {
+						restrict : 'E',
+						replace : true,
+						scope : {
+							/*
+							 * 这里会自动把作用域上的ctrlContent赋值给
+							 * 该指令的content属性中
+							 */
+							content : '@'
+						},
+						template : '<div>{{ content }}</div>'
+					}
+				}])
+			
+		</script>
+	</body>
+</html>

@@ -31,9 +31,12 @@
                             timerId = $timeout(function () {
                                 UserService.getUserList().success(function (resultData) {
                                     $scope.nn = newUserName;
+                                    console.log($scope.nn);
                                     $scope.users = resultData.users;
                                 });
                             }, 500);
+                        } else {
+                            $scope.nn = '';
                         }
                     })
             }])

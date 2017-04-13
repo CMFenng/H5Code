@@ -1,0 +1,26 @@
+<div id="mine">
+	<h1>{{ pageName }}</h1>
+	
+	<!-- 
+		ui-sref: 通过它来找到二级路由对应的状态，通过app.js中的路由配置后
+		会自动找到它属于哪个父路由下的二级路由
+	-->
+	<input type="button" value="mineSubPage01" ui-sref=".mineSubPage01" />
+	<input type="button" value="mineSubPage02" ui-sref=".mineSubPage02" />
+	<input type="button" value="mineSubPage03" ui-sref=".mineSubPage03" />
+	
+	<!-- 
+		这个div就是二级路由要切换的容器之一。。路由那里会通过容器的名字
+		配置相应二级路由所切换的容器
+	-->
+	<div class="content1" ui-view="upView" >
+		
+	</div>
+	
+	<!-- 另外一个切换容器 -->
+	<div class="content2" ui-view="downView">
+		
+	</div>
+	
+	
+</div>

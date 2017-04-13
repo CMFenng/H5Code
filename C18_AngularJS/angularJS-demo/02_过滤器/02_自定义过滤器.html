@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+		
+		<h1>使用自定义过滤器（字符串中过滤掉数字）</h1>
+		<h2>{{ ctrl.str | filterNum | uppercase }}</h2>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', [function () {
+					var self = this;
+					self.str = 'abc345 *2jb';
+				}])
+				//创建自定义过滤器
+				//功能描述：过滤掉字符串中的数字。
+				//filterNum 表示过滤器的名字
+				.filter('filterNum', [function () {
+					//语法，先返回一个函数, 这个函数才是真正处理过滤数字的逻辑
+					return function (str) {
+						//形参str是要过滤的字符串（就是view上的某个字符串）
+						//例如：'abc34bd4' | filterNum 
+						// 那么 形参str 就是 'abc34bd4' 就会自动调用到这个方法里
+						//这个方法 要返回 处理后的结果
+						return str.replace(/([0-9])/g, '');
+					}
+				}])
+				
+				
+		</script>
+	</body>
+</html>

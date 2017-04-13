@@ -1,0 +1,46 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+}
+
+ul,li{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+#tabBar{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 44px;
+	width: 100%;
+	line-height: 44px;
+	background-color: navajowhite;
+}
+
+#tabBar ul{
+	display: flex;
+	justify-content: space-around;
+}
+
+/* footer显示时候 切换容器的样式 */
+.class1{
+	background-color: blue;
+	height: calc(100% - 44px);
+}
+
+/* footer隐藏时候 切换容器的样式 */
+.class2{
+	background-color: yellow;
+	height: 100%;
+}

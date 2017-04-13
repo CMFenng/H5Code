@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		<div ng-controller="Ctrl1">
+			<h1>{{ name }}</h1>
+			<input type="text" ng-model="name" ng-keypress="fn();" />
+			<h1>{{ globalName }}</h1>
+		</div>
+		
+		<div ng-controller="Ctrl2">
+			<h1>{{ name }}</h1>
+			<input type="text" ng-model="name" />
+			<h1>{{ person.userName }}</h1>
+			<input type="text" ng-model="person.userName" />
+			<h1>{{ globalName }}</h1>
+		</div>
+		
+		
+		<script type="text/javascript">
+			function fn () {
+				console.log("===");
+			}
+			
+			angular.module('myApp', [])
+				//$scope是angularJS一个内置服务，这个服务可以在当前作用域（控制器）下
+				//存储内容。想要在控制器里使用它，必须要“依赖注入”方可使用。
+				//“依赖注入”明天讲服务的时候详细说下。。
+				.controller('Ctrl1', ['$scope', '$rootScope', function ($scope, $rootScope) {
+					console.log($scope);
+					//在当前控制器的作用域下绑定一个变量叫做name
+					//这个name就会和view上该作用域下的name进行双向关联
+					$scope.name = '小雪';
+					
+					//使用$scope作用域绑定用户事件响应的函数
+					$scope.fn = function () {
+						console.log($scope.name);
+					}
+					
+					//$rootScope是全局作用域，在任何控制器下都可以访问到
+					$rootScope.globalName = '全局小雪';
+				}])
+				.controller('Ctrl2', ['$scope', function ($scope) {
+					$scope.name = '小红';
+					
+					$scope.person = {
+						userName : '小黑'
+					}
+				}])
+				
+		</script>
+	</body>
+</html>

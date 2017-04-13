@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+		
+		<!-- 注意：所有过滤器只是把显示结果改变了。原生数据并不会发生改变 -->
+		
+		<h1>货币格式化处理</h1>
+		<!-- currency过滤后默认是美元 -->
+		<h2>{{ ctrl.money | currency }}</h2>
+		<!-- 可以自定义显示币种 -->
+		<h2>{{ ctrl.money | currency : 'RMB￥' }}</h2>
+		
+		<h1>字母大小写格式处理</h1>
+		<h2>{{ ctrl.str | uppercase }}</h2>
+		<h2>{{ ctrl.str2 | lowercase }}</h2>
+		
+		<h1>显示长度格式处理</h1>
+		<!-- limitTo处理一样也是可以处理汉字字符串
+			可以同时使用多个过滤器 -->
+		<h2>{{ ctrl.str | limitTo : 3 | uppercase }}</h2>
+		<h2>{{ (ctrl.arr | limitTo : 2)[1] }}</h2>
+		
+		<h1>数字千分位处理</h1>
+		<h2>{{ ctrl.money | number }}</h2>
+		<!-- 还可以保留小数点2位 -->
+		<h2>{{ ctrl.money | number : 2 }}</h2>
+		<!-- 四舍五入 -->
+		<h2>{{ 1234567.896 | number : 2 }}</h2>
+		
+		<h1>日期格式化处理</h1>
+		<h2>{{ ctrl.date | date : 'yyyy-MM-dd hh:mm:ss EEEE' }}</h2>
+		
+		<h1>JSON格式处理</h1>
+		<h2>{{ ctrl.personArr | json }}</h2>
+		
+		<h1>数组内没对象的排序</h1>
+		<!-- 默认是升序排序 -->
+		<h2>{{ ctrl.arr | orderBy }}</h2>
+		<!-- 降序需要添加 order : true -->
+		<h2>{{ ctrl.arr | orderBy : order : true | limitTo : 2}}</h2>
+		<!-- 配合ng-repeat使用排序 -->
+		<ul>
+			<li ng-repeat="item in ctrl.arr | orderBy : order : true | limitTo : 2">
+				{{ $index }} --- {{ item }}
+			</li>
+		</ul>
+		
+		<h1>数组内有对象排序（是按照对象的某个属性去排序，这样比较合理）</h1>
+		<ul>
+			<!-- 按照对象属性排序的话，降序不需要加
+				order : true 而是 属性名 : true
+				 -->
+			<li ng-repeat="item in ctrl.personArr | orderBy : 'age' : true">
+				名字：{{ item.name }} 年龄：{{ item.age }}
+			</li>
+		</ul>
+		
+		<h1>按照条件过滤、排序小功能</h1>
+		过滤条件：<input type="text" ng-model="ctrl.queryFilter" />
+		排序条件：
+			<select ng-model="ctrl.orderStr">
+				<option value="name">按照名字排序</option>
+				<option value="age">按照年龄排序</option>
+			</select>
+		<br />
+		数据展示：
+		<ul>
+			<!-- filter过滤器可以通过后面的条件进行模糊查询（模糊过滤）
+				模糊查询：例如查询 c， 会把包含 c的值 找到
+				精确查询：例如查询 c， 只是把 完全等于 c的值 找到
+			-->
+			<li ng-repeat="item in ctrl.personArr | filter : ctrl.queryFilter 
+				 | orderBy : ctrl.orderStr : true">
+				 姓名: {{ item.name }} 年龄: {{ item.age }}
+			</li>
+		</ul>
+		
+		
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', [function () {
+					var self = this;
+					
+					self.money = 1234567;
+					
+					self.str = 'abcde';
+					
+					self.name = '你们好，哈哈';
+					
+					self.str2 = 'ABCDE';
+					
+					self.arr = [33, 22, 44, 11];
+					
+					self.date = new Date().getTime();
+					
+					self.personArr = [
+						{ name : 'b', age : 18 },
+						{ name : 'ab', age : 15 },
+						{ name : 'bb', age : 20 },
+						{ name : 'a', age : 21 },
+						{ name : 'ac', age : 22 },
+						{ name : 'bc', age : 17 },
+						{ name : 'c', age : 25 }
+					]
+					
+				}])
+				
+		</script>
+	</body>
+</html>

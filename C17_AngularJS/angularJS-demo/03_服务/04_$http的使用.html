@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body ng-controller="MainCtrl">
+		<h1>搜索用户</h1>
+		<input type="text" ng-model="userName" placeholder="搜索用户。。" />
+		<ul>
+			<li ng-repeat="item in users | filter : nn">
+				{{ item.username }}
+			</li>
+		</ul>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', ['$scope', '$timeout', 'UserService',
+					function ($scope, $timeout, UserService) {
+						var timerId;
+						//这个可以监听$scope下的userName值的变化，当值发生变化
+						//的时候，就会监听到，然后处理相应的逻辑。。。
+						$scope.$watch('userName', function (newUserName) {
+							console.log(newUserName);
+							if (newUserName) {
+								console.log(newUserName);
+								if (timerId) {
+									//每次先清空定时器
+									$timeout.cancel(timerId);
+								}
+								timerId = $timeout(function () {
+									UserService.getUserList().success(function (resultData) {
+										$scope.nn = newUserName;
+										console.log($scope.nn);
+										$scope.users = resultData.users;
+									})
+								}, 500);
+							} else {
+//								timerId = $timeout(function () {
+									$scope.nn = '';	
+//								}, 500);
+							}
+						})
+				}])
+				//自定义服务用到了内置服务$http，通过依赖注入使用
+				.factory('UserService', ['$http', function ($http) {
+					return {
+						getUserList : function () {
+							return $http.get('jsonUserList.json');
+						}
+					}
+				}])
+		</script>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		<div ng-init="arr = [12, 33]">
+			<h1>{{ arr }}</h1>
+		</div>
+		<!-- ng-list指令：输入的时候会变成数组，默认情况下
+			使用逗号',' 进行数组元素的分割。
+			如果想自定义元素分割，就给ng-list赋相应的值即可。
+		-->
+		<input type="text" ng-model="msg" ng-list="-" />
+		<h1>{{ msg }}</h1>
+	</body>
+</html>

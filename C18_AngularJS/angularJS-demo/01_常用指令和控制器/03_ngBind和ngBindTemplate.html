@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		<div ng-init="name = '小雪'; age = 18">
+			<h1>{{ name }}</h1>
+			<!-- {{ }}表达式：底层的实现就是ng-bind指令，{{}}使用的时候要注意
+				angularJS的引入顺序，否则会出现闪现效果。用ng-bind就不会有这种
+				效果。
+			-->
+			<h1 ng-bind="name"></h1>
+			<h1>{{ name + ' and ' + age }}</h1>
+			<h1>{{ name }} and {{ age }}</h1>
+			
+			<h1 ng-bind="name + ' and ' + age"></h1>
+			
+			<h1 ng-bind-template="{{ name + ' and ' + age }}"></h1>
+			<h1 ng-bind-template="{{ name }} and {{ age }}"></h1>
+			
+		</div>
+	</body>
+</html>

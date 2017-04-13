@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		
+		<!-- 标签形式 -->
+		<xiao-xue></xiao-xue>
+		<!-- 属性形式 -->
+		<div xiao-xue></div>
+		<!-- class形式 -->
+		<div class="xiao-xue"></div>
+		<!-- 注释形式 -->
+		<!-- 这里注意：使用注释形式的话，注释-- 和 -- 之间一定要有空格 -->
+		<!-- directive:xiao-xue -->
+		
+		<xiao-xue>
+			<h1>嵌套的内容！！</h1>
+		</xiao-xue>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+			//自定义指令
+			/*
+			 * 注意：有关于自定义指令名字的用法
+			 * 1、如果指令的名字完全都是小写字母的话，那么使用的时候
+			 * 例如：xiaoxue 对应 <xiaoxue></xiaoxue>
+			 * 2、如果指令的名字是用驼峰式的话，那么使用的时候
+			 * 例如：xiaoXue 对应 <xiao-xue></xiao-xue> 或 <xiao-Xue></xiao-Xue>
+			 */
+			//xiaoxue 是 指令的名字
+				.directive('xiaoXue', [function () {
+					return {
+						/*
+						 * restrict属性，使用来设置指令用哪种形式去展示
+						 * 默认支持标签形式和属性形式
+						 * 每种形式对应的标识为
+						 * 标签（元素）：E
+						 * 属性：A
+						 * class：C
+						 * 注释：M
+						 * 
+						 * 总结：平时使用比较多的是元素和属性这两种形式
+						 * 当要创建带有自己的模板（template）的时候，使用元素形式
+						 * 当要给已存在的html元素添加额外功能时候，使用属性形式
+						 */
+						restrict : 'EACM',
+						//替换，特别是使用注释形式的话，必须要设置这个属性，否则
+						//不生效
+						replace : true,
+						//支持嵌套的话设置为true
+						transclude : true,
+						//<div ng-transclude></div> 加入这个就可以支持嵌套
+						template : '<div>我叫小雪<div ng-transclude></div><div>',
+						//如果内容非常多的话，可以使用templateUrl
+//						templateUrl : './footer.html'
+					}
+				}])
+				
+		</script>
+	</body>
+</html>

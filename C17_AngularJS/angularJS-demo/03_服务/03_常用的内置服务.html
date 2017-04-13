@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body ng-controller="MainCtrl">
+		
+		<h1>{{ str }}</h1>
+		<h1>{{ count }}</h1>
+		
+		<ul>
+			<li ng-repeat="item in list">
+				{{ item.activity.name }}
+			</li>
+		</ul>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', ['$scope', '$timeout', '$interval', '$location', '$http',
+					function ($scope, $timeout, $interval, $location, $http) {
+	//					setTimeout(function () {
+	//						$scope.str = '达康';
+	//						console.log($scope.str);
+	//					}, 2000)
+	//					内置的$timeout可以实现原生timeout的效果，并且可以实现数据绑定
+						$timeout(function () {
+							$scope.str = '达康';
+						}, 2000);
+						
+						//初始化count为0
+						$scope.count = 0;
+						var timerId = $interval(function () {
+							$scope.count++;
+							if ($scope.count == 5) {
+								//清空定时器
+								$interval.cancel(timerId);
+							}
+						}, 1000);
+						
+						console.log($location);
+						
+						//使用$http服务可以进行网络请求
+						$http.get('http://h5.yztctech.net/api/axf/apihome.php')
+							.success(function (resultData) {
+								console.log(resultData);
+								$scope.list = resultData.data.menu;
+							})
+							.error(function (error) {
+								console.log(error);
+							})
+							
+				}])
+		</script>
+	</body>
+</html>

@@ -1,0 +1,17 @@
+#home h1{
+	color: red;
+}
+
+#home li{
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	background-color: orange;
+	font-size: 30px;
+	color: white;
+	margin-top: 10px;
+}
+
+#home li:nth-of-type(2n){
+	background-color: red;
+}

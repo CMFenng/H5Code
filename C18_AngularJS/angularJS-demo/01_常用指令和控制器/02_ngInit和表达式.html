@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		<!-- 
+			ng-init指令：用来声明"全局变量"（angularJS中的），是以
+			键值对的形式声明的，如果声明多个变量，变量之间用分号';'
+			隔开。
+		-->
+		<div ng-init="name = '小雪'; person = { name : '小黑', age : 18}; 
+			arr = [20, 10] ">
+			<h1>{{ name }}</h1>
+			<!-- 表达式可以访问对象的属性 -->
+			<h1>{{ person.name }}</h1>
+			<!-- 表达式可以通过下标访问数组的元素，还可以进行基本的运算 -->
+			<h1>{{ person.age + arr[1] }}</h1>
+			<!-- 表达式可以使用某些JS原生方法 -->
+			<h1>{{ arr.join('==') }}</h1>
+			<h1>{{ 'abc'.toUpperCase() }}</h1>
+			
+			<div ng-init="name = '小红'">
+				<!-- 
+					AngularJS这里和原生JS有所不同，最后一次修改ng-init中的变量
+					的话，会把页面中所有用到该变量的值进行改变。angularJS会检查
+					页面所有操作后，在进行页面的渲染。
+				-->
+				<h1>{{ name }}</h1>
+			</div>
+		</div>
+		
+		<div>
+			<h1>{{ name }}</h1>
+			<input type="text" ng-model="name" />
+			<h1>{{ name }}</h1>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- 这个myApp就是程序入口模块的名字，这里定义了，下面一定要把它创建出来，
+	否则会报错。
+-->
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<!-- 
+		ng-controller指令：声明该控制器所管理的范围，这个控制器的名字叫做MainCtrl
+		注意：这里和ng-app一样，这里的名字，需要在下面进行创建声明才可以使用，否则
+		会报错。
+	-->
+	<body ng-controller="MainCtrl">
+		<script type="text/javascript">
+			//创建myApp主入口实例
+			//myApp要和上面ng-app的值相等，[]是依赖的其他模块。这里暂时没有其他依赖
+//			var app = angular.module('myApp', []);
+//			console.log(app);
+			
+			//上面使用ng-controller指令指定控制器的管理范围后，需要在这里进行创建
+			//MainCtrl和ng-controller的值相同，function是控制器要处理的逻辑
+//			app.controller('MainCtrl', function () {
+//				console.log("我是控制器--达康书记");
+//			})
+
+			//我们以后写代码不要写以上那种方式，要写这种方式
+			//这种形式，将来进行代码压缩的话，不会出问题，上面那种有可能会出问题
+//			app.controller('MainCtrl', [function () {
+//				console.log("我是控制器--育良书记");	
+//			}]);
+
+			//将来我们更常用的是使用链式语法进行创建，因为将来还会创建
+			//其他控制器、服务、过滤器等操作。
+			angular.module('myApp', [])
+				.controller('MainCtrl', [function () {
+					console.log("我是控制器--亮平局长");
+				}])
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

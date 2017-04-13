@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		
+		<div ng-controller="MainCtrl">
+			<h1>Tab页面切换，是否能保留每个页面存储的值？</h1>
+			<input type="button" value="First Page" ng-click="changePage('first')" />
+			<input type="button" value="Second Page" ng-click="changePage('second')" />
+			
+			<div ng-switch on="pageName">
+				<div ng-switch-when="first" ng-controller="SubCtrl">
+					<h1>第一个页面</h1>
+					<ul>
+						<li ng-repeat="item in list">
+							{{ item.id }} === {{ item.label }} 
+						</li>
+					</ul>
+					<input type="button" value="First:添加一项" ng-click="addItem();" />
+				</div>	
+				
+				<div ng-switch-when="second" ng-controller="SubCtrl">
+					<h1>第二个页面</h1>		
+					<ul>
+						<li ng-repeat="item in list">
+							{{ item.id }} === {{ item.label }} 
+						</li>
+					</ul>
+					<input type="button" value="Second:添加一项" ng-click="addItem();" />
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', ['$scope', function ($scope) {
+					//初始化pageName为第一页
+					$scope.pageName = 'first';
+					
+					//切换页面的方法
+					$scope.changePage = function (pageName) {
+						$scope.pageName = pageName;
+					}
+					
+				}])
+				//创建自定义服务
+				//ItemService 是服务的名字，切忌自定义服务前面不要加$
+				//以免和内置服务冲突。
+				//注意：在服务中永远不可能去操作view！！操作view的工作交给控制器
+				.factory('ItemService', [function () {
+					console.log("=== service ===");
+					//数据放在这里，可以达到应用级别存储（数据共享）！！
+					var list = [
+						{ id : 1, label : 'Item 1' },
+						{ id : 2, label : 'Item 2' }
+					]
+					return {
+						//对外提供一个获取数据列表的功能
+						getList : function () {
+							return list;
+						},
+						//对外提供添加数据项的功能
+						addItem : function (item) {
+							list.push(item);
+						}
+					}
+				}])
+				/*
+				 * 这个控制器用到了ItemService这个自定义服务，那么我们可以
+				 * 把ItemService定义成为一种依赖，注入到该控制器中
+				 * 注意：我们一般把自定义服务放到依赖列表的最后面（也就是内置服务
+				 * 的后面）
+				 */
+				.controller('SubCtrl', ['$scope', 'ItemService',
+					function ($scope, ItemService) {
+						console.log("==== ctrl ====");
+						//初始化列表数据(从服务中获取的数据)
+						$scope.list = ItemService.getList();
+						
+						//添加数据项的方法
+						$scope.addItem = function () {
+							//调用服务中的添加数据项接口
+							ItemService.addItem({
+								id : $scope.list.length + 1,
+								label : 'Item ' + ($scope.list.length + 1)
+							});
+						}
+				}])
+				
+		</script>
+	</body>
+</html>

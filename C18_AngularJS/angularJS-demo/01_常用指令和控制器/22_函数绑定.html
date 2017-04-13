@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body>
+		<div ng-controller="MainCtrl">
+			<xiao-xue say="sayHello(name)"></xiao-xue>
+			<xiao-xue say="sayHello(name)"></xiao-xue>
+			<xiao-xue say="sayHello(name)"></xiao-xue>
+		</div>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', ['$scope', function ($scope) {
+					$scope.sayHello = function (name) {
+						console.log(name);
+					}
+				}])
+				.directive('xiaoXue', [function () {
+					return {
+						restrict : 'E',
+						scope : {
+							// 这样就可以调用到作用域下的函数
+							say : '&'	
+						},
+						/*
+						 * say()方法关联的就是作用域下的sayHello方法，
+						 * sayHello方法需要一个参数，我们在调用say方法传参的时候，
+						 * 要传入一个对象，sayHello需要的形参就是这个对象的某个属性
+						 */
+						template : '<input type="text" ng-model="userName" />' +
+							'<input type="button" value="sayBtn" ng-click="say({name : userName})" />'
+					}
+				}])
+				
+		</script>
+	</body>
+</html>

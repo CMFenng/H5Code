@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.class1{
+				color: red;
+			}
+			
+			.class2{
+				color: blue;
+			}
+			
+			.class3{
+				color: green;
+			}
+			
+		</style>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+		
+		<input type="button" value="切换样式" ng-click="ctrl.flag = !ctrl.flag" />
+		<!-- 当ctrl.flag为tru的时候样式为class1的样式，否则为class2的样式 -->
+		<h1 ng-class="{ true : 'class1', false : 'class2' }[ctrl.flag]">
+			{{ ctrl.flag }}
+		</h1>
+		
+		<input type="button" value="红色" ng-click="ctrl.changeColor('class1');" />
+		<input type="button" value="蓝色" ng-click="ctrl.changeColor('class2');" />
+		<input type="button" value="绿色" ng-click="ctrl.changeColor('class3');" />
+		<h1 ng-class="ctrl.color">我是什么颜色啊！</h1>
+		
+		<h1 ng-style="ctrl.styleObj">ngStyle。。。</h1>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', [function () {
+					var self = this;
+					//初始化为true
+					self.flag = true;
+					
+					self.changeColor = function (colorValue) {
+						self.color = colorValue;
+					}
+					
+					//这个对象里的属性就是样式属性
+					self.styleObj = {
+						fontSize : '50px',
+						color : 'pink'
+					}
+				}])
+			
+		</script>
+	</body>
+</html>

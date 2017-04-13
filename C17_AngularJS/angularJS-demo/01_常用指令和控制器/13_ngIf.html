@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../lib/angular.min.js" ></script>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+		<input type="button" value="切换页面" ng-click="ctrl.flag = !ctrl.flag"/>
+		<h1 ng-if="ctrl.flag">page1: {{ ctrl.flag }}</h1>
+		<h1 ng-if="!ctrl.flag">page2: {{ ctrl.flag }}</h1>
+		
+		<script type="text/javascript">
+			angular.module('myApp', [])
+				.controller('MainCtrl', [function () {
+					var self = this;
+					//初始化true
+					self.flag = true;
+				}])
+		</script>
+	</body>
+</html>
