@@ -1,0 +1,23 @@
+#mine h1{
+    color: deeppink;
+}
+
+#mine input{
+    width: 100px;
+    height: 50px;
+    color: white;
+    background-color: saddlebrown;
+    /*font-size: 20px;*/
+}
+
+#mine .content1{
+    width: 100%;
+    height: 200px;
+    background-color: deepskyblue;
+}
+
+#mine .content2{
+    width: 100%;
+    height: 200px;
+    background-color: springgreen;
+}
