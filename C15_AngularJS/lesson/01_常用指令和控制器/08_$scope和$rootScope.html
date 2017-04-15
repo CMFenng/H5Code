@@ -32,7 +32,7 @@
             // 存储内容。想要在控制器里使用它，必须要“依赖注入”方可使用。
             // “依赖注入”明天讲服务的时候详细说下。。
             .controller('Ctrl1', ['$scope', '$rootScope', function ($scope, $rootScope) {
-                console.log($scope); // 报错：$scope is not defined
+                console.log($scope); // 如果没依赖，报错：$scope is not defined
                 // 在当前控制器的作用域下绑定一个变量叫做 name
                 // 这个 name 就会和 view 上该作用域下的 name 进行双向关联
                 $scope.name = '小雪';

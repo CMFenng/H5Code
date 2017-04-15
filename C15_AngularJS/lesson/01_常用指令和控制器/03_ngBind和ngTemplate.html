@@ -18,6 +18,7 @@
         
         <h1 ng-bind="name + ' and ' + age"></h1>
         
+        <!-- 和 ng-bind 功能相似，但可以支持多个 {{}} 块 -->
         <h1 ng-bind-template="{{ name + ' and ' + age }}"></h1>
         <h1 ng-bind-template="{{ name }} and {{ age }}"></h1>
     </div>
