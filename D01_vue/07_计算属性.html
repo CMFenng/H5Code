@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 将字符串切割为数组，翻转，再转化为字符串 -->
+        <!--{{ msg.split("").reverse().join("") }}-->
+        {{ reverseMsg() }}
+        {{ reverseMsg }}
+    </div>
+</body>
+<script type="text/javascript">    
+    var vm = new Vue({
+        el : '#app',
+        data : {
+            msg : "hello vue!"
+        },
+        methods : {
+            reverseMsg : function () {
+                return this.msg.split("").reverse().join("");
+            }
+        },
+        computed : {
+            // 1. 计算属性相比方法的性能更好
+            // 2. 计算属性如果所依赖的属性没有发生变化，调用的都是返回的结果
+//          reverseMsg : function () {
+//              return this.msg.split("").reverse().join("");
+//          }
+        }
+    });
+</script>
+</html>

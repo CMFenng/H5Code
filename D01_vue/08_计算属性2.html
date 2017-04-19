@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+</body>
+<script type="text/javascript">    
+    var vm = new Vue({
+        el : '#app',
+        data : {
+            msg : "hello vue!"
+        },
+        methods : {
+            getTimeMethod : function () {
+                return this.msg + "," + Date.now();
+            }
+        },
+        computed : {
+            // 计算属性如果所依赖的属性没有发生变化，调用的都是之前返回的结果
+            // 可以观察时间的变化
+            getTimeComputed : function () {
+                return this.msg + "," + Date.now();
+            }
+        }
+    });
+</script>
+</html>
