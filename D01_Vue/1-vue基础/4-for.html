@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<style type="text/css">
+	.fade-enter-active, .fade-leave-active {
+	  transition: opacity .5s
+	}
+	.fade-enter, .fade-leave-active {
+	  opacity: 0
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="show=!show">切换显示隐藏</button>
+		<transition name="fade">
+			<p v-if="show" v-bind:title="msg">我是一个p标签</p>
+		</transition>
+		<ul>
+			<li v-for="todo in todos">
+				{{todo}}
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			msg:"hello Vue!!",
+			show:true,
+			todos:[
+				"学习vue",
+				"打lol",
+				"吃饭睡觉打豆豆"
+			]
+		},
+		methods:{
+			
+		}
+	});
+</script>
+</html>

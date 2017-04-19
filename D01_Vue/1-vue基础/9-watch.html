@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<style type="text/css">
+	.fade-enter-active, .fade-leave-active {
+	  transition: opacity .5s
+	}
+	.fade-enter, .fade-leave-active {
+	  opacity: 0
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div>{{fullName}}</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			firstName:'唐',
+			lastName:'菜也'
+		},
+		methods:{
+			
+		},
+		/*watch:{
+			firstName:function (val,oldVal){
+				this.fullName = val+this.lastName;
+			},
+			lastName:function (val,oldVal){
+				this.fullName = this.firstName+val;
+			}
+		}*/
+		computed:{
+			fullName:function (){
+				return this.firstName+this.lastName;
+			}
+		}
+	});
+</script>
+</html>

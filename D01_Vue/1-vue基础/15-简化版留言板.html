@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+	<div id="app">
+		姓名：<input type="text" v-model="user"><br>
+		内容：<textarea v-model="content"></textarea><br>
+		<button v-on:click="submit">提交</button>
+		<ul>
+			<li v-for="(item,index) in lists">
+				<p>{{item.user}}</p>
+				<p>{{item.content}}<a href="###" v-on:click="del(index)">删除</a></p>
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			user:'',
+			content:'',
+			lists:[]
+		},
+		methods:{
+			submit:function (){
+				var item = {
+					user: this.user,
+					content:this.content
+				}
+				this.lists.push(item);
+				this.user = "";
+				this.content = "";
+			},
+			del:function (index){
+				this.lists.splice(index,1);
+			}
+		}
+	});
+</script>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        代办事项：<input type="text" />
+        <ul>
+            <todo-item v-for="(item,key) in todos"
+                v-bind:todo="item"
+                ></todo-item>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.component("todo-item", {
+        template : `
+            <li>
+                <p>代办事项</p>
+                <a href="###">删除</a>
+            </li>
+        `,
+        prop : ["todo", "index"]
+    });
+    var vm = new Vue({
+        el : '#app',
+        data : {
+            todos : [
+                "买菜",
+                "玩游戏"
+            ]
+        },
+        methods : {
+           
+        },
+        components : {
+            
+        }
+    });
+</script>
+</html>

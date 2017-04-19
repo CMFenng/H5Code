@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+	<div id="app">
+		代办事项：<input type="text" v-on:keydown.enter="add">
+		<ul>
+			<todo-item v-for="(item,key) in todos" v-bind:todo="item" v-bind:index="key" v-on:del="delFn(key)"></todo-item>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	Vue.component("todo-item",{
+		template:`
+			<li>
+				<p>{{todo}}</p>
+				<a href="###" @click="$emit('del')">删除</a>
+			</li>
+		`,
+		props:["todo","index"]
+	});
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			todos:[]
+		},
+		methods:{
+			delFn:function (index){
+				this.todos.splice(index,1);
+			},
+			add:function (e){
+				// console.log(e.target.value);
+				var val = e.target.value;
+				this.todos.push(val);
+			}
+		},
+		components:{
+			
+		}
+	});
+</script>
+</html>

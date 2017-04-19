@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+	<div id="app">
+		<child></child>
+		<child></child>
+		<child></child>
+		<child></child>
+		<child></child>
+		<child></child>
+	</div>
+</body>
+<script type="text/javascript">
+	
+	/*var obj = {
+		count:1
+	}*/
+	var Child = {
+		template:`
+			<button @click="countUp">{{count}}</button>
+		`,
+		data:function (){
+			return {
+				count:1
+			};
+		},
+		methods:{
+			countUp:function (){
+				this.count++;
+			}
+		}
+	}
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			
+		},
+		methods:{
+			
+		},
+		components:{
+			'child':Child
+		}
+	});
+</script>
+</html>

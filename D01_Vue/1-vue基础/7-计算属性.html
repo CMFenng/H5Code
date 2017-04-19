@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<style type="text/css">
+	.fade-enter-active, .fade-leave-active {
+	  transition: opacity .5s
+	}
+	.fade-enter, .fade-leave-active {
+	  opacity: 0
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		{{reverseMsg}}
+	</div>
+</body>
+<script type="text/javascript">
+	
+
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			msg:"hello vue!"
+		},
+		methods:{
+			/*reverseMsg:function (){
+				// console.log()
+				return this.msg.split("").reverse().join("");
+			}*/
+		},
+		computed:{
+			// 1.计算属性相比方法的性能更好
+			// 2.计算属性如果所依赖的属性没有发生变化，调用的都是返回的结果
+			reverseMsg:function (){
+				// console.log()
+				return this.msg.split("").reverse().join("");
+			}
+		}
+	});
+</script>
+</html>

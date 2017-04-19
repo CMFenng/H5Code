@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+	<div id="app">
+		<child></child>
+		<inner></inner>
+	</div>
+</body>
+<script type="text/javascript">
+	var Inner = {
+		template:`<div>
+			我是inner哈哈
+		</div>`
+	}
+	var Child = {
+		template:`<div>
+			
+			我是child子组件
+			<inner></inner>
+		</div>`,
+		components:{
+			inner:Inner
+		}
+	}
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			
+		},
+		methods:{
+			
+		},
+		components:{
+			'child':Child,
+			'inner':Inner
+		}
+	});
+</script>
+</html>

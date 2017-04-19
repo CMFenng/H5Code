@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<style type="text/css">
+	.fade-enter-active, .fade-leave-active {
+	  transition: opacity .5s
+	}
+	.fade-enter, .fade-leave-active {
+	  opacity: 0
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	// 任何组件都是拥有独立作用域
+	Vue.component("todo-item",{
+		template:"<li>{{todo}}</li>",
+		props:["todo"]
+	});
+
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			todos:[
+				"学习vue",
+				"打lol",
+				"吃饭睡觉打豆豆"
+			]
+		},
+		methods:{
+			
+		}
+	});
+</script>
+</html>

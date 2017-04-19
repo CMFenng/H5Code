@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1a2e585-bcbf-4752-8503-8653e1ef7710" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/01_环境搭建.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/02_属性变化.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/03_if.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/04_for.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/05_双向数据绑定.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/06_组件.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/07_计算属性.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/08_计算属性2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/09_watch.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/D01_vue/js/vue.min.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="f1a2e585-bcbf-4752-8503-8653e1ef7710" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -234,15 +222,15 @@
       <workItem from="1491407383949" duration="1244000" />
       <workItem from="1491888273723" duration="4072000" />
       <workItem from="1492569776180" duration="3335000" />
-      <workItem from="1492578593126" duration="1132000" />
+      <workItem from="1492578593126" duration="2328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9783000" />
+    <option name="totallyTimeSpent" value="10979000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

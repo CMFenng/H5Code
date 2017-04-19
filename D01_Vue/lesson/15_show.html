@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- @click 相当于 v-on:click -->
+        <button @click="changeBol">切换</button>
+        <!-- 两者的区别：可以通过查看元素看出 -->
+        <!-- 是否显示 ，是否渲染 -->
+        <div v-if="bol">我是第二个 div</div>
+        <!-- 更改的是样式（display），适用于频繁更改的情况 -->
+        <div v-show="bol">我是第二个 div</div>
+    </div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el : '#app',
+        data : {
+            bol : false
+        },
+        methods : {
+            changeBol() {
+                this.bol = !this.bol;
+            }
+        },
+        computed : {
+            
+        }
+    });
+</script>
+</html>

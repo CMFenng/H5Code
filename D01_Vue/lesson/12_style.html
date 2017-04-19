@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:style="{ color : activeColor, fontSize : size + 'px' }">我是一些内容</div>
+        <!-- font-size 中间有 - ，所以要加 '' -->
+        <div v-bind:style="{ color : activeColor, 'font-size' : size + 'px' }">我是一些内容</div>
+    </div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el : '#app',
+        data : {
+            activeColor : "red",
+            size : 50
+        },
+        methods : {
+            
+        },
+        computed : {
+            
+        }
+    });
+</script>
+</html>

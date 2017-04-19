@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--<div v-if="type=='A'">A</div>-->
+        <!--<div v-else-if="type=='B'">B</div>-->
+        <!--<div v-else-if="type=='C'">C</div>-->
+        <!--<div v-else>我是第二个 div</div>-->
+        
+        <!-- 群组，template 不会被渲染到页面 -->
+        <template v-if="bol">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+        </template>
+        <div>我是第二个 div</div>
+    </div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el : '#app',
+        data : {
+//          type : "B"
+            bol : false
+        },
+        methods : {
+            
+        },
+        computed : {
+            
+        }
+    });
+</script>
+</html>

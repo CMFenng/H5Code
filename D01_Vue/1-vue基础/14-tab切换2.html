@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+	<style type="text/css">
+	#app div{
+		width: 100px;
+		height: 100px;
+		background-color: #ccc;
+		display: none;
+	}
+	#app .active{
+		display: block;
+	}
+	#app .click{
+		background-color: yellow;
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input v-for="(item,index) in arr" type="button" v-bind:class="{click:index==isShow}" v-bind:value="index+1" v-on:click="isShow=index">
+		<div v-for="(item,index) in arr" v-bind:class="{active:index==isShow}">{{item}}</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var vm = new Vue({
+		el:"#app",
+		data:{
+			isShow:2,
+			arr:[
+				"菠菜",
+				"生菜",
+				"娃娃菜"
+			]
+		},
+		methods:{
+			
+		}
+	});
+</script>
+</html>

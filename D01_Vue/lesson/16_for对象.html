@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(value,key,index) in obj">
+                键：{{ key }}
+                值：{{ value }}
+                索引：{{ index }}
+            </li>
+        </ul>
+        <!--=================================-->
+        <ul>
+            <li v-for="(item,index) in arr">
+                属性值：{{ item }}
+                索引：{{ index }}
+            </li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    var vm = new Vue({
+        el : '#app',
+        data : {
+            obj : {
+                user : "tangcaiye",
+                pass : 12345
+            },
+            arr : [
+                "菠菜",
+                "生菜",
+                "娃娃菜"
+            ]
+        },
+        methods : {
+            
+        },
+        computed : {
+            
+        }
+    });
+</script>
+</html>
