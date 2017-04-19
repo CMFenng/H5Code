@@ -15,8 +15,9 @@
         el : '#app',
         data : {
             firstName : '唐',
-            lastName : '菜也',
-            fullName : '唐菜也'
+            lastName : '菜也'
+            // 使用 watch 这种方式时，需要下面的语句
+//          fullName : '唐菜也'
         },
         methods : {
             
@@ -34,6 +35,7 @@
                 return this.firstName + this.lastName;
             }
         }
+        // 这两种方法都可以实现一样的功能，但 computed 更加方便，而且性能高（计算属性比方法性能好）
     });
 </script>
 </html>

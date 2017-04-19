@@ -7,7 +7,7 @@
 </head>
 <body>
     <div id="app">
-        
+        {{ getTimeComputed }}
     </div>
 </body>
 <script type="text/javascript">    
@@ -17,13 +17,16 @@
             msg : "hello vue!"
         },
         methods : {
+            // 在控制台使用 vm.getTimeMethod() 调用，每次输出的时间不一样，即每次都重新调用 Date.now()
             getTimeMethod : function () {
                 return this.msg + "," + Date.now();
             }
         },
         computed : {
             // 计算属性如果所依赖的属性没有发生变化，调用的都是之前返回的结果
-            // 可以观察时间的变化
+            // 在控制台使用 vm.getTimeComputed 调用
+            // 如果 msg 的值没有改变，每次输出的时间一样，即每次都是返回之前的结果
+            // 如果 msg 的值发生改变，则会重新调用这个方法，Date.now() 的值也发生改变
             getTimeComputed : function () {
                 return this.msg + "," + Date.now();
             }
