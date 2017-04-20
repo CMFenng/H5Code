@@ -1,0 +1,1 @@
+webpackJsonp([1],[function(a,n,c){var e=c(1);alert(e.sum(10,10))}]);
