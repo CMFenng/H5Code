@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style type="text/css">
-    .active{
-        color: red;
-    }
-    .text-danger{
-        color: #a94442;
-    }
-    </style>
     <script type="text/javascript" src="js/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <div v-bind:class="classObject">我是文字内容</div>
+        <li v-for="(item, index) in items">
+            <!--index为索引-->
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
     </div>
     
 </body>
@@ -24,20 +19,11 @@
     var app = new Vue({
         el:"#app",
         data:{
-            isActive:true,
-            error:{
-                text:'错误',
-                type:'fatal'
-            }
-            // error:null
-        },
-        computed:{
-            classObject:function () {
-                return {
-                    active: this.isActive && !this.error,
-                    'text-danger': this.error && this.error.type === 'fatal',
-                }
-            }
+            parentMessage: 'Parent',
+            items: [
+              { message: 'Foo' },
+              { message: 'Bar' }
+            ]
         }
     });
 </script>

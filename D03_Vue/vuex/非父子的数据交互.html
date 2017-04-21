@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<new-todo></new-todo>
+		<todo-list></todo-list>
+	</div>
+</body>
+<script type="text/javascript">
+	var eventHub = new Vue({
+
+		data(){
+			return {
+				todos:[]
+			}
+		},
+		created(){
+			this.$on("add",this.addTodo)
+			this.$on("del",this.delTodo)
+		},
+		methods:{
+			addTodo(newTodo){
+				this.todos.push(newTodo)
+				console.log(this.todos)
+			},
+			delTodo(index){
+				this.todos.splice(index,1)
+			}
+		}
+	})
+
+	var newTodo = {
+		template:`
+			<div>
+				待办事项<input type="text" v-model="newtodo" />
+				<button @click="add">添加</button>
+			</div>
+		`,
+		data(){
+			return {
+				newtodo:''
+			}
+		},
+		methods:{
+			add(){
+				eventHub.$emit("add",this.newtodo)
+			}
+		}
+	}
+	var todoList = {
+		template:`
+			<ul>
+				<li v-for="(item,index) in items">{{item}}<button @click="del(index)">删除</button></li>
+			</ul>
+		`,
+		data(){
+			return {
+				items:eventHub.todos
+			}
+		},
+		methods:{
+			del(index){
+				eventHub.$emit("del",index)
+			}
+		}
+	}
+
+	new Vue({
+		el:"#app",
+		components:{
+			newTodo:newTodo,
+			todoList:todoList
+		}
+	})
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
