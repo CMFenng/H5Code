@@ -3,28 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style type="text/css">
+    
+    </style>
     <script type="text/javascript" src="js/vue.js"></script>
 </head>
 <body>
-    <div id="app">
-        <li v-for="(item, index) in items">
-            <!--index为索引-->
-            {{ parentMessage }} - {{ index }} - {{ item.message }}
-        </li>
+    <div id="todo-app">
+        <increment></increment>
     </div>
-    
 </body>
-<script type="text/javascript">
-    
-    var app = new Vue({
-        el:"#app",
-        data:{
-            parentMessage: 'Parent',
-            items: [
-              { message: 'Foo' },
-              { message: 'Bar' }
-            ]
+<script>
+    var increment = {
+    //state状态
+    data(){
+        return {
+            count:0
         }
-    });
+    },
+    //view
+    template:`
+        <div>
+            <p>{{count}}</p>
+            <button v-on:click="incrementFn">增加count</button>
+        </div>
+    `,
+    //actions
+    methods:{
+        incrementFn(){
+            this.count++;
+        }
+    }
+}
+var app = new Vue({
+    el:"#app",
+    components:{
+        increment
+    }
+});
 </script>
 </html>
