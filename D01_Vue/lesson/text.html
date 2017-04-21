@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    .active{
+        color: red;
+    }
+    .text-danger{
+        color: #a94442;
+    }
+    </style>
+    <script type="text/javascript" src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:class="classObject">我是文字内容</div>
+    </div>
+    
+</body>
+<script type="text/javascript">
+    
+    var app = new Vue({
+        el:"#app",
+        data:{
+            isActive:true,
+            error:{
+                text:'错误',
+                type:'fatal'
+            }
+            // error:null
+        },
+        computed:{
+            classObject:function () {
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal',
+                }
+            }
+        }
+    });
+</script>
+</html>

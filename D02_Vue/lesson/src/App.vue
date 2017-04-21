@@ -2,7 +2,11 @@
   <div id="app">
     <!--<tang></tang>-->
     <img src="./assets/logo.png">
-    <router-view></router-view>
+    <transition name="fade">
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
+    </transition>
     <!--<router-link to="hello">跳转到 hello 组件</router-link>-->
     <!--<router-link to="hello?id=56&color=green">跳转到 hello 组件</router-link>-->
     <router-link v-bind:to="{path:'/hello', query:{id:3,color:'yellow'}}">跳转到 hello 组件</router-link>
@@ -35,5 +39,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 </style>

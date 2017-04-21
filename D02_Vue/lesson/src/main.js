@@ -19,6 +19,11 @@ var router = new Router({
     mode : "history",
     routes : [
         {
+            // 重定向
+            path : '/',
+            redirect : 'tang'
+        },
+        {
             path : '/hello',
             component : Hello,
             children : [
