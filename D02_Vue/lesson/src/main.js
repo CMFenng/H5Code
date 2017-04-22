@@ -15,8 +15,9 @@ Vue.use(Router)
 // 3. 实例化 router 这个类
 var router = new Router({
     // 5. 配置 router
-    // routes：做映射，什么的地址，跳转到什么样的
+    // 可以去掉 URL 中的 #
     mode : "history",
+    // routes：做映射，什么的地址，跳转到什么样的页面
     routes : [
         {
             // 重定向
