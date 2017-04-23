@@ -28,6 +28,7 @@ export default {
 
 #note-editor textarea {
     height: 100%;
+    font-size: 30px;
     border: 0;
     border-radius: 0;
 }

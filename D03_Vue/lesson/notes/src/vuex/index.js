@@ -2,6 +2,7 @@
 import Vue from "vue"
 import Vuex from "vuex"
 
+// 使用 vuex
 Vue.use(Vuex)
 
 const state = {
@@ -11,6 +12,34 @@ const state = {
     */
     notes : [],
     activeNote : {}
+}
+
+const actions = {
+    /*
+        actions 处理函数接受一个 context 对象
+        {
+            state,     // 等同于 store.state, 若在模块中则为局部状态
+            rootState, // 等同于 store.state, 只存在于模块中
+            commit,    // 等同于 store.commit
+            dispatch,  // 等同于 store.dispatch
+            getters    // 等同于 store.getters
+        }
+    */
+    addNote({commit}){
+        commit('ADD_NOTE');
+    },
+    editNote({commit}, text){
+        commit('EDIT_NOTE', text)
+    },
+    updateActiveNote({commit}, note){
+        commit('SET_ACTIVE_NOTE', note);
+    },
+    toggleFavorite({commit}){
+        commit('TOGGLE_FAVORITE');
+    },
+    deleteNote({commit}){
+        commit('DELETE_NOTE');
+    }
 }
 
 const mutations = {
@@ -48,34 +77,6 @@ const mutations = {
     }
 }
 
-const actions = {
-    /*
-        actions 处理函数接受一个 context 对象
-        {
-            state,     // 等同于 store.state, 若在模块中则为局部状态
-            rootState, // 等同于 store.state, 只存在于模块中
-            commit,    // 等同于 store.commit
-            dispatch,  // 等同于 store.dispatch
-            getters    // 等同于 store.getters
-        }
-    */
-    addNote({commit}){
-        commit('ADD_NOTE');
-    },
-    editNote({commit}, text){
-        commit('EDIT_NOTE', text)
-    },
-    updateActiveNote({commit}, note){
-        commit('SET_ACTIVE_NOTE', note);
-    },
-    toggleFavorite({commit}){
-        commit('TOGGLE_FAVORITE');
-    },
-    deleteNote({commit}){
-        commit('DELETE_NOTE');
-    }
-}
-
 const getters = {
     /*
         Getters 接受 state 作为其第一个参数
@@ -88,6 +89,7 @@ const getters = {
     activeNote : state => state.activeNote
 }
 
+// 导出
 export default new Vuex.Store({
     state,
     mutations,

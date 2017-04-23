@@ -13,6 +13,7 @@ import NoteList from './components/NoteList'
 import Editor from './components/Editor'
 
 export default {
+    name : 'app',
     components : {
         Toolbar,
         NoteList,

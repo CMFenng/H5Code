@@ -1,6 +1,6 @@
 <template>
     <div id="toolbar">
-        <i @click="addOne"class="glyphicon glyphicon-plus"></i>
+        <i @click="addNote"class="glyphicon glyphicon-plus"></i>
         <i @click="toggleFavorite" class="glyphicon glyphicon-star"
             v-bind:class="{starred : activeNote.favorite}"></i>
         <i @click="deleteNote" class="glyphicon glyphicon-remove"></i>
@@ -18,7 +18,7 @@ export default {
         }
     },
     methods : {
-        addOne(){
+        addNote(){
             // 通过 dispatch 分发到 actions 中的 addNote
             this.$store.dispatch('addNote');
         },
