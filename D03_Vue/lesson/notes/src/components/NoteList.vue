@@ -24,7 +24,7 @@
             <div class="list-group">
                 <a v-for="item in notes" class="list-group-item"
                     v-bind:class="{active : activeNote == item}"
-                    v-on:click="updateActiveNote(item)"
+                    v-on:click="setActiveNote(item)"
                     href="#">
                     <h4 class="list-group-item-heading">
                         {{ item.text }}
@@ -55,9 +55,9 @@ export default {
         }
     },
     methods : {
-        updateActiveNote(note){
+        setActiveNote(note){
             console.log(note);
-            this.$store.dispatch("updateActiveNote", note);
+            this.$store.dispatch("setActiveNote", note);
         }
     }
 }

@@ -10,7 +10,12 @@ const state = {
         notes：存储 note 项
         activeNote：当前正在编辑的 note 项
     */
-    notes : [],
+    notes : [
+//      {
+//          text : "new Note",
+//          favorite : false
+//      }
+    ],
     activeNote : {}
 }
 
@@ -25,18 +30,23 @@ const actions = {
             getters    // 等同于 store.getters
         }
     */
+    // 添加
     addNote({commit}){
         commit('ADD_NOTE');
     },
+    // 编辑
     editNote({commit}, text){
-        commit('EDIT_NOTE', text)
+        commit('EDIT_NOTE', text);
     },
-    updateActiveNote({commit}, note){
+    // 设置当前激活项
+    setActiveNote({commit}, note){
         commit('SET_ACTIVE_NOTE', note);
     },
+    // 切换收藏
     toggleFavorite({commit}){
         commit('TOGGLE_FAVORITE');
     },
+    // 删除
     deleteNote({commit}){
         commit('DELETE_NOTE');
     }
@@ -45,7 +55,7 @@ const actions = {
 const mutations = {
     // ADD_NOTE 添加一个 note 项
     ADD_NOTE(state){
-        const newNote = {
+        let newNote = {
             /*
                 text：默认文字内容
                 favorite：收藏
@@ -53,7 +63,6 @@ const mutations = {
             text : "new Note",
             favorite : false
         }
-        
         state.notes.push(newNote);
         console.log(state.notes);
         state.activeNote = newNote;
@@ -68,12 +77,20 @@ const mutations = {
         state.activeNote.favorite = !state.activeNote.favorite;
     },
     DELETE_NOTE(state){
-        for (var i=0; i < state.notes.length; i++) {
-            if (state.notes[i] == state.activeNote) {
-                state.notes.splice(i, 1);
+        let notes = state.notes;
+        let activeNote = state.activeNote;
+        for (let i=0; i<notes.length; i++) {
+            if (notes[i] == activeNote) {
+                notes.splice(i, 1);
             }
         }
-        state.activeNote = state.notes[0];
+        // 以上代码的简单写法，将是激活状态的删除掉了。
+//      state.notes = notes.filter((item) => item!=activeNote);
+        
+        if (notes.length > 0) {
+            state.activeNote = notes[0];
+        }
+        
     }
 }
 
