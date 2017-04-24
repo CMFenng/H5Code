@@ -45,7 +45,7 @@ export default {
     computed : {
         notes(){
             if (this.show == 'all'){
-                return this.$store.getters.notes
+                return this.$store.getters.notes;
             } else if (this.show == 'favorites') {
                 return this.$store.getters.notes.filter(note => note.favorite);
             }

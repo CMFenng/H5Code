@@ -1,0 +1,14 @@
+{
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "tangcaiye" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "tangcaiye" },
+  "todos":[
+  	{"todo":"买菜"},
+  	{"todo":"打游戏"},
+  	{"todo":"睡觉"}
+  ]
+}

@@ -68,7 +68,7 @@ const mutations = {
         state.activeNote = newNote;
     },
     EDIT_NOTE(state, text){
-        state.activeNote.text = text
+        state.activeNote.text = text;
     },
     SET_ACTIVE_NOTE(state, note){
         state.activeNote = note;
@@ -86,7 +86,6 @@ const mutations = {
         }
         // 以上代码的简单写法，将是激活状态的删除掉了。
 //      state.notes = notes.filter((item) => item!=activeNote);
-        
         if (notes.length > 0) {
             state.activeNote = notes[0];
         }

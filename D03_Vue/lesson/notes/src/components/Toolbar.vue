@@ -11,7 +11,7 @@
 export default {
     computed : {
         notes(){
-            return this.$store.getters.notes
+            return this.$store.getters.notes;
         },
         activeNote(){
             return this.$store.getters.activeNote;
@@ -23,6 +23,7 @@ export default {
             this.$store.dispatch('addNote');
         },
         toggleFavorite(){
+//          this.$store.state.activeNote.favorite = !this.$store.state.activeNote.favorite;
             this.$store.dispatch('toggleFavorite');
         },
         deleteNote(){
