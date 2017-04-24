@@ -27,14 +27,30 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // 设置代理
+    /*
+     * 其中 '/api' 为匹配项，target 为被请求的地址
+     * 因为在 ajax 的 url 中加了前缀 '/api'，而原本的接口是没有这个前缀的
+     * 所以需要通过 pathRewrite 来重写地址，将前缀 '/api' 转为 '/'
+     * 如果本身的接口地址就有 '/api' 这种通用前缀，就可以把 pathRewrite 删掉
+     */
     proxyTable: {
         '/api': {
         target: 'http://127.0.0.1:8081/',
         changeOrigin: true,
         pathRewrite: {
+          // ^ 是正则表达式：以 / 开头
           '^/api': '/'
         }
-      }
+      },
+      // 获取豆瓣电影的排名前 250
+      '/v2/movie/top250': {
+            target: 'https://api.douban.com',
+            changeOrigin: true,
+            pathRewrite: {
+              '^/v2/movie/top250': '/v2/movie/top250'
+            }
+        }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README

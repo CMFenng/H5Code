@@ -79,6 +79,7 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
+// 使用 json-server 服务器
 const jsonServer = require('json-server')
 const apiServer = jsonServer.create()
 const apiRouter = jsonServer.router('db.json')

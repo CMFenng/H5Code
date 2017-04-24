@@ -15,26 +15,27 @@
 //  }
 //  
 //  async(1, 2, function (result) {
-//      console.log(result);
+//      console.log(result);    // 3
 //      if (result > 2) {
 //          async(result, 2, function (result) {
-//              console.log(result);
+//              console.log(result);    // 5
 //              if (result > 3) {
 //                  async(result, 2, function (result) {
-//                      console.log(result);
+//                      console.log(result);    // 7
 //                  })
 //              }
 //          })
 //      }
 //  })
     
+    // 用以下方法取代上面的方法
     function async (a, b) {
         /*
             resolve 异步操作成功时调用
             reject  失败时调用
         */
         return new Promise(function (resolve, reject) {
-            if (typeof a != "number" || typeof b != "number") {
+            if (typeof a !== "number" || typeof b !== "number") {
                 reject(new Error("参数类型必须是数字"));
             }
             setTimeout(function () {
@@ -48,7 +49,7 @@
     */
     async(1, 2)
         .then(function (result) {
-            console.log(result);
+            console.log(result);    // 3
             if (result > 2) {
                 return async(result, 'a');
             }
@@ -63,7 +64,7 @@
             console.log(result);
         })
         .catch(function (err) {
-            console.log(err);
+            console.log(err);    // Error: 参数类型必须是数字    捕获到错误后，后面的语句不执行
         })
 </script>
 </html>

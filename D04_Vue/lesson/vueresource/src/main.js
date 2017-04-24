@@ -5,7 +5,7 @@ import App from './App'
 // 引入 vue-resource
 import Resource from 'vue-resource'
 
-// 使用 Resource
+// 使用 Resource，不用添加到 Vue 对象中
 Vue.use(Resource)
 
 Vue.config.productionTip = false
