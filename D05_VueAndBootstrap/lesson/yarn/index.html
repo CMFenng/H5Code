@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <!--
+        http-equiv="X-UA-Compatible"
+            1. 在 IE8 刚推出的时候，很多网页由于重构的问题，无法适应较高级的浏览器，所以使用 X-UA-Compatible 标签强制 IE8 采用低版本方式渲染。
+            2. 使用下面这段代码后，开发者无需考虑网页是否兼容 IE8 浏览器，只要确保网页在 IE6、IE7 下的表现就可以了。 
+        IE=edge 告诉 IE 使用最新的引擎渲染网页
+    -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    
+    <!-- 在 IE9 以下会引入这两个文件 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+        <nav class="navbar">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="">
+              </a>
+            </div>
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav nav-link">
+                <li><a href="#">入门指南</a></li>
+                <li><a href="#">文档</a></li>
+                <li><a href="#">Packages</a></li>
+                <li><a href="#">博客</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right nav-link">
+                <li><a href="#"><span class="glyphicon glyphicon-folder-open"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-save"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-bell"></span></a></li>
+                <li><a href="#">稳定版: v0.19.1</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    <div class="container-fluid banner">
+        <div class="container">
+            <div class="jumbotron">
+              <h1>快速、可靠、安全的依赖管理工具。</h1>
+              <p><a class="btn btn-default" href="#" role="button">开始使用</a>
+                <a class="btn btn-default" href="#" role="button">安装YARN</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h2 class="feature-heading">速度超快</h2>
+                <p class="feature-text">Yarn 缓存了每个下载过的包，所以再次使用时无需重复下载。 同时利用并行下载以最大化资源利用率，因此安装速度更快。</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-responsive" src="https://yarn.bootcss.com/assets/feature-speed.png" alt="">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-5">
+                <img class="img-responsive" src="https://yarn.bootcss.com/assets/feature-secure.png" alt="">
+            </div>
+            <div class="col-md-7">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-7">
+                <h2 class="feature-heading">速度超快</h2>
+                <p class="feature-text">Yarn 缓存了每个下载过的包，所以再次使用时无需重复下载。 同时利用并行下载以最大化资源利用率，因此安装速度更快。</p>
+            </div>
+            <div class="col-md-5">
+                <img class="img-responsive" src="https://yarn.bootcss.com/assets/feature-speed.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid banner">
+        <div class="container">
+            <div class="jumbotron row">
+              <h1 class="text-center col-md-5">还在等什么。</h1>
+              <p class="text-center col-md-3 pull-right col-sm-12"><a class="btn btn-default start" href="#" role="button">开始使用</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="container featurette">
+        <div class="row">
+            <div class="col-md-4">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="feature-heading">超级安全</h2>
+                <p class="feature-text">Yarn 在执行代码之前，Yarn 会通过算法校验每个安装包的完整性。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

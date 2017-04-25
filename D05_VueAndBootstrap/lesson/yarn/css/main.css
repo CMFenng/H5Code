@@ -1,0 +1,66 @@
+html{
+    font-size: 10px;
+}
+.navbar-nav>li{
+    margin-left: 1rem;
+}
+.navbar-nav>li>a{
+    color: rgba(0,0,0,0.6);
+    padding: 3rem 0 2rem;
+    font-size: 2rem;
+}
+.nav-link li a:hover{
+    background-color: transparent;
+}
+.navbar-toggle{
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid rgba(0,0,0,0.3);
+    margin-top: 3rem;
+}
+.navbar-toggle .icon-bar{
+    background-color: rgba(0,0,0,0.8);
+}
+.banner{
+    background-color: #2188b6;
+}
+.banner h1{
+    color: white;
+    font-size: 5rem;
+    text-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+    margin-bottom: 3rem;
+}
+.banner .jumbotron a{
+    color: white;
+    background-color: transparent;
+    font-size: 2rem;
+    padding: 1.2rem 3rem;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.banner .jumbotron a:hover{
+    background-color: white;
+    color: #2188b6;
+}
+.jumbotron{
+    background-color: transparent;
+}
+.feature-heading{
+    font-weight: 300;
+    font-size:6rem;
+    color: rgba(0,0,0,0.7);
+}
+.feature-text{
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: rgba(0,0,0,0.6);
+}
+.banner .jumbotron a.start{
+    width: 80%;
+}
+.featurette .feature-heading{
+    font-size: 3rem;
+}
+.featurette .feature-text{
+    font-size: 2rem;
+}
