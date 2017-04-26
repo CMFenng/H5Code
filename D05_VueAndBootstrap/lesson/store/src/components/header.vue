@@ -1,17 +1,35 @@
 <template>
     <div class="container-fluid">
         <div class="navbar navbar-inverse">
-            <a class="navbar-brand" href="/">商店</a>
+            <!-- 使用 a 标签会重新刷新页面，所以这里用  router-link -->
+            <!--<a class="navbar-brand" href="/">商店</a>-->
+            <router-link to="/" class="navbar-brand">商店</router-link>
             <div class="navbar-right">
                 <div class="navbar-text">
                     <b>你的购物车</b>
-                    0 件,￥0.00
+                    {{ sum }} 件,￥{{ total }}.00
                 </div>
-                <a href="/checkout" class="btn btn-default navbar-btn">checkout</a>
+                <!--<a href="/checkout" class="btn btn-default navbar-btn">checkout</a>-->
+                <router-link to="/checkout" class="btn btn-default navbar-btn">checkout</router-link>
             </div>
         </div>
     </div>
 </template>
+
+<script type="text/javascript">
+export default {
+    computed : {
+        // 商品总价
+        total(){
+            return this.$store.getters.total;
+        },
+        // 商品总数
+        sum(){
+            return this.$store.getters.sum;
+        }
+    }
+}
+</script>
 
 <style type="text/css">
 .navbar-right{
