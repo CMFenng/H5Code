@@ -4,7 +4,7 @@
             <div class="col-xs-3">
                 <a class="btn btn-block btn-default btn-lg" href="###" @click="changeCategory('all')">所有商品</a>
                 <a class="btn btn-block btn-default btn-lg" href="###"
-                    v-for="(item,index) in categorys" @click="changeCategory('item')"
+                    v-for="(item,index) in categorys" @click="changeCategory(item)"
                     v-bind:class="{active : item==selectedCategory}">{{ item }}</a>
             </div>
             <div class="col-xs-9">
@@ -34,61 +34,64 @@
     </div>
 </template>
 <script type="text/javascript">
-var pageSize = 3
+var pageSize = 3;
+
 export default {
     data(){
         return {
-            products:[],
-            selectedCategory:null,
-            activePage:1
+            // 所有商品
+            products: [],
+            // 选中的分类
+            selectedCategory: null,
+            // 当前页码
+            activePage: 1
         }
     },
     created(){
-
+        // 请求数据
         this.$http.get("/products")
-            .then(data=>this.products = data.body)
+            .then(data=>this.products = data.body);
     },
     methods:{
         changeCategory(val){
-            if (val=="all"){
-                this.selectedCategory = null
-            }else{
-                this.selectedCategory = val
+            if (val == "all") {
+                this.selectedCategory = null;
+            } else {
+                this.selectedCategory = val;
             }
-            
         },
         changePage(page){
-            this.activePage = page
+            this.activePage = page;
         }
     },
     computed:{
         categorys(){
             var results = [];
             var keys = {};
-
+            
             for (var i=0; i<this.products.length; i++){
                 var val = this.products[i]["category"];
                 if (!keys.hasOwnProperty(val)){
-                    keys[val] = true
-                    results.push(val)
+                    keys[val] = true;
+                    results.push(val);
                 }
             }
-            console.log(results)
-            return results
+            console.log(results);
+            return results;
         },
         productList(){
-            if (this.selectedCategory==null){
-                return this.products
-            }else{
-                return this.products.filter(item=>item.category==this.selectedCategory)
+            if (this.selectedCategory == null){
+                return this.products;
+            } else {
+                return this.products.filter(item=>item.category==this.selectedCategory);
             }
         },
         nowProducts(){
             var startProduct = (this.activePage-1)*pageSize;
-            return this.productList.slice(startProduct,startProduct+pageSize)
+            return this.productList.slice(startProduct, startProduct+pageSize);
         },
         pageNum(){
-            return Math.ceil(this.productList.length/pageSize)
+            return Math.ceil(this.productList.length/pageSize);
         }
     }
 }
