@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    if (true) {
+        console.log(a);  // Uncaught ReferenceError: a is not defined
+        let a = 10;
+    }
+</script>
+</body>
+</html>
+<!--
+    1. 用 let 声明的变量，就具有了块级作用域，没有提前声明提前的特性
+    2. var 有声明提前
+
+-->
