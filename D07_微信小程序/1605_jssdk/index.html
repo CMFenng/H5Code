@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+	
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+	// console.log(window.location)
+	$.ajax({
+		url:'jssdk_handle.php',
+		type:"get",
+		data:{
+			url:window.location.pathname
+		},
+		dataType:"json",
+		success:function (data){
+			
+			wx.config({
+			    debug: true,
+			    appId: data.appId,
+			    timestamp: data.timestamp,
+			    nonceStr: data.nonceStr,
+			    signature: data.signature,
+			    jsApiList: [
+			      "onMenuShareTimeline",
+			      "onMenuShareAppMessage"
+			    ]
+			  });
+			wx.ready(function () {
+			    
+			    wx.onMenuShareTimeline({
+				    title: '西红柿大战白菜头', // 分享标题
+				    link: 'http://www.baidu.com', // 分享链接
+				    imgUrl: 'http://tangcaiye.applinzi.com/share.png', // 分享图标
+				    success: function () { 
+				        alert("分享成功，哈哈哈")
+				    },
+				    cancel: function () { 
+				        // 用户取消分享后执行的回调函数
+				        alert("取消分享.....")
+				    }
+				});
+				wx.onMenuShareAppMessage({
+				    title: '白菜头大战蝙蝠侠', // 分享标题
+				    desc: '血腥，暴力', // 分享描述
+				    link: 'http://www.baidu.com', // 分享链接
+				    imgUrl: 'http://tangcaiye.applinzi.com/share.png', // 分享图标
+				    type: '', // 分享类型,music、video或link，不填默认为link
+				    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+				    success: function () { 
+				        // 用户确认分享后执行的回调函数
+				    },
+				    cancel: function () { 
+				        // 用户取消分享后执行的回调函数
+				    }
+				});
+			});
+		}
+	});
+</script>
+</html>

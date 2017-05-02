@@ -1,0 +1,23 @@
+<!-- <view wx:for="{{array}}" wx:for-item="obj" wx:for-index="num" wx:key="*this">{{num}}:{{obj}}</view> -->
+<!-- <view wx:if="{{view<3}}">view小于3</view>
+<view wx:elif="{{view==3}}">view等于3</view>
+<view wx:else>view大于3</view> -->
+<!-- 模板是独立作用域 -->
+<template name="staffName">
+	<view>
+	    FirstName: {{firstName}}, LastName: {{lastName}}
+	</view>
+</template>
+<!-- <template is="staffName" data="{{...staffA}}" />
+<template is="staffName" data="{{...staffB}}" />
+<template is="staffName" data="{{...staffC}}" /> -->
+<!-- <view bindtap="wraperHandle" data-name="tangcaiye" id="wraper">
+	wraper
+	<view bindtap="middleHandle" id="middle">
+		middle
+		<view bindtap="innerHandle" id="inner">
+			inner
+		</view>
+	</view>
+</view> -->
+<view class="view1">我是view</view>

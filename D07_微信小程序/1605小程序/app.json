@@ -1,0 +1,31 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/search/search"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "改成一个啥",
+    "navigationBarTextStyle":"#fff"
+  },
+  "tabBar":{
+    "color":"#ccc",
+    "selectedColor":"#ff0000",
+    "list":[
+      {
+        "pagePath":"pages/index/index",
+        "text":"首页",
+        "iconPath":"images/featured.png",
+        "selectedIconPath":"images/featured-actived.png"
+      },
+      {
+        "pagePath":"pages/logs/logs",
+        "text":"日志页",
+        "iconPath":"images/profile.png",
+        "selectedIconPath":"images/profile-actived.png"
+      }
+    ]
+  }
+}
