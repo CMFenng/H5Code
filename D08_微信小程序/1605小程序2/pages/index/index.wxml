@@ -1,0 +1,116 @@
+<!-- <view wx:for="{{array}}" wx:for-item="obj" wx:for-index="num" wx:key="*this">{{num}}:{{obj}}</view> -->
+<!-- <view wx:if="{{view<3}}">view小于3</view>
+<view wx:elif="{{view==3}}">view等于3</view>
+<view wx:else>view大于3</view> -->
+<!-- 模板是独立作用域 -->
+<template name="staffName">
+	<view>
+	    FirstName: {{firstName}}, LastName: {{lastName}}
+	</view>
+</template>
+<!-- <template is="staffName" data="{{...staffA}}" />
+<template is="staffName" data="{{...staffB}}" />
+<template is="staffName" data="{{...staffC}}" /> -->
+<!-- <view bindtap="wraperHandle" data-name="tangcaiye" id="wraper">
+	wraper
+	<view bindtap="middleHandle" id="middle">
+		middle
+		<view bindtap="innerHandle" id="inner">
+			inner
+		</view>
+	</view>
+</view> -->
+<!-- <view class="view1">我是view</view> -->
+<!-- <icon type="clear" color="red" size="60" /> -->
+<!-- <progress percent="20" show-info />
+<progress percent="40" stroke-width="12" />
+<progress percent="60" color="pink" />
+<progress percent="{{percent}}" active />
+ -->
+<!-- <view hover-class="active" hover-stay-time="2000">我是view</view> -->
+<!-- <button bindtap="changeScrollId">更改scrollId</button>
+<scroll-view class="wrap" scroll-y scroll-into-view="{{scrollId}}" scroll-with-animation enable-back-to-top bindscrolltoupper="scrolltoupper" bindscrolltolower="scrolltolower" bindscroll="scrollFn">
+	<view id="a">1</view>
+	<view id="b">2</view>
+	<view id="c">3</view>
+</scroll-view> -->
+<!-- <swiper indicator-dots indicator-color="green" indicator-active-color="red" autoplay interval="3000" circular bindchange="swiperChange">
+	<swiper-item wx:for="{{imgUrls}}">
+		<image src="{{item}}" />
+	</swiper-item>
+</swiper> -->
+<!-- <button type="warn" plain loading="true">加载中</button> -->
+<form bindreset="resetFn">
+	<!-- <checkbox-group bindchange="checkboxChange">
+	  <label class="checkbox" wx:for="{{items}}">
+	    <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+	  </label>
+	</checkbox-group>
+	<button type="warn" plain form-type="reset">重置</button> -->
+	<!-- <input placeholder-style="border:1px solid red" type="number" placeholder="请输入银行卡密码" /> -->
+	<!-- <view class="section">
+	  <view class="section__title">地区选择器</view>
+	  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+	    <view class="picker">
+	      当前选择：{{array[index]}}
+	    </view>
+	  </picker>
+	</view>
+	<view class="section">
+	  <view class="section__title">时间选择器</view>
+	  <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+	    <view class="picker">
+	      当前选择: {{time}}
+	    </view>
+	  </picker>
+	</view> -->
+	<!-- <view>
+  <view>{{year}}年{{month}}月{{day}}日</view>
+	  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange">
+	    <picker-view-column>
+	      <view wx:for="{{years}}" style="line-height: 50px">{{item}}年</view>
+	    </picker-view-column>
+	    <picker-view-column>
+	      <view wx:for="{{months}}" style="line-height: 50px">{{item}}月</view>
+	    </picker-view-column>
+	    <picker-view-column>
+	      <view wx:for="{{days}}" style="line-height: 50px">{{item}}日</view>
+	    </picker-view-column>
+	  </picker-view>
+	</view> -->
+	<!-- <radio-group class="radio-group" bindchange="radioChange">
+	  <label class="radio" wx:for="{{items}}">
+	    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+	  </label>
+	</radio-group> -->
+	<!-- <slider min="0" max="100" step="5" show-value/> -->
+	<!-- <switch checked /> -->
+</form>
+<!-- <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio> -->
+<!-- <view class="page">
+  <view class="page__hd">
+    <text class="page__title">image</text>
+    <text class="page__desc">图片</text>
+  </view>
+ <image src="{{src}}"></image>
+  <view class="page__bd">
+    <view class="section section_gap" wx:for="{{imgArray}}" wx:for-item="item">
+      <view class="section__title">{{item.text}}</view>
+      <view class="section__ctn">
+        <image style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{src}}"></image>
+      </view>
+    </view>
+  </view>
+</view> -->
+<!-- <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video> -->
+
+<!-- <map id="map" longitude="113.324520" latitude="23.099994" scale="{{mapScale}}" markers="{{markers}}" polyline="{{polyline}}" controls="{{controls}}" bindcontroltap="controltap" style="width: 100%; height: 100%;"></map> -->
+<!-- <canvas style="width: 100%; height: 100%; background-color:#ccc" canvas-id="firstCanvas"></canvas> -->
+<!-- 用户名:<input type="text" bindinput="userFn" />
+密码：<input password bindinput="passFn" /> -->
+搜索:<input type="text" bindinput="userFn" />
+<button bindtap="login">登陆</button>
+
+
+
+

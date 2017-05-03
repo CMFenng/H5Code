@@ -1,0 +1,1 @@
+console.log("我是moudle1.js")

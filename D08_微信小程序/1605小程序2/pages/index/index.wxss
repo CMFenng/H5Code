@@ -1,0 +1,24 @@
+/*@import "../../utils/common.wxss";*/
+
+page{
+	height: 100%;
+}
+.active{
+	color: red;
+}
+
+.wrap{
+	height: 100%;
+}
+.wrap view{
+	height: 100%;
+}
+.wrap view:nth-child(1){
+	background: red;
+}
+.wrap view:nth-child(2){
+	background: green;
+}
+.wrap view:nth-child(3){
+	background: blue;
+}

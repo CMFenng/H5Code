@@ -11,7 +11,7 @@
         var userName = "";
         var dog = null;
         var age = 0;
-
+        
         // 我们可以设计一个私有变量存取器来进行访问
         // 设置用户名
         Person.prototype.setUserName = function (newUserName) {
@@ -27,7 +27,7 @@
         Person.prototype.getUserName = function () {
             return userName;
         }
-
+        
         Person.prototype.setDog = function (newDog) {
             // 如果类型是 Dog
             if (newDog instanceof Dog){
@@ -37,15 +37,15 @@
             // 如果类型不是 Dog，抛异常
             throw new Error("不好意思，类型不是狗");
         }
-
+        
         Person.prototype.getDog = function () {
             return dog;
         }
     }
-
+    
     var person1 = new Person();
     function Dog() {
-
+        
     }
 
     // 设值

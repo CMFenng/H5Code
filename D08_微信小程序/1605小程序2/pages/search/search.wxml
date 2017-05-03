@@ -1,0 +1,2 @@
+<view bindtap="add">{{num}}</view>
+<button bindtap="back">自定义返回</button>

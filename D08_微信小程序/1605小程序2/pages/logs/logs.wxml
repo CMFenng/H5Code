@@ -1,0 +1,3 @@
+<!-- <import src="../index/index.wxml"/>
+<template is="staffName" data="{{firstName:'陈',lastName:'杰'}}" /> -->
+<include src="../index/index.wxml" />

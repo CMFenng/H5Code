@@ -9,33 +9,33 @@
     function Person() {
         this.name = "小雪";
     }
-
+    
     var person1 = new Person();
     var person2 = new Person();
-
+    
     // person3 指向 person2 所指向的对象的地址
     var person3 =  person2;
-
+    
     person3.name = "小黑";
-
+    
     console.log(person1.name);  //小雪
     console.log(person2.name);  //小黑
     console.log(person3.name);  //小黑
-
+    
     person3 = new Person();
-
+    
     console.log(person1.name);  //小雪
     console.log(person2.name);  //小黑
     console.log(person3.name);  //小雪
-
+    
     person1 = person3;
-
+    
     person1.name = "小红";
-
+    
     console.log(person1.name);  //小红
     console.log(person2.name);  //小黑
     console.log(person3.name);  //小红
-
+    
     // 手动清空指针
     // 此时 person2 指向空对象，原本指向的对象失去引用，会被 JS 的垃圾回收机制回收
     person2 = null;
