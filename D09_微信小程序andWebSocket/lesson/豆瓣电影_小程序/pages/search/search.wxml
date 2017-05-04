@@ -1,0 +1,6 @@
+<!--pages/search/search.wxml-->
+<input class="title" placeholder="搜索" placeholder-class="searchIpt" bindinput="getSearchKeyWordFn" bindblur="requestData"/>
+<import src="../recommend/recommend.wxml"/>
+<block wx:for="{{ subjects }}" wx:key="id">
+	<template is="movie" data="{{ item }}"></template>
+</block>

@@ -1,0 +1,24 @@
+<!--pages/recommend/recommend.wxml-->
+<view class="title">
+	豆瓣电影Top250
+</view>
+
+<template name="movie">
+	<view class="movieItem">
+		<view class="movieImg">
+			<image src="{{ item.images.small }}"></image>
+		</view>
+		<view class="movieInfo">
+			<text class="movieTitle">{{ item.title }}</text>
+			<text class="original_title_year">{{ item.original_title }}({{ item.year }})</text>
+			<text class="movieAutor">{{ item.directors[0].name }}</text>
+		</view>
+		<view class="movieAverage">
+			<text>{{ item.rating.average }}</text>
+		</view>
+	</view>
+</template>
+
+<block wx:for="{{ subjects }}" wx:key="id">
+	<template is="movie" data="{{ item }}"></template>
+</block>

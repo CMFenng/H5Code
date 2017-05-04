@@ -1,0 +1,12 @@
+/* pages/search/search.wxss */
+.searchIpt{
+	height: 92.31rpx;
+	line-height: 92.31rpx;
+	text-align: center;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	color: #989898;
+	border-bottom: 1.81rpx solid #989898;
+}
+
+@import "../recommend/recommend.wxss";

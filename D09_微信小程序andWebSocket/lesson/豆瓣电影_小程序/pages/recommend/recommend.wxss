@@ -1,0 +1,69 @@
+/* pages/recommend/recommend.wxss */
+.title{
+	height: 92.31rpx;
+	line-height: 92.31rpx;
+	text-align: center;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	color: #989898;
+	border-bottom: 1.81rpx solid #989898;
+}
+
+.movieItem{
+	height: 191.86rpx;
+	padding: 28.96rpx 36.2rpx;
+	border-bottom: 1.81rpx solid #EEEEEE;
+	font-family: "微软雅黑";
+}
+
+.movieImg{
+	width: 126.7rpx;
+	height: 126.7rpx;
+	float: left;
+}
+
+.movieImg image{
+	width: 100%;
+	height: 100%;
+}
+
+.movieInfo{
+	width: 450rpx;
+	float: left;
+	padding-left: 25rpx;
+}
+
+.movieInfo text{
+	display: block;
+	line-height: 65rpx;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+/*
+.movieAbout, .original_title_year, .movieAutor{
+	width: 520rpx;
+	display: block;
+}*/
+
+.movieTitle{
+	float: left;
+	font-weight: bold;
+	color: #000;
+}
+
+.movieAverage{
+	float: right;
+	color: #FF0000;
+}
+
+.original_title_year{
+	color: #989898;
+	font-size: 30rpx;
+}
+
+.movieAutor{
+	font-weight: bold;
+	color: #989898;
+	font-size: 35rpx;
+}
