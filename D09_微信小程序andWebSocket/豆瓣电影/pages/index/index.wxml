@@ -1,0 +1,19 @@
+<view class="page-header">
+	<text class="page-header-text">{{title}}</text>
+</view>
+<contact-button type="default-dark" size="27" session-from="weapp"></contact-button>
+<scroll-view class="page-body" scroll-y="true">
+	<navigator url="../movie/movie?id={{item.id}}" wx:for="{{movies}}">
+		<view class="item">
+			<image class="poster" src="{{item.images.small}}"></image>
+			<view class="meta">
+				<text class="title">{{item.title}}</text>
+				<text class="sub-title">{{item.original_title}}({{item.year}})</text>
+				<text class="artists"><text wx:for="{{item.directors}}">{{item.name}}</text></text>
+			</view>
+			<view class="rating">
+				<text>{{item.rating.average}}</text>
+			</view>
+		</view>
+	</navigator>
+</scroll-view>

@@ -1,0 +1,5 @@
+<view>我是客户端5</view>
+<view>请输入消息：<input type="text" bindchange="sendFn" /></view>
+<button bindtap="sendSocket">发送</button>
+<view>消息列表：</view>
+<view wx:for="{{msgs}}">{{item}}</view>

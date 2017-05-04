@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	我是sse.html
+</body>
+<script type="text/javascript">
+	var sse = new EventSource("/dates");
+
+	sse.addEventListener("open", function (){
+
+		console.log("建立成功")
+	}, false);
+
+	sse.addEventListener("message",function (e){
+
+		console.log(e.data);
+	},false)
+</script>
+</html>

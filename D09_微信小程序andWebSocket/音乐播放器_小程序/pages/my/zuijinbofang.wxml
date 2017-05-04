@@ -1,0 +1,9 @@
+<!--pages/my/bendigequ.wxml-->
+
+<view wx:for="{{currentIds}}">
+	<view class="look" >
+	<view style="text-align:center" > 歌曲名：{{item.songname}} </view>
+	<view style="text-align:center"> 歌手名：{{item.singername}} </view>
+	<image class="play-bg" mode="aspectFill" src="{{item.imgsrc}}" ></image>
+	</view>
+</view>

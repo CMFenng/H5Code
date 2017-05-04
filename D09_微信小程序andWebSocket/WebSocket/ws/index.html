@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	我是客户端的代码，啊哈哈
+</body>
+<script type="text/javascript">
+	var socket = new WebSocket("ws://localhost:3001");
+
+	socket.addEventListener("open", function (){
+
+		console.log("连接成功")
+		var num = 0;
+		setInterval(function (){
+			num++;
+			socket.send(num)
+		},2000)
+	}, false);
+	//监听服务器发送过来的消息
+	socket.addEventListener("message",function (e){
+
+		console.log(e.data)
+	}, false);
+</script>
+</html>

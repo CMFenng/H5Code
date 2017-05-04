@@ -1,0 +1,4 @@
+<!--ranking.wxml-->
+<view class="header">
+  <view>{{title}}</view>
+</view>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>我是客户端1号</h1>
+	请输入消息:<input id="txt1" type="text"><br>
+	<button id="btn1">发送</button>
+	<ul id="ul1">
+		
+	</ul>
+</body>
+<script type="text/javascript">
+	var socket = new WebSocket("ws://localhost:3001");
+
+	var btn1 = document.querySelector("#btn1");
+	var txt1 = document.querySelector("#txt1");
+	var ul1 = document.querySelector("#ul1");
+
+	btn1.onclick = function (){
+		var val = txt1.value;
+		socket.send(val);
+		var liObj = document.createElement("li");
+		liObj.innerHTML = val;
+		ul1.appendChild(liObj);
+	}
+	socket.addEventListener("message", function (e){
+		// console.log(e.data)
+		var liObj = document.createElement("li");
+		liObj.innerHTML = e.data;
+		ul1.appendChild(liObj);
+	}, false)
+</script>
+</html>
