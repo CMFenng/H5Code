@@ -2,13 +2,13 @@
 var API_URL = 'https://api.douban.com/v2/movie/top250';
 // var API_URL = 'https://tangcaiye001.applinzi.com/top250.php';
 
-var util = require('../../utils/util.js')
+var util = require('../../utils/util.js');
 
-var start = 0;
 Page({
   data: {
     title: "加载中...",
-    movies: []
+    movies: [],
+    count: 0
   },
   requestData(){
     var that = this;
@@ -16,33 +16,23 @@ Page({
     wx.request({
       url: API_URL,
       data: {
-        start: start,
-        count: 50
+        
       },
       header: {
         'content-type': 'json'
       },
-      // success: function (res) {
-
-      //   wx.hideToast();
-      //   that.setData({
-      //     title: res.data.title,
-      //     movies: res.data.subjects
-      //   });
-      // }
       success: function (res) {
+
         function subjects (res) {
-          // console.log(res.data.subjects)
           var subjects = res.data.subjects;
           subjects.map(function (movie) {
-            console.log(movie.rating.average)
-            var average = movie.rating.average;
-            average = util.formatAverage(average);
-            console.log(average);
+            movie.rating.average = util.formatAverage(movie.rating.average);
           })
-          return res.data.subjects
+          return subjects;
         }
+
         var moviesArr = subjects(res);
+
         wx.hideToast();
         that.setData({
           title: res.data.title,
@@ -50,14 +40,6 @@ Page({
         });
       }
     });
-
-    
-    // that.setData({
-    //   movies: that.movies.map(function (movies) {
-    //     var average = movies.rating.average;
-    //     return util.formatAverage(average)
-    //   })
-    // })
   },
   onLoad:function () {
     wx.showToast({
@@ -74,8 +56,11 @@ Page({
   },
   // 滚动到底部
   lower(e){
+    this.setData({
+      count: 150
+    })
     // start += 50;
-    // console.log(start);
+    console.log(this.count);
     // this.requestData();
     // if(start==250){
       // console.log("aaa")

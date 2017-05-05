@@ -1,6 +1,8 @@
 // pages/search/search.js
 var API_URL = 'https://api.douban.com/v2/movie/search';
 
+var util = require('../../utils/util.js');
+
 Page({
   data: {
     movies: []
@@ -26,10 +28,21 @@ Page({
         'Content-Type': 'json'
       },
       success: function (res) {
+
+        function subjects (res) {
+          var subjects = res.data.subjects;
+          subjects.map(function (movie) {
+            movie.rating.average = util.formatAverage(movie.rating.average);
+          })
+          return subjects;
+        }
+
+        var moviesArr = subjects(res);
+
         // 隐藏消息提示框
         wx.hideToast();
         that.setData({
-          movies: res.data.subjects
+          movies: moviesArr
         })
       }
     })
