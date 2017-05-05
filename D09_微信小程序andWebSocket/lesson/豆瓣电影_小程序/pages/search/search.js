@@ -1,45 +1,45 @@
 // pages/search/search.js
-var searchKeyWord = null;
+var API_URL = 'https://api.douban.com/v2/movie/search';
 
 Page({
-  data:{
-    subjects: []
+  data: {
+    movies: []
   },
-  getSearchKeyWordFn(e){
-    searchKeyWord = e.detail.value;
-  },
-  requestData(){
+  // 搜索处理程序
+  searchFn: function (e) {
+    // 如果没有输入值
+    if (!e.detail.value) {
+      return;
+    }
+    wx.showToast({
+      title: "加载中...",
+      icon: "loading",
+      duration: 10000
+    });
+
     var that = this;
-    
+
     wx.request({
-      url: 'https://api.douban.com/v2/movie/search',
-      data: {
-        q: searchKeyWord
-      },
+      url: API_URL + "?q=" + e.detail.value,
+      data: {},
       header: {
-          'content-type': 'json'
+        'Content-Type': 'json'
       },
-      success: function(res) {
-        console.log(res.data)
+      success: function (res) {
+        // 隐藏消息提示框
+        wx.hideToast();
         that.setData({
-          subjects: res.data.subjects
+          movies: res.data.subjects
         })
       }
     })
   },
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
+  // 滚动到顶部
+  upper(e){
+    console.log(e);
   },
-  onReady:function(){
-    // 页面渲染完成
-  },
-  onShow:function(){
-    // 页面显示
-  },
-  onHide:function(){
-    // 页面隐藏
-  },
-  onUnload:function(){
-    // 页面关闭
+  // 滚动到底部
+  lower(e){
+    console.log(e);
   }
 })

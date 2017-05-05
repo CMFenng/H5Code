@@ -2,7 +2,9 @@
   "pages":[
     "pages/recommend/recommend",
     "pages/search/search",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/details/details"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -11,7 +13,7 @@
     "navigationBarTextStyle":"#fff"
   },
   "tabBar": {
-    "selectedColor": "#000",
+    "color": "#ccc",
     "list": [{
       "pagePath": "pages/recommend/recommend",
       "text": "推荐电影",

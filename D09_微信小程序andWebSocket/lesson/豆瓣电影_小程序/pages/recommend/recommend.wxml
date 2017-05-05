@@ -1,24 +1,25 @@
 <!--pages/recommend/recommend.wxml-->
-<view class="title">
-	豆瓣电影Top250
+<view class="header">
+	<text class="headerText">{{ title }}</text>
 </view>
-
 <template name="movie">
-	<view class="movieItem">
-		<view class="movieImg">
-			<image src="{{ item.images.small }}"></image>
-		</view>
-		<view class="movieInfo">
-			<text class="movieTitle">{{ item.title }}</text>
-			<text class="original_title_year">{{ item.original_title }}({{ item.year }})</text>
-			<text class="movieAutor">{{ item.directors[0].name }}</text>
-		</view>
-		<view class="movieAverage">
-			<text>{{ item.rating.average }}</text>
-		</view>
-	</view>
+	<scroll-view class="movieList" scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" enable-back-to-top="true">
+		<navigator url="../details/details?id={{ item.id }}" wx:for="{{ movies }}" wx:key="id">
+			<view class="movieItem">
+				<image class="movieImg" src="{{ item.images.small }}"></image>
+				<view class="movieInfo">
+					<text class="title">{{ item.title }}</text>
+					<text class="sub-title">{{ item.original_title }}({{ item.year }})</text>
+					<text class="directors">
+						<text wx:for="{{ item.directors }}" wx:key="name">{{ item.name }}  </text>
+					</text>
+				</view>
+				<view class="movieAverage">
+					<text>{{ item.rating.average }}</text>
+				</view>
+			</view>
+		</navigator>
+	</scroll-view>
 </template>
 
-<block wx:for="{{ subjects }}" wx:key="id">
-	<template is="movie" data="{{ item }}"></template>
-</block>
+<template is="movie" data="{{ movies }}"></template>

@@ -16,6 +16,13 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+// 评分格式化
+function formatAverage(n) {
+  n = n.toString()
+  return n[1] ? n : n + '.0'
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatAverage: formatAverage
 }

@@ -1,2 +1,22 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class="container">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="userLocationInfo">
+    <text class="user-latitude">纬度：{{loctaionInfo.latitude}}</text>
+    <text class="user-longitude">经度：{{loctaionInfo.longitude}}</text>
+  </view>
+  <view class="userSystemInfo">
+  	<text class="user-model">手机型号：{{systemInfo.model}}</text>
+    <text class="user-pixelRatio">设备像素比：{{systemInfo.pixelRatio}}</text>
+    <text class="user-screenWidth">屏幕宽度：{{systemInfo.screenWidth}}px</text>
+    <text class="user-screenHeight">屏幕高度：{{systemInfo.screenHeight}}px</text>
+    <text class="user-language">微信设置的语言：{{systemInfo.language}}</text>
+    <text class="user-version">微信版本号：{{systemInfo.version}}</text>
+    <text class="user-system">操作系统版本：{{systemInfo.system}}</text>
+    <text class="user-platform">客户端平台：{{systemInfo.platform}}</text>
+    <text class="user-networkType">网络状态：{{networkType}}</text>
+  </view>
+</view>

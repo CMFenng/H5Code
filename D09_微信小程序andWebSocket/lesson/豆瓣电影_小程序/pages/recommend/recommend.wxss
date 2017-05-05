@@ -1,69 +1,58 @@
 /* pages/recommend/recommend.wxss */
-.title{
-	height: 92.31rpx;
-	line-height: 92.31rpx;
-	text-align: center;
-	font-weight: bold;
-	font-family: "微软雅黑";
-	color: #989898;
-	border-bottom: 1.81rpx solid #989898;
+.header{
+	display: flex;
+	/*横向居中对齐*/
+	justify-content:center;
+	border-bottom: 2rpx solid #ccc;
+	margin-bottom: 10rpx;
 }
-
+.headerText{
+	padding: 20rpx 40rpx;
+	color: #999;
+	font-size: 40rpx;
+	text-align:center;
+}
+.movieList{
+	display: flex;
+	height: 1000rpx;
+	flex-direction:column;
+}
 .movieItem{
-	height: 191.86rpx;
-	padding: 28.96rpx 36.2rpx;
-	border-bottom: 1.81rpx solid #EEEEEE;
-	font-family: "微软雅黑";
+	display: flex;
+	padding: 20rpx 40rpx;
+	border-bottom: 2rpx solid #eee;
 }
-
-.movieImg{
-	width: 126.7rpx;
-	height: 126.7rpx;
-	float: left;
+.movieItem .movieImg{
+	width: 128rpx;
+	height: 128rpx;
+	margin-right: 20rpx;
 }
-
-.movieImg image{
-	width: 100%;
-	height: 100%;
-}
-
-.movieInfo{
-	width: 450rpx;
-	float: left;
-	padding-left: 25rpx;
-}
-
-.movieInfo text{
-	display: block;
-	line-height: 65rpx;
-	text-overflow: ellipsis;
+.movieItem text{
 	overflow: hidden;
+	text-overflow: ellipsis;
 	white-space: nowrap;
 }
-/*
-.movieAbout, .original_title_year, .movieAutor{
-	width: 520rpx;
+.movieItem .movieInfo{
+	flex:1;
+	width: 400rpx;
+}
+.movieItem .title,.movieItem .sub-title{
 	display: block;
-}*/
-
-.movieTitle{
-	float: left;
-	font-weight: bold;
-	color: #000;
+	margin-bottom: 14rpx;
 }
-
-.movieAverage{
-	float: right;
-	color: #FF0000;
-}
-
-.original_title_year{
-	color: #989898;
-	font-size: 30rpx;
-}
-
-.movieAutor{
-	font-weight: bold;
-	color: #989898;
+.movieItem .title{
 	font-size: 35rpx;
+}
+.movieItem .sub-title{
+	font-size: 30rpx; 
+	color: #c0c0c0;
+}
+.movieItem .directors{
+	font-size: 34rpx;
+	color: #999;
+}
+.movieItem .movieAverage{
+	font-size: 35rpx;
+	font-weight: bold;
+	color: red;
 }
