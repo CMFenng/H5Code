@@ -8,13 +8,13 @@ Page({
   data: {
     title: "加载中...",
     movies: [],
-    count: 0
+    count: 50
   },
   requestData(){
     var that = this;
 
     wx.request({
-      url: API_URL,
+      url: API_URL + '?count=' + that.count,
       data: {
         
       },
@@ -56,14 +56,14 @@ Page({
   },
   // 滚动到底部
   lower(e){
+    console.log(this.data.count)
+    var num = this.data.count + 50;
+    console.log(num)
     this.setData({
-      count: 150
+      count: num
     })
-    // start += 50;
-    console.log(this.count);
-    // this.requestData();
-    // if(start==250){
-      // console.log("aaa")
-    // }
+    console.log(this.data.count);
+    this.requestData();
+    console.log(e);
   }
 })
