@@ -49,10 +49,10 @@ Page({
   },
   // 滚动到顶部
   upper(e){
-    console.log(e);
+    // console.log(e);
   },
   // 滚动到底部
   lower(e){
-    console.log(e);
+    // console.log(e);
   }
 })

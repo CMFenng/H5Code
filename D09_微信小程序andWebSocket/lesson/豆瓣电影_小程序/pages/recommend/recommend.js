@@ -7,14 +7,13 @@ var util = require('../../utils/util.js');
 Page({
   data: {
     title: "加载中...",
-    movies: [],
-    count: 50
+    movies: []
   },
   requestData(){
     var that = this;
 
     wx.request({
-      url: API_URL + '?count=' + that.count,
+      url: API_URL,
       data: {
         
       },
@@ -55,15 +54,7 @@ Page({
     console.log(e);
   },
   // 滚动到底部
-  lower(e){
-    console.log(this.data.count)
-    var num = this.data.count + 50;
-    console.log(num)
-    this.setData({
-      count: num
-    })
-    console.log(this.data.count);
+  lower(){
     this.requestData();
-    console.log(e);
   }
 })
