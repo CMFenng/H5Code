@@ -6,7 +6,13 @@
 </head>
 <body>
 <script type="text/javascript">
-    
+var a = 1;
+function func () {
+    console.log(a);
+    var a = 'in function';
+}
+func();  // undefined
+console.log(a);  // 1
 </script>
 </body>
 </html>
