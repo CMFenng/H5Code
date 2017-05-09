@@ -7,17 +7,12 @@
 <body>
 <script type="text/javascript">
 
+var a = 3;
 (function () {
-    var val = 1;
-    var json = {
-        val : 10,
-        dbl : function () {
-            val *= 2;
-        }
-    }
-    json.dbl();  // window.dbl = 2
-    alert(json.val + val);  // 12
-})();
+    console.log(++a);  // NaN
+    var a = 5;
+    console.log(++a);  // 6
+})()
 
 </script>
 </body>
