@@ -7,6 +7,18 @@
 <body>
 <script type="text/javascript">
 
+(function () {
+    var val = 1;
+    var json = {
+        val : 10,
+        dbl : function () {
+            val *= 2;
+        }
+    }
+    json.dbl();  // window.dbl = 2
+    alert(json.val + val);  // 12
+})();
+
 </script>
 </body>
 </html>
