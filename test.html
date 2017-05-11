@@ -7,11 +7,30 @@
 <body>
 <script type="text/javascript">
 
-for (var i = 0; i < 10; i++) {
-    setTimeout(function () {
-        console.log(i);  // 10个 10
-    }, 0);
+var a = [21, 45, 2, 6, 78, 33, 33, 1, 9];
+function sort (arr) {
+    // 补全函数
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = i+1; j < arr.length-1-i; j++) {
+            if (arr[i] > arr[j]) {
+                var temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
 }
+
+var r = sort(a);
+console.log(r);
+
+
+//for (var i = 0; i < 10; i++) {
+//  setTimeout(function () {
+//      console.log(i);  // 10个 10
+//  }, 0);
+//}
 
 </script>
 </body>
