@@ -7,31 +7,6 @@
 <body>
 <script type="text/javascript">
 
-var a = [21, 45, 2, 6, 78, 33, 33, 1, 9];
-function sort (arr) {
-    // 补全函数
-    var temp;
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = 0; j < arr.length-1; j++) {
-            if (arr[i] > arr[j+1]) {
-                temp = arr[i];
-                arr[i] = arr[j+1];
-                arr[j+1] = temp;
-            }
-        }
-    }
-    return arr;
-}
-
-var r = sort(a);
-console.log(r);
-
-
-//for (var i = 0; i < 10; i++) {
-//  setTimeout(function () {
-//      console.log(i);  // 10个 10
-//  }, 0);
-//}
 
 </script>
 </body>
