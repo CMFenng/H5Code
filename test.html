@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        #element{
+            background-color: pink;
+            width: 200px;
+        }
+        #element a{
+            display: block;
+            width: 100%;
+            height: 20px;
+        }
+        #element a:nth-of-type(2n){
+            background-color: #00BFFF;
+        }
+        #element a:nth-of-type(2n+1){
+            background-color: palegreen;
+        }
+    </style>
 </head>
 <body>
 <div id="element"></div>
@@ -15,6 +32,7 @@ setTimeout(function () {
     ele.append(a);
 }, 1000);
 // TODO 代码放在这里执行
+var as = document.getElementsByTagName("a");
 </script>
 </body>
 </html>
