@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="js/vue.min.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
+        <ul>
+            <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
+        </ul>
     </div>
 </body>
 <script type="text/javascript">
@@ -25,9 +27,6 @@
                 "打 lol",
                 "吃饭睡觉打豆豆"
             ]
-        },
-        methods : {
-            
         }
     });
 </script>
