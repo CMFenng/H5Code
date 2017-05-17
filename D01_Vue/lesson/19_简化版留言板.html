@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript" src="js/vue.js"></script>
-    <style type="text/css">
-        
-    </style>
 </head>
 <body>
     <div id="app">
-        姓名：<input type="text" v-model:value="user"/><br />
-        内容：<textarea v-model:value="content"></textarea><br />
+        姓名：<input type="text" v-model="user"/><br />
+        内容：<textarea v-model="content"></textarea><br />
         <button v-on:click="submit">提交</button>
         <ul>
             <li v-for="(item,index) in lists">
@@ -42,9 +39,6 @@
             del : function (index) {
                 this.lists.splice(index, 1);
             }
-        },
-        computed : {
-            
         }
     });
 </script>

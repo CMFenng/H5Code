@@ -11,7 +11,7 @@
         <button @click="changeBol">切换</button>
         <!-- 两者的区别：可以通过查看元素看出 -->
         <!-- 是否显示 ，是否渲染 -->
-        <div v-if="bol">我是第二个 div</div>
+        <div v-if="bol">我是第一个 div</div>
         <!-- 更改的是样式（display），适用于频繁更改的情况 -->
         <div v-show="bol">我是第二个 div</div>
     </div>
@@ -26,9 +26,6 @@
             changeBol() {
                 this.bol = !this.bol;
             }
-        },
-        computed : {
-            
         }
     });
 </script>

@@ -24,7 +24,7 @@
         <input v-for="(item,index) in arr" type="button"
             v-bind:class="{click : index==isShow}"
             v-bind:value="index+1"
-            v-on:click="changeIndex(index)" />
+            v-on:click="isShow=index" />
         <div v-for="(item,index) in arr"
             v-bind:class="{active : index==isShow}">{{ item }}</div>
     </div>
@@ -39,11 +39,6 @@
                 "生菜",
                 "娃娃菜"
             ]
-        },
-        methods : {
-            changeIndex : function (index) {
-                this.isShow = index;
-            }
         }
     });
 </script>

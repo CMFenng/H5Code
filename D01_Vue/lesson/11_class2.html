@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        <div class="color" v-bind:class="isClass">我是一些内容</div>
+        <div v-bind:class="isClass">我是一些内容</div>
     </div>
 </body>
 <script type="text/javascript">
@@ -27,9 +27,6 @@
                 text : "错误",
                 type : "fatal"
             }
-        },
-        methods : {
-            
         },
         computed : {
             isClass : function () {
