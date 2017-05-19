@@ -16,7 +16,7 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
-// 评分格式化处理函数
+// 评分格式化处理
 function formatAverage(n) {
   n = n.toString()
   return n=="0" || n[1] ? n : n + '.0'
