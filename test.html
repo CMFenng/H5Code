@@ -24,15 +24,15 @@
 <body>
 <div id="element"></div>
 <script type="text/javascript">
-var ele = document.getElementById("element");
+    var ele = document.getElementById("element");
 
-setTimeout(function () {
-    var r = parseInt(Math.random()*100);
-    var a = '<a m="'+(r+1)+'">'+r+'</a>';
-    ele.append(a);
-}, 1000);
-// 代码放在这里执行
-var as = document.getElementsByTagName("a");
+    setTimeout(function () {
+        var r = parseInt(Math.random()*100);
+        var a = '<a m="'+(r+1)+'">'+r+'</a>';
+        ele.append(a);
+    }, 1000);
+    // 代码放在这里执行
+    var as = document.getElementsByTagName("a");
 </script>
 </body>
 </html>
