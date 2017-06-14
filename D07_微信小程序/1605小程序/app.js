@@ -6,7 +6,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
   },
-  onShow:function (){、
+  onShow:function (){
     console.log("当小程序显示")
   },
   onHide:function (){
