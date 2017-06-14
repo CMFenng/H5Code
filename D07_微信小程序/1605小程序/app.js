@@ -1,4 +1,4 @@
-//app.js
+﻿//app.js
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -6,7 +6,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
   },
-  onShow:function (){
+  onShow:function (){、
     console.log("当小程序显示")
   },
   onHide:function (){
