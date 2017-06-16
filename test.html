@@ -1,38 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style type="text/css">
-        #element{
-            background-color: pink;
-            width: 200px;
-        }
-        #element a{
-            display: block;
-            width: 100%;
-            height: 20px;
-        }
-        #element a:nth-of-type(2n){
-            background-color: #00BFFF;
-        }
-        #element a:nth-of-type(2n+1){
-            background-color: palegreen;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <title>Document</title>
 </head>
 <body>
-<div id="element"></div>
-<script type="text/javascript">
-    var ele = document.getElementById("element");
-
-    setTimeout(function () {
-        var r = parseInt(Math.random()*100);
-        var a = '<a m="'+(r+1)+'">'+r+'</a>';
-        ele.append(a);
-    }, 1000);
-    // 代码放在这里执行
-    var as = document.getElementsByTagName("a");
-</script>
+    
 </body>
 </html>
