@@ -2,79 +2,47 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Document</title>
 </head>
-<body bgcolor=black>
-
-<script>
-	'div id="ieDiv" style="position:absolute;top:0px;left:0px">'
-+'<div id="c" style="position:relative">'
-+'<div style="position:absolute;top:0px;left:0px;width:2px;height:2px;background:#ff0000;font-size:2px"></div>'
-+'<div style="position:absolute;top:0px;left:0px;width:2px;height:2px;background:#00ff00;font-size:2px"></div>'
-+'<div style="position:absolute;top:0px;left:0px;width:2px;height:2px;background:#ffffff;font-size:2px"></div>'
-+'<div style="position:absolute;top:0px;left:0px;width:2px;height:2px;background:#ffa500;font-size:2px"></div>'
-+'<div style="position:absolute;top:0px;left:0px;width:2px;height:2px;background:#ff00ff;font-size:2px"></div>'
-+'<div style="position:absolute;top:0px;left:0px;width:2px;height:2px;background:#3388ff;font-size:2px"></div>'
-+'<div style="position:absolute;top:0px;left:0px;width:2px;height:2px;background:#fff000;font-size:2px"></div>'
-+'</div>'
-+'</div>');
-}
-
-function moveAbout(){
-if (document.layers)
-{
-Ypos = window.pageYOffset+window.innerHeight/2 + window.innerHeight/3 * Math.cos((RunTime)/3)*Math.cos(RunTime/50);
-Xpos = window.pageXOffset+window.innerWidth/2 + window.innerWidth/2.4 * Math.sin((RunTime)/5)*Math.cos(RunTime/30);
-}
-else if (document.all)
- { 
-Ypos = document.body.scrollTop+document.body.offsetHeight/2 + document.body.offsetHeight/2.8*Math.cos((RunTime)/3)*Math.cos(RunTime/10);
-Xpos=  document.body.scrollLeft+document.body.offsetWidth/2 + document.body.offsetWidth/2.4*Math.sin((RunTime)/5)*Math.sin(RunTime/20);
- }
-RunTime+=a_StEp;
-Tma=setTimeout("moveAbout()", 10);
-}
-function TwistnSpin(){
-if (document.layers)
-{
- for ( i = 0 ; i < 7 ; i++ ) //number of NS layers!
- {
-  var templayer="a"+i
-  document.layers[templayer].top = Ypos+cntr*Math.cos(((currStep+1)+i*4.5)/5)*Math.cos(currStep/10)
-  document.layers[templayer].left =Xpos+cntr*Math.sin(((currStep+1)+i*4.5)/5);
- }
-}
-else if (document.all)
-{
- for (i=0;i<ieDiv.all.c.all.length;i++)
- {
- ieDiv.all.c.all[i].style.top = Ypos+cntr*Math.cos(((currStep+1)+i*4.5)/5)*Math.cos(currStep/10)
- ieDiv.all.c.all[i].style.left= Xpos+cntr*Math.sin(((currStep+1)+i*4.5)/5); 
- }
-}
-currStep+=step;
-setTimeout("TwistnSpin()",10);
-}
-function Shrink(){
-cntr-=0.5;
-GoShrink=setTimeout('Shrink()',10);
-if (cntr <=20)
-{clearTimeout(GoShrink);Swell()}
-}
-function Swell(){
-cntr+=0.5;
-GoSwell=setTimeout('Swell()',10);
-if (cntr >=70)
-{clearTimeout(GoSwell);Shrink()} 
-}
-function StArTuP(){
-moveAbout();
-TwistnSpin();
-Shrink();
-}
-StArTuP();
-// -->
-</script>
-
+<body>
+	
 </body>
+	<script>
+		// 获取用户输入的字符串
+		let arr = prompt().split("");
+
+		// 去重
+		let newArr = [];
+		let obj = {};
+		for (let i = 0; i < arr.length; i++) {
+			if (!obj[arr[i]]) {
+				newArr.push(arr[i]);
+				obj[arr[i]] = 1;
+			} else {
+				obj[arr[i]]++;
+			}
+		}
+
+		// 排序
+		let temp;
+		for (let i = 0; i < newArr.length-1; i++) {
+			for (let j = 0; j < newArr.length-i-1; j++) {
+				if (obj[newArr[j]] < obj[newArr[j+1]]) {
+					temp = newArr[j];
+					newArr[j] = newArr[j+1];
+					newArr[j+1] = temp;
+				}
+			}
+		}
+
+		// 重组
+		let newStr = '';
+		for (let i = 0; i < newArr.length; i++) {
+			for( let j = 0; j < obj[newArr[i]]; j++) {
+				newStr += newArr[i];
+			}
+		}
+
+		document.write(newStr);
+	</script>
 </html>
