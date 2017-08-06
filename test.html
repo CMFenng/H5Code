@@ -12,7 +12,9 @@
 		 */
 		let arr = prompt().split("");
 
-		// 数组去重
+		/**
+		 * 数组去重
+		 */
 		let newArr = [];
 		let obj = {};
 		for (let i = 0; i < arr.length; i++) {
@@ -24,7 +26,9 @@
 			}
 		}
 
-		// 排序
+		/**
+		 * 排序
+		 */
 		let temp;
 		for (let i = 0; i < newArr.length-1; i++) {
 			for (let j = 0; j < newArr.length-i-1; j++) {
@@ -36,7 +40,9 @@
 			}
 		}
 
-		// 重组
+		/**
+		 * 重组
+		 */
 		let newStr = '';
 		for (let i = 0; i < newArr.length; i++) {
 			for( let j = 0; j < obj[newArr[i]]; j++) {
